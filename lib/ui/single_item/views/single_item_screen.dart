@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kids_playroom/ui/single_item/controllers/single_item_controller.dart';
+import 'package:kids_playroom/utils/constant.dart';
+import 'package:kids_playroom/utils/sizer_utils.dart';
+
+class SingleItemScreen extends StatelessWidget {
+  const SingleItemScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Image.asset(Constant.getAssetBackground() + "bg_view.png",
+              fit: BoxFit.cover,
+              height: AppSizes.fullHeight,
+              width: AppSizes.fullWidth),
+          Padding(
+            padding: EdgeInsets.only(
+              left: AppSizes.width_3,
+              right: AppSizes.width_3,
+              top: AppSizes.height_5,
+              bottom: AppSizes.height_2,
+            ),
+            child: GetBuilder<SingleItemController>(
+              id: Constant.idSingleItem,
+                builder: (logic) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () => Get.back(),
+                    child: Image.asset(
+                      Constant.getAssetIcons() + "btn_back_150.png",
+                      height: AppSizes.height_5,
+                    ),
+                  ),
+                   Center(
+                      child: Text( logic.itemDataList![logic.index].itemName.toString().tr,
+                        style: const TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w500),
+                      )),
+                  Expanded(
+                    flex: 4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () => logic.previousItem(),
+                          child: Image.asset(
+                            Constant.getAssetIcons() + "btn_prev_150.png",
+                            height: AppSizes.height_6_5,
+                          ),
+                        ),
+
+                        Image.asset(
+                          Constant.getAsset() + logic.itemDataList![logic.index].itemImage + ".png",
+                          height: AppSizes.height_24,
+                        ),
+                        InkWell(
+                          onTap: () => logic.nextItem(),
+                          child: Image.asset(
+                            Constant.getAssetIcons() + "btn_next_150.png",
+                            height: AppSizes.height_6_5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  )
+                ],
+              );
+            }),
+          )
+        ],
+      ),
+    );
+  }
+}

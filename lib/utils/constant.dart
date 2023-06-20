@@ -1,0 +1,40 @@
+class Constant {
+  static const languageEn = "en";
+  static const countryCodeEn = "US";
+
+
+  static const boolValueTrue = true;
+  static const boolValueFalse = false;
+
+
+  static String getPrivacyPolicyURL() {
+    return "Add your privacy policy link here";
+  }
+
+  static const String shareLink = "Add your app url here";
+  static getAsset() => "assets/";
+
+
+  static getAssetIcons() => "assets/icons/";
+  static getAssetItem() => "assets/item/";
+
+  static getAssetBackground() => "assets/background/";
+
+
+  static getAssetSubCategory() => "assets/subcategory/";
+
+  static getAssetImage() => "assets/images/";
+
+  /// <<===================>> ****** Widget Id's for refresh in GetX ****** <<===================>>
+
+  static const idHomePage = "idHomePage";
+  static const idSubCategory = "idSubCategory";
+  static const idItem = "idItem";
+  static const idSingleItem = "idSingleItem";
+  static const idTopBar = "idTopBar";
+
+}
+
+
+
+

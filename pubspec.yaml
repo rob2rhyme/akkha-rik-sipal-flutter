@@ -1,0 +1,60 @@
+name: kids_playroom
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  sizer: ^2.0.15
+  get_storage: ^2.1.1
+  fluttertoast: ^8.2.1
+  auto_size_text: ^3.0.0
+  intl: ^0.18.1
+  sqflite: ^2.2.8+1
+  auto_animated: ^3.1.0
+  flutter_tts: ^3.7.0
+  getwidget: ^3.1.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/database/
+    - assets/icons/
+    - assets/background/
+    - assets/category/
+    - assets/subcategory/
+    - assets/subcategory/home_fruits.png
+    - assets/item/
+#    - assets/animation/
+    - assets/sounds/
+#    - assets/numbers/
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
