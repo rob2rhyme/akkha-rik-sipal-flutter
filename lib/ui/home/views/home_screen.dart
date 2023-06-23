@@ -49,10 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
       width: AppSizes.fullWidth,
       color: AppColor.colorTheme,
       padding: EdgeInsets.only(
-        left: AppSizes.width_3,
         right: AppSizes.width_3,
         top: AppSizes.height_5,
-        bottom: AppSizes.height_2,
+        bottom: AppSizes.height_1,
       ),
       child: Center(
         child: Row(
@@ -69,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Image.asset(Constant.getAssetIcons() + "ic_setting.png",
-                height: AppSizes.height_4_5),
+                height: AppSizes.height_5),
           ],
         ),
       ),

@@ -7,6 +7,9 @@ class AppColor {
 
   static const colorTheme = Color(0xffFDEE5E);
   static const colorGreen = Color(0xff1A6336);
+  static const colorBlueLight = Color(0xffcdfdff);
+  static const colorBlueGreen = Color(0xff1b626c);
+
   static const colorGray = Color(0xffaeaeae);
   static const colorGray50 = Color(0x50aeaeae);
   static const colorGrayLight = Color(0xffEFF3F4);
@@ -22,14 +25,6 @@ class AppColor {
   static const colorBgBlueLight = Color(0xff232d3a);
 
 
-  static const colorDrawerText = Color(0xff000000);
 
-  static const colorBeginner = Color(0xffff9a02);
-  static const colorIntermediate = Color(0xff359aff);
-  static const colorAdvance = Color(0xffff3535);
-
-  static const colorPrimaryDark = Color(0xffEB6886);
-  static const notificationTheme = Color(0xff80DEEA);
-  static const commonShadow = Color(0x10484B52);
 
 }

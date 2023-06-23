@@ -7,6 +7,7 @@ class Constant {
   static const boolValueFalse = false;
 
 
+
   static String getPrivacyPolicyURL() {
     return "Add your privacy policy link here";
   }
@@ -30,8 +31,12 @@ class Constant {
   static const idHomePage = "idHomePage";
   static const idSubCategory = "idSubCategory";
   static const idItem = "idItem";
+  static const idQuiz = "idQuiz";
   static const idSingleItem = "idSingleItem";
   static const idTopBar = "idTopBar";
+  static var idImage='idImage';
+  static var idColor='idColor';
+
 
 }
 

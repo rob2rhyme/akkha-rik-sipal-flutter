@@ -9,7 +9,7 @@ import 'package:kids_playroom/utils/sizer_utils.dart';
 
 class SubCategoryScreen extends StatelessWidget {
   final SubCategoryController _subCategoryController =
-      Get.find<SubCategoryController>();
+  Get.find<SubCategoryController>();
 
   SubCategoryScreen({super.key});
 
@@ -37,7 +37,8 @@ class SubCategoryScreen extends StatelessWidget {
                       crossAxisSpacing: AppFontSize.size_8,
                       mainAxisSpacing: AppFontSize.size_8),
                   itemBuilder: (BuildContext context, int index) {
-                    return subcategory(logic.subcategoryList![index],logic.catId);
+                    return subcategory(
+                        logic.subcategoryList![index], logic.catId);
                   },
                 );
               })
@@ -52,9 +53,8 @@ class SubCategoryScreen extends StatelessWidget {
       color: AppColor.colorTheme,
       padding: EdgeInsets.only(
         left: AppSizes.width_3,
-        right: AppSizes.width_3,
         top: AppSizes.height_5,
-        bottom: AppSizes.height_2,
+        bottom: AppSizes.height_1,
       ),
       child: Center(
         child: Row(
@@ -62,12 +62,14 @@ class SubCategoryScreen extends StatelessWidget {
             InkWell(
               onTap: () => Get.back(),
               child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                  height: AppSizes.height_4_5),
+                  height: AppSizes.height_5),
             ),
             Expanded(
               child: Center(
                 child: Text(
-                  _subCategoryController.title.toString().tr,
+                  _subCategoryController.title
+                      .toString()
+                      .tr,
                   style: TextStyle(
                       color: AppColor.colorGreen,
                       fontSize: AppFontSize.size_16,
@@ -81,13 +83,29 @@ class SubCategoryScreen extends StatelessWidget {
     );
   }
 
-  subcategory(SubCategoryTable subcategoryList, int? catId,) {
+  subcategory(SubCategoryTable subcategoryList,
+      int? catId,) {
     return InkWell(
       onTap: () {
-        if(catId == 1) {
-          Get.toNamed(AppRoutes.items,arguments: [subcategoryList.subcategoryName,subcategoryList.subcategoryId] );
-        }
-        },
+        catId == 1
+            ? Get.toNamed(AppRoutes.items, arguments: [
+          subcategoryList.subcategoryName,
+          subcategoryList.subcategoryId
+        ])
+            : catId == 2
+            ? Get.toNamed(AppRoutes.quiz,
+            arguments: [
+              subcategoryList.subcategoryName,
+              subcategoryList.subcategoryId
+            ]
+        )
+            : catId == 3
+            ? Get.toNamed(AppRoutes.quiz,
+            arguments: [subcategoryList.subcategoryName,
+            subcategoryList.subcategoryId]
+        )
+            : Get.back();
+      },
       child: Image.asset(
           Constant.getAssetSubCategory() + subcategoryList.subcategoryImage),
     );
