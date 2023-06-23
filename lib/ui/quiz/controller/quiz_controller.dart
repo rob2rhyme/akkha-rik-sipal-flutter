@@ -4,28 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/database/database_helper.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
+import 'package:kids_playroom/main.dart';
+import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
+import 'package:kids_playroom/utils/utils.dart';
 
 class QuizController extends GetxController {
   dynamic args = Get.arguments;
   String? title;
   int? subId;
+  int? catId;
+
+
   List<ItemTable> learningDataModelArrayList = [];
-  Random? random;
   List<ExamQuestionAnswer> examQuestionAnswerList =[];
+
+  Random? random;
   int? correctPosition;
-  bool isPreviousShow = true;
 
   ExamQuestionAnswer? trueItem ;
-  Color defaultColor = Colors.blue;
+  Color? defaultColor = AppColor.colorBlueLight;
   List<Color>? containerColors;
+  int? answerIndex ;
+
+
+  Color? currentColor;
+  Color? selectedColour;
 
   @override
   Future<void> onInit()async {
     getDataFromArgs();
     await getDataFromDatabase();
     getRandomArray();
-
+    initSound();
     super.onInit();
   }
 
@@ -37,8 +48,18 @@ class QuizController extends GetxController {
       if (args[1] != null) {
         subId = args[1];
       }
+      if (args[2] != null) {
+        catId = args[2];
+      }
     }
     update([Constant.idQuiz]);
+  }
+  initSound(){
+   if( catId == 3){
+        MyApp.flutterTts.stop();
+    Utils.textToSpeech(
+        trueItem?.itemNameTts.toString().tr ??"",
+        MyApp.flutterTts);}
   }
 
   Future<void> getDataFromDatabase() async {
@@ -51,15 +72,8 @@ class QuizController extends GetxController {
     examQuestionAnswerList = [];
     correctPosition = random!.nextInt(learningDataModelArrayList.length );
     examQuestionAnswerList.add(ExamQuestionAnswer(
-        learningDataModelArrayList[correctPosition!].itemImage ??"", true,learningDataModelArrayList[correctPosition!].itemNameTts,learningDataModelArrayList[correctPosition!].itemName));
+        learningDataModelArrayList[correctPosition!].itemImage ??"", true,learningDataModelArrayList[correctPosition!].itemName,learningDataModelArrayList[correctPosition!].itemNameTts));
 
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   setState(() {
-    //     // Load image using Image.network equivalent in Flutter
-    //     // Make sure to replace 'iVQuestion' with the appropriate Image widget
-    //     Image.network(learningDataModelArrayList[correctPosition!].image);
-    //   });
-    // });
 
     do {
       int number = random!.nextInt(learningDataModelArrayList.length );
@@ -72,8 +86,15 @@ class QuizController extends GetxController {
     examQuestionAnswerList.shuffle();
     trueItem = examQuestionAnswerList
         .firstWhere((item) => item.isTrue == true);
-    containerColors = List<Color>.filled(examQuestionAnswerList.length, defaultColor);
+    containerColors = List<Color>.filled(examQuestionAnswerList.length, defaultColor!);
     update([Constant.idQuiz,Constant.idImage]);
+  }
+
+  void checkAnswer({required int itemIndex}) {
+    Color tappedColor = examQuestionAnswerList[itemIndex].isTrue ? Colors.green : Colors.red;
+    containerColors![itemIndex] = tappedColor;
+    currentColor = containerColors![itemIndex];
+    update([Constant.idColor]);
   }
 
 }

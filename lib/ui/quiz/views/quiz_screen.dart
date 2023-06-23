@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/ui/quiz/controller/quiz_controller.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
+import 'package:kids_playroom/utils/utils.dart';
 
 class QuizScreen extends StatelessWidget {
   QuizScreen({super.key});
@@ -12,9 +14,7 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
 
     final double itemHeight = (size.height - kToolbarHeight - 24) / 6;
     final double itemWidth = size.width / 1.8;
@@ -28,14 +28,26 @@ class QuizScreen extends StatelessWidget {
                 id: Constant.idImage,
                 builder: (logic) {
                   return Center(
-                      child: logic.trueItem != null
-                          ? Image.asset(
-                        Constant.getAsset() +
-                            logic.trueItem!.image +
-                            ".png",
-                        height: AppSizes.height_20,
-                      )
-                          : const SizedBox());
+                      child: logic.catId == 2
+                          ? logic.trueItem != null
+                              ? Image.asset(
+                                  Constant.getAsset() +
+                                      logic.trueItem!.image +
+                                      ".png",
+                                  height: AppSizes.height_20,
+                                )
+                              : const SizedBox()
+                          : logic.catId == 3
+                              ? InkWell(
+                        onTap: (){MyApp.flutterTts.stop();
+                        Utils.textToSpeech(
+                          logic.trueItem?.itemNameTts.toString().tr ??"",
+                          MyApp.flutterTts,
+                        );},
+                                child: Image.asset(
+                                    Constant.getAssetIcons() + "btn_sound.png",  height: AppSizes.height_20,),
+                              )
+                              : const SizedBox());
                 }),
           ),
           Expanded(
@@ -63,14 +75,20 @@ class QuizScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () =>logic.getRandomArray(),
+                    onTap: () {
+                      logic.getRandomArray();
+                      logic.initSound();
+                    },
                     child: Image.asset(
                       Constant.getAssetIcons() + "btn_prev_150.png",
                       height: AppSizes.height_6_5,
                     ),
                   ),
                   InkWell(
-                    onTap: () =>logic.getRandomArray(),
+                    onTap: () {
+                      logic.getRandomArray();
+                      logic.initSound();
+                    },
                     child: Image.asset(
                       Constant.getAssetIcons() + "btn_next_150.png",
                       height: AppSizes.height_6_5,
@@ -105,9 +123,7 @@ class QuizScreen extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  quizController.title
-                      .toString()
-                      .tr,
+                  quizController.title.toString().tr,
                   style: TextStyle(
                       color: AppColor.colorGreen,
                       fontSize: AppFontSize.size_16,
@@ -122,16 +138,19 @@ class QuizScreen extends StatelessWidget {
   }
 }
 
-items(ExamQuestionAnswer examQuestionAnswerList, int index) {
-  return GetBuilder<QuizController>(
-      id: Constant.idColor,
-      builder: (logic) {
-        return InkWell(
-            onTap: () {},
-            child: Container(
+items(ExamQuestionAnswer examQuestionAnswer, int index) {
+  return InkWell(
+      onTap: () {
+        Get.find<QuizController>().checkAnswer(itemIndex: index);
+      },
+      child: GetBuilder<QuizController>(
+          id: Constant.idColor,
+          builder: (logic) {
+            logic.currentColor = logic.containerColors![index];
+            return Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: AppColor.colorBlueLight,
+                  color: logic.currentColor,
                   boxShadow: const [
                     BoxShadow(
                         color: AppColor.colorGray50,
@@ -141,14 +160,12 @@ items(ExamQuestionAnswer examQuestionAnswerList, int index) {
                   ]),
               child: Center(
                   child: Text(
-                    examQuestionAnswerList.itemName
-                        .toString()
-                        .tr,
-                    style: TextStyle(
-                        color: AppColor.colorBlueGreen,
-                        fontSize: AppFontSize.size_17,
-                        fontWeight: FontWeight.bold),
-                  )),
-            ));
-      });
+                examQuestionAnswer.itemName.toString().tr,
+                style: TextStyle(
+                    color: AppColor.colorBlueGreen,
+                    fontSize: AppFontSize.size_17,
+                    fontWeight: FontWeight.bold),
+              )),
+            );
+          }));
 }

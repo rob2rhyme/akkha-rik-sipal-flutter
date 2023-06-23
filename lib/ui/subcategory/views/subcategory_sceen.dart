@@ -96,13 +96,15 @@ class SubCategoryScreen extends StatelessWidget {
             ? Get.toNamed(AppRoutes.quiz,
             arguments: [
               subcategoryList.subcategoryName,
-              subcategoryList.subcategoryId
+              subcategoryList.subcategoryId,
+              catId
+
             ]
         )
             : catId == 3
             ? Get.toNamed(AppRoutes.quiz,
             arguments: [subcategoryList.subcategoryName,
-            subcategoryList.subcategoryId]
+            subcategoryList.subcategoryId,catId]
         )
             : Get.back();
       },
