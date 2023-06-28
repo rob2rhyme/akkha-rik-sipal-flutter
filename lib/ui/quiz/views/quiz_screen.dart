@@ -76,8 +76,7 @@ class QuizScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      logic.getRandomArray();
-                      logic.initSound();
+                      logic.onClickPrev();
                     },
                     child: Image.asset(
                       Constant.getAssetIcons() + "btn_prev_150.png",
@@ -86,8 +85,9 @@ class QuizScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      logic.getRandomArray();
-                      logic.initSound();
+                      logic.onClickNext();
+
+
                     },
                     child: Image.asset(
                       Constant.getAssetIcons() + "btn_next_150.png",
@@ -101,6 +101,7 @@ class QuizScreen extends StatelessWidget {
         ],
       ),
     );
+
   }
 
   topBar() {
@@ -141,7 +142,9 @@ class QuizScreen extends StatelessWidget {
 items(ExamQuestionAnswer examQuestionAnswer, int index) {
   return InkWell(
       onTap: () {
-        Get.find<QuizController>().checkAnswer(itemIndex: index);
+        // Get.find<QuizController>().checkAnswer(itemIndex: index);
+        final quizController = Get.find<QuizController>();
+        quizController.checkAnswer(itemIndex: index);
       },
       child: GetBuilder<QuizController>(
           id: Constant.idColor,
@@ -168,4 +171,8 @@ items(ExamQuestionAnswer examQuestionAnswer, int index) {
               )),
             );
           }));
+
+
+
 }
+

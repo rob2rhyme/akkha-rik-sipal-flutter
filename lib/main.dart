@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
           getPages: AppPages.list,
           defaultTransition: Transition.fade,
           transitionDuration: const Duration(milliseconds: 200),
-          initialRoute:  AppRoutes.home,
+          initialRoute:  AppRoutes.settings,
         );
       },
     );

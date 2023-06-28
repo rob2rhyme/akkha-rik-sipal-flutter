@@ -8,6 +8,8 @@ import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
 import 'package:kids_playroom/ui/items/views/items_screen.dart';
 import 'package:kids_playroom/ui/quiz/bindings/quiz_binding.dart';
 import 'package:kids_playroom/ui/quiz/views/quiz_screen.dart';
+import 'package:kids_playroom/ui/settings/bindings/settings_binding.dart';
+import 'package:kids_playroom/ui/settings/views/settings_screen.dart';
 import 'package:kids_playroom/ui/single_item/bindings/single_item_binding.dart';
 import 'package:kids_playroom/ui/single_item/controllers/single_item_controller.dart';
 import 'package:kids_playroom/ui/single_item/views/single_item_screen.dart';
@@ -44,6 +46,10 @@ class AppPages {
       name: AppRoutes.quiz,
       page: () => QuizScreen(),
       binding:  QuizBinding(),
+    ),GetPage(
+      name: AppRoutes.settings,
+      page: () => SettingScreen(),
+      binding:  SettingsBinding(),
     ),
 
   ];

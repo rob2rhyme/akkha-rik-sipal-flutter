@@ -56,29 +56,25 @@ class SubCategoryScreen extends StatelessWidget {
         top: AppSizes.height_5,
         bottom: AppSizes.height_1,
       ),
-      child: Center(
-        child: Row(
-          children: [
-            InkWell(
-              onTap: () => Get.back(),
-              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                  height: AppSizes.height_5),
+      child: Stack(
+        children: [
+          InkWell(
+            onTap: () => Get.back(),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                height: AppSizes.height_5),
+          ),
+          Center(
+            child: Text(
+              _subCategoryController.title
+                  .toString()
+                  .tr,
+              style: TextStyle(
+                  color: AppColor.colorGreen,
+                  fontSize: AppFontSize.size_16,
+                  fontWeight: FontWeight.bold),
             ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  _subCategoryController.title
-                      .toString()
-                      .tr,
-                  style: TextStyle(
-                      color: AppColor.colorGreen,
-                      fontSize: AppFontSize.size_16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
