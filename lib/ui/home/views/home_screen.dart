@@ -67,8 +67,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Image.asset(Constant.getAssetIcons() + "ic_setting.png",
-                height: AppSizes.height_5),
+            GestureDetector(
+              onTap: ()=>Get.toNamed(AppRoutes.settings),
+              child: Image.asset(Constant.getAssetIcons() + "ic_setting.png",
+                  height: AppSizes.height_5),
+            ),
           ],
         ),
       ),

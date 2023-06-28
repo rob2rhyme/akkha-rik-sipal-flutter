@@ -13,6 +13,20 @@ class Constant {
   }
 
   static const String shareLink = "Add your app url here";
+
+  static const emailPath = 'Add your email address here';
+
+  static String privacyPolicyURL = "Add your privacy policy link here";
+
+
+  static String googlePlayIdentifier = "Add your googlePlayIdentifier here";
+
+  static String appStoreIdentifier = "Add your appStoreIdentifier here";
+
+
+
+
+
   static getAsset() => "assets/";
 
 

@@ -1,4 +1,140 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kids_playroom/utils/constant.dart';
+import 'package:kids_playroom/utils/preference.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 
 class SettingsController extends GetxController {
+  RateMyApp? rateMyApp;
+
+  bool? isSound;
+
+  @override
+  void onInit() {
+    getPreference();
+    super.onInit();
+  }
+
+  initRateMyApp(BuildContext context){
+    rateMyApp = RateMyApp(
+        preferencesPrefix: 'rateMyApp_',
+        minDays: 7,
+        minLaunches: 10,
+        remindDays: 7,
+        remindLaunches: 10,
+        googlePlayIdentifier: Constant.googlePlayIdentifier,
+        appStoreIdentifier: Constant.appStoreIdentifier
+    );
+
+    if (Platform.isIOS) {
+      rateMyApp!.init().then((_) {
+        if (rateMyApp!.shouldOpenDialog) {
+          rateMyApp!.showRateDialog(
+            context,
+            title: 'Rate this app',
+            message:
+            'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.',
+            rateButton: 'RATE',
+            noButton: 'NO THANKS',
+            laterButton: 'MAYBE LATER',
+            listener: (button) {
+              switch (button) {
+                case RateMyAppDialogButton.rate:
+                  break;
+                case RateMyAppDialogButton.later:
+                  break;
+                case RateMyAppDialogButton.no:
+                  break;
+              }
+
+              return true;
+            },
+            ignoreNativeDialog: Platform.isAndroid,
+            dialogStyle: const DialogStyle(),
+            onDismissed: () =>
+                rateMyApp!.callEvent(RateMyAppEventType.laterButtonPressed),
+          );
+
+          rateMyApp!.showStarRateDialog(
+            context ,
+            title: 'Rate this app',
+            message:
+            'You like this app ? Then take a little bit of your time to leave a rating :',
+            actionsBuilder: (context, stars) {
+              return [
+                TextButton(
+                  child: const Text('OK'),
+                  onPressed: () async {
+                    await rateMyApp!
+                        .callEvent(RateMyAppEventType.rateButtonPressed);
+                    Navigator.pop<RateMyAppDialogButton>(
+                        context, RateMyAppDialogButton.rate);
+                  },
+                ),
+              ];
+            },
+            ignoreNativeDialog: Platform.isAndroid,
+            dialogStyle: const DialogStyle(
+              titleAlign: TextAlign.center,
+              messageAlign: TextAlign.center,
+              messagePadding: EdgeInsets.only(bottom: 20),
+            ),
+            starRatingOptions: const StarRatingOptions(),
+            onDismissed: () =>
+                rateMyApp!.callEvent(RateMyAppEventType.laterButtonPressed),
+          );
+        }
+      });
+    }
+  }
+  getPreference() {
+    isSound = Preference.shared.getBool(Preference.isMusic) ?? true;
+  }
+
+  sound(bool value) {
+    isSound = value;
+    Preference.shared.setBool(Preference.isMusic, value);
+    update();
+  }
+  rate(BuildContext context) {
+    if (Platform.isIOS) {
+      rateMyApp!.showRateDialog(context);
+    } else {
+      rateMyApp!.launchStore();
+    }
+  }
+
+  Future<void> share() async {
+    await Share.share(
+      "txtShareDesc".tr + Constant.shareLink,
+      subject: "txtKidsPreschoolLearning".tr,
+    );
+  }
+
+  void sendFeedback() {
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: Constant.emailPath,
+      query: encodeQueryParameters(<String, String>{
+        'subject': Platform.isAndroid
+            ? "txtKidsPreschoolLearningFeedbackAndroid".tr
+            : "txtKidsPreschoolLearningFeedbackIOS".tr,
+        'body': " "
+      }),
+    );
+    launchUrl(Uri.parse(emailLaunchUri.toString()));
+
+    update();
+  }
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
 }

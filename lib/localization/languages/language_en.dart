@@ -532,5 +532,14 @@ final Map<String, String> enUS = {
   'txtSchool': "School",
   'txtSport': "Sport",
   'txtVehicle': "Vehicle",
-  'txtSetting':"Setting"
+  'txtSetting':"Setting",
+'txtSound': "Sound",
+'txtRete': "Rete",
+'txtShare': "Share",
+'txtSendFeedback': "SendFeedback",
+'txtPrivacyPolicy': "PrivacyPolicy",
+'txtShareDesc': "ShareDesc",
+'txtKidsPreschoolLearning': "KidsPreschoolLearning",
+'txtKidsPreschoolLearningFeedbackAndroid': "KidsPreschoolLearningFeedbackAndroid",
+'txtKidsPreschoolLearningFeedbackIOS': "KidsPreschoolLearningFeedbackIOS",
 };

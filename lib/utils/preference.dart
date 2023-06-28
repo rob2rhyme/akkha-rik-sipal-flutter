@@ -8,6 +8,7 @@ class Preference {
 
   static const String selectedLanguage = "LANGUAGE";
   static const String selectedCountryCode = "SELECTED_COUNTRY_CODE";
+  static const String isMusic = "SOUND";
 
   static const String isFirstTimeOpenApp = "IS_FIRST_TIME_OPEN_APP";
 

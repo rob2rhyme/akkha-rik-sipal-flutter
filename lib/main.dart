@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:kids_playroom/database/database_helper.dart';
 import 'package:kids_playroom/localization/localizations_delegate.dart';
 import 'package:kids_playroom/routes/app_pages.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
@@ -42,7 +41,7 @@ class _MyAppState extends State<MyApp> {
           getPages: AppPages.list,
           defaultTransition: Transition.fade,
           transitionDuration: const Duration(milliseconds: 200),
-          initialRoute:  AppRoutes.settings,
+          initialRoute:  AppRoutes.home,
         );
       },
     );

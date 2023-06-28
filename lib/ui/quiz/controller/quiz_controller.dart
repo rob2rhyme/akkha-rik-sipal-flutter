@@ -92,7 +92,6 @@ class QuizController extends GetxController {
     if (currentQuestionIndex > 0) {
       currentQuestionIndex--;
       print(":::onClickPrev::$currentQuestionIndex");
-      print(":::onClickNext::${examQuestionAnswerList.length}");
 
       examQuestionAnswerList = selectedDataMap[currentQuestionIndex];
       trueItem =
@@ -108,7 +107,7 @@ class QuizController extends GetxController {
 
   onClickNext() {
     if (selectedDataMap.isNotEmpty &&
-        currentQuestionIndex < selectedDataMap.length - 1) {
+        currentQuestionIndex < selectedDataMap.length-1 &&     selectedDataMap.length ==currentQuestionIndex-1) {
       currentQuestionIndex++;
       print(":::onClickNext::$currentQuestionIndex");
       examQuestionAnswerList = selectedDataMap[currentQuestionIndex];

@@ -1,15 +1,11 @@
  // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:io';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'color.dart';
 import 'constant.dart';
-import 'debug.dart';
 import 'preference.dart';
 import 'sizer_utils.dart';
 import 'package:intl/intl.dart' as intl;
@@ -52,6 +48,9 @@ class Utils {
   }
 
   static Future textToSpeech(String speakText, FlutterTts flutterTts) async {
+    bool value = Preference.shared.getBool(Preference.isMusic) ?? true;
+    print("fsd$value");
+    if (value) {
     if (Platform.isAndroid) {
       await flutterTts.awaitSpeakCompletion(true);
       await flutterTts.setLanguage("en-GB");
@@ -69,6 +68,7 @@ class Utils {
       await flutterTts.setSpeechRate(0.5);
       await flutterTts.speak(speakText);
     }
-  }
+  }else{
+      await flutterTts.stop();
+    }}
 }
-
