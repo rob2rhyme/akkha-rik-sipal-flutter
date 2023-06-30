@@ -45,7 +45,7 @@ flutter:
     - assets/subcategory/home_fruits.png
     - assets/item/
 #    - assets/animation/
-    - assets/sounds/
+#    - assets/sounds/
 #    - assets/numbers/
 
   # fonts:

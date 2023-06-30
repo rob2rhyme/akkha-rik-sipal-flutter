@@ -53,12 +53,12 @@ class SubCategoryScreen extends StatelessWidget {
       color: AppColor.colorTheme,
       padding: EdgeInsets.only(
         left: AppSizes.width_3,
-        top: AppSizes.height_5,
+        top: AppSizes.height_5_5,
         bottom: AppSizes.height_1,
       ),
       child: Stack(
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () => Get.back(),
             child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
                 height: AppSizes.height_5),

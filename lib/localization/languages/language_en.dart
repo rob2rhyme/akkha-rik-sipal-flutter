@@ -212,7 +212,7 @@ final Map<String, String> enUS = {
   'txtCarrot': "Carrot",
   'txtCauliflower': "Cauliflower",
   'txtCucumber': "Cucumber",
-  "'txtEggplant	': ""Eggplant"","
+  'txtEggplant': "Eggplant",
       'txtGarlic': "Garlic",
   'txtLettuce': "Lettuce",
   'txtMint': "Mint",

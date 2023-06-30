@@ -1,4 +1,5 @@
- import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/ui/quiz/controller/quiz_controller.dart';
@@ -55,15 +56,17 @@ class QuizScreen extends StatelessWidget {
                 id: Constant.idQuiz,
                 builder: (logic) {
                   return GridView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+
                     padding: const EdgeInsets.all(16),
-                    itemCount: logic.examQuestionAnswerList.length,
+                    itemCount: logic.allQuestionsList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: (itemWidth / itemHeight),
                         crossAxisSpacing: AppFontSize.size_16,
                         mainAxisSpacing: AppFontSize.size_16),
                     itemBuilder: (BuildContext context, int index) {
-                      return items(logic.examQuestionAnswerList[index], index);
+                      return items(logic.allQuestionsList[index], index,context);
                     },
                   );
                 }),
@@ -113,38 +116,34 @@ class QuizScreen extends StatelessWidget {
         top: AppSizes.height_5,
         bottom: AppSizes.height_1,
       ),
-      child: Center(
-        child: Row(
-          children: [
-            InkWell(
-              onTap: () => Get.back(),
-              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                  height: AppSizes.height_5),
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: () => Get.back(),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                height: AppSizes.height_5),
+          ),
+          Center(
+            child: Text(
+              quizController.title.toString().tr,
+              style: TextStyle(
+                  color: AppColor.colorGreen,
+                  fontSize: AppFontSize.size_16,
+                  fontWeight: FontWeight.bold),
             ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  quizController.title.toString().tr,
-                  style: TextStyle(
-                      color: AppColor.colorGreen,
-                      fontSize: AppFontSize.size_16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
-items(ExamQuestionAnswer examQuestionAnswer, int index) {
+items(ExamQuestionAnswer examQuestionAnswer, int index,BuildContext context) {
   return InkWell(
       onTap: () {
         // Get.find<QuizController>().checkAnswer(itemIndex: index);
         final quizController = Get.find<QuizController>();
-        quizController.checkAnswer(itemIndex: index);
+        quizController.checkAnswer(context,itemIndex: index);
       },
       child: GetBuilder<QuizController>(
           id: Constant.idColor,

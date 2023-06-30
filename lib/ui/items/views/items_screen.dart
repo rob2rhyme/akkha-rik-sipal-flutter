@@ -56,22 +56,20 @@ class ItemScreen extends StatelessWidget {
         bottom: AppSizes.height_1,
       ),
       child: Center(
-        child: Row(
+        child: Stack(
           children: [
-            InkWell(
+            GestureDetector(
               onTap: () => Get.back(),
               child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
                   height: AppSizes.height_5),
             ),
-            Expanded(
-              child: Center(
-                child: Text(
-                  _itemController.title.toString().tr,
-                  style: TextStyle(
-                      color: AppColor.colorGreen,
-                      fontSize: AppFontSize.size_16,
-                      fontWeight: FontWeight.bold),
-                ),
+            Center(
+              child: Text(
+                _itemController.title.toString().tr,
+                style: TextStyle(
+                    color: AppColor.colorGreen,
+                    fontSize: AppFontSize.size_16,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
