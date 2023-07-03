@@ -76,6 +76,8 @@ class QuizController extends GetxController {
 
       allQuestionsList = allQuestionsDataMap[currentQuestionIndex];
       trueItem = allQuestionsList.firstWhere((item) => item.isTrue == true);
+      MyApp.flutterTts.stop();
+
       initSound();
       containerColors =
           List<Color>.filled(allQuestionsList.length, defaultColor!);
@@ -88,9 +90,12 @@ class QuizController extends GetxController {
     if (allQuestionsDataMap.isNotEmpty &&
         currentQuestionIndex < allQuestionsDataMap.length - 1) {
       currentQuestionIndex++;
+
       print(":::onClickNext::$currentQuestionIndex");
       allQuestionsList = allQuestionsDataMap[currentQuestionIndex];
       trueItem = allQuestionsList.firstWhere((item) => item.isTrue == true);
+      MyApp.flutterTts.stop();
+
       initSound();
       containerColors =
           List<Color>.filled(allQuestionsList.length, defaultColor!);
@@ -101,6 +106,7 @@ class QuizController extends GetxController {
       examQuestionAnswerList = allQuestionsDataMap[currentQuestionIndex];
       trueItem =
           examQuestionAnswerList.firstWhere((item) => item.isTrue == true);
+
       initSound();
       containerColors =
           List<Color>.filled(examQuestionAnswerList.length, defaultColor!);
@@ -153,7 +159,6 @@ class QuizController extends GetxController {
         /// Store the question list in the map
         allQuestionsList = allQuestionsDataMap[currentQuestionIndex];
         trueItem = allQuestionsList.firstWhere((item) => item.isTrue == true);
-        initSound();
         containerColors =
             List<Color>.filled(allQuestionsList.length, defaultColor!);
       }

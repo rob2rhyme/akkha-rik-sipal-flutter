@@ -27,7 +27,6 @@ class SingleItemScreen extends StatelessWidget {
               child: GetBuilder<SingleItemController>(
                 id: Constant.idSingleItem,
                 builder: (logic) {
-                  print("::::showAnimation:::${logic.showAnimation}");
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

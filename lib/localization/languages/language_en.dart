@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 final Map<String, String> enUS = {
   /// TODO:-->> App Strings
   'txtAppName': "Kid's Playroom",
@@ -120,7 +122,7 @@ final Map<String, String> enUS = {
   'txtKite': "Kite",
   'txtLapwing': "Lapwing",
   'txtMynah': "Mynah",
-  'txtNightingale': "Nightingale",
+  'txtNightingale':"Nightingale",
   'txtOwl': "Owl",
   'txtParrot': "Parrot",
   'txtPeacock': "Peacock",
@@ -213,7 +215,7 @@ final Map<String, String> enUS = {
   'txtCauliflower': "Cauliflower",
   'txtCucumber': "Cucumber",
   'txtEggplant': "Eggplant",
-      'txtGarlic': "Garlic",
+  'txtGarlic': "Garlic",
   'txtLettuce': "Lettuce",
   'txtMint': "Mint",
   'txtMushroom': "Mushroom",
@@ -533,13 +535,13 @@ final Map<String, String> enUS = {
   'txtSport': "Sport",
   'txtVehicle': "Vehicle",
   'txtSetting':"Setting",
-'txtSound': "Sound",
-'txtRete': "Rete",
-'txtShare': "Share",
-'txtSendFeedback': "SendFeedback",
-'txtPrivacyPolicy': "PrivacyPolicy",
-'txtShareDesc': "ShareDesc",
-'txtKidsPreschoolLearning': "KidsPreschoolLearning",
-'txtKidsPreschoolLearningFeedbackAndroid': "KidsPreschoolLearningFeedbackAndroid",
-'txtKidsPreschoolLearningFeedbackIOS': "KidsPreschoolLearningFeedbackIOS",
+  'txtSound': "Sound",
+  'txtRete': "Rete",
+  'txtShare': "Share",
+  'txtSendFeedback': "SendFeedback",
+  'txtPrivacyPolicy': "PrivacyPolicy",
+  'txtShareDesc': "ShareDesc",
+  'txtKidsPreschoolLearning': "KidsPreschoolLearning",
+  'txtKidsPreschoolLearningFeedbackAndroid': "KidsPreschoolLearningFeedbackAndroid",
+  'txtKidsPreschoolLearningFeedbackIOS': "KidsPreschoolLearningFeedbackIOS",
 };

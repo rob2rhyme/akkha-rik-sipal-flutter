@@ -1,4 +1,4 @@
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/main.dart';
@@ -39,15 +39,38 @@ class QuizScreen extends StatelessWidget {
                                 )
                               : const SizedBox()
                           : logic.catId == 3
-                              ? InkWell(
-                        onTap: (){MyApp.flutterTts.stop();
-                        Utils.textToSpeech(
-                          logic.trueItem?.itemNameTts.toString().tr ??"",
-                          MyApp.flutterTts,
-                        );},
-                                child: Image.asset(
-                                    Constant.getAssetIcons() + "btn_sound.png",  height: AppSizes.height_20,),
-                              )
+                              ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        MyApp.flutterTts.stop();
+                                        Utils.textToSpeech(
+                                          logic.trueItem?.itemNameTts
+                                                  .toString()
+                                                  .tr ??
+                                              "",
+                                          MyApp.flutterTts,
+                                        );
+                                      },
+                                      child: Image.asset(
+                                        Constant.getAssetIcons() +
+                                            "btn_sound.png",
+                                        height: AppSizes.height_16,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 16),
+                                    Text(
+                                        logic.trueItem?.itemName
+                                                .toString()
+                                                .tr ??
+                                            "",
+                                        style: TextStyle(
+                                            fontSize: AppFontSize.size_15,
+                                            color: AppColor.colorGray,
+                                            fontWeight: FontWeight.w600)),
+                                  ],
+                                )
                               : const SizedBox());
                 }),
           ),
@@ -56,8 +79,7 @@ class QuizScreen extends StatelessWidget {
                 id: Constant.idQuiz,
                 builder: (logic) {
                   return GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(16),
                     itemCount: logic.allQuestionsList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -66,7 +88,8 @@ class QuizScreen extends StatelessWidget {
                         crossAxisSpacing: AppFontSize.size_16,
                         mainAxisSpacing: AppFontSize.size_16),
                     itemBuilder: (BuildContext context, int index) {
-                      return items(logic.allQuestionsList[index], index,context);
+                      return items(
+                          logic.allQuestionsList[index], index, context);
                     },
                   );
                 }),
@@ -89,8 +112,6 @@ class QuizScreen extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       logic.onClickNext();
-
-
                     },
                     child: Image.asset(
                       Constant.getAssetIcons() + "btn_next_150.png",
@@ -104,7 +125,6 @@ class QuizScreen extends StatelessWidget {
         ],
       ),
     );
-
   }
 
   topBar() {
@@ -138,12 +158,11 @@ class QuizScreen extends StatelessWidget {
   }
 }
 
-items(ExamQuestionAnswer examQuestionAnswer, int index,BuildContext context) {
+items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
   return InkWell(
       onTap: () {
-        // Get.find<QuizController>().checkAnswer(itemIndex: index);
         final quizController = Get.find<QuizController>();
-        quizController.checkAnswer(context,itemIndex: index);
+        quizController.checkAnswer(context, itemIndex: index);
       },
       child: GetBuilder<QuizController>(
           id: Constant.idColor,
@@ -161,17 +180,22 @@ items(ExamQuestionAnswer examQuestionAnswer, int index,BuildContext context) {
                         offset: Offset(0.5, 1.5))
                   ]),
               child: Center(
-                  child: Text(
-                examQuestionAnswer.itemName.toString().tr,
-                style: TextStyle(
-                    color: AppColor.colorBlueGreen,
-                    fontSize: AppFontSize.size_17,
-                    fontWeight: FontWeight.bold),
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: logic.catId == 2
+                    ? AutoSizeText(
+                        examQuestionAnswer.itemName.toString().tr,
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: AppColor.colorBlueGreen,
+                          fontSize: AppFontSize.size_17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    : Image.asset(Constant.getAsset() +
+                        examQuestionAnswer.image +
+                        ".png"),
               )),
             );
           }));
-
-
-
 }
-

@@ -55,9 +55,9 @@ class Utils {
       await flutterTts.awaitSpeakCompletion(true);
       await flutterTts.setLanguage("en-GB");
       await flutterTts.setVolume(1.0);
-      await flutterTts.setPitch(1.0);
+      await flutterTts.setPitch(1.1);
       await flutterTts.isLanguageAvailable("en-GB");
-      await flutterTts.setSpeechRate(0.5);
+      await flutterTts.setSpeechRate(0.1);
       await flutterTts.speak(speakText);
     } else {
       await flutterTts.awaitSpeakCompletion(true);

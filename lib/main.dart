@@ -12,6 +12,7 @@ import 'package:sizer/sizer.dart';
 
 Future<void> main() async {
   await Preference().instance();
+  await Future.delayed(const Duration(milliseconds: 2200));
   runApp(const MyApp());
 }
 
