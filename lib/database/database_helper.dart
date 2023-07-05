@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
+import 'package:kids_playroom/database/tables/paint_table.dart';
 import 'package:kids_playroom/database/tables/sub_category_table.dart';
 
 import 'package:path/path.dart' as path;
@@ -47,6 +48,7 @@ class DataBaseHelper {
   String subcategoryTable = "SubCategoryTable";
 
   String itemTable = "ItemTable";
+  String paintTable = "PaintTable";
   String quizTable = "QuizTable";
 
   Future<List<CategoryTable>> getCategoryData() async {
@@ -91,5 +93,20 @@ class DataBaseHelper {
     }
 
     return itemList;
+  }
+
+  Future<List<PaintTable>> getPaintData() async {
+    List<PaintTable> paintList = [];
+    var dbClient = await db;
+    List<Map<String, dynamic>> maps =
+    await dbClient.rawQuery("SELECT * FROM $paintTable");
+    if (maps.isNotEmpty) {
+      for (var answer in maps) {
+        var paintData = PaintTable.fromJson(answer);
+        paintList.add(paintData);
+        print(":::::::${paintList[0].itemImage}");
+      }
+    }
+    return paintList;
   }
 }

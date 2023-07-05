@@ -37,6 +37,17 @@ class SettingScreen extends StatelessWidget {
                 activeTrackColor: AppColor.colorGreen.withOpacity(0.2),
                 activeColor: AppColor.colorGreen,
               ),
+            ),settingItem(
+              text: "txtMusic".tr,
+              trailing: Switch(
+                value: logic.isMusic!,
+                onChanged: (value) {
+                  logic.music(value);
+                  print(value);
+                },
+                activeTrackColor: AppColor.colorGreen.withOpacity(0.2),
+                activeColor: AppColor.colorGreen,
+              ),
             ),
             Divider(
               color: AppColor.colorGray50,

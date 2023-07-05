@@ -50,6 +50,13 @@ class Constant {
   static const idTopBar = "idTopBar";
   static var idImage='idImage';
   static var idColor='idColor';
+  static var idColorPicker='idColorPicker';
+  static var idImagePicker='idImagePicker';
+  static var idSelectImageOption='idSelectImageOption';
+  static var idSaveOption='idSaveOption';
+  static var idEraserOption='idEraserOption';
+  static var idColorOption='idColorOption';
+  static var idPaintWidget='idPaintWidget';
 
 
 }

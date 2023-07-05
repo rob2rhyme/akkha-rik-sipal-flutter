@@ -38,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         categoryItem(logic.categoryList![index]),
                   ),
                 );
-              })
+              }),
+
         ],
       ),
     );
@@ -80,7 +81,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   categoryItem(CategoryTable categoryList) {
     return InkWell(
-      onTap: ()=>  Get.toNamed(AppRoutes.subcategory,arguments: [categoryList.categoryName,categoryList.categoryId] ),
+      onTap: () {
+        if(categoryList.categoryId == 4){
+
+          Get.toNamed(AppRoutes.paint);
+        }else {
+          Get.toNamed(AppRoutes.subcategory,
+              arguments: [categoryList.categoryName, categoryList.categoryId]);
+        }
+      },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 18.0),
         child: ClipRRect(

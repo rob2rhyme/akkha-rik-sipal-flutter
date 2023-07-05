@@ -3,6 +3,9 @@ description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
+# --------->>>>  Flutter version 3.10.0  <<<<<----------------
+# --------->>>>  Dart version 3.0.0  <<<<<----------------
+
 version: 1.0.0+1
 
 environment:
@@ -24,6 +27,10 @@ dependencies:
   rate_my_app: ^2.0.0
   share_plus: ^7.0.2
   url_launcher: ^6.1.11
+  floodfill_image: ^0.0.8
+  flutter_colorpicker: ^1.0.3
+  gallery_saver: ^2.3.2
+  audioplayers: ^4.1.0
 
 
 dev_dependencies:
@@ -45,7 +52,7 @@ flutter:
     - assets/subcategory/home_fruits.png
     - assets/item/
 #    - assets/animation/
-#    - assets/sounds/
+    - assets/sounds/
 #    - assets/numbers/
 
   # fonts:

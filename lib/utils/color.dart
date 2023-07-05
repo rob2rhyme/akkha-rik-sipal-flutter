@@ -10,6 +10,15 @@ class AppColor {
   static const colorRed = Color(0xffcb0101);
   static const colorBlueLight = Color(0xffcdfdff);
   static const colorBlueGreen = Color(0xff1b626c);
+  static const lightBG = Color(0XFFE4F9F8);
+  static const paintOptions = Color(0XFFCEB993);
+  static const themeGradient = [Color(0XFFF1AB00), Color(0XFFE37A00)];
+  static const green = Color(0XFFa6dd96);
+  static const themeDark = Color(0XFFE37A00);
+
+
+
+
 
   static const colorGray = Color(0xffaeaeae);
   static const colorGray50 = Color(0x50aeaeae);

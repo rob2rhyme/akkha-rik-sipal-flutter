@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
+import 'package:kids_playroom/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rate_my_app/rate_my_app.dart';
@@ -12,6 +13,7 @@ class SettingsController extends GetxController {
   RateMyApp? rateMyApp;
 
   bool? isSound;
+  bool? isMusic;
 
   @override
   void onInit() {
@@ -19,7 +21,7 @@ class SettingsController extends GetxController {
     super.onInit();
   }
 
-  initRateMyApp(BuildContext context){
+  initRateMyApp(BuildContext context) {
     rateMyApp = RateMyApp(
         preferencesPrefix: 'rateMyApp_',
         minDays: 7,
@@ -27,8 +29,7 @@ class SettingsController extends GetxController {
         remindDays: 7,
         remindLaunches: 10,
         googlePlayIdentifier: Constant.googlePlayIdentifier,
-        appStoreIdentifier: Constant.appStoreIdentifier
-    );
+        appStoreIdentifier: Constant.appStoreIdentifier);
 
     if (Platform.isIOS) {
       rateMyApp!.init().then((_) {
@@ -37,7 +38,7 @@ class SettingsController extends GetxController {
             context,
             title: 'Rate this app',
             message:
-            'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.',
+                'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.',
             rateButton: 'RATE',
             noButton: 'NO THANKS',
             laterButton: 'MAYBE LATER',
@@ -60,10 +61,10 @@ class SettingsController extends GetxController {
           );
 
           rateMyApp!.showStarRateDialog(
-            context ,
+            context,
             title: 'Rate this app',
             message:
-            'You like this app ? Then take a little bit of your time to leave a rating :',
+                'You like this app ? Then take a little bit of your time to leave a rating :',
             actionsBuilder: (context, stars) {
               return [
                 TextButton(
@@ -91,15 +92,45 @@ class SettingsController extends GetxController {
       });
     }
   }
+
   getPreference() {
-    isSound = Preference.shared.getBool(Preference.isMusic) ?? true;
+    isSound = Preference.shared.getBool(Preference.isSOUND) ?? true;
+    isMusic = Preference.shared.getBool(Preference.isMusic) ?? true;
   }
 
   sound(bool value) {
     isSound = value;
-    Preference.shared.setBool(Preference.isMusic, value);
+    Preference.shared.setBool(Preference.isSOUND, value);
     update();
   }
+
+  music(bool value) {
+    isMusic = value;
+    if (isMusic!) {
+      Preference.shared.setBool(Preference.isMusic, value);
+      getPreference();
+      Utils.playAudio();
+    } else {
+      Preference.shared.setBool(Preference.isMusic, value);
+
+      getPreference();
+      Utils.audioPlayer.stop();
+    }
+    update();
+  }
+
+  _sound() {
+    if (isSound!) {
+      Preference.shared.setBool(Preference.isMusic, false);
+      getPreference();
+      Utils.audioPlayer.stop();
+    } else {
+      Preference.shared.setBool(Preference.isMusic, true);
+      getPreference();
+      Utils.playAudio();
+    }
+  }
+
   rate(BuildContext context) {
     if (Platform.isIOS) {
       rateMyApp!.showRateDialog(context);

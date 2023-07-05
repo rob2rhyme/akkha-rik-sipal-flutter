@@ -6,6 +6,7 @@ class AppRoutes {
   static const String singleItem = '/singleItem';
   static const String quiz = '/quiz';
   static const String settings = '/settings';
+  static const String paint = '/paint';
 
 
 }

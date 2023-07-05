@@ -1,6 +1,7 @@
  // ignore_for_file: depend_on_referenced_packages
 
 import 'dart:io';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,6 +13,8 @@ import 'package:intl/intl.dart' as intl;
 
 
 class Utils {
+  static AudioPlayer audioPlayer = AudioPlayer();
+  static const audio = "sounds/background_music.mp3";
   static showToast(BuildContext context, String msg) {
     return Fluttertoast.showToast(
       msg: msg,
@@ -47,28 +50,52 @@ class Utils {
     return intl.NumberFormat.decimalPattern().format(number);
   }
 
+  static playAudio() async {
+    audioPlayer.play(AssetSource(audio));
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+  }
+
   static Future textToSpeech(String speakText, FlutterTts flutterTts) async {
-    bool value = Preference.shared.getBool(Preference.isMusic) ?? true;
+    bool value = Preference.shared.getBool(Preference.isSOUND) ?? true;
     print("fsd$value");
     if (value) {
-    if (Platform.isAndroid) {
-      await flutterTts.awaitSpeakCompletion(true);
-      await flutterTts.setLanguage("en-GB");
-      await flutterTts.setVolume(1.0);
-      await flutterTts.setPitch(1.1);
-      await flutterTts.isLanguageAvailable("en-GB");
-      await flutterTts.setSpeechRate(0.1);
-      await flutterTts.speak(speakText);
-    } else {
-      await flutterTts.awaitSpeakCompletion(true);
-      await flutterTts.setLanguage("en-AU");
-      await flutterTts.setVolume(1.0);
-      await flutterTts.setPitch(1.0);
-      await flutterTts.isLanguageAvailable("en-AU");
-      await flutterTts.setSpeechRate(0.5);
-      await flutterTts.speak(speakText);
-    }
+      if (Platform.isAndroid) {
+        await flutterTts.awaitSpeakCompletion(true);
+        await flutterTts.setLanguage("en-GB");
+        await flutterTts.setVolume(1.0);
+        await flutterTts.setPitch(1.0);
+        await flutterTts.isLanguageAvailable("en-GB");
+        await flutterTts.setSpeechRate(0.5);
+        await flutterTts.speak(speakText);
+      } else {
+        await flutterTts.awaitSpeakCompletion(true);
+        await flutterTts.setLanguage("en-AU");
+        await flutterTts.setVolume(1.0);
+        await flutterTts.setPitch(1.0);
+        await flutterTts.isLanguageAvailable("en-AU");
+        await flutterTts.setSpeechRate(0.5);
+        await flutterTts.speak(speakText);
+      }
   }else{
       await flutterTts.stop();
     }}
+
+
+  static List<Color> colorPickerList = const [
+    Color(0XFF00C2AF),
+    Color(0XFF00B500),
+    Color(0XFF7FD200),
+    Color(0XFFFEEF00),
+    Color(0XFFFAC712),
+    Color(0XFFF69F23),
+    Color(0XFF97979A),
+    Color(0XFFFF2600),
+    Color(0XFFD2298E),
+    Color(0XFF7421B0),
+    Color(0XFF3A48BA),
+    Color(0XFF006FC4),
+    Color(0XFFBC2B13),
+    Color(0XFFFB6312),
+  ];
+
 }
