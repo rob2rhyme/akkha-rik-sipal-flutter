@@ -15,9 +15,8 @@ import 'package:sizer/sizer.dart';
 Future<void> main() async {
   await Preference().instance();
   await Future.delayed(const Duration(milliseconds: 2200));
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: AppColor.colorTheme
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: AppColor.transparent));
   runApp(const MyApp());
 }
 
@@ -31,21 +30,23 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver{
   bool? isMusic;
-
 
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
     _getPreference();
     if (isMusic!) {
       Utils.playAudio();
     }
     super.initState();
   }
+
   void _getPreference() {
     isMusic = Preference.shared.getBool(Preference.isMusic) ?? true;
   }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
@@ -60,8 +61,11 @@ class _MyAppState extends State<MyApp> {
       }
     }
   }
-
-
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,17 +78,14 @@ class _MyAppState extends State<MyApp> {
           themeMode: ThemeMode.light,
           locale: const Locale("en"),
           translations: AppLanguages(),
-          fallbackLocale:  const Locale(Constant.languageEn, Constant.countryCodeEn),
+          fallbackLocale:
+              const Locale(Constant.languageEn, Constant.countryCodeEn),
           getPages: AppPages.list,
           defaultTransition: Transition.fade,
           transitionDuration: const Duration(milliseconds: 200),
-          initialRoute:  AppRoutes.home,
-
+          initialRoute: AppRoutes.home,
         );
       },
     );
-
   }
 }
-
-

@@ -15,6 +15,8 @@ class AppColor {
   static const themeGradient = [Color(0XFFF1AB00), Color(0XFFE37A00)];
   static const green = Color(0XFFa6dd96);
   static const themeDark = Color(0XFFE37A00);
+  static const bg = Color(0XFFDCEDF7);
+
 
 
 

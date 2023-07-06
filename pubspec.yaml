@@ -31,6 +31,7 @@ dependencies:
   flutter_colorpicker: ^1.0.3
   gallery_saver: ^2.3.2
   audioplayers: ^4.1.0
+  collection:
 
 
 dev_dependencies:
@@ -51,9 +52,30 @@ flutter:
     - assets/subcategory/
     - assets/subcategory/home_fruits.png
     - assets/item/
-#    - assets/animation/
+    - assets/drag assets/alphabets/
+    - assets/drag assets/alphabets_objects/
+    - assets/drag assets/animals/
+    - assets/drag assets/animation/
+#    - assets/drag assets/background/
+    - assets/drag assets/birds/
+    - assets/drag assets/category/
+    - assets/drag assets/colours/
+    - assets/drag assets/counting/
+    - assets/drag assets/database/
+    - assets/drag assets/days/
+    - assets/drag assets/education/
+    - assets/drag assets/fruits/
+    - assets/drag assets/icons/
+    - assets/drag assets/images/
+    - assets/drag assets/lower/
+    - assets/drag assets/money/
+    - assets/drag assets/months/
+    - assets/drag assets/numbers/
+    - assets/drag assets/shapes/
+    - assets/drag assets/time/
+    - assets/drag assets/upper/
+    - assets/drag assets/vehicles/
     - assets/sounds/
-#    - assets/numbers/
 
   # fonts:
   #   - family: Schyler

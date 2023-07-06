@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:kids_playroom/database/tables/drag_item_table.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
 import 'package:kids_playroom/database/tables/paint_table.dart';
 import 'package:kids_playroom/database/tables/sub_category_table.dart';
@@ -45,9 +46,11 @@ class DataBaseHelper {
   }
 
   String categoryTable = "CategoryTable";
+  String dragCategoryTable = "DragCategoryTable";
   String subcategoryTable = "SubCategoryTable";
 
   String itemTable = "ItemTable";
+  String dragItemTable = "DragItemsTable";
   String paintTable = "PaintTable";
   String quizTable = "QuizTable";
 
@@ -108,5 +111,35 @@ class DataBaseHelper {
       }
     }
     return paintList;
+  }
+  Future<List<CategoryTable>> getDragCategoryData() async {
+    List<CategoryTable> dragCategoryList = [];
+    var dbClient = await db;
+    List<Map<String, dynamic>> maps =
+    await dbClient.rawQuery("SELECT * FROM $dragCategoryTable");
+    if (maps.isNotEmpty) {
+      for (var answer in maps) {
+        var categoryData = CategoryTable.fromJson(answer);
+        dragCategoryList.add(categoryData);
+      }
+
+    }
+
+    return dragCategoryList;
+  }
+
+  Future<List<DragItemTable>> getDragItemData(int subcategoryId) async {
+    List<DragItemTable> itemList = [];
+    var dbClient = await db;
+    List<Map<String, dynamic>> maps =
+    await dbClient.rawQuery("SELECT * FROM $dragItemTable where category_id = $subcategoryId");
+    if (maps.isNotEmpty) {
+      for (var answer in maps) {
+        var itemData = DragItemTable.fromJson(answer);
+        itemList.add(itemData);
+      }
+    }
+
+    return itemList;
   }
 }

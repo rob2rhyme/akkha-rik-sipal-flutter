@@ -39,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }),
-
         ],
       ),
     );
@@ -69,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             GestureDetector(
-              onTap: ()=>Get.toNamed(AppRoutes.settings),
+              onTap: () => Get.toNamed(AppRoutes.settings),
               child: Image.asset(Constant.getAssetIcons() + "ic_setting.png",
                   height: AppSizes.height_5),
             ),
@@ -82,13 +81,24 @@ class _HomeScreenState extends State<HomeScreen> {
   categoryItem(CategoryTable categoryList) {
     return InkWell(
       onTap: () {
-        if(categoryList.categoryId == 4){
-
-          Get.toNamed(AppRoutes.paint);
-        }else {
-          Get.toNamed(AppRoutes.subcategory,
-              arguments: [categoryList.categoryName, categoryList.categoryId]);
-        }
+        categoryList.categoryId == 1
+            ? Get.toNamed(AppRoutes.subcategory,
+                arguments: [categoryList.categoryName, categoryList.categoryId])
+            : categoryList.categoryId == 2
+                ? Get.toNamed(AppRoutes.subcategory, arguments: [
+                    categoryList.categoryName,
+                    categoryList.categoryId
+                  ])
+                : categoryList.categoryId == 3
+                    ? Get.toNamed(AppRoutes.subcategory, arguments: [
+                        categoryList.categoryName,
+                        categoryList.categoryId
+                      ])
+                    : categoryList.categoryId == 4
+                        ? Get.toNamed(AppRoutes.paint)
+                        : categoryList.categoryId == 5
+                            ? Get.toNamed(AppRoutes.dragSubcategory)
+                            : Get.back();
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 18.0),

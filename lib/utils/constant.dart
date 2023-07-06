@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Constant {
   static const languageEn = "en";
   static const countryCodeEn = "US";
@@ -34,11 +36,40 @@ class Constant {
   static getAssetItem() => "assets/item/";
 
   static getAssetBackground() => "assets/background/";
+  static getAssetDrag() => "assets/drag assets/";
+  static getAssetDragCategory() => "assets/drag assets/category";
+  static getAssetDragImages() => "assets/drag assets/images/";
+  static getAssetDragAnimation() => "assets/drag assets/animation/";
 
 
   static getAssetSubCategory() => "assets/subcategory/";
 
   static getAssetImage() => "assets/images/";
+
+
+  static List<Color> colorList = const [
+    Color(0XFFD400FF),
+    Color(0XFFFF3D3D),
+    Color(0XFFFFA900),
+    Color(0XFF02E930),
+    Color(0XFFFFD800),
+    Color(0XFF00A3FF),
+    Color(0XFFA43FFF),
+    Color(0XFFFC57EE),
+    Color(0XFF17F2F3),
+    Color(0XFF00A3FF),
+    Color(0XFFFFA900),
+    Color(0XFFFF3D3D),
+    Color(0XFFFFD800),
+    Color(0XFFD400FF),
+    Color(0XFFA43FFF),
+    Color(0XFF17F2F3),
+    Color(0XFFD400FF),
+    Color(0XFFFC57EE),
+    Color(0XFF00A3FF),
+    Color(0XFFFFA900),
+    Color(0XFFFFD800),
+  ];
 
   /// <<===================>> ****** Widget Id's for refresh in GetX ****** <<===================>>
 

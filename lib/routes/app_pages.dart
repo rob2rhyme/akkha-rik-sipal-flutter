@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:kids_playroom/ui/dragquiz/bindings/drag_quiz_bindings.dart';
+import 'package:kids_playroom/ui/dragquiz/viwes/drag_quiz_viwes.dart';
+import 'package:kids_playroom/ui/dragsubcategory/bindings/drag_subcategory_bindings.dart';
+import 'package:kids_playroom/ui/dragsubcategory/viwes/drag_subcategory_viwes.dart';
 import 'package:kids_playroom/ui/home/bindings/home_binding.dart';
 import 'package:kids_playroom/ui/home/views/home_screen.dart';
 import 'package:kids_playroom/ui/items/bindings/item_binding.dart';
@@ -58,6 +62,15 @@ class AppPages {
       name: AppRoutes.paint,
       page: () => PaintScreen(),
       binding: PaintBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.dragSubcategory,
+      page: () => DragSubcategoryScreen(),
+      binding: DragSubcategoryBindings(),
+    ), GetPage(
+      name: AppRoutes.dragQuiz,
+      page: () => DragQuizScreen(),
+      binding: DragQuizBindings(),
     ),
   ];
 }
