@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:kids_playroom/ui/add_subtract/bindings/add_subtract_bindings.dart';
+import 'package:kids_playroom/ui/add_subtract/controllers/add_subtract_controller.dart';
+import 'package:kids_playroom/ui/add_subtract/views/add_subtract_screen.dart';
+import 'package:kids_playroom/ui/counting/bindings/counting_bindings.dart';
+import 'package:kids_playroom/ui/counting/views/couting_screens.dart';
 import 'package:kids_playroom/ui/dragquiz/bindings/drag_quiz_bindings.dart';
 import 'package:kids_playroom/ui/dragquiz/viwes/drag_quiz_viwes.dart';
 import 'package:kids_playroom/ui/dragsubcategory/bindings/drag_subcategory_bindings.dart';
@@ -10,6 +15,8 @@ import 'package:kids_playroom/ui/home/views/home_screen.dart';
 import 'package:kids_playroom/ui/items/bindings/item_binding.dart';
 import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
 import 'package:kids_playroom/ui/items/views/items_screen.dart';
+import 'package:kids_playroom/ui/numbers/bindings/numbers_binding.dart';
+import 'package:kids_playroom/ui/numbers/views/numbers_screens.dart';
 import 'package:kids_playroom/ui/paint/bindings/paint_binding.dart';
 import 'package:kids_playroom/ui/paint/views/paint_screen.dart';
 import 'package:kids_playroom/ui/quiz/bindings/quiz_binding.dart';
@@ -71,6 +78,20 @@ class AppPages {
       name: AppRoutes.dragQuiz,
       page: () => DragQuizScreen(),
       binding: DragQuizBindings(),
+    ),
+
+    GetPage(
+      name: AppRoutes.numbers,
+      page: () => NumbersScreen(),
+      binding: NumbersBinding(),
+    ),GetPage(
+      name: AppRoutes.counting,
+      page: () => CountingScreen(),
+      binding: CountingBinding(),
+    ),GetPage(
+      name: AppRoutes.addSubtract,
+      page: () => AddSubtractScreen(),
+      binding: AddSubtractBinding(),
     ),
   ];
 }

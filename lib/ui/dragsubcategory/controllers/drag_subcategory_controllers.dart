@@ -21,12 +21,20 @@ class DragSubcategoryControllers extends GetxController {
 
   Future<void> moveToNextScreen(int index) async {
     if (categoryList![index].categoryName == "Numbers") {
-      // Get.toNamed('/numbers');
-    } else if (categoryList![index].categoryName == "Counting") {
-
+      Get.toNamed(AppRoutes.numbers, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);    } else if (categoryList![index].categoryName == "Counting") {
+      Get.toNamed(AppRoutes.counting, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Addition" ||
         categoryList![index].categoryName == "Subtraction") {
-
+      Get.toNamed(AppRoutes.addSubtract, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
 
     } else if (categoryList![index].categoryName == "Compare") {
     } else if (categoryList![index].categoryName == "Missing Numbers") {

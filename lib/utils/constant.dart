@@ -39,6 +39,8 @@ class Constant {
   static getAssetDrag() => "assets/drag assets/";
   static getAssetDragCategory() => "assets/drag assets/category";
   static getAssetDragImages() => "assets/drag assets/images/";
+  static getAssetDragNumbers() => "assets/drag assets/numbers/";
+  static getAssetDragCounting() => "assets/drag assets/counting/";
   static getAssetDragAnimation() => "assets/drag assets/animation/";
 
 
@@ -70,6 +72,9 @@ class Constant {
     Color(0XFFFFA900),
     Color(0XFFFFD800),
   ];
+  static String txtHowManyObjects = "How Many Objects?";
+
+  static String txtCountTheObjects = "Count the objects";
 
   /// <<===================>> ****** Widget Id's for refresh in GetX ****** <<===================>>
 
@@ -88,6 +93,9 @@ class Constant {
   static var idEraserOption='idEraserOption';
   static var idColorOption='idColorOption';
   static var idPaintWidget='idPaintWidget';
+  static var idNumbers='idNumbers';
+  static var idCounting='idCounting';
+  static var idAdd='idAdd';
 
 
 }

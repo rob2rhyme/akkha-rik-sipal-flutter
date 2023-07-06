@@ -9,6 +9,9 @@ class AppRoutes {
   static const String paint = '/paint';
   static const String dragSubcategory = '/dragSubcategory';
   static const String dragQuiz = '/dragQuiz';
+  static const String numbers = '/numbers';
+  static const String counting = '/counting';
+  static const String addSubtract = '/addSubtract';
 
 
 }

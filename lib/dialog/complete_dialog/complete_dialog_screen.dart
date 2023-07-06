@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/utils/color.dart';
+import 'package:kids_playroom/utils/constant.dart';
 import '../../utils/debug.dart';
 
 class CompleteDialog extends StatefulWidget {
@@ -79,8 +82,9 @@ class CompleteDialogState extends State<CompleteDialog> {
             children: [
               Container(
                   padding:
-                      EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
-                  child: Image.asset("assets/images/ic_welldone.webp")),
+                      EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
+
+                  child: Image.asset(Constant.getAssetDragImages()+"ic_welldone.webp")),
               Container(
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.15,
@@ -90,6 +94,7 @@ class CompleteDialogState extends State<CompleteDialog> {
                   children: [
                     InkWell(
                       onTap: () {
+                        Get.offAllNamed(AppRoutes.dragSubcategory);
                         // _showInterstitialAd();
                       },
                       child: Image.asset(
