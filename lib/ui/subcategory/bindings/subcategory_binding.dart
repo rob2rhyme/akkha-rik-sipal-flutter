@@ -8,7 +8,5 @@ class SubCategoryBinding extends Bindings {
     Get.lazyPut<SubCategoryController>(
           () => SubCategoryController(),
     );
-
-
   }
 }

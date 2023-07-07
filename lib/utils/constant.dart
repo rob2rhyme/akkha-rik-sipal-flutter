@@ -42,6 +42,9 @@ class Constant {
   static getAssetDragNumbers() => "assets/drag assets/numbers/";
   static getAssetDragCounting() => "assets/drag assets/counting/";
   static getAssetDragAnimation() => "assets/drag assets/animation/";
+  static getAssetDragTime() => "assets/drag assets/time/";
+  static getAssetDragMonths() => "assets/drag assets/months/";
+  static getAssetDragDays() => "assets/drag assets/days/";
 
 
   static getAssetSubCategory() => "assets/subcategory/";

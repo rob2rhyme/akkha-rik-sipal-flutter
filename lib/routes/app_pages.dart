@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:kids_playroom/ui/add_subtract/bindings/add_subtract_bindings.dart';
-import 'package:kids_playroom/ui/add_subtract/controllers/add_subtract_controller.dart';
 import 'package:kids_playroom/ui/add_subtract/views/add_subtract_screen.dart';
 import 'package:kids_playroom/ui/counting/bindings/counting_bindings.dart';
 import 'package:kids_playroom/ui/counting/views/couting_screens.dart';
@@ -13,8 +10,11 @@ import 'package:kids_playroom/ui/dragsubcategory/viwes/drag_subcategory_viwes.da
 import 'package:kids_playroom/ui/home/bindings/home_binding.dart';
 import 'package:kids_playroom/ui/home/views/home_screen.dart';
 import 'package:kids_playroom/ui/items/bindings/item_binding.dart';
-import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
 import 'package:kids_playroom/ui/items/views/items_screen.dart';
+import 'package:kids_playroom/ui/missing_numbers/bindings/missing_numbers_bindings.dart';
+import 'package:kids_playroom/ui/missing_numbers/views/missing_numbers_screens.dart';
+import 'package:kids_playroom/ui/months_days/bindings/months_days_bindings.dart';
+import 'package:kids_playroom/ui/months_days/viwes/months_days_screens.dart';
 import 'package:kids_playroom/ui/numbers/bindings/numbers_binding.dart';
 import 'package:kids_playroom/ui/numbers/views/numbers_screens.dart';
 import 'package:kids_playroom/ui/paint/bindings/paint_binding.dart';
@@ -24,13 +24,11 @@ import 'package:kids_playroom/ui/quiz/views/quiz_screen.dart';
 import 'package:kids_playroom/ui/settings/bindings/settings_binding.dart';
 import 'package:kids_playroom/ui/settings/views/settings_screen.dart';
 import 'package:kids_playroom/ui/single_item/bindings/single_item_binding.dart';
-import 'package:kids_playroom/ui/single_item/controllers/single_item_controller.dart';
 import 'package:kids_playroom/ui/single_item/views/single_item_screen.dart';
 import 'package:kids_playroom/ui/subcategory/bindings/subcategory_binding.dart';
 import 'package:kids_playroom/ui/subcategory/views/subcategory_sceen.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:sizer/sizer.dart';
-
+import 'package:kids_playroom/ui/time/bindings/time_binding.dart';
+import 'package:kids_playroom/ui/time/views/time_screens.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -92,6 +90,18 @@ class AppPages {
       name: AppRoutes.addSubtract,
       page: () => AddSubtractScreen(),
       binding: AddSubtractBinding(),
+    ),GetPage(
+      name: AppRoutes.missingNum,
+      page: () => MissingNumbersScreen(),
+      binding: MissingNumbersBindings(),
+    ),GetPage(
+      name: AppRoutes.time,
+      page: () => TimeScreen(),
+      binding: TimeBinding(),
+    ),GetPage(
+      name: AppRoutes.month,
+      page: () => MonthsDaysScreens(),
+      binding: MonthsDaysBinding(),
     ),
   ];
 }

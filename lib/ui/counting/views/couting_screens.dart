@@ -31,40 +31,40 @@ class CountingScreen extends StatelessWidget {
     );
   }
 
-  topBar() {
-    return GetBuilder<CountingController>(builder: (logic) {
-      return Container(
-        width: AppSizes.fullWidth,
-        color: AppColor.colorTheme,
-        padding: EdgeInsets.only(
-          left: AppSizes.width_3,
-          top: AppSizes.height_5,
-          bottom: AppSizes.height_1,
-        ),
-        child: Center(
-          child: Stack(
-            children: [
-              GestureDetector(
-                onTap: () => Get.back(),
-                child: Image.asset(
-                    Constant.getAssetIcons() + "btn_back_150.png",
-                    height: AppSizes.height_5),
+}
+topBar() {
+  return GetBuilder<CountingController>(builder: (logic) {
+    return Container(
+      width: AppSizes.fullWidth,
+      color: AppColor.colorTheme,
+      padding: EdgeInsets.only(
+        left: AppSizes.width_3,
+        top: AppSizes.height_5,
+        bottom: AppSizes.height_1,
+      ),
+      child: Center(
+        child: Stack(
+          children: [
+            GestureDetector(
+              onTap: () => Get.back(),
+              child: Image.asset(
+                  Constant.getAssetIcons() + "btn_back_150.png",
+                  height: AppSizes.height_5),
+            ),
+            Center(
+              child: Text(
+                "${logic.currentQue}/${logic.totalQue}",
+                style: TextStyle(
+                    color: AppColor.colorGreen,
+                    fontSize: AppFontSize.size_16,
+                    fontWeight: FontWeight.bold),
               ),
-              Center(
-                child: Text(
-                  "${logic.currentQue}/${logic.totalQue}",
-                  style: TextStyle(
-                      color: AppColor.colorGreen,
-                      fontSize: AppFontSize.size_16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
-    });
-  }
+      ),
+    );
+  });
 }
 
 countWidget() {
@@ -537,11 +537,12 @@ _dragTarget(BuildContext context, {int? index}) {
             await Future.delayed(const Duration(milliseconds: 2280), () {
               if (index != logic.totalQue! - 1) {
                 logic.pageController?.jumpToPage(index! + 1);
-                logic.accept = false;
                 logic.update();
+                logic.accept = false;
                 logic.currentQue = logic.currentQue! + 1;
                 logic.options.clear();
                 logic.getOptions(index! + 1);
+
               } else {
                 showDialog(
                     context: context,

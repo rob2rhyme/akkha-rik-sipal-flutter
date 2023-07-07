@@ -37,10 +37,28 @@ class DragSubcategoryControllers extends GetxController {
       ]);
 
     } else if (categoryList![index].categoryName == "Compare") {
+      Get.toNamed(AppRoutes.compare, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
+
     } else if (categoryList![index].categoryName == "Missing Numbers") {
+      Get.toNamed(AppRoutes.missingNum, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Time") {
+      Get.toNamed(AppRoutes.time, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Months" ||
         categoryList![index].categoryName == "Days") {
+      Get.toNamed(AppRoutes.month, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
+
     } else if (categoryList![index].categoryName == "Quantity") {
     } else if (categoryList![index].categoryName == "Alphabets") {
     } else if (categoryList![index].categoryName == "Upper & Lower") {

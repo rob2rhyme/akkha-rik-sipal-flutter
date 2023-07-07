@@ -12,6 +12,10 @@ class AppRoutes {
   static const String numbers = '/numbers';
   static const String counting = '/counting';
   static const String addSubtract = '/addSubtract';
+  static const String compare = '/compare';
+  static const String missingNum = '/missingNum';
+  static const String time = '/time';
+  static const String month = '/month';
 
 
 }

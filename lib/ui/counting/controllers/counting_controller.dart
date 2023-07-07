@@ -34,12 +34,6 @@ class CountingController extends GetxController {
     Debug.printLog(numQue.toString());
     update([Constant.idCounting]);
   }
-  //
-  // @override
-  // void onClose() {
-  //   MyApp.flutterTts.stop();
-  //   super.onClose();
-  // }
 
   @override
   void onInit() {

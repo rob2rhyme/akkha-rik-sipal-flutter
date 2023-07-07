@@ -24,7 +24,6 @@ class SubCategoryController extends GetxController {
         catId = args[1];
       }
     }
-    update([Constant.idItem]);
   }
   Future<void> getDataFromDatabase() async {
     subcategoryList = await DataBaseHelper().getSubCategoryData();
