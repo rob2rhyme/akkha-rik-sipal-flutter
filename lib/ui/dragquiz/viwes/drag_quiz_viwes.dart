@@ -14,7 +14,7 @@ import 'package:kids_playroom/utils/utils.dart';
 class DragQuizScreen extends StatelessWidget {
   DragQuizScreen({super.key});
 
-  final DragQuizController dragQuizController = Get.find<DragQuizController>();
+  final DragQuizController dragQuizController = Get.put(DragQuizController());
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +100,7 @@ _quizWidget() {
                 Column(
                   children: [
                     _dragTarget(context, index: index),
+                    SizedBox(height: AppSizes.height_5_5,),
                     _nameText(index),
                     _draggableOptions(context, index: index)
                   ],

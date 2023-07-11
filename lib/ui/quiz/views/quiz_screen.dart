@@ -34,7 +34,7 @@ class QuizScreen extends StatelessWidget {
                               ? Image.asset(
                                   Constant.getAsset() +
                                       logic.trueItem!.image +
-                                      ".png",
+                                      ".webp",
                                   height: AppSizes.height_20,
                                 )
                               : const SizedBox()
@@ -194,7 +194,7 @@ items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
                       )
                     : Image.asset(Constant.getAsset() +
                         examQuestionAnswer.image +
-                        ".png"),
+                        ".webp"),
               )),
             );
           }));

@@ -200,7 +200,7 @@ dragTargets({int? pageIndex}) {
                           context: context,
                           builder: (context) {
                             return CompleteDialog(restartFunction: () {
-                              Navigator.of(context).pop();
+                              Get.back();
                                 logic.accept = false;
                                 logic.currentQue = 1;
                                 logic.update();

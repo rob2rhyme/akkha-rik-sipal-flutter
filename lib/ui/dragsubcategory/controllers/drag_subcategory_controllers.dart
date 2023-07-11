@@ -60,9 +60,25 @@ class DragSubcategoryControllers extends GetxController {
       ]);
 
     } else if (categoryList![index].categoryName == "Quantity") {
+      Get.toNamed(AppRoutes.quantity, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Alphabets") {
+      Get.toNamed(AppRoutes.alphabets, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Upper & Lower") {
+      Get.toNamed(AppRoutes.upper, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else if (categoryList![index].categoryName == "Spelling") {
+      Get.toNamed(AppRoutes.spelling, arguments: [
+        categoryList![index].categoryName,
+        categoryList![index].categoryId
+      ]);
     } else {
       MyApp.flutterTts.stop();
       Utils.textToSpeech(categoryList![index].categoryName!, MyApp.flutterTts);

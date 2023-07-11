@@ -80,7 +80,16 @@ class Utils {
       await flutterTts.stop();
     }}
 
-
+  static Map<String, Color> colorList = const {
+    "orange": Color(0XFFED4A0D),
+    "violet": Color(0XFF6E3DFA),
+    "red": Color(0XFFE30A0A),
+    "green": Color(0XFF24DA0F),
+    "cyan": Color(0XFF00CFDB),
+    "pink": Color(0XFFCC00C1),
+    "blue": Color(0XFF4253FF),
+    "yellow": Color(0XFFF6D913),
+  };
   static List<Color> colorPickerList = const [
     Color(0XFF00C2AF),
     Color(0XFF00B500),

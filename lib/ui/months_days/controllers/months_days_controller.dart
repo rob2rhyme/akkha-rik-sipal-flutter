@@ -16,7 +16,9 @@ class MonthsDaysController extends GetxController {
   int? totalQue = 15;
   int? currentQue = 1;
   bool? isDrag = false;
-
+  dynamic args = Get.arguments;
+  String? title;
+  int? subId;
   List<String> options = [];
   List<int> dragQue = [];
   Set<int> count = {};
@@ -80,9 +82,7 @@ class MonthsDaysController extends GetxController {
     super.onInit();
   }
 
-  dynamic args = Get.arguments;
-  String? title;
-  int? subId;
+
 
   getDataFromArgs() {
     if (args != null) {

@@ -27,16 +27,10 @@ class CountingController extends GetxController {
   String? title;
   int? subId;
 
-  getNumbers() {
-    List<int> numbers = List.generate(30, (index) => index + 1);
-    numbers.shuffle();
-    numQue = numbers.sample(20);
-    Debug.printLog(numQue.toString());
-    update([Constant.idCounting]);
-  }
+
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     getDataFromArgs();
     MyApp.flutterTts.stop();
     Utils.textToSpeech(title!, MyApp.flutterTts);
@@ -44,7 +38,13 @@ class CountingController extends GetxController {
     getOptions(0);
     super.onInit();
   }
-
+  getNumbers() {
+    List<int> numbers = List.generate(30, (index) => index + 1);
+    numbers.shuffle();
+    numQue = numbers.sample(20);
+    Debug.printLog(numQue.toString());
+    update([Constant.idCounting]);
+  }
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {

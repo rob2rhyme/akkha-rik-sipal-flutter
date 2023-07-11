@@ -99,7 +99,7 @@ class ItemScreen extends StatelessWidget {
                     offset: Offset(1.5, 1.5),
                     spreadRadius: 1)
               ]),
-          child: Image.asset(Constant.getAsset() + itemList.itemImage + ".png"),
+          child: Image.asset(Constant.getAsset() + itemList.itemImage + ".webp"),
         ),
       ),
     );

@@ -16,6 +16,10 @@ class AppRoutes {
   static const String missingNum = '/missingNum';
   static const String time = '/time';
   static const String month = '/month';
+  static const String quantity = '/quantity';
+  static const String alphabets = '/alphabets';
+  static const String upper = '/upper';
+  static const String spelling = '/spelling';
 
 
 }

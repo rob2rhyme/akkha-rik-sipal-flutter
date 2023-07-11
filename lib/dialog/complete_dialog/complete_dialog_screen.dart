@@ -12,7 +12,7 @@ class CompleteDialog extends StatefulWidget {
   const CompleteDialog(
       {Key? key,
       required this.restartFunction,
-      this.image = "assets/icons/ic_restart.webp"})
+      this.image = "assets/icons/ic_drag_restart.webp"})
       : super(key: key);
 
   @override

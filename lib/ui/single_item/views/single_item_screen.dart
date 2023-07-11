@@ -69,8 +69,8 @@ class SingleItemScreen extends StatelessWidget {
                               child: Image.asset(
                                 Constant.getAsset() +
                                     logic.itemDataList![logic.index].itemImage +
-                                    ".png",
-                                height: AppSizes.height_24,
+                                    ".webp",
+                                height: AppSizes.height_20,
                               ),
                             ),
                             InkWell(
@@ -95,3 +95,4 @@ class SingleItemScreen extends StatelessWidget {
     );
   }
 }
+

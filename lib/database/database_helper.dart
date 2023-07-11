@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:kids_playroom/database/tables/alphabets_table.dart';
 import 'package:kids_playroom/database/tables/drag_item_table.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
 import 'package:kids_playroom/database/tables/paint_table.dart';
@@ -10,6 +11,7 @@ import 'dart:io' as io;
 import 'package:sqflite/sqflite.dart';
 
 import 'tables/category_table.dart';
+import 'tables/spelling_table.dart';
 
 class DataBaseHelper {
   static final DataBaseHelper instance = DataBaseHelper.internal();
@@ -53,6 +55,10 @@ class DataBaseHelper {
   String dragItemTable = "DragItemsTable";
   String paintTable = "PaintTable";
   String quizTable = "QuizTable";
+  String alphabetsTable = "DragAlphabetsTable";
+  String spellingTable = "DragSpellingTable";
+
+
 
   Future<List<CategoryTable>> getCategoryData() async {
     List<CategoryTable> categoryList = [];
@@ -142,4 +148,33 @@ class DataBaseHelper {
 
     return itemList;
   }
+  Future<List<AlphabetsTable>> getAlphabetsData() async {
+    List<AlphabetsTable> alphabetsList = [];
+    var dbClient = await db;
+    List<Map<String, dynamic>> maps =
+    await dbClient.rawQuery("SELECT * FROM $alphabetsTable");
+    if (maps.isNotEmpty) {
+      for (var answer in maps) {
+        var alphabetsData = AlphabetsTable.fromJson(answer);
+        alphabetsList.add(alphabetsData);
+      }
+    }
+    return alphabetsList;
+  }
+
+
+  Future<List<SpellingTable>> getSpellingData() async {
+    List<SpellingTable> spellList = [];
+    var dbClient = await db;
+    List<Map<String, dynamic>> maps =
+    await dbClient.rawQuery("SELECT * FROM $spellingTable");
+    if (maps.isNotEmpty) {
+      for (var answer in maps) {
+        var spellData = SpellingTable.fromJson(answer);
+        spellList.add(spellData);
+      }
+    }
+    return spellList;
+  }
+
 }
