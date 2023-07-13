@@ -30,14 +30,16 @@ class SubCategoryScreen extends StatelessWidget {
               id: Constant.idSubCategory,
               builder: (logic) {
                 return GridView.builder(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(20
+                  ),
                   itemCount: logic.subcategoryList?.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: AppFontSize.size_8,
-                      mainAxisSpacing: AppFontSize.size_8),
+                      crossAxisSpacing: AppFontSize.size_12,
+                      mainAxisSpacing: AppFontSize.size_16),
                   itemBuilder: (BuildContext context, int index) {
-                    return subcategory(
+                    return
+                      subcategory(
                         logic.subcategoryList![index], logic.catId);
                   },
                 );

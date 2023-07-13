@@ -62,34 +62,39 @@ topBar() {
 
 _alphabetsScreen() {
   return GetBuilder<AlphabetsController>(builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: AppFontSize.size_2),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: logic.pageController,
-                scrollDirection: Axis.horizontal,
-                itemCount: logic.alphabetsList!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _itemAlphabet(context, index);
-                },
-              ),
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: AppFontSize.size_2),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/bg_background.webp"),
+                  fit: BoxFit.fill),
             ),
-            _colorPencils()
-          ],
+            child: Column(
+              children: [
+                Expanded(
+                  child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: logic.pageController,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: logic.alphabetsList!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return _itemAlphabet(context, index);
+                    },
+                  ),
+                ),
+                _colorPencils()
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   });
 }
@@ -208,7 +213,8 @@ _alphabetObject(BuildContext context, int index) {
                 color: AppColor.theme,
                 fontSize: 22,
               ),
-            )
+            ),
+            SizedBox(height: 20,)
           ],
         ),
       ),

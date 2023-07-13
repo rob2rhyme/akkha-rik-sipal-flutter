@@ -65,27 +65,32 @@ topBar() {
 
 spellingScreen() {
   return GetBuilder<SpellingController>(builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: AppFontSize.size_2),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: AppFontSize.size_2),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/bg_background.webp"),
+                  fit: BoxFit.fill),
+            ),
+            child: PageView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: logic.pageController,
+              scrollDirection: Axis.horizontal,
+              itemCount: logic.spellingList!.length,
+              itemBuilder: (BuildContext context, int pageIndex) {
+                return _itemSpelling(context, pageIndex);
+              },
+            ),
+          ),
         ),
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: logic.pageController,
-          scrollDirection: Axis.horizontal,
-          itemCount: logic.spellingList!.length,
-          itemBuilder: (BuildContext context, int pageIndex) {
-            return _itemSpelling(context, pageIndex);
-          },
-        ),
-      ),
+      ],
     );
   });
 }

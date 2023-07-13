@@ -62,50 +62,55 @@ topBar() {
 
 _upperLowerScreen() {
   return GetBuilder<UpperLowerController>(builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: AppFontSize.size_2
-        ),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
-        ),
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: logic.pageController,
-          scrollDirection: Axis.horizontal,
-          itemCount: logic.totalQue,
-          itemBuilder: (BuildContext context, int pageIndex) {
-            return Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Column(
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: AppFontSize.size_2
+            ),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/bg_background.webp"),
+                  fit: BoxFit.fill),
+            ),
+            child: PageView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: logic.pageController,
+              scrollDirection: Axis.horizontal,
+              itemCount: logic.totalQue,
+              itemBuilder: (BuildContext context, int pageIndex) {
+                return Stack(
+                  alignment: Alignment.topCenter,
                   children: [
-                    _dragTargets(pageIndex: pageIndex),
-                    _dragabbles(pageIndex: pageIndex)
+                    Column(
+                      children: [
+                        _dragTargets(pageIndex: pageIndex),
+                        _dragabbles(pageIndex: pageIndex)
+                      ],
+                    ),
+                    Visibility(
+                      visible: logic.accept!,
+                      child: Container(
+                        //color: Colur.txtGrey,
+                          padding: EdgeInsets.only(
+                              bottom: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.48),
+                          child: Image.asset(
+                              Constant.getAssetDragAnimation()+"animation/animation_success.gif")),
+                    )
                   ],
-                ),
-                Visibility(
-                  visible: logic.accept!,
-                  child: Container(
-                    //color: Colur.txtGrey,
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.48),
-                      child: Image.asset(
-                          Constant.getAssetDragAnimation()+"animation/animation_success.gif")),
-                )
-              ],
-            );
-          },
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   });
 }

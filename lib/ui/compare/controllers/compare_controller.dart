@@ -79,7 +79,7 @@ class CompareController extends GetxController {
   }
   nextPage(BuildContext context,{int? index}) {
     Debug.printLog("index : $index --- que: ${totalQue! - 1}");
-    return Future.delayed(const Duration(milliseconds: 5000), () {
+    return Future.delayed(const Duration(milliseconds: 3000), () {
       if (index != totalQue! - 1) {
         pageController!.jumpToPage(index! + 1);
         getOptions();

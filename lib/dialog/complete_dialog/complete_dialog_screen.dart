@@ -94,7 +94,7 @@ class CompleteDialogState extends State<CompleteDialog> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.offAllNamed(AppRoutes.dragSubcategory);
+                       Get.close(2);
                         // _showInterstitialAd();
                       },
                       child: Image.asset(

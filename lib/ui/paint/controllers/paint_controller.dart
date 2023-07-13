@@ -31,13 +31,26 @@ class PaintController extends GetxController {
   FlutterTts flutterTts = FlutterTts();
   // late BannerAd _bottomBannerAd;
   bool _isBottomBannerAdLoaded = false;
+  dynamic args = Get.arguments;
+  String? title;
+  int? subId;
 
   @override
   void onInit() {
+    getDataFromArgs();
     getDataFromDatabase();
     super.onInit();
   }
-
+  getDataFromArgs() {
+    if (args != null) {
+      if (args[0] != null) {
+        title = args[0];
+      }
+      if (args[1] != null) {
+        subId = args[1];
+      }
+    }
+  }
   getDataFromDatabase() async {
     itemList = await DataBaseHelper().getPaintData();
   }

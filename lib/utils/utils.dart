@@ -31,20 +31,7 @@ class Utils {
   }
 
 
-  static backWidget({Color? iconColor}) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: AppSizes.width_3,
-        right: AppSizes.width_3,
-      ),
-      child: Image.asset(
-        Constant.getAssetIcons() + "ic_back.webp",
-        color: iconColor,
-        height: AppSizes.height_3,
-        width: AppSizes.height_3,
-      ),
-    );
-  }
+
 
   static decimalNumberFormat(int number) {
     return intl.NumberFormat.decimalPattern().format(number);

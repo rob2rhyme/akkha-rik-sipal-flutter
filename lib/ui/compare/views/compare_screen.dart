@@ -220,7 +220,7 @@ _option2(BuildContext context, {int? index}) {
 
 _rightAnsAnim() {
   return SizedBox(
-    height:AppSizes.height_18,
+    height:AppSizes.height_30,
     child: Image.asset(
       Constant.getAssetDragAnimation()+"animation_right.gif",
       fit: BoxFit.fill,

@@ -95,10 +95,12 @@ _quizWidget() {
           itemCount: logic.itemList.length,
           itemBuilder: (BuildContext context, int index) {
             return Stack(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.center,
               children: [
                 Column(
-                  children: [
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children
+                      : [
                     _dragTarget(context, index: index),
                     SizedBox(height: AppSizes.height_5_5,),
                     _nameText(index),
@@ -121,10 +123,7 @@ _animation(BuildContext context) {
       visible: logic.accept!,
       child: Container(
           padding: EdgeInsets.only(
-              bottom: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.48),
+              bottom: AppSizes.height_1),
           child: Image.asset(
               Constant.getAssetDragAnimation() + "animation_success.gif")),
     );

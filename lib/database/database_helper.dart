@@ -57,6 +57,9 @@ class DataBaseHelper {
   String quizTable = "QuizTable";
   String alphabetsTable = "DragAlphabetsTable";
   String spellingTable = "DragSpellingTable";
+  String subCategoryName = "sub_category_name";
+  String dragSubCategoryName = "category_name";
+
 
 
 
@@ -79,7 +82,7 @@ class DataBaseHelper {
     List<SubCategoryTable> subcategoryList = [];
     var dbClient = await db;
     List<Map<String, dynamic>> maps =
-    await dbClient.rawQuery("SELECT * FROM $subcategoryTable");
+    await dbClient.rawQuery("SELECT * FROM $subcategoryTable ORDER BY $subCategoryName ASC");
     if (maps.isNotEmpty) {
       for (var answer in maps) {
         var categoryData = SubCategoryTable.fromJson(answer);
@@ -122,6 +125,7 @@ class DataBaseHelper {
     List<CategoryTable> dragCategoryList = [];
     var dbClient = await db;
     List<Map<String, dynamic>> maps =
+    // await dbClient.rawQuery("SELECT * FROM $dragCategoryTable ORDER BY $dragSubCategoryName ASC ");
     await dbClient.rawQuery("SELECT * FROM $dragCategoryTable");
     if (maps.isNotEmpty) {
       for (var answer in maps) {

@@ -24,7 +24,7 @@ class CountingController extends GetxController {
 
   List<int> numQue = [];
   dynamic args = Get.arguments;
-  String? title;
+  String title ="";
   int? subId;
 
 
@@ -33,11 +33,12 @@ class CountingController extends GetxController {
   Future<void> onInit() async {
     getDataFromArgs();
     MyApp.flutterTts.stop();
-    Utils.textToSpeech(title!, MyApp.flutterTts);
+    Utils.textToSpeech(title, MyApp.flutterTts);
     getNumbers();
     getOptions(0);
     super.onInit();
   }
+
   getNumbers() {
     List<int> numbers = List.generate(30, (index) => index + 1);
     numbers.shuffle();

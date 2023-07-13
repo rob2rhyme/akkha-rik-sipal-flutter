@@ -99,6 +99,7 @@ class Constant {
   static var idNumbers='idNumbers';
   static var idCounting='idCounting';
   static var idAdd='idAdd';
+  static var idChangeLanguage='idChangeLanguage';
 
 
 }

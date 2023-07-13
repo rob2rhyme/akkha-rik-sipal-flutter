@@ -54,23 +54,24 @@ class _HomeScreenState extends State<HomeScreen> {
         bottom: AppSizes.height_1,
       ),
       child: Center(
-        child: Row(
+        child: Stack(
           children: [
-            Expanded(
-              child: Center(
-                child: Text(
-                  "txtAppName".tr,
-                  style: TextStyle(
-                      color: AppColor.colorGreen,
-                      fontSize: AppFontSize.size_16,
-                      fontWeight: FontWeight.bold),
-                ),
+            Center(
+              child: Text(
+                "txtAppName".tr,
+                style: TextStyle(
+                    color: AppColor.colorGreen,
+                    fontSize: AppFontSize.size_16,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            GestureDetector(
-              onTap: () => Get.toNamed(AppRoutes.settings),
-              child: Image.asset(Constant.getAssetIcons() + "ic_setting.png",
-                  height: AppSizes.height_5),
+            Align(
+              alignment: Alignment.centerRight,
+              child: GestureDetector(
+                onTap: () => Get.toNamed(AppRoutes.settings),
+                child: Image.asset(Constant.getAssetIcons() + "ic_setting.png",
+                    height: AppSizes.height_5),
+              ),
             ),
           ],
         ),
@@ -95,17 +96,34 @@ class _HomeScreenState extends State<HomeScreen> {
                         categoryList.categoryId
                       ])
                     : categoryList.categoryId == 4
-                        ? Get.toNamed(AppRoutes.paint)
+                        ? Get.toNamed(AppRoutes.paint, arguments: [
+                            categoryList.categoryName,
+                            categoryList.categoryId
+                          ])
                         : categoryList.categoryId == 5
-                            ? Get.toNamed(AppRoutes.dragSubcategory)
+                            ? Get.toNamed(AppRoutes.dragSubcategory,
+                                arguments: [
+                                    categoryList.categoryName,
+                                    categoryList.categoryId
+                                  ])
                             : Get.back();
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 18.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Image.asset(Constant.getAsset() + categoryList.categoryImage),
-        ),
+        child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: const [
+                  BoxShadow(
+                      color: AppColor.colorGray,
+                      blurRadius: 5,
+                      offset: Offset(0.5, 1.5),
+                      spreadRadius: 0.5)
+                ]),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                    Constant.getAsset() + categoryList.categoryImage))),
       ),
     );
   }

@@ -16,7 +16,7 @@ class DragSubcategoryScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         flexibleSpace: topBar(),
-      ),      backgroundColor: AppColor.bg,
+      ), backgroundColor: AppColor.bg,
       body: SafeArea(
         top: false,
         bottom: Platform.isAndroid ? true : false,
@@ -50,41 +50,46 @@ class DragSubcategoryScreen extends StatelessWidget {
     );
   }
 }
+
 topBar() {
-  return Container(
-    width: AppSizes.fullWidth,
-    color: AppColor.colorTheme,
-    padding: EdgeInsets.only(
-      left: AppSizes.width_3,
-      top: AppSizes.height_5_5,
-      bottom: AppSizes.height_1,
-    ),
-    child: Stack(
-      children: [
-        GestureDetector(
-          onTap: () => Get.back(),
-          child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-              height: AppSizes.height_5),
-        ),
-        Center(
-          child: Text(
-            "Drag and Drop",
-            style: TextStyle(
-                color: AppColor.colorGreen,
-                fontSize: AppFontSize.size_16,
-                fontWeight: FontWeight.bold),
+  return GetBuilder<DragSubcategoryControllers>(builder: (logic) {
+    return Container(
+      width: AppSizes.fullWidth,
+      color: AppColor.colorTheme,
+      padding: EdgeInsets.only(
+        left: AppSizes.width_3,
+        top: AppSizes.height_5_5,
+        bottom: AppSizes.height_1,
+      ),
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: () => Get.back(),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                height: AppSizes.height_5),
           ),
-        ),
-      ],
-    ),
-  );
+          Center(
+            child: Text(
+              logic.title.toString().tr,
+              style: TextStyle(
+                  color: AppColor.colorGreen,
+                  fontSize: AppFontSize.size_16,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
+      ),
+    );
+  });
 }
+
 _categoryWidget() {
   return GetBuilder<DragSubcategoryControllers>(builder: (logic) {
+    print(logic.categoryList?.length);
     return Expanded(
       child: GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          itemCount: logic.categoryList!.length,
+          itemCount: logic.categoryList?.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
@@ -127,7 +132,8 @@ _categoryItem(BuildContext context, int index) {
                 child: Container(
                     padding: const EdgeInsets.all(10),
                     child: Image.asset(
-                        Constant.getAssetDrag()+"${logic.categoryList![index].categoryImage}.webp"))),
+                        Constant.getAssetDrag() + "${logic.categoryList?[index]
+                            .categoryImage}.webp"))),
             Container(
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery

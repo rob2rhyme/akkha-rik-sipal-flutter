@@ -12,13 +12,26 @@ class DragSubcategoryControllers extends GetxController {
     categoryList = await DataBaseHelper().getDragCategoryData();
     update();
   }
-
+  dynamic args = Get.arguments;
+  String? title;
+  int? subId;
   @override
   void onInit() {
+    getDataFromArgs();
     getDataFromDatabase();
     super.onInit();
   }
 
+  getDataFromArgs() {
+    if (args != null) {
+      if (args[0] != null) {
+        title = args[0];
+      }
+      if (args[1] != null) {
+        subId = args[1];
+      }
+    }
+  }
   Future<void> moveToNextScreen(int index) async {
     if (categoryList![index].categoryName == "Numbers") {
       Get.toNamed(AppRoutes.numbers, arguments: [

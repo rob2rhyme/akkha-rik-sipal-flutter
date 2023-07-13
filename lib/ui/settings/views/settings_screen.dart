@@ -1,7 +1,8 @@
-import 'dart:math';
+ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/ui/settings/controller/settings_controller.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -50,6 +51,15 @@ class SettingScreen extends StatelessWidget {
               ),
             ),
             Divider(
+              color: AppColor.colorGray50,
+              thickness: AppSizes.height_2,
+              height: AppSizes.height_2,
+            ),
+            settingItem(onTap: () {
+              Get.toNamed(AppRoutes.language);
+            },
+              text: "txtLanguageOption".tr,
+            ),Divider(
               color: AppColor.colorGray50,
               thickness: AppSizes.height_2,
               height: AppSizes.height_2,

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 final Map<String, String> enUS = {
   /// TODO:-->> App Strings
-  'txtAppName': "Kid's Playroom",
+  'txtAppName': "Kids Play",
   'txtApple': "Apple",
   'txtBall': "Ball",
   'txtCat': "Cat",
@@ -76,7 +76,7 @@ final Map<String, String> enUS = {
   'txtTrapezoid': "Trapezoid",
   'txtBear': "Bear",
   'txtBison': "Bison",
-  'txtBlack': "Black",
+  // 'txtBlack': "Black",
   'txtCheetah': "Cheetah",
   'txtChimpanzee': "Chimpanzee",
   'txtChipmuck': "Chipmuck",
@@ -728,5 +728,16 @@ final Map<String, String> enUS = {
   'txtSpring': "Spring",
   'txtSummer': "Summer",
   'txtWinter': "Winter",
+  'txtMusic': "Music",
+  'txtKidsDrawing': "Kids Drawing",
+  'txtKidsPreSchoolGames': "Kids PreSchool Games",
+  'txtCancel': "Cancel",
+  'txtOK': "OK",
+  'txtAreYouSureYouWantToSave': "Are You Sure You Want To Save",
+  'txtNo': "No",
+  'txtYes': "Yes",
+  'txtAreYouSureYouWantToReset': "Are You Sure You Want To Reset",
+  'txtImageSaved': "Image Saved",
+  'txtLanguageOption': "LanguageOption",
 };
 
