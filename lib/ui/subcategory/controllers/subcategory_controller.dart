@@ -3,18 +3,24 @@ import 'package:kids_playroom/database/database_helper.dart';
 import 'package:kids_playroom/database/tables/sub_category_table.dart';
 import 'package:kids_playroom/utils/constant.dart';
 
-class SubCategoryController extends GetxController {
+class SubCategoryController extends GetxController  {
   List<SubCategoryTable>? subcategoryList = [];
   dynamic args = Get.arguments;
   String? title;
   int? catId;
 
+
+
   @override
   void onInit() {
+
     getDataFromArgs();
     getDataFromDatabase();
     super.onInit();
   }
+
+
+
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {
@@ -25,10 +31,10 @@ class SubCategoryController extends GetxController {
       }
     }
   }
+
   Future<void> getDataFromDatabase() async {
     subcategoryList = await DataBaseHelper().getSubCategoryData();
     print(":: ::: ::: $subcategoryList");
     update([Constant.idSubCategory]);
   }
-
 }

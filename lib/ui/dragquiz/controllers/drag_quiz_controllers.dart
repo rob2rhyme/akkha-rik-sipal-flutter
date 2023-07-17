@@ -1,18 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/category_table.dart';
 import 'package:kids_playroom/database/tables/drag_item_table.dart';
-import 'package:kids_playroom/database/tables/item_table.dart';
-import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/utils/debug.dart';
 import 'package:kids_playroom/utils/preference.dart';
-import 'package:kids_playroom/utils/utils.dart';
 
-class DragQuizController extends GetxController with SingleGetTickerProviderMixin  {
+class DragQuizController extends GetxController with GetSingleTickerProviderStateMixin  {
 
   dynamic args = Get.arguments;
   String? title;
@@ -28,7 +23,6 @@ class DragQuizController extends GetxController with SingleGetTickerProviderMixi
 
   String? currentItem;
 
-  FlutterTts flutterTts = FlutterTts();
   AnimationController? animationController;
   Animation<double>? animation;
   bool? showHint = false;
@@ -137,6 +131,11 @@ class DragQuizController extends GetxController with SingleGetTickerProviderMixi
       Debug.printLog(count.toString() + subId.toString());
       if (count) {
         showHint = count;
+      }}else if (subId == 17) {
+      var count = Preference.shared.getBool(Preference.hintMoney) ?? true;
+      Debug.printLog(count.toString() + subId.toString());
+      if (count) {
+        showHint = count;
       }
     }
     update();
@@ -155,6 +154,15 @@ class DragQuizController extends GetxController with SingleGetTickerProviderMixi
       Preference.shared.setBool(Preference.hintEducation, showHint!);
     } else if (subId == 6) {
       Preference.shared.setBool(Preference.hintVehicles, showHint!);
+    }else if (subId == 17) {
+      Preference.shared.setBool(Preference.hintMoney, showHint!);
     }
   }
+
+  @override
+  void onClose() {
+    animationController?.dispose();
+    super.onClose();
+  }
+
 }

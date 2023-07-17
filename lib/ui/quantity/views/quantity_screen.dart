@@ -64,79 +64,82 @@ topBar() {
 
 _quantityScreen() {
   return GetBuilder<QuantityController>(builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: AppSizes.height_2),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
-        ),
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: logic.pageController,
-          scrollDirection: Axis.horizontal,
-          itemCount: logic.totalQue,
-          itemBuilder: (BuildContext context, int pageIndex) {
-            return Stack(
-              alignment: Alignment.center,
-              children: [
-                Column(
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: AppSizes.height_2),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/bg_background.webp"),
+                  fit: BoxFit.fill),
+            ),
+            child: PageView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: logic.pageController,
+              scrollDirection: Axis.horizontal,
+              itemCount: logic.totalQue,
+              itemBuilder: (BuildContext context, int pageIndex) {
+                return Stack(
+                  alignment: Alignment.center,
                   children: [
-                    _countItems(pageIndex: pageIndex),
-                    Padding(
-                      padding: EdgeInsets.only(top: MediaQuery
-                          .of(context)
-                          .size
-                          .height * 0.05),
-                      child: Center(
-                        child: AnimatedOpacity(
-                          opacity: logic.accept! ? 1.0 : 0.0,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeInOut,
-                          child: AutoSizeText(
-                            NumberToWord().convert(logic.countAnswer!).toUpperCase(),
-                            style: const TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500,
-                                color: AppColor.theme),
-                          ),
-                        ),
-                      ),
-                    ),
-                    _countOptions(pageIndex: pageIndex)
-                  ],
-                ),
-                Visibility(
-                  visible: logic.accept!,
-                  child: Container(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery
+                    Column(
+                      children: [
+                        _countItems(pageIndex: pageIndex),
+                        Padding(
+                          padding: EdgeInsets.only(top: MediaQuery
                               .of(context)
                               .size
-                              .height * 0.2),
-                      child: Image.asset(
-                          Constant.getAssetDragAnimation()+"animation_success.gif")),
-                )
-              ],
-            );
-          },
+                              .height * 0.05),
+                          child: Center(
+                            child: AnimatedOpacity(
+                              opacity: logic.accept! ? 1.0 : 0.0,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                              child: AutoSizeText(
+                                NumberToWord().convert(logic.countAnswer!).toUpperCase(),
+                                style: const TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.theme),
+                              ),
+                            ),
+                          ),
+                        ),
+                        _countOptions(pageIndex: pageIndex)
+                      ],
+                    ),
+                    Visibility(
+                      visible: logic.accept!,
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              bottom: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.2),
+                          child: Image.asset(
+                              Constant.getAssetDragAnimation()+"animation_success.gif")),
+                    )
+                  ],
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   });
 }
 
 _countItems({int? pageIndex}) {
   return GetBuilder<QuantityController>(builder: (logic) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Image.asset(Constant.getAssetDragCounting()+"${logic.countAnswer}.webp"),
-      ),
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Image.asset(Constant.getAssetDragCounting()+"${logic.countAnswer}.webp"),
     );
   });
 }

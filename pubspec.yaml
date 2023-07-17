@@ -5,6 +5,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # --------->>>>  Flutter version 3.10.0  <<<<<----------------
 # --------->>>>  Dart version 3.0.0  <<<<<----------------
+# --------->>>> Code Structure :- GetX <<<<<----------------
+
 
 version: 1.0.0+1
 
@@ -32,6 +34,10 @@ dependencies:
   gallery_saver: ^2.3.2
   audioplayers: ^4.1.0
   collection:
+  google_mobile_ads: ^3.0.0
+
+
+
 
 
 dev_dependencies:
@@ -77,6 +83,11 @@ flutter:
     - assets/drag assets/vehicles/
     - assets/sounds/
 
+
+  fonts:
+    - family: Angella
+      fonts:
+        - asset: fonts/angella/Angella_demo.otf
   # fonts:
   #   - family: Schyler
   #     fonts:

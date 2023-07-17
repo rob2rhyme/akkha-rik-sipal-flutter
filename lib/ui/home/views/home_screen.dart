@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/database/tables/category_table.dart';
+import 'package:kids_playroom/google_ads/custom_ad.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -39,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }),
+          const BannerAdClass(),
         ],
       ),
     );
@@ -80,51 +82,71 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   categoryItem(CategoryTable categoryList) {
-    return InkWell(
-      onTap: () {
-        categoryList.categoryId == 1
-            ? Get.toNamed(AppRoutes.subcategory,
-                arguments: [categoryList.categoryName, categoryList.categoryId])
-            : categoryList.categoryId == 2
-                ? Get.toNamed(AppRoutes.subcategory, arguments: [
-                    categoryList.categoryName,
-                    categoryList.categoryId
-                  ])
-                : categoryList.categoryId == 3
-                    ? Get.toNamed(AppRoutes.subcategory, arguments: [
-                        categoryList.categoryName,
-                        categoryList.categoryId
-                      ])
-                    : categoryList.categoryId == 4
-                        ? Get.toNamed(AppRoutes.paint, arguments: [
-                            categoryList.categoryName,
-                            categoryList.categoryId
-                          ])
-                        : categoryList.categoryId == 5
-                            ? Get.toNamed(AppRoutes.dragSubcategory,
-                                arguments: [
-                                    categoryList.categoryName,
-                                    categoryList.categoryId
-                                  ])
-                            : Get.back();
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 18.0),
-        child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: const [
-                  BoxShadow(
-                      color: AppColor.colorGray,
-                      blurRadius: 5,
-                      offset: Offset(0.5, 1.5),
-                      spreadRadius: 0.5)
-                ]),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                    Constant.getAsset() + categoryList.categoryImage))),
-      ),
-    );
+    return GetBuilder<HomeController>(
+        id: Constant.idHomePage,
+        builder: (logic) {
+          return InkWell(
+            onTap: () async {
+                final homeController = Get.find<HomeController>();
+                if (homeController.interstitialAd != null && homeController.isInterstitialAdLoaded) {
+                  homeController.interstitialAd!.show();
+                  if (categoryList.categoryId == 1 ||
+                      categoryList.categoryId == 2 ||
+                      categoryList.categoryId == 3) {
+                    Get.toNamed(AppRoutes.subcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  } else if (categoryList.categoryId == 4) {
+                    Get.toNamed(AppRoutes.paint, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  } else if (categoryList.categoryId == 5) {
+                    Get.toNamed(AppRoutes.dragSubcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  }
+                }else {
+                  if (categoryList.categoryId == 1 ||
+                      categoryList.categoryId == 2 ||
+                      categoryList.categoryId == 3) {
+                    Get.toNamed(AppRoutes.subcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  } else if (categoryList.categoryId == 4) {
+                    Get.toNamed(AppRoutes.paint, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  } else if (categoryList.categoryId == 5) {
+                    Get.toNamed(AppRoutes.dragSubcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  }                }
+
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 18.0),
+              child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: AppColor.colorGray,
+                            blurRadius: 5,
+                            offset: Offset(0.5, 1.5),
+                            spreadRadius: 0.5)
+                      ]),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                          Constant.getAsset() + categoryList.categoryImage))),
+            ),
+          );
+        });
   }
 }

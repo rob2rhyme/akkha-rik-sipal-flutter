@@ -16,6 +16,7 @@ class AppColor {
   static const green = Color(0XFFa6dd96);
   static const themeDark = Color(0XFFE37A00);
   static const bg = Color(0XFFDCEDF7);
+  static const first = Color(0XFF00C2AF);
 
   static const grey = Color(0xffE5E5E5);
   static const greyBorder = Color(0xff797979);

@@ -32,36 +32,45 @@ class SingleItemScreen extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () => Get.back(),
-                        child: Image.asset(
+                        child:
+
+                        Image.asset(
                           Constant.getAssetIcons() + "btn_back_150.png",
                           height: AppSizes.height_5,
                         ),
                       ),
-                      Center(
-                          child: Dance(
-                        animate: logic.showAnimation,
-                        controller: (controller) =>
-                            logic.animateController = controller,
-                        child: Text(
-                          logic.itemDataList![logic.index].itemName
-                              .toString()
-                              .tr,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      )),
                       Expanded(
-                        flex: 4,
+                        flex:1,
+                        child: Center(
+                            child: Dance(
+                          animate: logic.showAnimation,
+                          controller: (controller) =>
+                              logic.animateController = controller,
+                          child: Text(
+                            logic.itemDataList![logic.index].itemName
+                                .toString()
+                                .tr,
+                            style:  TextStyle(
+                              fontSize: AppFontSize.size_35,
+                              fontFamily: "Angella"
+                            ),
+                          ),
+                        )),
+                      ),
+                      Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            InkWell(
-                              onTap: () => logic.previousItem(),
-                              child: Image.asset(
-                                Constant.getAssetIcons() + "btn_prev_150.png",
-                                height: AppSizes.height_6_5,
+                            Visibility(
+                              visible: logic.index != 0,
+                              child: InkWell(
+                                onTap: () => logic.previousItem(),
+                                child:
+                                Image.asset(
+                                  Constant.getAssetIcons() + "btn_prev_150.png",
+                                  height: AppSizes.height_6_5,
+
+                                ),
                               ),
                             ),
                             Dance(
@@ -73,11 +82,14 @@ class SingleItemScreen extends StatelessWidget {
                                 height: AppSizes.height_20,
                               ),
                             ),
-                            InkWell(
-                              onTap: () => logic.nextItem(),
-                              child: Image.asset(
-                                Constant.getAssetIcons() + "btn_next_150.png",
-                                height: AppSizes.height_6_5,
+                            Visibility(
+                              visible: logic.index != logic.itemDataList!.length - 1 ,
+                              child: InkWell(
+                                onTap: () => logic.nextItem(),
+                                child: Image.asset(
+                                  Constant.getAssetIcons() + "btn_next_150.png",
+                                  height: AppSizes.height_6_5,
+                                ),
                               ),
                             ),
                           ],

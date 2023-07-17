@@ -56,9 +56,23 @@ class SettingScreen extends StatelessWidget {
               height: AppSizes.height_2,
             ),
             settingItem(onTap: () {
-              Get.toNamed(AppRoutes.language);
+              Get.toNamed(AppRoutes.language)?.then((value) {
+                settingsController.getLanguageData();
+              });
             },
               text: "txtLanguageOption".tr,
+              trailing: GetBuilder<SettingsController>(
+                id: Constant.idChangeLanguage,
+                builder: (logic) {
+                  return Text(
+                    logic.languagesChosenValue!.symbol,
+                    style: TextStyle(
+                        color: AppColor.colorGray,
+                        fontSize: AppFontSize.size_20,
+                        fontWeight: FontWeight.bold),
+                  );
+                },
+              ),
             ),Divider(
               color: AppColor.colorGray50,
               thickness: AppSizes.height_2,

@@ -6,10 +6,11 @@ import 'package:kids_playroom/ui/subcategory/controllers/subcategory_controller.
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
+import 'package:kids_playroom/google_ads/custom_ad.dart';
 
 class SubCategoryScreen extends StatelessWidget {
   final SubCategoryController _subCategoryController =
-  Get.find<SubCategoryController>();
+      Get.find<SubCategoryController>();
 
   SubCategoryScreen({super.key});
 
@@ -29,19 +30,24 @@ class SubCategoryScreen extends StatelessWidget {
           GetBuilder<SubCategoryController>(
               id: Constant.idSubCategory,
               builder: (logic) {
-                return GridView.builder(
-                  padding: const EdgeInsets.all(20
-                  ),
-                  itemCount: logic.subcategoryList?.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: AppFontSize.size_12,
-                      mainAxisSpacing: AppFontSize.size_16),
-                  itemBuilder: (BuildContext context, int index) {
-                    return
-                      subcategory(
-                        logic.subcategoryList![index], logic.catId);
-                  },
+                return Column(
+                  children: [
+                    Expanded(
+                      child: GridView.builder(
+                        padding: const EdgeInsets.all(20),
+                        itemCount: logic.subcategoryList?.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: AppFontSize.size_12,
+                            mainAxisSpacing: AppFontSize.size_16),
+                        itemBuilder: (BuildContext context, int index) {
+                          return subcategory(logic.subcategoryList![index],
+                              logic.catId, logic);
+                        },
+                      ),
+                    ),
+                    const BannerAdClass()
+                  ],
                 );
               })
         ],
@@ -67,9 +73,7 @@ class SubCategoryScreen extends StatelessWidget {
           ),
           Center(
             child: Text(
-              _subCategoryController.title
-                  .toString()
-                  .tr,
+              _subCategoryController.title.toString().tr,
               style: TextStyle(
                   color: AppColor.colorGreen,
                   fontSize: AppFontSize.size_16,
@@ -81,30 +85,25 @@ class SubCategoryScreen extends StatelessWidget {
     );
   }
 
-  subcategory(SubCategoryTable subcategoryList,
-      int? catId,) {
+  subcategory(
+    SubCategoryTable subcategoryList,
+    int? catId,
+    logic,
+  ) {
     return InkWell(
       onTap: () {
-        catId == 1
-            ? Get.toNamed(AppRoutes.items, arguments: [
-          subcategoryList.subcategoryName,
-          subcategoryList.subcategoryId
-        ])
-            : catId == 2
-            ? Get.toNamed(AppRoutes.quiz,
-            arguments: [
-              subcategoryList.subcategoryName,
-              subcategoryList.subcategoryId,
-              catId
-
-            ]
-        )
-            : catId == 3
-            ? Get.toNamed(AppRoutes.quiz,
-            arguments: [subcategoryList.subcategoryName,
-            subcategoryList.subcategoryId,catId]
-        )
-            : Get.back();
+        if (catId == 1) {
+          Get.toNamed(AppRoutes.items, arguments: [
+            subcategoryList.subcategoryName,
+            subcategoryList.subcategoryId
+          ]);
+        } else if (catId == 2 || catId == 3) {
+          Get.toNamed(AppRoutes.quiz, arguments: [
+            subcategoryList.subcategoryName,
+            subcategoryList.subcategoryId,
+            catId
+          ]);
+        }
       },
       child: Image.asset(
           Constant.getAssetSubCategory() + subcategoryList.subcategoryImage),

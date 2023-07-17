@@ -2,9 +2,15 @@
 
 A new Flutter project.
 
-## Getting Started
+## Getting Started                      
 
 This project is a starting point for a Flutter application.
+ # Please Use this version
+
+# --------->>>>  Flutter version 3.10.0  <<<<<----------------
+# --------->>>>  Dart version 3.0.0  <<<<<----------------
+## --------->>>> Code Structure :- GetX <<<<<----------------
+
 
 A few resources to get you started if this is your first Flutter project:
 

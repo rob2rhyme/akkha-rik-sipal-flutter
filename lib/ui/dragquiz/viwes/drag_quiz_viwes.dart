@@ -286,8 +286,7 @@ _draggableOptions(BuildContext context, {int? index}) {
             children: [
               Visibility(
                 visible: logic.options[0] == logic.answer &&
-                    logic.showHint! &&
-                    logic.subId != 17,
+                    logic.showHint! ,
                 child: Transform.rotate(
                   angle: 3.14 / 7,
                   child: Transform.translate(
@@ -302,8 +301,7 @@ _draggableOptions(BuildContext context, {int? index}) {
               ),
               Visibility(
                 visible: logic.options[1] == logic.answer &&
-                    logic.showHint! &&
-                    logic.subId != 17,
+                    logic.showHint! ,
                 child: Transform.translate(
                   offset: Offset(0, logic.animation!.value),
                   child: Image.asset(
@@ -315,8 +313,7 @@ _draggableOptions(BuildContext context, {int? index}) {
               ),
               Visibility(
                 visible: logic.options[2] == logic.answer &&
-                    logic.showHint! &&
-                    logic.subId != 17,
+                    logic.showHint!,
                 child: Transform.rotate(
                   angle: -3.14 / 7,
                   child: Transform.translate(
@@ -375,7 +372,7 @@ _dragTarget(BuildContext context, {int? index}) {
                 .size
                 .height * 0.25,
             decoration: BoxDecoration(
-                color: AppColor.colorBlueLight,
+                color: AppColor.blackShadow,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(

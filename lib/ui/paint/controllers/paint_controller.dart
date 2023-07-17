@@ -14,13 +14,16 @@ import 'package:path_provider/path_provider.dart';
 class PaintController extends GetxController {
   List? itemList = [];
 
-  bool? isColorSelected = false;
-  bool? isEraserSelected = false;
-  bool? isRestartSelected = false;
-  bool? isSaveSelected = false;
-  bool? isImagesSelected = false;
+  bool isColorSelected = false;
+  bool isEraserSelected = false;
+  bool isRestartSelected = false;
+  bool isRestartShow = false;
+  bool isSaveSelected = false;
+  bool isImagesSelected = false;
+
   Color? prevColor;
-  Color? currentColor = AppColor.white;
+  Color? currentColor = AppColor.first;
+
 
   String currentImage = "item/1.webp";
   int? currentIndex = 0;

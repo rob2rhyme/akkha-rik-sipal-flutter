@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kids_playroom/google_ads/custom_ad.dart';
 import 'package:kids_playroom/ui/dragsubcategory/controllers/drag_subcategory_controllers.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -16,7 +17,8 @@ class DragSubcategoryScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         flexibleSpace: topBar(),
-      ), backgroundColor: AppColor.bg,
+      ),
+      backgroundColor: AppColor.bg,
       body: SafeArea(
         top: false,
         bottom: Platform.isAndroid ? true : false,
@@ -27,23 +29,7 @@ class DragSubcategoryScreen extends StatelessWidget {
                 fit: BoxFit.fill),
           ),
           child: Column(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    _categoryWidget()
-                  ],
-                ),
-              ),
-              //
-              // (_isBottomBannerAdLoaded)
-              //     ? SizedBox(
-              //   height: _bottomBannerAd.size.height.toDouble(),
-              //   width: _bottomBannerAd.size.width.toDouble(),
-              //   child: AdWidget(ad: _bottomBannerAd),
-              // )
-              //     : Container()
-            ],
+            children: [_categoryWidget(), const BannerAdClass()],
           ),
         ),
       ),
@@ -131,15 +117,11 @@ _categoryItem(BuildContext context, int index) {
             Expanded(
                 child: Container(
                     padding: const EdgeInsets.all(10),
-                    child: Image.asset(
-                        Constant.getAssetDrag() + "${logic.categoryList?[index]
-                            .categoryImage}.webp"))),
+                    child: Image.asset(Constant.getAssetDrag() +
+                        "${logic.categoryList?[index].categoryImage}.webp"))),
             Container(
               padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 0.012),
+                  vertical: MediaQuery.of(context).size.height * 0.012),
               width: double.infinity,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -160,10 +142,10 @@ _categoryItem(BuildContext context, int index) {
               ),
               child: Center(
                 child: Text(
-                  logic.categoryList![index].categoryName!,
+                  logic.categoryList![index].categoryName!.tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontSize: 16,
                     color: Constant.colorList[index],
                   ),
                 ),

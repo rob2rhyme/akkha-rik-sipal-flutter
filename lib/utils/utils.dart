@@ -44,7 +44,6 @@ class Utils {
 
   static Future textToSpeech(String speakText, FlutterTts flutterTts) async {
     bool value = Preference.shared.getBool(Preference.isSOUND) ?? true;
-    print("fsd$value");
     if (value) {
       if (Platform.isAndroid) {
         await flutterTts.awaitSpeakCompletion(true);
@@ -93,5 +92,7 @@ class Utils {
     Color(0XFFBC2B13),
     Color(0XFFFB6312),
   ];
-
+  static isPurchased() {
+    return Preference.shared.getBool(Preference.isPurchased) ?? Constant.boolValueFalse;
+  }
 }

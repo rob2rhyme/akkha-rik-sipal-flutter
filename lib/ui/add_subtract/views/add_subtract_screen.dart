@@ -68,141 +68,146 @@ addWidget() {
   return GetBuilder<AddSubtractController>(
     id: Constant.idAdd,
       builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
-        ),
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: logic.pageController,
-          scrollDirection: Axis.horizontal,
-          itemCount: logic.totalQuestions,
-          itemBuilder: (BuildContext context, int index) {
-            return Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Column(
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/background/bg_background.webp"),
+                  fit: BoxFit.fill),
+            ),
+            child: PageView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: logic.pageController,
+              scrollDirection: Axis.horizontal,
+              itemCount: logic.totalQuestions,
+              itemBuilder: (BuildContext context, int index) {
+                return Stack(
+                  alignment: Alignment.topCenter,
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.05),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            decoration: BoxDecoration(
-                                border:
-                                Border.all(color: AppColor.white, width: 3),
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                                color: AppColor.pinkSquare),
-                            child: Center(
-                              child: Text(
-                                logic.num1!.toString(),
-                                style: const TextStyle(
-                                    fontSize: 24, color: AppColor.white),
+                    Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                              top: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.05),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                height: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                decoration: BoxDecoration(
+                                    border:
+                                    Border.all(color: AppColor.white, width: 3),
+                                    borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                    color: AppColor.pinkSquare),
+                                child: Center(
+                                  child: Text(
+                                    logic.num1!.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 24, color: AppColor.white),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Image.asset(
-                            logic.subId == 14
-                                ? "assets/icons/ic_minus.webp"
-                                : "assets/icons/ic_add.webp",
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                          ),
-                          Container(
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            decoration: BoxDecoration(
-                                border:
-                                Border.all(color: AppColor.white, width: 3),
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                                color: AppColor.greenSquare),
-                            child: Center(
-                              child: Text(
-                                logic.num2!.toString(),
-                                style: const TextStyle(
-                                    fontSize: 24, color: AppColor.white),
+                              Image.asset(
+                                logic.subId == 14
+                                    ? "assets/icons/ic_minus.webp"
+                                    : "assets/icons/ic_add.webp",
+                                height: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
                               ),
-                            ),
+                              Container(
+                                height: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                decoration: BoxDecoration(
+                                    border:
+                                    Border.all(color: AppColor.white, width: 3),
+                                    borderRadius:
+                                    const BorderRadius.all(Radius.circular(10)),
+                                    color: AppColor.greenSquare),
+                                child: Center(
+                                  child: Text(
+                                    logic.num2!.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 24, color: AppColor.white),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.05),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset(
-                            "assets/icons/ic_equal.webp",
-                            height: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .height * 0.08,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                              top: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.05),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                "assets/icons/ic_equal.webp",
+                                height: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                                width: MediaQuery
+                                    .of(context)
+                                    .size
+                                    .height * 0.08,
+                              ),
+                              dragTarget(context,index: index)
+                            ],
                           ),
-                          dragTarget(context,index: index)
-                        ],
-                      ),
+                        ),
+                        draggableOptions(context, index: index)
+                      ],
                     ),
-                    draggableOptions(context, index: index)
+                    Visibility(
+                      visible: logic.accept!,
+                      child: Container(
+                        //color: AppColor.txtGrey,
+                          padding: EdgeInsets.only(
+                              bottom: MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.48),
+                          child: Image.asset(
+                              "assets/animation/animation_success.gif")),
+                    )
                   ],
-                ),
-                Visibility(
-                  visible: logic.accept!,
-                  child: Container(
-                    //color: AppColor.txtGrey,
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 0.48),
-                      child: Image.asset(
-                          "assets/animation/animation_success.gif")),
-                )
-              ],
-            );
-          },
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   });
 }

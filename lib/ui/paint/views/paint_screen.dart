@@ -123,6 +123,10 @@ _colorImageFloodFill() {
         imageProvider: AssetImage("assets/${logic.currentImage}"),
         fillColor: logic.currentColor!,
         avoidColor: const [Colors.transparent, Colors.black],
+        onFloodFillStart: (position, image) {
+          logic.isRestartShow =true;
+          logic.update();
+        },
         tolerance: 8,
         onFloodFillEnd: (value) async {
           final ByteData? byteData =
@@ -146,7 +150,7 @@ _colorPicker(BuildContext context) {
       id: Constant.idColorPicker,
       builder: (logic) {
         return Visibility(
-          visible: logic.isColorSelected!,
+          visible: logic.isColorSelected,
           child: Container(
             padding: const EdgeInsets.all(10),
             height: 100,
@@ -201,7 +205,7 @@ _imagePicker() {
       id: Constant.idImagePicker,
       builder: (logic) {
         return Visibility(
-          visible: logic.isImagesSelected!,
+          visible: logic.isImagesSelected,
           child: Container(
             padding: const EdgeInsets.all(10),
             height: 100,
@@ -252,11 +256,11 @@ _selectImageOption() {
     return InkWell(
       onTap: () => logic.selectImageOption(),
       child: Container(
-        margin: EdgeInsets.only(top: logic.isImagesSelected! ? 20 : 30),
-        height: logic.isImagesSelected! ? 90 : 80,
+        margin: EdgeInsets.only(top: logic.isImagesSelected ? 20 : 30),
+        height: logic.isImagesSelected ? 90 : 80,
         width: 55,
         decoration: BoxDecoration(
-            color: logic.isImagesSelected! ? AppColor.colorGreen : AppColor
+            color: logic.isImagesSelected ? AppColor.colorGreen : AppColor
                 .green,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(100), topRight: Radius.circular(100)),
@@ -283,11 +287,11 @@ _saveOption(BuildContext context) {
             _saveDialog(context);
           },
           child: Container(
-            margin: EdgeInsets.only(top: logic.isSaveSelected! ? 20 : 30),
-            height: logic.isSaveSelected! ? 90 : 80,
+            margin: EdgeInsets.only(top: logic.isSaveSelected ? 20 : 30),
+            height: logic.isSaveSelected ? 90 : 80,
             width: 55,
             decoration: BoxDecoration(
-                color: logic.isSaveSelected! ? AppColor.colorGreen : AppColor
+                color: logic.isSaveSelected ? AppColor.colorGreen : AppColor
                     .green,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(100),
@@ -308,26 +312,29 @@ _saveOption(BuildContext context) {
 
 _restartOption(BuildContext context) {
   return GetBuilder<PaintController>(builder: (logic) {
-    return InkWell(
-      onTap: () {
-        _restartDialog(context);
-      },
-      child: Container(
-        margin: EdgeInsets.only(top: logic.isRestartSelected! ? 20 : 30),
-        height: logic.isRestartSelected! ? 90 : 80,
-        width: 55,
-        decoration: BoxDecoration(
-            color: logic.isRestartSelected! ? AppColor.colorGreen : AppColor
-                .green,
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(100), topRight: Radius.circular(100)),
-            boxShadow: [
-              BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-            ]),
-        child: Image.asset(
-          "assets/icons/ic_restart.webp",
-          height: 20,
-          width: 20,
+    return Visibility(
+      visible: logic.isRestartShow,
+      child: InkWell(
+        onTap: () {
+          _restartDialog(context);
+        },
+        child: Container(
+          margin: EdgeInsets.only(top: logic.isRestartSelected ? 20 : 30),
+          height: logic.isRestartSelected ? 90 : 80,
+          width: 55,
+          decoration: BoxDecoration(
+              color: logic.isRestartSelected ? AppColor.colorGreen : AppColor
+                  .green,
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+              boxShadow: [
+                BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))
+              ]),
+          child: Image.asset(
+            "assets/icons/ic_restart.webp",
+            height: 20,
+            width: 20,
+          ),
         ),
       ),
     );
@@ -339,11 +346,11 @@ _eraserOption() {
     return InkWell(
       onTap: () => logic.eraserOption(),
       child: Container(
-        margin: EdgeInsets.only(top: logic.isEraserSelected! ? 20 : 30),
-        height: logic.isEraserSelected! ? 90 : 80,
+        margin: EdgeInsets.only(top: logic.isEraserSelected ? 20 : 30),
+        height: logic.isEraserSelected ? 90 : 80,
         width: 55,
         decoration: BoxDecoration(
-            color: logic.isEraserSelected! ? AppColor.colorGreen : AppColor
+            color: logic.isEraserSelected ? AppColor.colorGreen : AppColor
                 .green,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(100), topRight: Radius.circular(100)),
@@ -367,11 +374,11 @@ _colorOption() {
         return InkWell(
           onTap: () => logic.colorOption(),
           child: Container(
-            margin: EdgeInsets.only(top: logic.isColorSelected! ? 20 : 30),
-            height: logic.isColorSelected! ? 90 : 80,
+            margin: EdgeInsets.only(top: logic.isColorSelected ? 20 : 30),
+            height: logic.isColorSelected ? 90 : 80,
             width: 55,
             decoration: BoxDecoration(
-                color: logic.isColorSelected! ? AppColor.colorGreen : AppColor
+                color: logic.isColorSelected ? AppColor.colorGreen : AppColor
                     .green,
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(100),
@@ -457,14 +464,20 @@ _saveDialog(context) {
                       TextButton(
                         child: Text("txtNo".tr,
                             style: const TextStyle(color: AppColor.themeDark)),
-                        onPressed: () => logic.onSaveDialogNo,
+                        onPressed: () {
+                          logic.onSaveDialogNo;
+                          Get.back();
+                        },
                       ),
                       TextButton(
                         child: Text(
                           "txtYes".tr,
                           style: const TextStyle(color: AppColor.themeDark),
                         ),
-                        onPressed: () => logic.onSaveDialogYes(context),
+                        onPressed: () {
+                          logic.onSaveDialogYes(context);
+                          Get.back();
+                        },
                       )
                     ]),
               ],
@@ -499,7 +512,10 @@ _restartDialog(context) {
                           "txtYes".tr,
                           style: const TextStyle(color: AppColor.themeDark),
                         ),
-                        onPressed: () => logic.onRestartDialogYes(context),
+                        onPressed: () {
+                          logic.onRestartDialogYes(context);
+                          logic.isRestartShow=false;
+                        },
                       )
                     ]),
               ],

@@ -2,7 +2,7 @@ final Map<String, String> guIN = {
   'txtAppName': "બાળકનો રમત",
   'txtApple': "સફરજન",
   'txtBall': "દડો",
-  'txtCat': "ક catંગ",
+  'txtCat': "બિલાડી",
   'txtDog': "કૂતરો",
   'txtElephant': "હાથી",
   'txtFish': "માછલી",

@@ -16,8 +16,11 @@ class Preference {
   static const String hintShapes = "HINT_SHAPES";
   static const String hintEducation = "HINT_EDUCATION";
   static const String hintVehicles = "HINT_VEHICLES";
+  static const String hintMoney = "HintMoney";
   static const String trackStatus = "TRACK_STATUS";
   static const String interstitialCount = "INTERSTITIAL_COUNT";
+
+  static const String isPurchased = "IS_PURCHASED";
 
   static const String isFirstTimeOpenApp = "IS_FIRST_TIME_OPEN_APP";
 

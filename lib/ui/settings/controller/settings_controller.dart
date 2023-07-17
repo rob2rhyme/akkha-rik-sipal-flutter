@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kids_playroom/localization/localizations_delegate.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
@@ -14,9 +15,13 @@ class SettingsController extends GetxController {
 
   bool? isSound;
   bool? isMusic;
-
+  LanguageModel? languagesChosenValue;
+  List<LanguageModel>? languageList;
+  String? prefLanguageCode;
   @override
   void onInit() {
+    getLanguageData();
+
     getPreference();
     super.onInit();
   }
@@ -91,6 +96,14 @@ class SettingsController extends GetxController {
         }
       });
     }
+  }
+  getLanguageData() {
+    prefLanguageCode =
+        Preference.shared.getString(Preference.selectedLanguage) ?? 'en';
+    languagesChosenValue = languages
+        .where((element) => (element.languageCode == prefLanguageCode))
+        .toList()[0];
+    update([Constant.idChangeLanguage]);
   }
 
   getPreference() {
