@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/localization/localizations_delegate.dart';
+import 'package:kids_playroom/routes/app_routes.dart';
+import 'package:kids_playroom/ui/home/controllers/home_controller.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
@@ -26,6 +28,16 @@ class SettingsController extends GetxController {
     super.onInit();
   }
 
+  onTapRemoveAds() {
+    Get.toNamed(AppRoutes.proVersion)!.then(
+          (value) {
+        if (value != null) {
+          update([Constant.idIsPurchase]);
+          Get.toNamed(AppRoutes.home);
+        }
+      },
+    );
+  }
   initRateMyApp(BuildContext context) {
     rateMyApp = RateMyApp(
         preferencesPrefix: 'rateMyApp_',

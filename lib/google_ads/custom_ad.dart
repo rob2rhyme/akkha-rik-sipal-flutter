@@ -31,7 +31,7 @@ class _BannerAdClassState extends State<BannerAdClass> {
 
   @override
   Widget build(BuildContext context) {
-    return (Debug.googleAd && _bannerAd != null && _isBannerAdReady && !Utils.isPurchased())
+    return (Debug.googleAd && _bannerAd != null && _isBannerAdReady )
         ? Align(
             alignment: Alignment.bottomCenter,
             child: SizedBox(
@@ -44,7 +44,7 @@ class _BannerAdClassState extends State<BannerAdClass> {
   }
 
   _loadBanner() {
-    if (Debug.googleAd && !Utils.isPurchased()) {
+    if (Debug.googleAd ) {
       _bannerAd = BannerAd(
         adUnitId: AdHelper.bannerAdUnitId,
         size: AdSize.banner,

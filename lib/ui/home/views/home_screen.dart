@@ -87,9 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (logic) {
           return InkWell(
             onTap: () async {
-                final homeController = Get.find<HomeController>();
-                if (homeController.interstitialAd != null && homeController.isInterstitialAdLoaded) {
-                  homeController.interstitialAd!.show();
+                if (logic.interstitialAd != null && logic.isInterstitialAdLoaded && logic.interstitialCount.isEven) {
+                  logic.interstitialAd!.show();
                   if (categoryList.categoryId == 1 ||
                       categoryList.categoryId == 2 ||
                       categoryList.categoryId == 3) {

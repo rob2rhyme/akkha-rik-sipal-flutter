@@ -11,7 +11,7 @@ import 'package:kids_playroom/utils/preference.dart';
 class HomeController extends GetxController with WidgetsBindingObserver {
   List<CategoryTable>? categoryList = [];
   InterstitialAd? interstitialAd;
-  int? interstitialCount;
+  int interstitialCount = 0;
   bool isInterstitialAdLoaded = false;
 
 
@@ -47,9 +47,12 @@ class HomeController extends GetxController with WidgetsBindingObserver {
                 onAdDismissedFullScreenContent: (ad) {
                   ad.dispose();
                   _loadInterstitialAd();
+
                 },
                 onAdFailedToShowFullScreenContent: (ad, error) {
                   ad.dispose();
+                  Preference.shared
+                      .setInt(Preference.interstitialAdCount,interstitialCount  + 1);
                   _loadInterstitialAd();
                 },
           );

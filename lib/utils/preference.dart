@@ -20,7 +20,10 @@ class Preference {
   static const String trackStatus = "TRACK_STATUS";
   static const String interstitialCount = "INTERSTITIAL_COUNT";
 
-  static const String isPurchased = "IS_PURCHASED";
+
+  static const String isPurchasePremium = "IS_PURCHASE_PREMIUM";
+  static const String interstitialAdCount = "INTERSTITIAL_AD_COUNT";
+
 
   static const String isFirstTimeOpenApp = "IS_FIRST_TIME_OPEN_APP";
 
@@ -91,6 +94,15 @@ class Preference {
     return _pref!.write(key, value);
   }
 
+
+  /// In app purchase
+  Future<void> setIsPurchase(bool value) {
+    return _pref!.write(isPurchasePremium, value);
+  }
+
+  bool getIsPurchase() {
+    return _pref!.read(isPurchasePremium) ?? false;
+  }
 
   Future<void> remove(key, [multi = false]) async {
     GetStorage? pref = await instance();

@@ -26,6 +26,8 @@ import 'package:kids_playroom/ui/numbers/bindings/numbers_binding.dart';
 import 'package:kids_playroom/ui/numbers/views/numbers_screens.dart';
 import 'package:kids_playroom/ui/paint/bindings/paint_binding.dart';
 import 'package:kids_playroom/ui/paint/views/paint_screen.dart';
+import 'package:kids_playroom/ui/pro_version/bindings/pro_version_binding.dart';
+import 'package:kids_playroom/ui/pro_version/views/pro_version_screen.dart';
 import 'package:kids_playroom/ui/quantity/bindings/quantity_binding.dart';
 import 'package:kids_playroom/ui/quantity/controllers/quantity_controller.dart';
 import 'package:kids_playroom/ui/quantity/views/quantity_screen.dart';
@@ -140,6 +142,11 @@ class AppPages {
       name: AppRoutes.language,
       page: () => ChangeLanguageScreen(),
       binding: ChangeLanguageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.proVersion,
+      page: () => ProVersionScreen(),
+      binding: ProVersionBinding(),
     ),
   ];
 }

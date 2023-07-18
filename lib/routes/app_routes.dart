@@ -21,6 +21,7 @@ class AppRoutes {
   static const String upper = '/upper';
   static const String spelling = '/spelling';
   static const String language = '/language';
+  static const String proVersion = '/proVersion';
 
 
 }

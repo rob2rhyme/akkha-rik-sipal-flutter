@@ -24,9 +24,15 @@ class Constant {
   static String googlePlayIdentifier = "Add your googlePlayIdentifier here";
 
   static String appStoreIdentifier = "Add your appStoreIdentifier here";
+  /// Terms & condition URL
+  static const termsAndConditionURL = " Add your terms and conditions URL here";
 
 
 
+
+  /// In-App Purchase
+  static const String productIdiOS = "Add your Product ID here for iOS"; /// 'Your Plan ID (Product ID iOS)';
+  static const String productIdAndroid = "lifetime_pro_version"; /// 'Your Plan ID (Product ID Android)';
 
 
   static getAsset() => "assets/";
@@ -100,6 +106,9 @@ class Constant {
   static var idCounting='idCounting';
   static var idAdd='idAdd';
   static var idChangeLanguage='idChangeLanguage';
+  static var idProVersionProgress='idProVersionProgress';
+  static const idIsPurchase = "idIsPurchase";
+
 
 
 

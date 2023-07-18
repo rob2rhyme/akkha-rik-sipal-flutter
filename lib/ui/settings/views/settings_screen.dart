@@ -22,6 +22,7 @@ class SettingScreen extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            _proSection(),
             Divider(
               color: AppColor.colorGray50,
               thickness: AppSizes.height_2,
@@ -38,7 +39,7 @@ class SettingScreen extends StatelessWidget {
                 activeTrackColor: AppColor.colorGreen.withOpacity(0.2),
                 activeColor: AppColor.colorGreen,
               ),
-            ),settingItem(
+            ), settingItem(
               text: "txtMusic".tr,
               trailing: Switch(
                 value: logic.isMusic!,
@@ -73,7 +74,7 @@ class SettingScreen extends StatelessWidget {
                   );
                 },
               ),
-            ),Divider(
+            ), Divider(
               color: AppColor.colorGray50,
               thickness: AppSizes.height_2,
               height: AppSizes.height_2,
@@ -87,7 +88,7 @@ class SettingScreen extends StatelessWidget {
               height: 0,
             ),
             settingItem(
-              onTap:()=> logic.share(),
+              onTap: () => logic.share(),
               text: "txtShare".tr,
             ),
             Divider(
@@ -96,7 +97,7 @@ class SettingScreen extends StatelessWidget {
               height: 0,
             ),
             settingItem(
-              onTap: ()=>logic.sendFeedback(),
+              onTap: () => logic.sendFeedback(),
               text: "txtSendFeedback".tr,
             ),
             Divider(
@@ -105,7 +106,7 @@ class SettingScreen extends StatelessWidget {
               height: 0,
             ),
             settingItem(
-              onTap: () => launchUrl(Uri.parse(Constant.privacyPolicyURL)) ,
+              onTap: () => launchUrl(Uri.parse(Constant.privacyPolicyURL)),
               text: "txtPrivacyPolicy".tr,
             ),
           ],
@@ -113,8 +114,72 @@ class SettingScreen extends StatelessWidget {
       }),
     );
   }
-}
 
+  _proSection() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: InkWell(
+        onTap: () {
+          settingsController.onTapRemoveAds();
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.width_4, vertical: AppSizes.height_1_5),
+          decoration: const BoxDecoration(
+            color: AppColor.colorTheme,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          child: Row(
+            children: [
+              // Image.asset(
+              //   AppAsset.icPro,
+              //   height: AppSizes.height_8,
+              //   width: AppSizes.height_8,
+              //   color: AppColor.colorWhite,
+              // ),
+              SizedBox(width: AppSizes.width_5),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "txtProVersion".tr,
+                      style:TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.colorGreen.withOpacity(0.85),
+                        fontSize: AppFontSize.size_11
+                      )
+
+
+                    ),
+                    Text(
+                      "txtRemoveAds".tr,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.colorGreen,
+                          fontSize: AppFontSize.size_16
+                      )
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(AppSizes.height_0_4),
+                decoration: const BoxDecoration(
+                    color: AppColor.colorTheme, shape: BoxShape.circle),
+                child: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: AppColor.colorGreen,
+                  size: AppSizes.height_3_5,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 topBar() {
   return Container(
     width: AppSizes.fullWidth,

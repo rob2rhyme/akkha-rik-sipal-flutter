@@ -5,6 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'color.dart';
 import 'constant.dart';
 import 'preference.dart';
@@ -93,6 +94,22 @@ class Utils {
     Color(0XFFFB6312),
   ];
   static isPurchased() {
-    return Preference.shared.getBool(Preference.isPurchased) ?? Constant.boolValueFalse;
+    // return Preference.shared.getBool(Preference.isPurchased) ?? Constant.boolValueFalse;
+  }
+
+  static Future<void> urlLauncher(String value) async {
+    var url = Uri.parse(value);
+    if (await canLaunchUrl(url)) {
+      launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw "Cannot load the page";
+    }
+  }
+  static getProductId() {
+    if (Platform.isAndroid) {
+      return Constant.productIdAndroid;
+    } else {
+      return Constant.productIdiOS;
+    }
   }
 }

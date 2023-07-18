@@ -35,6 +35,12 @@ dependencies:
   audioplayers: ^4.1.0
   collection:
   google_mobile_ads: ^3.0.0
+  in_app_purchase: ^3.1.5
+  dio: ^5.1.2
+
+
+
+
 
 
 
