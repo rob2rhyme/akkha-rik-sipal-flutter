@@ -22,6 +22,9 @@ class AppRoutes {
   static const String spelling = '/spelling';
   static const String language = '/language';
   static const String proVersion = '/proVersion';
+  static const String videoSubcategory = '/videoSubcategory';
+  static const String videoList = '/videoList';
+  static const String videoPlayer = '/videoPlayer';
 
 
 }

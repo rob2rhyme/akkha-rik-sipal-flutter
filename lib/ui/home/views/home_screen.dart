@@ -87,8 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (logic) {
           return InkWell(
             onTap: () async {
-                if (logic.interstitialAd != null && logic.isInterstitialAdLoaded && logic.interstitialCount.isEven) {
-                  logic.interstitialAd!.show();
+                if (logic.interstitialAd != null && logic.isInterstitialAdLoaded ) {
+                  logic.showAd();
                   if (categoryList.categoryId == 1 ||
                       categoryList.categoryId == 2 ||
                       categoryList.categoryId == 3) {
@@ -103,6 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]);
                   } else if (categoryList.categoryId == 5) {
                     Get.toNamed(AppRoutes.dragSubcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  }else if (categoryList.categoryId == 6) {
+                    Get.toNamed(AppRoutes.videoSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
@@ -122,6 +127,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]);
                   } else if (categoryList.categoryId == 5) {
                     Get.toNamed(AppRoutes.dragSubcategory, arguments: [
+                      categoryList.categoryName,
+                      categoryList.categoryId,
+                    ]);
+                  }   else if (categoryList.categoryId == 6) {
+                    Get.toNamed(AppRoutes.videoSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);

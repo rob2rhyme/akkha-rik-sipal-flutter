@@ -7,18 +7,17 @@ import 'package:kids_playroom/google_ads/ad_helper.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/debug.dart';
 import 'package:kids_playroom/utils/preference.dart';
+import 'package:kids_playroom/utils/utils.dart';
 
 class HomeController extends GetxController with WidgetsBindingObserver {
   List<CategoryTable>? categoryList = [];
   InterstitialAd? interstitialAd;
-  int interstitialCount = 0;
   bool isInterstitialAdLoaded = false;
 
 
   @override
   void onInit() {
     _loadInterstitialAd();
-    _getPreference();
      getDataFromDatabase();
     super.onInit();
   }
@@ -51,8 +50,7 @@ class HomeController extends GetxController with WidgetsBindingObserver {
                 },
                 onAdFailedToShowFullScreenContent: (ad, error) {
                   ad.dispose();
-                  Preference.shared
-                      .setInt(Preference.interstitialAdCount,interstitialCount  + 1);
+
                   _loadInterstitialAd();
                 },
           );
@@ -60,7 +58,6 @@ class HomeController extends GetxController with WidgetsBindingObserver {
           interstitialAd = ad;
               isInterstitialAdLoaded = true;
 
-              interstitialCount = Preference.shared.getInt(Preference.interstitialCount) ?? 1;
           update([Constant.idHomePage]);
 
         },
@@ -69,6 +66,13 @@ class HomeController extends GetxController with WidgetsBindingObserver {
         },
       ),
     );
+  }
+  showAd() async{
+    if (interstitialAd != null && Preference.shared.getInterstitialAdCount()%Constant.interstitialCount == 0) {
+      Utils.showHideStatusBar();
+      await interstitialAd!.show();
+
+    }    Preference.shared.setInterstitialAdCount(Preference.shared.getInterstitialAdCount()+1);
   }
   @override
   void dispose() {
@@ -85,11 +89,5 @@ class HomeController extends GetxController with WidgetsBindingObserver {
   }
 
 
-
-  _getPreference() {
-    interstitialCount =
-        Preference.shared.getInt(Preference.interstitialCount) ?? 1;
-    Debug.printLog("count : $interstitialCount");
-  }
 
 }

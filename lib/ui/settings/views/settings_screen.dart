@@ -80,7 +80,7 @@ class SettingScreen extends StatelessWidget {
               height: AppSizes.height_2,
             ),
             settingItem(onTap: () => logic.rate(context),
-              text: "txtRete".tr,
+              text: "txtRate".tr,
             ),
             Divider(
               color: AppColor.colorGray50,

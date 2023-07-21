@@ -104,6 +104,14 @@ class Preference {
     return _pref!.read(isPurchasePremium) ?? false;
   }
 
+  /// google ad
+  int getInterstitialAdCount() {
+    return _pref!.read(interstitialAdCount) ?? 1;
+  }
+  Future<void> setInterstitialAdCount(int value) {
+    return _pref!.write(interstitialAdCount, value);
+  }
+
   Future<void> remove(key, [multi = false]) async {
     GetStorage? pref = await instance();
     if (multi) {

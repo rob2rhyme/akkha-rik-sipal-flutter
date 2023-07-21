@@ -7,6 +7,9 @@ class Constant {
 
   static const boolValueTrue = true;
   static const boolValueFalse = false;
+  /// Google Ads
+
+  static const interstitialCount = 5;
 
 
 

@@ -3,6 +3,7 @@
 import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -110,6 +111,15 @@ class Utils {
       return Constant.productIdAndroid;
     } else {
       return Constant.productIdiOS;
+    }
+  }
+  static showHideStatusBar({bool isHide = true}) {
+    if(!Platform.isIOS) {
+      if(isHide) {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+      } else {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+      }
     }
   }
 }

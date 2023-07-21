@@ -536,7 +536,7 @@ final Map<String, String> enUS = {
   'txtVehicle': "Vehicle",
   'txtSetting':"Setting",
   'txtSound': "Sound",
-  'txtRete': "Rete",
+  'txtRate': "Rate",
   'txtShare': "Share",
   'txtSendFeedback': "SendFeedback",
   'txtPrivacyPolicy': "PrivacyPolicy",

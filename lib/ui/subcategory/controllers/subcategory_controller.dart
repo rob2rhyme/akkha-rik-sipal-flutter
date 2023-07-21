@@ -13,7 +13,6 @@ class SubCategoryController extends GetxController  {
 
   @override
   void onInit() {
-
     getDataFromArgs();
     getDataFromDatabase();
     super.onInit();

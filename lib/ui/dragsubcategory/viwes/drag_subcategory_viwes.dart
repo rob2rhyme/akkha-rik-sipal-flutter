@@ -35,7 +35,7 @@ class DragSubcategoryScreen extends StatelessWidget {
       ),
     );
   }
-}
+         }
 
 topBar() {
   return GetBuilder<DragSubcategoryControllers>(builder: (logic) {
@@ -94,7 +94,6 @@ _categoryItem(BuildContext context, int index) {
     return InkWell(
       onTap: () {
         logic.moveToNextScreen(index);
-        // _showInterstitialAd(index);
       },
       child: Container(
         decoration: BoxDecoration(
