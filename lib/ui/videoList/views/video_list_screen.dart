@@ -8,6 +8,7 @@ import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
 import 'package:kids_playroom/google_ads/custom_ad.dart';
+import 'package:kids_playroom/utils/utils.dart';
 import 'package:photo_view/photo_view.dart';
 
 class VideoListScreen extends StatelessWidget {
@@ -36,10 +37,7 @@ class VideoListScreen extends StatelessWidget {
                     crossAxisSpacing: AppFontSize.size_12,
                     mainAxisSpacing: AppFontSize.size_8),
                 itemBuilder: (BuildContext context, int index) {
-                  return subcategory(
-                    logic.videoList![index],
-                    index
-                  );
+                  return subcategory(logic.videoList![index], index);
                 },
               ),
             ),
@@ -72,7 +70,8 @@ class VideoListScreen extends StatelessWidget {
               style: TextStyle(
                   color: AppColor.colorGreen,
                   fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "UrbanistBlack"),
             ),
           ),
         ],
@@ -80,15 +79,16 @@ class VideoListScreen extends StatelessWidget {
     );
   }
 
-  subcategory(VideoTable videoList,int index) {
+  subcategory(VideoTable videoList, int index) {
     var str = videoList.videoDescription;
     var parts = str?.split('#');
-    var id = parts?[0].trim()?? "";
-    var title = parts?.sublist(1).join(':').trim() ??"";
-    var videoThumb = "https://i3.ytimg.com/vi/$id/hqdefault.jpg" ;
+    var id = parts?[0].trim() ?? "";
+    var title = parts?.sublist(1).join(':').trim() ?? "";
+    var videoThumb = "https://i3.ytimg.com/vi/$id/hqdefault.jpg";
     return InkWell(
       onTap: () {
-        Get.toNamed(AppRoutes.videoPlayer,arguments: [index]);
+        Get.toNamed(AppRoutes.videoPlayer, arguments: [index])
+            ?.then((value) => Utils.audioPlayer.resume());
       },
       child: Container(
         decoration: BoxDecoration(
@@ -125,10 +125,7 @@ class VideoListScreen extends StatelessWidget {
                   title ?? "",
                   textAlign: TextAlign.center, // Center the text horizontally
                   style: const TextStyle(
-                    fontSize: 16,
-
-                    fontWeight: FontWeight.w500
-                  ),
+                      fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ),
             ],

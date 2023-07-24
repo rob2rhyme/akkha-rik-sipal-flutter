@@ -746,8 +746,11 @@ final Map<String, String> enUS = {
   'txtGetPremium': "Get Premium",
   'txtNoAdvertising': "No Advertising",
   'txtFullyAccessible': "Fully Accessible",
-  'txtsubscribetoproversion': "subscribe to proversion",
+  'txtsubscribetoproversion': "subscribe to pro version",
   'txtTerms&Conditions': "Terms & Conditions",
   'txtVideoLearning' :"Video Learning",
-};
+  'txtAccessAllFeatures': "Access All Features",
+  'txtMonth': "Month",
+  'txtYear': "Year",
 
+};

@@ -220,7 +220,7 @@ topBar() {
             style: TextStyle(
                 color: AppColor.colorGreen,
                 fontSize: AppFontSize.size_16,
-                fontWeight: FontWeight.bold),
+                fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
           ),
         ),
       ],

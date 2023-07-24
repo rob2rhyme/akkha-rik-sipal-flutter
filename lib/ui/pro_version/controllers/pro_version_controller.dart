@@ -6,13 +6,15 @@ import 'package:kids_playroom/in_app_purchase/iap_callback.dart';
 import 'package:kids_playroom/in_app_purchase/in_app_purchase_helper.dart';
 import 'package:kids_playroom/utils/preference.dart';
 
-
 import '../../../utils/constant.dart';
 import '../../../utils/utils.dart';
 
 class ProVersionController extends GetxController implements IAPCallback {
   Map<String, PurchaseDetails>? purchases;
   bool isShowProgress = false;
+  bool isSelected = Constant.boolValueTrue;
+
+  /// isSelected true for monthly and false for yearly
 
   @override
   void onInit() {
@@ -43,20 +45,38 @@ class ProVersionController extends GetxController implements IAPCallback {
       isShowProgress = false;
       update([Constant.idProVersionProgress]);
       if (!Preference.shared.getIsPurchase()) {
-        Utils.showToast(Get.context!, "toastNotPurchasedProductCannotRestore".tr);
+        Utils.showToast(
+            Get.context!, "toastNotPurchasedProductCannotRestore".tr);
       }
     });
+  }
+
+  onChangePlanSelection(value) {
+    isSelected = value;
+    update([Constant.idAccessAllFeaturesButtons]);
   }
 
   onPurchaseClick() {
     isShowProgress = true;
     update([Constant.idProVersionProgress]);
-    ProductDetails? product = InAppPurchaseHelper().getProductDetail(Utils.getProductId());
-    if (product != null) {
-      InAppPurchaseHelper().buySubscription(product, purchases!);
+    if (!isSelected) {
+      ProductDetails? product = InAppPurchaseHelper()
+          .getProductDetail(InAppPurchaseHelper.yearlySubscriptionId);
+      if (product != null) {
+        InAppPurchaseHelper().buySubscription(product, purchases!);
+      } else {
+        isShowProgress = false;
+        update([Constant.idProVersionProgress]);
+      }
     } else {
-      isShowProgress = false;
-      update([Constant.idProVersionProgress]);
+      ProductDetails? product = InAppPurchaseHelper()
+          .getProductDetail(InAppPurchaseHelper.monthlySubscriptionId);
+      if (product != null) {
+        InAppPurchaseHelper().buySubscription(product, purchases!);
+      } else {
+        isShowProgress = false;
+        update([Constant.idProVersionProgress]);
+      }
     }
   }
 

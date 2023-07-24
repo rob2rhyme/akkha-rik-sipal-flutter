@@ -4,6 +4,8 @@ class AppColor {
   static const transparent = Color(0x00FFFFFF);
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xff000000);
+  static const txtColor999 = Color(0xff999999);
+
 
   static const colorTheme = Color(0xffFFD217);
   // static const colorTheme = Color(0xffFDEDD7);

@@ -106,13 +106,7 @@ class Utils {
       throw "Cannot load the page";
     }
   }
-  static getProductId() {
-    if (Platform.isAndroid) {
-      return Constant.productIdAndroid;
-    } else {
-      return Constant.productIdiOS;
-    }
-  }
+
   static showHideStatusBar({bool isHide = true}) {
     if(!Platform.isIOS) {
       if(isHide) {

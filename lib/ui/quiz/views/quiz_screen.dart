@@ -29,7 +29,7 @@ class QuizScreen extends StatelessWidget {
                 id: Constant.idImage,
                 builder: (logic) {
                   return Center(
-                      child: logic.catId == 2
+                      child: logic.catId == 3
                           ? logic.trueItem != null
                               ? Image.asset(
                                   Constant.getAsset() +
@@ -38,7 +38,7 @@ class QuizScreen extends StatelessWidget {
                                   height: AppSizes.height_20,
                                 )
                               : const SizedBox()
-                          : logic.catId == 3
+                          : logic.catId == 4
                               ? Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -48,7 +48,7 @@ class QuizScreen extends StatelessWidget {
                                         Utils.textToSpeech(
                                           logic.trueItem?.itemNameTts
                                                   .toString()
-                                                  .tr ??
+                                                   ??
                                               "",
                                           MyApp.flutterTts,
                                         );
@@ -63,7 +63,7 @@ class QuizScreen extends StatelessWidget {
                                     Text(
                                         logic.trueItem?.itemName
                                                 .toString()
-                                                .tr ??
+                                                 ??
                                             "",
                                         style: TextStyle(
                                             fontSize: AppFontSize.size_15,
@@ -149,7 +149,7 @@ class QuizScreen extends StatelessWidget {
               style: TextStyle(
                   color: AppColor.colorGreen,
                   fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
             ),
           ),
         ],
@@ -182,9 +182,9 @@ items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
               child: Center(
                   child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: logic.catId == 2
+                child: logic.catId == 3
                     ? AutoSizeText(
-                        examQuestionAnswer.itemName.toString().tr,
+                        examQuestionAnswer.itemName.toString(),
                         maxLines: 1,
                         style: TextStyle(
                           color: AppColor.colorBlueGreen,

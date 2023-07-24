@@ -6,6 +6,8 @@ import 'package:kids_playroom/database/tables/vide_table.dart';
 import 'package:kids_playroom/ui/videoList/controller/video_list_controller.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../../../utils/utils.dart';
+
 class VideoPlayerController extends GetxController {
   dynamic args = Get.arguments;
 
@@ -47,6 +49,8 @@ class VideoPlayerController extends GetxController {
 
           ),
         );
+    Utils.audioPlayer.pause();
+
     super.onInit();
   }
   void listener() {

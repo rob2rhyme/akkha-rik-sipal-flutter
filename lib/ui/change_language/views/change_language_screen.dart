@@ -122,7 +122,8 @@ class ChangeLanguageScreen extends StatelessWidget {
                 style: TextStyle(
                     color: AppColor.colorGreen,
                     fontSize: AppFontSize.size_15,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
+
               ),
             ),
             Align(

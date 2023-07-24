@@ -77,7 +77,7 @@ class SubCategoryScreen extends StatelessWidget {
               style: TextStyle(
                   color: AppColor.colorGreen,
                   fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold),
+                  fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
             ),
           ),
         ],
@@ -97,7 +97,7 @@ class SubCategoryScreen extends StatelessWidget {
             subcategoryList.subcategoryName,
             subcategoryList.subcategoryId
           ]);
-        } else if (catId == 2 || catId == 3) {
+        } else if (catId == 3 || catId == 4) {
           Get.toNamed(AppRoutes.quiz, arguments: [
             subcategoryList.subcategoryName,
             subcategoryList.subcategoryId,

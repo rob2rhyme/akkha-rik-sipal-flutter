@@ -11,6 +11,7 @@ import 'package:in_app_purchase_android/src/billing_client_wrappers/billing_clie
 /// ignore: depend_on_referenced_packages
 import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'package:kids_playroom/in_app_purchase/iap_callback.dart';
+import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/utils.dart';
 
 import '../main.dart';
@@ -28,10 +29,12 @@ class InAppPurchaseHelper {
     return _inAppPurchaseHelper;
   }
 
-
+  static String monthlySubscriptionId = Constant.monthlySubscriptionId;
+  static String yearlySubscriptionId = Constant.yearlySubscriptionId;
 
   static final List<String> _kProductIds = <String>[
-    Utils.getProductId()
+    monthlySubscriptionId,
+    yearlySubscriptionId,
   ];
 
   final InAppPurchase _connection = InAppPurchase.instance;
