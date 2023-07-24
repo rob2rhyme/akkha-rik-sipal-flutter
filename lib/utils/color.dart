@@ -5,7 +5,7 @@ class AppColor {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xff000000);
 
-  static const colorTheme = Color(0xffFDEE5E);
+  static const colorTheme = Color(0xffFFD217);
   // static const colorTheme = Color(0xffFDEDD7);
   static const colorGreen = Color(0xff1A6336);
   static const colorRed = Color(0xffcb0101);
@@ -31,6 +31,7 @@ class AppColor {
   static const greySquare = Color(0XFFA1A1A1);
   static const violetSquare = Color(0XFF782AA6);
   static const redSquare = Color(0XFFF42533);
+  static const red = Color(0XFFf32135);
   static const blueSquare = Color(0XFF205CD5);
   static const lightBlueSquare = Color(0XFF25ACF5);
   static const orangeSquare = Color(0XFFFF8426);

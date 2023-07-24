@@ -1,5 +1,6 @@
- import 'dart:math';
+import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
@@ -19,105 +20,132 @@ class SettingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(flexibleSpace: topBar(), automaticallyImplyLeading: false),
       body: GetBuilder<SettingsController>(builder: (logic) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _proSection(),
-            Divider(
-              color: AppColor.colorGray50,
-              thickness: AppSizes.height_2,
-              height: AppSizes.height_2,
-            ),
-            settingItem(
-              text: "txtSound".tr,
-              trailing: Switch(
-                value: logic.isSound!,
-                onChanged: (value) {
-                  logic.sound(value);
-                  print(value);
-                },
-                activeTrackColor: AppColor.colorGreen.withOpacity(0.2),
-                activeColor: AppColor.colorGreen,
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _proSection(),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppSizes.height_1_5,
+                height: AppSizes.height_1_5,
               ),
-            ), settingItem(
-              text: "txtMusic".tr,
-              trailing: Switch(
-                value: logic.isMusic!,
-                onChanged: (value) {
-                  logic.music(value);
-                  print(value);
-                },
-                activeTrackColor: AppColor.colorGreen.withOpacity(0.2),
-                activeColor: AppColor.colorGreen,
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_sound.png",
+                text: "txtSound".tr,
+                trailing: Transform.scale(
+                  scale: 0.7,
+                  child: CupertinoSwitch(
+                    value: logic.isSound!,
+                    onChanged: (value) {
+                      logic.sound(value);
+                      print(value);
+                    },
+                    activeColor: AppColor.colorGreen,
+                  ),
+                ),
               ),
-            ),
-            Divider(
-              color: AppColor.colorGray50,
-              thickness: AppSizes.height_2,
-              height: AppSizes.height_2,
-            ),
-            settingItem(onTap: () {
-              Get.toNamed(AppRoutes.language)?.then((value) {
-                settingsController.getLanguageData();
-              });
-            },
-              text: "txtLanguageOption".tr,
-              trailing: GetBuilder<SettingsController>(
-                id: Constant.idChangeLanguage,
-                builder: (logic) {
-                  return Text(
-                    logic.languagesChosenValue!.symbol,
-                    style: TextStyle(
-                        color: AppColor.colorGray,
-                        fontSize: AppFontSize.size_20,
-                        fontWeight: FontWeight.bold),
-                  );
-                },
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppFontSize.size_1,
+                height: 0,
               ),
-            ), Divider(
-              color: AppColor.colorGray50,
-              thickness: AppSizes.height_2,
-              height: AppSizes.height_2,
-            ),
-            settingItem(onTap: () => logic.rate(context),
-              text: "txtRate".tr,
-            ),
-            Divider(
-              color: AppColor.colorGray50,
-              thickness: AppFontSize.size_1,
-              height: 0,
-            ),
-            settingItem(
-              onTap: () => logic.share(),
-              text: "txtShare".tr,
-            ),
-            Divider(
-              color: AppColor.colorGray50,
-              thickness: AppFontSize.size_1,
-              height: 0,
-            ),
-            settingItem(
-              onTap: () => logic.sendFeedback(),
-              text: "txtSendFeedback".tr,
-            ),
-            Divider(
-              color: AppColor.colorGray50,
-              thickness: AppFontSize.size_1,
-              height: 0,
-            ),
-            settingItem(
-              onTap: () => launchUrl(Uri.parse(Constant.privacyPolicyURL)),
-              text: "txtPrivacyPolicy".tr,
-            ),
-          ],
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_music.png",
+                text: "txtMusic".tr,
+                trailing: Transform.scale(
+                  scale: 0.7,
+                  child: CupertinoSwitch(
+                    value: logic.isMusic!,
+                    onChanged: (value) {
+                      logic.music(value);
+                      print(value);
+                    },
+                    activeColor: AppColor.colorGreen,
+                  ),
+                ),
+              ),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppSizes.height_1_5,
+                height: AppSizes.height_1_5,
+              ),
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_language.png",
+                onTap: () {
+                  Get.toNamed(AppRoutes.language)?.then((value) {
+                    settingsController.getLanguageData();
+                  });
+                },
+                text: "txtLanguageOption".tr,
+                trailing: GetBuilder<SettingsController>(
+                  id: Constant.idChangeLanguage,
+                  builder: (logic) {
+                    return Text(
+                      logic.languagesChosenValue!.symbol,
+                      style: TextStyle(
+                          color: AppColor.colorGray,
+                          fontSize: AppFontSize.size_20,
+                          fontWeight: FontWeight.bold),
+                    );
+                  },
+                ),
+              ),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppSizes.height_1_5,
+                height: AppSizes.height_1_5,
+              ),
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_rate.png",
+                onTap: () => logic.rate(context),
+                text: "txtRate".tr,
+              ),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppFontSize.size_1,
+                height: 0,
+              ),
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_share.png",
+                onTap: () => logic.share(),
+                text: "txtShare".tr,
+              ),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppFontSize.size_1,
+                height: 0,
+              ),
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_feedback.png",
+                onTap: () => logic.sendFeedback(),
+                text: "txtSendFeedback".tr,
+              ),
+              Divider(
+                color: AppColor.colorGray50,
+                thickness: AppFontSize.size_1,
+                height: 0,
+              ),
+              settingItem(
+                image: Constant.getAssetIcons() + "ic_policy.png",
+                onTap: () => launchUrl(Uri.parse(Constant.privacyPolicyURL)),
+                text: "txtPrivacyPolicy".tr,
+              ),
+            ],
+          ),
         );
       }),
     );
   }
 
   _proSection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+          color: AppColor.red,
+          image: DecorationImage(
+              image: AssetImage(Constant.getAssetIcons() + "setting_bg.png"),fit: BoxFit.fill)
+      ),
       child: InkWell(
         onTap: () {
           settingsController.onTapRemoveAds();
@@ -126,51 +154,40 @@ class SettingScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: AppSizes.width_4, vertical: AppSizes.height_1_5),
           decoration: const BoxDecoration(
-            color: AppColor.colorTheme,
+            color: AppColor.white,
             borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
           child: Row(
             children: [
-              // Image.asset(
-              //   AppAsset.icPro,
-              //   height: AppSizes.height_8,
-              //   width: AppSizes.height_8,
-              //   color: AppColor.colorWhite,
-              // ),
+              Image.asset(
+                Constant.getAssetIcons() + "ic_subscription.png",
+                height: AppSizes.height_6_5,
+              ),
               SizedBox(width: AppSizes.width_5),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "txtProVersion".tr,
-                      style:TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: AppColor.colorGreen.withOpacity(0.85),
-                        fontSize: AppFontSize.size_11
-                      )
-
-
-                    ),
-                    Text(
-                      "txtRemoveAds".tr,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.colorGreen,
-                          fontSize: AppFontSize.size_16
-                      )
-                    ),
+                    Text("Subscription".tr.toUpperCase(),
+                        style: TextStyle(
+                            color: AppColor.redSquare,
+                            fontSize: AppFontSize.size_16,
+                            fontFamily: "UrbanistBlack")),
+                    Text("txtProversion".tr,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Urbanist",
+                            color: AppColor.redSquare,
+                            fontSize: AppFontSize.size_11)),
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(AppSizes.height_0_4),
-                decoration: const BoxDecoration(
-                    color: AppColor.colorTheme, shape: BoxShape.circle),
+              Padding(
+                padding: EdgeInsets.all(AppSizes.height_0_2),
                 child: Icon(
-                  Icons.arrow_forward_ios_rounded,
+                  Icons.keyboard_double_arrow_right,
                   color: AppColor.colorGreen,
-                  size: AppSizes.height_3_5,
+                  size: AppSizes.height_5,
                 ),
               )
             ],
@@ -180,6 +197,7 @@ class SettingScreen extends StatelessWidget {
     );
   }
 }
+
 topBar() {
   return Container(
     width: AppSizes.fullWidth,
@@ -213,6 +231,7 @@ topBar() {
 settingItem({
   Function()? onTap,
   String? text,
+  String? image,
   Widget? trailing,
   double? margin,
   double? vPadding,
@@ -228,13 +247,19 @@ settingItem({
           horizontal: hPadding ?? AppSizes.height_2),
       child: Row(
         children: [
+          Image.asset(image ?? "", height: AppSizes.height_6),
+          SizedBox(
+            width: AppFontSize.size_10,
+          ),
           Expanded(
               child: Text(
             text!,
             style: TextStyle(
                 color: AppColor.black,
                 fontSize: AppFontSize.size_14,
-                fontWeight: FontWeight.w500),
+                letterSpacing: 1,
+                fontWeight: FontWeight.w800,
+                fontFamily: "Urbanist"),
           )),
           if (trailing != null) ...{
             trailing,

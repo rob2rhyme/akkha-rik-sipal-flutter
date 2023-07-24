@@ -83,11 +83,16 @@ flutter:
     - assets/drag assets/vehicles/
     - assets/sounds/
 
-
   fonts:
     - family: Angella
       fonts:
         - asset: fonts/angella/Angella_demo.otf
+    - family: Urbanist
+      fonts:
+        - asset: fonts/urbanist/Urbanist-Regular.ttf
+    - family: UrbanistBlack
+      fonts:
+        - asset: fonts/urbanist/Urbanist-Black.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
           GetBuilder<HomeController>(
               id: Constant.idHomePage,
               builder: (logic) {
+
                 return Expanded(
                   child: ListView.builder(
                     padding: EdgeInsets.all(AppFontSize.size_8_5),
@@ -87,50 +88,51 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (logic) {
           return InkWell(
             onTap: () async {
+              print("::::::::::::::${categoryList.categoryImage}");
                 if (logic.interstitialAd != null && logic.isInterstitialAdLoaded ) {
                   logic.showAd();
                   if (categoryList.categoryId == 1 ||
-                      categoryList.categoryId == 2 ||
-                      categoryList.categoryId == 3) {
+                      categoryList.categoryId == 3 ||
+                      categoryList.categoryId == 4) {
                     Get.toNamed(AppRoutes.subcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  } else if (categoryList.categoryId == 4) {
+                  } else if (categoryList.categoryId == 5) {
                     Get.toNamed(AppRoutes.paint, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  } else if (categoryList.categoryId == 5) {
+                  } else if (categoryList.categoryId == 6) {
                     Get.toNamed(AppRoutes.dragSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  }else if (categoryList.categoryId == 6) {
+                  }else if (categoryList.categoryId == 2) {
                     Get.toNamed(AppRoutes.videoSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
                   }
                 }else {
-                  if (categoryList.categoryId == 1 ||
-                      categoryList.categoryId == 2 ||
-                      categoryList.categoryId == 3) {
+                  if (categoryList.categoryId ==  1 ||
+                      categoryList.categoryId ==  3 ||
+                      categoryList.categoryId ==  4) {
                     Get.toNamed(AppRoutes.subcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  } else if (categoryList.categoryId == 4) {
+                  } else if (categoryList.categoryId == 5) {
                     Get.toNamed(AppRoutes.paint, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  } else if (categoryList.categoryId == 5) {
+                  } else if (categoryList.categoryId == 6) {
                     Get.toNamed(AppRoutes.dragSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
                     ]);
-                  }   else if (categoryList.categoryId == 6) {
+                  }   else if (categoryList.categoryId == 2) {
                     Get.toNamed(AppRoutes.videoSubcategory, arguments: [
                       categoryList.categoryName,
                       categoryList.categoryId,
