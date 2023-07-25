@@ -11,7 +11,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:kids_playroom/in_app_purchase/in_app_purchase_helper.dart';
 import 'package:kids_playroom/localization/locale_constant.dart';
-import 'package:kids_playroom/localization/localizations_delegate.dart';
 import 'package:kids_playroom/routes/app_pages.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/utils/color.dart';
@@ -27,16 +26,17 @@ import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_trans
 
 import 'package:sizer/sizer.dart';
 
+import 'localization/localizations_delegate.dart';
 import 'utils/debug.dart';
 
 Future<void> main() async {
   /// Initialize Shared Preference
   await Preference().instance();
+  await Future.delayed(const Duration(milliseconds: 2200));
 
   /// Initialize Google Mobile Ads
   // await _initGoogleMobileAds();
 
-  await Future.delayed(const Duration(milliseconds: 2200));
 
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: AppColor.transparent));

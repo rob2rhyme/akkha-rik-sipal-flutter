@@ -2,10 +2,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:kids_playroom/ui/add_subtract/bindings/add_subtract_bindings.dart';
 import 'package:kids_playroom/ui/add_subtract/views/add_subtract_screen.dart';
 import 'package:kids_playroom/ui/alphabets/bindings/alphabets_binding.dart';
-import 'package:kids_playroom/ui/alphabets/controllers/alphabets_controller.dart';
 import 'package:kids_playroom/ui/alphabets/views/alphabets_screen.dart';
-import 'package:kids_playroom/ui/change_language/bindings/change_language_binding.dart';
-import 'package:kids_playroom/ui/change_language/views/change_language_screen.dart';
 import 'package:kids_playroom/ui/compare/bindings/compare_binding.dart';
 import 'package:kids_playroom/ui/compare/views/compare_screen.dart';
 import 'package:kids_playroom/ui/counting/bindings/counting_bindings.dart';
@@ -145,10 +142,6 @@ class AppPages {
       name: AppRoutes.spelling,
       page: () => SpellingScreen(),
       binding: SpellingBindings(),
-    ),GetPage(
-      name: AppRoutes.language,
-      page: () => ChangeLanguageScreen(),
-      binding: ChangeLanguageBinding(),
     ),
     GetPage(
       name: AppRoutes.proVersion,

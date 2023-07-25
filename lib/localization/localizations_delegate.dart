@@ -1,103 +1,13 @@
   import 'package:get/get.dart';
-import 'package:kids_playroom/localization/languages/language_ar.dart';
-import 'package:kids_playroom/localization/languages/language_as.dart';
-import 'package:kids_playroom/localization/languages/language_az.dart';
-import 'package:kids_playroom/localization/languages/language_bn.dart';
-import 'package:kids_playroom/localization/languages/language_cs.dart';
-import 'package:kids_playroom/localization/languages/language_de.dart';
-import 'package:kids_playroom/localization/languages/language_el.dart';
-import 'package:kids_playroom/localization/languages/language_en.dart';
-import 'package:kids_playroom/localization/languages/language_es.dart';
-import 'package:kids_playroom/localization/languages/language_fa.dart';
-import 'package:kids_playroom/localization/languages/language_fr.dart';
-import 'package:kids_playroom/localization/languages/language_gu.dart';
-import 'package:kids_playroom/localization/languages/language_ha.dart';
-import 'package:kids_playroom/localization/languages/language_hi.dart';
-import 'package:kids_playroom/localization/languages/language_hr.dart';
-import 'package:kids_playroom/localization/languages/language_hu.dart';
-import 'package:kids_playroom/localization/languages/language_id.dart';
-import 'package:kids_playroom/localization/languages/language_it.dart';
-import 'package:kids_playroom/localization/languages/language_ja.dart';
-import 'package:kids_playroom/localization/languages/language_jv.dart';
-import 'package:kids_playroom/localization/languages/language_kn.dart';
-import 'package:kids_playroom/localization/languages/language_ko.dart';
-import 'package:kids_playroom/localization/languages/language_la.dart';
-import 'package:kids_playroom/localization/languages/language_ml.dart';
-import 'package:kids_playroom/localization/languages/language_mr.dart';
-import 'package:kids_playroom/localization/languages/language_my.dart';
-import 'package:kids_playroom/localization/languages/language_nb.dart';
-import 'package:kids_playroom/localization/languages/language_nl.dart';
-import 'package:kids_playroom/localization/languages/language_or.dart';
-import 'package:kids_playroom/localization/languages/language_pa.dart';
-import 'package:kids_playroom/localization/languages/language_pl.dart';
-import 'package:kids_playroom/localization/languages/language_pt.dart';
-import 'package:kids_playroom/localization/languages/language_ro.dart';
-import 'package:kids_playroom/localization/languages/language_ru.dart';
-import 'package:kids_playroom/localization/languages/language_sq.dart';
-import 'package:kids_playroom/localization/languages/language_su.dart';
-import 'package:kids_playroom/localization/languages/language_sv.dart';
-import 'package:kids_playroom/localization/languages/language_ta.dart';
-import 'package:kids_playroom/localization/languages/language_te.dart';
-import 'package:kids_playroom/localization/languages/language_th.dart';
-import 'package:kids_playroom/localization/languages/language_tr.dart';
-import 'package:kids_playroom/localization/languages/language_uk.dart';
-import 'package:kids_playroom/localization/languages/language_ur.dart';
-import 'package:kids_playroom/localization/languages/language_vi.dart';
-import 'package:kids_playroom/localization/languages/language_yo.dart';
-import 'package:kids_playroom/localization/languages/language_zh.dart';
-import 'package:kids_playroom/localization/languages/language_zh_tw.dart';
+
+import 'languages/language_en.dart';
 
 
 class AppLanguages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     "en_US": enUS,
-    "zh_CN": zhCN,
-    "ar_SA": arSA,
-    "fr_FR": frFR,
-    "de_DE": deDE,
-    "hi_IN": hiIN,
-    "ja_JP": jaJP,
-    "pt_PT": ptPT,
-    "ru_RU": ruRU,
-    "es_ES": esES,
-    "ur_PK": urPK,
-    "vi_VN": viVN,
-    "id_ID": idID,
-    "bn_IN": bnIN,
-    "ta_IN": taIN,
-    "te_IN": teIN,
-    "tr_TR": trTR,
-    "ko_KR": koKR,
-    "pa_IN": paIN,
-    "it_IT": itIT,
-    "zh_TW": zhTW,
-    "uk_UA": ukUA,
-    "th_TH": thTH,
-    "sq_AL": sqAL,
-    "sv_SE": svSE,
-    "ro_RO": roRO,
-    "pl_PL": plPL,
-    "or_IN": orIN,
-    "nl_NL": nlNL,
-    "nb_NO": nbNO,
-    "my_MM": myMM,
-    "mr_IN": mrIN,
-    "ml_IN": mlIN,
-    "kn_IN": knIN,
-    "hu_HU": huHU,
-    "hr_HR": hrHR,
-    "gu_IN": guIN,
-    "fa_IR": faIR,
-    "el_GR": elGR,
-    "cs_CZ": csCZ,
-    "az_AZ": azAZ,
-    "asAS": asAS,
-    "ha_NG": haNG,
-    "jv_ID": jvID,
-    "la_FR": laFR,
-    "su_ID": suID,
-    "yo_NG": yoNG,
+
 
   };
 }

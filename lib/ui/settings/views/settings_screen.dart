@@ -71,32 +71,6 @@ class SettingScreen extends StatelessWidget {
                 height: AppSizes.height_1_5,
               ),
               settingItem(
-                image: Constant.getAssetIcons() + "ic_language.png",
-                onTap: () {
-                  Get.toNamed(AppRoutes.language)?.then((value) {
-                    settingsController.getLanguageData();
-                  });
-                },
-                text: "txtLanguageOption".tr,
-                trailing: GetBuilder<SettingsController>(
-                  id: Constant.idChangeLanguage,
-                  builder: (logic) {
-                    return Text(
-                      logic.languagesChosenValue!.symbol,
-                      style: TextStyle(
-                          color: AppColor.colorGray,
-                          fontSize: AppFontSize.size_20,
-                          fontWeight: FontWeight.bold),
-                    );
-                  },
-                ),
-              ),
-              Divider(
-                color: AppColor.colorGray50,
-                thickness: AppSizes.height_1_5,
-                height: AppSizes.height_1_5,
-              ),
-              settingItem(
                 image: Constant.getAssetIcons() + "ic_rate.png",
                 onTap: () => logic.rate(context),
                 text: "txtRate".tr,
