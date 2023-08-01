@@ -13,9 +13,7 @@ class Constant {
 
 
 
-  static String getPrivacyPolicyURL() {
-    return "Add your privacy policy link here";
-  }
+
 
   static const String shareLink = "Add your app url here";
 
