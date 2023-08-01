@@ -4,7 +4,7 @@ class Debug {
   ///|>==|>==|> Set all debug variable false when you make release build. <|==<|==<|
 
   static const debug = false;
-  static const googleAd = true;
+  static const googleAd = false;
   static const sandboxVerifyRecieptUrl = false;
 
 

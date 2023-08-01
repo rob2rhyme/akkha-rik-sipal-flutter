@@ -62,7 +62,7 @@ class QuizScreen extends StatelessWidget {
                                     const SizedBox(height: 16),
                                     Text(
                                         logic.trueItem?.itemName
-                                                .toString()
+                                                .toString().tr
                                                  ??
                                             "",
                                         style: TextStyle(
@@ -184,7 +184,7 @@ items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
                 padding: const EdgeInsets.all(8.0),
                 child: logic.catId == 3
                     ? AutoSizeText(
-                        examQuestionAnswer.itemName.toString(),
+                        examQuestionAnswer.itemName.toString().tr,
                         maxLines: 1,
                         style: TextStyle(
                           color: AppColor.colorBlueGreen,
