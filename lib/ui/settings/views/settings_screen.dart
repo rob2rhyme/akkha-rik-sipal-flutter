@@ -7,6 +7,8 @@ import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/ui/settings/controller/settings_controller.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
+import 'package:kids_playroom/utils/debug.dart';
+import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,7 +26,10 @@ class SettingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _proSection(),
+              GetBuilder<SettingsController>(builder: (logic) {
+                return !Preference.shared.getIsPurchase() && Debug.googleAd
+                    ?_proSection():SizedBox();
+              }),
               Divider(
                 color: AppColor.colorGray50,
                 thickness: AppSizes.height_1_5,
@@ -118,7 +123,8 @@ class SettingScreen extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColor.red,
           image: DecorationImage(
-              image: AssetImage(Constant.getAssetIcons() + "setting_bg.png"),fit: BoxFit.fill)
+              image: AssetImage(Constant.getAssetIcons() + "setting_bg.png"),
+              fit: BoxFit.fill)
       ),
       child: InkWell(
         onTap: () {
@@ -194,7 +200,7 @@ topBar() {
             style: TextStyle(
                 color: AppColor.colorGreen,
                 fontSize: AppFontSize.size_16,
-                fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
+                fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
           ),
         ),
       ],
@@ -227,14 +233,14 @@ settingItem({
           ),
           Expanded(
               child: Text(
-            text!,
-            style: TextStyle(
-                color: AppColor.black,
-                fontSize: AppFontSize.size_14,
-                letterSpacing: 1,
-                fontWeight: FontWeight.w800,
-                fontFamily: "Urbanist"),
-          )),
+                text!,
+                style: TextStyle(
+                    color: AppColor.black,
+                    fontSize: AppFontSize.size_14,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w800,
+                    fontFamily: "Urbanist"),
+              )),
           if (trailing != null) ...{
             trailing,
           }

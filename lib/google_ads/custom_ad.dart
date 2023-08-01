@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kids_playroom/google_ads/ad_helper.dart';
 import 'package:kids_playroom/utils/debug.dart';
+import 'package:kids_playroom/utils/preference.dart';
 import '../utils/utils.dart';
 
 /// <><><><><> ================ BANNER AD ================ <><><><><> ///
@@ -31,7 +32,7 @@ class _BannerAdClassState extends State<BannerAdClass> {
 
   @override
   Widget build(BuildContext context) {
-    return (Debug.googleAd && _bannerAd != null && _isBannerAdReady )
+    return (Debug.googleAd && _bannerAd != null && _isBannerAdReady  && !Preference.shared.getIsPurchase())
         ? Align(
             alignment: Alignment.bottomCenter,
             child: SizedBox(

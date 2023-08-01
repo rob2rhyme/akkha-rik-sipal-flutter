@@ -752,5 +752,6 @@ final Map<String, String> enUS = {
   'txtAccessAllFeatures': "Access All Features",
   'txtMonth': "Month",
   'txtYear': "Year",
+  'txtStart': "Start",
 
 };

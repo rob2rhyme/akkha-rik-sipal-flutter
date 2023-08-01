@@ -29,12 +29,10 @@ class InAppPurchaseHelper {
     return _inAppPurchaseHelper;
   }
 
-  static String monthlySubscriptionId = Constant.monthlySubscriptionId;
-  static String yearlySubscriptionId = Constant.yearlySubscriptionId;
 
   static final List<String> _kProductIds = <String>[
-    monthlySubscriptionId,
-    yearlySubscriptionId,
+    Utils.getProductId()
+
   ];
 
   final InAppPurchase _connection = InAppPurchase.instance;
@@ -109,7 +107,6 @@ class InAppPurchaseHelper {
       return;
     } else {
       _products = productDetailResponse.productDetails;
-      Debug.printLog("Products", _products.toString());
       _purchases = [];
     }
     await _connection.restorePurchases();

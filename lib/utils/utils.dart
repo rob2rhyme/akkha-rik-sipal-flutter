@@ -116,4 +116,11 @@ class Utils {
       }
     }
   }
+  static getProductId() {
+    if (Platform.isAndroid) {
+      return Constant.productIdAndroid;
+    } else {
+      return Constant.productIdiOS;
+    }
+  }
 }

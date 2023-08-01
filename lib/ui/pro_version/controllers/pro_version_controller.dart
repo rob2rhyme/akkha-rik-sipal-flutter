@@ -32,9 +32,6 @@ class ProVersionController extends GetxController implements IAPCallback {
     }
   }
 
-  onClickTermsAndCondition() {
-    Utils.urlLauncher(Constant.termsAndConditionURL);
-  }
 
   onClickRestore() {
     isShowProgress = true;
@@ -59,24 +56,12 @@ class ProVersionController extends GetxController implements IAPCallback {
   onPurchaseClick() {
     isShowProgress = true;
     update([Constant.idProVersionProgress]);
-    if (!isSelected) {
-      ProductDetails? product = InAppPurchaseHelper()
-          .getProductDetail(InAppPurchaseHelper.yearlySubscriptionId);
-      if (product != null) {
-        InAppPurchaseHelper().buySubscription(product, purchases!);
-      } else {
-        isShowProgress = false;
-        update([Constant.idProVersionProgress]);
-      }
+    ProductDetails? product = InAppPurchaseHelper().getProductDetail(Utils.getProductId());
+    if (product != null) {
+      InAppPurchaseHelper().buySubscription(product, purchases!);
     } else {
-      ProductDetails? product = InAppPurchaseHelper()
-          .getProductDetail(InAppPurchaseHelper.monthlySubscriptionId);
-      if (product != null) {
-        InAppPurchaseHelper().buySubscription(product, purchases!);
-      } else {
-        isShowProgress = false;
-        update([Constant.idProVersionProgress]);
-      }
+      isShowProgress = false;
+      update([Constant.idProVersionProgress]);
     }
   }
 
