@@ -14,19 +14,27 @@ class Constant {
 
 
   static String getPrivacyPolicyURL() {
-    return "https://sites.google.com/view/kids-preschool-learning-play/home";
+    return "Add your privacy policy link here";
   }
 
-  static const String shareLink = "https://play.google.com/store/apps/details?id=com.kids.preschool.learning.play.education";
+  static const String shareLink = "Add your app url here";
 
-  static const emailPath = 'shreyuinfotech2019@gmail.com';
+  static const emailPath = 'Add your email address here';
 
-  static String privacyPolicyURL = "https://sites.google.com/view/kids-preschool-learning-play/home";
+  static String privacyPolicyURL = "Add your privacy policy link here";
 
 
-  static String googlePlayIdentifier = "com.kids.preschool.learning.play.education";
+  static String googlePlayIdentifier = "Add your googlePlayIdentifier here";
 
   static String appStoreIdentifier = "Add your appStoreIdentifier here";
+  /// Terms & condition URL
+  static const termsAndConditionURL = " Add your terms and conditions URL here";
+
+
+  static const String monthlySubscriptionId = "Add your monthly subscription id here which should be same for both android and iOS";
+  static const String yearlySubscriptionId = "Add your yearly subscription id here which should be same for both android and iOS";
+
+
 
   /// In-App Purchase
   static const String productIdiOS = "Add your Product ID here for iOS"; /// 'Your Plan ID (Product ID iOS)';
