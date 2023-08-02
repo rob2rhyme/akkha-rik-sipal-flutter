@@ -32,6 +32,8 @@ class ProVersionScreen extends StatelessWidget {
                         children: [
                           Stack(
                             children: [
+                              Image.asset(Constant.getAssetIcons() +
+                                  "subscription_bg .png"),
                               Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: AppSizes.width_4),
@@ -73,6 +75,7 @@ class ProVersionScreen extends StatelessWidget {
                                           InkWell(
                                             onTap: () {
                                               Get.back();
+                                              print("object");
                                             },
                                             child: Image.asset(
                                                 Constant.getAssetIcons() +
@@ -113,8 +116,7 @@ class ProVersionScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Image.asset(Constant.getAssetIcons() +
-                                  "subscription_bg .png"),
+
                               Column(
                                 children: [
                                   SizedBox(height: AppSizes.height_35),
