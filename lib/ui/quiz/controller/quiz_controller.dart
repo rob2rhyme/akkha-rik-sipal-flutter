@@ -31,7 +31,9 @@ class QuizController extends GetxController {
   ExamQuestionAnswer? trueItem;
 
   Color? defaultColor = AppColor.colorBlueLight;
+  Color? defaultTxtColor = AppColor.colorBlueGreen;
   List<Color>? containerColors;
+  List<Color>? txtColors;
   int? answerIndex;
 
   List<ExamQuestionAnswer>? lastSelectedData = [];
@@ -39,7 +41,7 @@ class QuizController extends GetxController {
   List<List<ExamQuestionAnswer>> selectedDataList = [];
   int currentIndex = 0;
   Color? currentColor;
-  Color? selectedColour;
+  Color? txtCurrentColor;
 
 
 
@@ -88,6 +90,9 @@ class QuizController extends GetxController {
       initSound();
       containerColors =
           List<Color>.filled(allQuestionsList.length, defaultColor!);
+      txtColors=
+      List<Color>.filled(allQuestionsList.length, defaultTxtColor!);
+
     }
 
     update([Constant.idColor, Constant.idImage, Constant.idQuiz]);
@@ -106,6 +111,8 @@ class QuizController extends GetxController {
       initSound();
       containerColors =
           List<Color>.filled(allQuestionsList.length, defaultColor!);
+      txtColors=
+      List<Color>.filled(allQuestionsList.length, defaultTxtColor!);
     } else {
       currentQuestionIndex = 0;
       currentQuestionIndex++;
@@ -117,6 +124,9 @@ class QuizController extends GetxController {
       initSound();
       containerColors =
           List<Color>.filled(examQuestionAnswerList.length, defaultColor!);
+      txtColors=
+      List<Color>.filled(allQuestionsList.length, defaultTxtColor!);
+
     }
 
     update([Constant.idColor, Constant.idImage, Constant.idQuiz]);
@@ -168,6 +178,8 @@ class QuizController extends GetxController {
         trueItem = allQuestionsList.firstWhere((item) => item.isTrue == true);
         containerColors =
             List<Color>.filled(allQuestionsList.length, defaultColor!);
+        txtColors=
+            List<Color>.filled(allQuestionsList.length, defaultTxtColor!);
       }
     }
 
@@ -177,8 +189,18 @@ class QuizController extends GetxController {
   void checkAnswer(BuildContext context, {required int itemIndex}) {
     Color tappedColor =
         allQuestionsList[itemIndex].isTrue ? Colors.green : Colors.red;
+
     containerColors![itemIndex] = tappedColor;
+
     currentColor = containerColors![itemIndex];
+
+    Color textColor =
+    allQuestionsList[itemIndex].isTrue ? AppColor.colorBlueGreen : AppColor.white;
+
+    txtColors![itemIndex] = textColor;
+
+    txtCurrentColor=txtColors![itemIndex];
+
     allQuestionsList[itemIndex].isTrue
         ? Utils.showToast(context, "Correct Answer")
         : Utils.showToast(context, "Wrong Answer");

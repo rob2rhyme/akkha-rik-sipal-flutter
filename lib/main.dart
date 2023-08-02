@@ -36,6 +36,10 @@ Future<void> main() async {
 
   /// Initialize Google Mobile Ads
   // await _initGoogleMobileAds();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
 
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -137,7 +141,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               const Locale(Constant.languageEn, Constant.countryCodeEn),
           getPages: AppPages.list,
           defaultTransition: Transition.fade,
-          transitionDuration: const Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 50),
           initialRoute: AppRoutes.home,
         );
       },

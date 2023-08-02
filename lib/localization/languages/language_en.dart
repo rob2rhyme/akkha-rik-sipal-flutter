@@ -1,3 +1,4 @@
+
 import 'package:get/get.dart';
 
 final Map<String, String> enUS = {
@@ -522,7 +523,8 @@ final Map<String, String> enUS = {
   'txtBirds': "Birds",
   'txtFlower': "Flower",
   'txtFruit': "Fruit",
-  'txtmonth': "month",
+  'txtmonth': "Month",
+  'txtMonth': "Month",
   'txtVegitable': "Vegitable",
   'txtBodyParts': "Body Parts",
   'txtClothes': "Clothes",
@@ -750,7 +752,6 @@ final Map<String, String> enUS = {
   'txtTerms&Conditions': "Terms & Conditions",
   'txtVideoLearning' :"Video Learning",
   'txtAccessAllFeatures': "Access All Features",
-  'txtMonth': "Month",
   'txtYear': "Year",
   'txtStart': "Start",
 

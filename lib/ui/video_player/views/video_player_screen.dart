@@ -20,7 +20,8 @@ class VideoPlayerScreen extends StatelessWidget {
     return GetBuilder<VideoPlayerController>(builder: (logic) {
       return YoutubePlayerBuilder(
         onExitFullScreen: () {
-          SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+          SystemChrome.setSystemUIOverlayStyle(
+              const SystemUiOverlayStyle(statusBarColor: AppColor.transparent));
         },
         player: YoutubePlayer(
           controller: logic.controller,

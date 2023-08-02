@@ -21,7 +21,27 @@ class QuizScreen extends StatelessWidget {
     final double itemWidth = size.width / 1.8;
 
     return Scaffold(
-      appBar: AppBar(flexibleSpace: topBar(), automaticallyImplyLeading: false),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () => Get.back(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                width: AppSizes.height_4_5),
+          ),
+        ),
+        title: Text(
+          quizController.title.toString().tr,
+          style: TextStyle(
+              color: AppColor.colorGreen,
+              fontSize: AppFontSize.size_16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "UrbanistBlack"),
+        ),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -47,8 +67,7 @@ class QuizScreen extends StatelessWidget {
                                         MyApp.flutterTts.stop();
                                         Utils.textToSpeech(
                                           logic.trueItem?.itemNameTts
-                                                  .toString()
-                                                   ??
+                                                  .toString() ??
                                               "",
                                           MyApp.flutterTts,
                                         );
@@ -62,11 +81,12 @@ class QuizScreen extends StatelessWidget {
                                     const SizedBox(height: 16),
                                     Text(
                                         logic.trueItem?.itemName
-                                                .toString().tr
-                                                 ??
+                                                .toString()
+                                                .tr ??
                                             "",
                                         style: TextStyle(
-                                            fontSize: AppFontSize.size_15,
+                                            fontSize: AppFontSize.size_22,
+                                            fontFamily: "UrbanistBlack",
                                             color: AppColor.colorGray,
                                             fontWeight: FontWeight.w600)),
                                   ],
@@ -127,35 +147,6 @@ class QuizScreen extends StatelessWidget {
     );
   }
 
-  topBar() {
-    return Container(
-      width: AppSizes.fullWidth,
-      color: AppColor.colorTheme,
-      padding: EdgeInsets.only(
-        left: AppSizes.width_3,
-        top: AppSizes.height_5,
-        bottom: AppSizes.height_1,
-      ),
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                height: AppSizes.height_5),
-          ),
-          Center(
-            child: Text(
-              quizController.title.toString().tr,
-              style: TextStyle(
-                  color: AppColor.colorGreen,
-                  fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
@@ -168,6 +159,7 @@ items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
           id: Constant.idColor,
           builder: (logic) {
             logic.currentColor = logic.containerColors![index];
+            logic.txtCurrentColor = logic.txtColors![index];
             return Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -187,7 +179,7 @@ items(ExamQuestionAnswer examQuestionAnswer, int index, BuildContext context) {
                         examQuestionAnswer.itemName.toString().tr,
                         maxLines: 1,
                         style: TextStyle(
-                          color: AppColor.colorBlueGreen,
+                          color: logic.txtCurrentColor,
                           fontSize: AppFontSize.size_17,
                           fontWeight: FontWeight.bold,
                         ),
