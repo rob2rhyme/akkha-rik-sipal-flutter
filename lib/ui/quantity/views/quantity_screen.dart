@@ -17,7 +17,29 @@ class QuantityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(flexibleSpace: topBar(),automaticallyImplyLeading: false),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () => Get.back(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                width: AppSizes.height_4_5),
+          ),
+        ),
+        title: GetBuilder<QuantityController>(builder: (logic) {
+          return Text(
+            "${logic.currentQue}/${logic.totalQue}",
+            style: TextStyle(
+                color: AppColor.colorGreen,
+                fontSize: AppFontSize.size_16,
+                fontWeight: FontWeight.bold,
+                fontFamily: "UrbanistBlack"),
+          );
+        }),
+      ),
 
       backgroundColor: AppColor.bg, body: SafeArea(
       top: false,
@@ -138,7 +160,7 @@ _quantityScreen() {
 _countItems({int? pageIndex}) {
   return GetBuilder<QuantityController>(builder: (logic) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(25.0),
       child: Image.asset(Constant.getAssetDragCounting()+"${logic.countAnswer}.webp"),
     );
   });

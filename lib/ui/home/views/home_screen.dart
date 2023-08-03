@@ -21,10 +21,33 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        flexibleSpace: topBar(),
-        elevation: 0.5,
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
+        automaticallyImplyLeading: false,
+        title: Text(
+          "txtAppName".tr,
+          style: TextStyle(
+              color: AppColor.colorGreen,
+              fontSize: AppFontSize.size_16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "UrbanistBlack"),
+
+        ),
+        actions: [
+          GestureDetector
+            (
+            onTap: () => Get.toNamed(AppRoutes.settings),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(Constant.getAssetIcons() + "ic_setting.png",
+                  height: AppSizes.height_5),
+            ),
+          ),
+        ],
       ),
+
       backgroundColor: AppColor.white,
       body: Column(
         children: [

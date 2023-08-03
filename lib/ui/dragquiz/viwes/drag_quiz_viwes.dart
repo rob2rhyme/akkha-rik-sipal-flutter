@@ -26,9 +26,29 @@ class DragQuizScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColor.bg,
         appBar: AppBar(
-            flexibleSpace: topBar(),
-            automaticallyImplyLeading: false
+          centerTitle: true,
+          backgroundColor: AppColor.colorTheme,
+          automaticallyImplyLeading: false,
+          leading: GestureDetector(
+            onTap: () => Get.back(),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                  width: AppSizes.height_4_5),
+            ),
+          ),
+          title: GetBuilder<DragQuizController>(builder: (logic) {
+            return Text(
+              "${logic.current}/${logic.itemList.length}",
+              style: TextStyle(
+                  color: AppColor.colorGreen,
+                  fontSize: AppFontSize.size_16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "UrbanistBlack"),
+            );
+          }),
         ),
+
         body: SafeArea(
           top: false,
           bottom: Platform.isAndroid ? true : false,
@@ -41,39 +61,6 @@ class DragQuizScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-topBar() {
-  return GetBuilder<DragQuizController>(builder: (logic) {
-    return Container(
-      width: AppSizes.fullWidth,
-      color: AppColor.colorTheme,
-      padding: EdgeInsets.only(
-        left: AppSizes.width_3,
-        top: AppSizes.height_5_5,
-        bottom: AppSizes.height_1,
-      ),
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                height: AppSizes.height_5),
-          ),
-          Center(
-            child: Text(
-              "${logic.current}/${logic.itemList.length}",
-
-              style: TextStyle(
-                  color: AppColor.colorGreen,
-                  fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
-            ),
-          ),
-        ],
-      ),
-    );
-  });
 }
 
 _quizWidget() {
@@ -99,8 +86,7 @@ _quizWidget() {
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children
-                      : [
+                  children: [
                     _dragTarget(context, index: index),
                     SizedBox(height: AppSizes.height_5_5,),
                     _nameText(index),
@@ -138,8 +124,9 @@ _nameText(int index) {
       curve: Curves.easeInOut,
       child: Text(
         logic.itemList[index].itemName!.toUpperCase(),
-        style: const TextStyle(
-            fontSize: 22,
+        style:  TextStyle(
+            fontSize: AppFontSize.size_23,
+            fontFamily: "Angella",
             fontWeight: FontWeight.w500,
             color: AppColor.colorBlueGreen),
       ),

@@ -18,8 +18,25 @@ class SubCategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
         automaticallyImplyLeading: false,
-        flexibleSpace: topBar(),
+        leading: GestureDetector(
+          onTap: () => Get.back(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                width: AppSizes.height_4_5),
+          ),
+        ),
+        title: Text(
+          _subCategoryController.title.toString().tr,
+          style: TextStyle(
+              color: AppColor.colorGreen,
+              fontSize: AppFontSize.size_16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "UrbanistBlack"),
+        ),
       ),
       body: Stack(
         children: <Widget>[
@@ -55,35 +72,6 @@ class SubCategoryScreen extends StatelessWidget {
     );
   }
 
-  topBar() {
-    return Container(
-      width: AppSizes.fullWidth,
-      color: AppColor.colorTheme,
-      padding: EdgeInsets.only(
-        left: AppSizes.width_3,
-        top: AppSizes.height_5_5,
-        bottom: AppSizes.height_1,
-      ),
-      child: Stack(
-        children: [
-          GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                height: AppSizes.height_5),
-          ),
-          Center(
-            child: Text(
-              _subCategoryController.title.toString().tr,
-              style: TextStyle(
-                  color: AppColor.colorGreen,
-                  fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   subcategory(
     SubCategoryTable subcategoryList,

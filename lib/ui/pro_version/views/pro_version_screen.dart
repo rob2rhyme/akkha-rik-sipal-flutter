@@ -75,6 +75,7 @@ class ProVersionScreen extends StatelessWidget {
                                           InkWell(
                                             onTap: () {
                                               Get.back();
+                                              print("object");
                                             },
                                             child: Image.asset(
                                                 Constant.getAssetIcons() +

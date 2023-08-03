@@ -17,7 +17,29 @@ class SpellingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(flexibleSpace: topBar(),automaticallyImplyLeading: false),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () => Get.back(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
+                width: AppSizes.height_4_5),
+          ),
+        ),
+        title: GetBuilder<SpellingController>(builder: (logic) {
+          return Text(
+            logic.title ?? "",
+            style: TextStyle(
+                color: AppColor.colorGreen,
+                fontSize: AppFontSize.size_16,
+                fontWeight: FontWeight.bold,
+                fontFamily: "UrbanistBlack"),
+          );
+        }),
+      ),
 
       backgroundColor: AppColor.bg,
       body: SafeArea(
@@ -27,40 +49,6 @@ class SpellingScreen extends StatelessWidget {
       ),
     );
   }
-}
-topBar() {
-  return GetBuilder<SpellingController>(builder: (logic) {
-    return Container(
-      width: AppSizes.fullWidth,
-      color: AppColor.colorTheme,
-      padding: EdgeInsets.only(
-        left: AppSizes.width_3,
-        top: AppSizes.height_5,
-        bottom: AppSizes.height_1,
-      ),
-      child: Center(
-        child: Stack(
-          children: [
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Image.asset(
-                  Constant.getAssetIcons() + "btn_back_150.png",
-                  height: AppSizes.height_5),
-            ),
-            Center(
-              child: Text(
-                logic.title ?? "",
-                style: TextStyle(
-                    color: AppColor.colorGreen,
-                    fontSize: AppFontSize.size_16,
-                    fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  });
 }
 
 spellingScreen() {

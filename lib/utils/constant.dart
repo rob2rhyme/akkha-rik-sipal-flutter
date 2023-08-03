@@ -13,9 +13,7 @@ class Constant {
 
 
 
-  static String getPrivacyPolicyURL() {
-    return "Add your privacy policy link here";
-  }
+
 
   static const String shareLink = "Add your app url here";
 
@@ -23,18 +21,15 @@ class Constant {
 
   static String privacyPolicyURL = "Add your privacy policy link here";
 
-
   static String googlePlayIdentifier = "Add your googlePlayIdentifier here";
-
   static String appStoreIdentifier = "Add your appStoreIdentifier here";
+
   /// Terms & condition URL
   static const termsAndConditionURL = " Add your terms and conditions URL here";
 
 
   static const String monthlySubscriptionId = "Add your monthly subscription id here which should be same for both android and iOS";
   static const String yearlySubscriptionId = "Add your yearly subscription id here which should be same for both android and iOS";
-
-
 
   /// In-App Purchase
   static const String productIdiOS = "Add your Product ID here for iOS"; /// 'Your Plan ID (Product ID iOS)';
