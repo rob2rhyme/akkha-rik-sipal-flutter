@@ -749,9 +749,10 @@ final Map<String, String> enUS = {
   'txtsubscribetoproversion': "subscribe to pro version",
   'txtTerms&Conditions': "Terms & Conditions",
   'txtVideoLearning' :"Video Learning",
-  'txtAccessAllFeatures': "Access All Features",
+  'txtRemoveAds': "Remove Ads",
   'txtMonth': "Month",
   'txtYear': "Year",
-  'txtStart': "Start",
+  'txtStart': "Start Plan",
+
 
 };
