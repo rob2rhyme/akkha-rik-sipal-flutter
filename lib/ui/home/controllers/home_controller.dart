@@ -14,17 +14,41 @@ import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
 
 class HomeController extends GetxController
-    with WidgetsBindingObserver
+    with WidgetsBindingObserver,GetSingleTickerProviderStateMixin
     implements IAPCallback {
   List<CategoryTable>? categoryList = [];
   InterstitialAd? interstitialAd;
   bool isInterstitialAdLoaded = false;
+
+  AnimationController? animationController;
+  AnimationController? controller;
+  Animation<Offset>? animationLeft;
+  Animation<Offset>? animationRight;
 
   @override
   void onInit() {
     _loadInterstitialAd();
     getDataFromDatabase();
     getInAppPurchase();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..forward();
+
+    animationLeft =
+        Tween<Offset>(begin: const Offset(-1.5, 0.0), end: Offset.zero)
+            .animate(CurvedAnimation(
+          parent: animationController!,
+          curve: Curves.easeIn,
+        ));
+
+    animationRight =
+        Tween<Offset>(begin: const Offset(1.5, 0.0), end: Offset.zero)
+            .animate(CurvedAnimation(
+          parent: animationController!,
+          curve: Curves.easeIn,
+        ));
+
     super.onInit();
   }
 
