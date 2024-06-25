@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -131,14 +130,14 @@ _dragTargets({int? pageIndex}) {
                   Constant.getAssetDragNumbers()+"blank.webp",
                 );
               },
-              onWillAccept: (data) {
+              onWillAcceptWithDetails: (data) {
                 if (data == logic.que.toList()[index]) {
                   return true;
                 } else {
                   return false;
                 }
               },
-              onAccept: (data) => logic.onAccept(data, pageIndex, context),
+              onAcceptWithDetails: (data) => logic.onAccept(data, pageIndex, context),
             );
           }),
     );

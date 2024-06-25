@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,10 +18,11 @@ class DragQuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (_) {
         dragQuizController.setPreference();
-        return Future.value(true);
+        // return Future.value(true);
       },
       child: Scaffold(
         backgroundColor: AppColor.bg,
@@ -377,7 +378,7 @@ _dragTarget(BuildContext context, {int? index}) {
             ),
           );
         },
-        onAccept: (data) async {
+        onAcceptWithDetails: (data) async {
           logic.accept = true;
           logic.update();
           MyApp.flutterTts.stop();
@@ -416,7 +417,7 @@ _dragTarget(BuildContext context, {int? index}) {
             logic.accept = false;
           });
         },
-        onWillAccept: (data) {
+        onWillAcceptWithDetails: (data) {
           if (data == logic.answer) {
             Debug.printLog("accept");
             return true;

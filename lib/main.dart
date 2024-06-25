@@ -18,8 +18,6 @@ import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
 /// ignore: depend_on_referenced_packages
-import 'package:in_app_purchase_android/src/in_app_purchase_android_platform_addition.dart';
-/// ignore: depend_on_referenced_packages
 import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_queue_wrapper.dart' show SKPaymentQueueWrapper;
 /// ignore: depend_on_referenced_packages
 import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart';
@@ -44,7 +42,7 @@ Future<void> main() async {
 
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: AppColor.transparent));
-  InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
+  // InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
 
   if (Platform.isIOS) {
     final transactions = await SKPaymentQueueWrapper().transactions();

@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/custom/progress_dialog.dart';
-import 'package:kids_playroom/in_app_purchase/in_app_purchase_helper.dart';
 import 'package:kids_playroom/ui/pro_version/controllers/pro_version_controller.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -11,9 +10,6 @@ import '../../../utils/sizer_utils.dart';
 
 class ProVersionScreen extends StatelessWidget {
   ProVersionScreen({Key? key}) : super(key: key);
-
-  final ProVersionController _proVersionController =
-      Get.find<ProVersionController>();
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +241,7 @@ class ProVersionScreen extends StatelessWidget {
             print("object");
           },
           style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100.0),
                 side: const BorderSide(

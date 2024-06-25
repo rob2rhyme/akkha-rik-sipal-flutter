@@ -18,43 +18,39 @@ class PaintScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: Platform.isAndroid ? true : false,
-      child: Scaffold(
-
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: AppColor.colorTheme,
-          automaticallyImplyLeading: false,
-          leading: GestureDetector(
-            onTap: () => Get.back(),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                  width: AppSizes.height_4_5),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.colorTheme,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () => Get.back(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png", width: AppSizes.height_4_5),
           ),
-          title: GetBuilder<PaintController>(builder: (logic) {
-            return Text(
-              logic.title.toString().tr,              style: TextStyle(
-                  color: AppColor.colorGreen,
-                  fontSize: AppFontSize.size_16,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "UrbanistBlack"),
-            );
-          }),
         ),
-        backgroundColor: AppColor.lightBG,
-        body: GetBuilder<PaintController>(
-            id: Constant.idPaintWidget, builder: (logic) {
-          return Column(
-            children: [
-              _paintWidget(context),
-              _optionsWidget(context),
-            ],
+        title: GetBuilder<PaintController>(builder: (logic) {
+          return Text(
+            logic.title.toString().tr,
+            style: TextStyle(color: AppColor.colorGreen, fontSize: AppFontSize.size_16, fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
           );
         }),
+      ),
+      backgroundColor: AppColor.lightBG,
+      body: SafeArea(
+        top: false,
+        bottom: true,
+        child: GetBuilder<PaintController>(
+            id: Constant.idPaintWidget,
+            builder: (logic) {
+              return Column(
+                children: [
+                  _paintWidget(context),
+                  _optionsWidget(context),
+                ],
+              );
+            }),
       ),
     );
   }
@@ -75,15 +71,12 @@ topBar() {
           children: [
             GestureDetector(
               onTap: () => Get.back(),
-              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                  height: AppSizes.height_5),
+              child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png", height: AppSizes.height_5),
             ),
             Center(
-              child: Text(logic.title.toString().tr,
-                style: TextStyle(
-                    color: AppColor.colorGreen,
-                    fontSize: AppFontSize.size_16,
-                    fontWeight: FontWeight.bold,fontFamily: "UrbanistBlack"),
+              child: Text(
+                logic.title.toString().tr,
+                style: TextStyle(color: AppColor.colorGreen, fontSize: AppFontSize.size_16, fontWeight: FontWeight.bold, fontFamily: "UrbanistBlack"),
               ),
             ),
           ],
@@ -98,9 +91,7 @@ _paintWidget(BuildContext context) {
     child: Container(
       width: double.infinity,
       decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage("assets/background/bg_paint.webp"),
-            fit: BoxFit.fill),
+        image: DecorationImage(image: AssetImage("assets/background/bg_paint.webp"), fit: BoxFit.fill),
       ),
       child: Column(
         children: [
@@ -145,21 +136,20 @@ _colorImageFloodFill() {
         fillColor: logic.currentColor!,
         avoidColor: const [Colors.transparent, Colors.black],
         onFloodFillStart: (position, image) {
-          logic.isRestartShow =true;
+          logic.isRestartShow = true;
           logic.update();
         },
         tolerance: 8,
         onFloodFillEnd: (value) async {
-          final ByteData? byteData =
-          await value.toByteData(format: ui.ImageByteFormat.png);
-          final Uint8List pngBytes = byteData!.buffer.asUint8List();
+          final ByteData? byteData = await value.toByteData(format: ui.ImageByteFormat.png);
+          logic.pngBytes = byteData!.buffer.asUint8List();
           final String dir = (await getApplicationDocumentsDirectory()).path;
-          final String fullPath = '$dir/${DateTime
-              .now()
-              .millisecond}.png';
+          final String fullPath = '$dir/${DateTime.now().millisecond}.png';
           File capturedFile = File(fullPath);
-          await capturedFile.writeAsBytes(pngBytes);
-          logic.path = capturedFile.path;
+          if (logic.pngBytes != null) {
+            await capturedFile.writeAsBytes(logic.pngBytes!);
+            logic.path = capturedFile.path;
+          }
         },
       ),
     );
@@ -177,35 +167,28 @@ _colorPicker(BuildContext context) {
             height: 100,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: AppColor.themeGradient),
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15),
-                    topLeft: Radius.circular(15))),
+                borderRadius: BorderRadius.only(topRight: Radius.circular(15), topLeft: Radius.circular(15))),
             child: Row(
               children: [
                 Expanded(
                     child: Center(
-                      child: GridView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: Utils.colorPickerList.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 0.9,
-                              crossAxisSpacing: AppFontSize.size_1),
-                          itemBuilder: (BuildContext context, int index) {
-                            return InkWell(
-                              onTap: () => logic.colorPicker(index),
-                              child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    color: Utils.colorPickerList[index],
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color: AppColor.white, width: 2)),
-                              ),
-                            );
-                          }),
-                    )),
+                  child: GridView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: Utils.colorPickerList.length,
+                      gridDelegate:
+                          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.9, crossAxisSpacing: AppFontSize.size_1),
+                      itemBuilder: (BuildContext context, int index) {
+                        return InkWell(
+                          onTap: () => logic.colorPicker(index),
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                color: Utils.colorPickerList[index], shape: BoxShape.circle, border: Border.all(color: AppColor.white, width: 2)),
+                          ),
+                        );
+                      }),
+                )),
                 InkWell(
                   onTap: () {
                     _colorPickerDialog(context);
@@ -232,9 +215,7 @@ _imagePicker() {
             height: 100,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: AppColor.themeGradient),
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15),
-                    topLeft: Radius.circular(15))),
+                borderRadius: BorderRadius.only(topRight: Radius.circular(15), topLeft: Radius.circular(15))),
             child: GridView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: logic.itemList!.length,
@@ -245,8 +226,7 @@ _imagePicker() {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () => logic.imagePicker(index),
-                    child: Image.asset(
-                        "assets/${logic.itemList![index].itemImage}.webp"),
+                    child: Image.asset("assets/${logic.itemList![index].itemImage}.webp"),
                   );
                 }),
           ),
@@ -281,13 +261,9 @@ _selectImageOption() {
         height: logic.isImagesSelected ? 90 : 80,
         width: 55,
         decoration: BoxDecoration(
-            color: logic.isImagesSelected ? AppColor.colorGreen : AppColor
-                .green,
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(100), topRight: Radius.circular(100)),
-            boxShadow: [
-              BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-            ]),
+            color: logic.isImagesSelected ? AppColor.colorGreen : AppColor.green,
+            borderRadius: const BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+            boxShadow: [BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))]),
         child: Image.asset(
           "assets/icons/ic_images.webp",
           height: 20,
@@ -312,15 +288,9 @@ _saveOption(BuildContext context) {
             height: logic.isSaveSelected ? 90 : 80,
             width: 55,
             decoration: BoxDecoration(
-                color: logic.isSaveSelected ? AppColor.colorGreen : AppColor
-                    .green,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(100),
-                    topRight: Radius.circular(100)),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-                ]),
+                color: logic.isSaveSelected ? AppColor.colorGreen : AppColor.green,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+                boxShadow: [BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))]),
             child: Image.asset(
               "assets/icons/ic_save.webp",
               height: 20,
@@ -344,13 +314,9 @@ _restartOption(BuildContext context) {
           height: logic.isRestartSelected ? 90 : 80,
           width: 55,
           decoration: BoxDecoration(
-              color: logic.isRestartSelected ? AppColor.colorGreen : AppColor
-                  .green,
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(100), topRight: Radius.circular(100)),
-              boxShadow: [
-                BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-              ]),
+              color: logic.isRestartSelected ? AppColor.colorGreen : AppColor.green,
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+              boxShadow: [BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))]),
           child: Image.asset(
             "assets/icons/ic_restart.webp",
             height: 20,
@@ -371,13 +337,9 @@ _eraserOption() {
         height: logic.isEraserSelected ? 90 : 80,
         width: 55,
         decoration: BoxDecoration(
-            color: logic.isEraserSelected ? AppColor.colorGreen : AppColor
-                .green,
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(100), topRight: Radius.circular(100)),
-            boxShadow: [
-              BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-            ]),
+            color: logic.isEraserSelected ? AppColor.colorGreen : AppColor.green,
+            borderRadius: const BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+            boxShadow: [BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))]),
         child: Image.asset(
           "assets/icons/ic_eraser.webp",
           height: 20,
@@ -399,15 +361,9 @@ _colorOption() {
             height: logic.isColorSelected ? 90 : 80,
             width: 55,
             decoration: BoxDecoration(
-                color: logic.isColorSelected ? AppColor.colorGreen : AppColor
-                    .green,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(100),
-                    topRight: Radius.circular(100)),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 6, color: AppColor.black.withOpacity(0.5))
-                ]),
+                color: logic.isColorSelected ? AppColor.colorGreen : AppColor.green,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+                boxShadow: [BoxShadow(blurRadius: 6, color: AppColor.black.withOpacity(0.5))]),
             child: Image.asset(
               "assets/icons/ic_paint_dish.webp",
               height: 20,
@@ -447,8 +403,7 @@ _colorPickerDialog(BuildContext context) {
                 buttonPadding: EdgeInsets.zero,
                 actions: [
                   TextButton(
-                      child: Text("txtCancel".tr,
-                          style: const TextStyle(color: AppColor.themeDark)),
+                      child: Text("txtCancel".tr, style: const TextStyle(color: AppColor.themeDark)),
                       onPressed: () => logic.onColorPickerDialogCancel()),
                   TextButton(
                     child: Text(
@@ -483,8 +438,7 @@ _saveDialog(context) {
                     ),
                     actions: [
                       TextButton(
-                        child: Text("txtNo".tr,
-                            style: const TextStyle(color: AppColor.themeDark)),
+                        child: Text("txtNo".tr, style: const TextStyle(color: AppColor.themeDark)),
                         onPressed: () {
                           logic.onSaveDialogNo;
                           Get.back();
@@ -524,8 +478,7 @@ _restartDialog(context) {
                     ),
                     actions: [
                       TextButton(
-                        child: Text("txtNo".tr,
-                            style: const TextStyle(color: AppColor.themeDark)),
+                        child: Text("txtNo".tr, style: const TextStyle(color: AppColor.themeDark)),
                         onPressed: () => logic.onRestartDialogNo(),
                       ),
                       TextButton(
@@ -535,7 +488,7 @@ _restartDialog(context) {
                         ),
                         onPressed: () {
                           logic.onRestartDialogYes(context);
-                          logic.isRestartShow=false;
+                          logic.isRestartShow = false;
                         },
                       )
                     ]),

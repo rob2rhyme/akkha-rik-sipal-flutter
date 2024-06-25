@@ -1,4 +1,4 @@
-import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/dialog/complete_dialog/complete_dialog_screen.dart';
@@ -400,7 +400,7 @@ class CountingScreen extends StatelessWidget {
                     ),
                   );
           },
-          onAccept: (data) async {
+          onAcceptWithDetails: (data) async {
             logic.accept = true;
 
             await Future.delayed(const Duration(milliseconds: 2280), () {
@@ -431,7 +431,7 @@ class CountingScreen extends StatelessWidget {
               logic.accept = false;
             });
           },
-          onWillAccept: (data) {
+          onWillAcceptWithDetails: (data) {
             if (data == logic.countAnswer) {
               Debug.printLog("accept");
               return true;

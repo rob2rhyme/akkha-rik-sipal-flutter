@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/localization/localizations_delegate.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
-import 'package:kids_playroom/ui/home/controllers/home_controller.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
@@ -144,7 +143,7 @@ class SettingsController extends GetxController {
     update();
   }
 
-  _sound() {
+  /*_sound() {
     if (isSound!) {
       Preference.shared.setBool(Preference.isMusic, false);
       getPreference();
@@ -154,7 +153,7 @@ class SettingsController extends GetxController {
       getPreference();
       Utils.playAudio();
     }
-  }
+  }*/
 
   rate(BuildContext context) {
     if (Platform.isIOS) {

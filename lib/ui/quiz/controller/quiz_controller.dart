@@ -2,15 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kids_playroom/database/database_helper.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
-import 'package:kids_playroom/google_ads/ad_helper.dart';
 import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
 
 class QuizController extends GetxController {

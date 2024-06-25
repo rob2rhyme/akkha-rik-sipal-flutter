@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -147,7 +146,7 @@ dragTargets({int? pageIndex}) {
                   ),
                 );
               },
-              onWillAccept: (data) {
+              onWillAcceptWithDetails: (data) {
                 Debug.printLog(data.toString());
                 if (data == logic.dragQue[index]) {
                   Debug.printLog("accept");
@@ -157,7 +156,7 @@ dragTargets({int? pageIndex}) {
                   return false;
                 }
               },
-              onAccept: (data) async {
+              onAcceptWithDetails: (data) async {
                 if (logic.count.length < logic.dragQue.length) {
                     logic.count.add(int.parse(data.toString()));
                     logic.update();

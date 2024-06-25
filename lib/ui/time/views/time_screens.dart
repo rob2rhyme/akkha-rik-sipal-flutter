@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -147,7 +146,7 @@ _dragTargets(int index, int pageIndex, BuildContext context) {
                 ? Container()
                 : Image.asset(logic.que[index]);
           },
-          onWillAccept: (data) {
+          onWillAcceptWithDetails: (data) {
             if (logic.time[data] == logic.que[index]) {
               Debug.printLog("logic.accept");
               return true;
@@ -156,7 +155,7 @@ _dragTargets(int index, int pageIndex, BuildContext context) {
               return false;
             }
           },
-          onAccept: (data) async {
+          onAcceptWithDetails: (data) async {
               logic.accept = true;
               logic.update();
             Debug.printLog("logic.que: ${logic.que[index]}");

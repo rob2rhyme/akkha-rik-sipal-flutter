@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/dialog/complete_dialog/complete_dialog_screen.dart';
@@ -250,7 +248,7 @@ dragTarget(BuildContext context, {int? index}) {
           ),
         );
       },
-      onAccept: (data) async {
+      onAcceptWithDetails: (data) async {
         MyApp.flutterTts.stop();
         Utils.textToSpeech("Awesome", MyApp.flutterTts);
         logic.accept = true;
@@ -277,7 +275,7 @@ dragTarget(BuildContext context, {int? index}) {
           logic.update();
         });
       },
-      onWillAccept: (data) {
+      onWillAcceptWithDetails: (data) {
         if (data == logic.answer) {
           Debug.printLog("logic.accept");
           return true;

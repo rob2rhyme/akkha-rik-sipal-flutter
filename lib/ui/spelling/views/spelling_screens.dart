@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -198,7 +198,7 @@ dragTargets(BuildContext context, int pageIndex) {
                           ),
                         );
                       },
-                      onWillAccept: (data) {
+                      onWillAcceptWithDetails: (data) {
                         if (logic.spelling![index] == data.toString()) {
                           Debug.printLog("accept");
                           return true;
@@ -207,7 +207,7 @@ dragTargets(BuildContext context, int pageIndex) {
                           return false;
                         }
                       },
-                      onAccept: (data) =>
+                      onAcceptWithDetails: (data) =>
                           logic.onAccept(data, pageIndex, context, index),
                     )),
           ),

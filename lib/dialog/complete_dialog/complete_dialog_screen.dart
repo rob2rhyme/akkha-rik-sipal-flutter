@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
-import '../../utils/debug.dart';
-
 class CompleteDialog extends StatefulWidget {
   final Function restartFunction;
   final String image;
@@ -71,10 +68,11 @@ class CompleteDialogState extends State<CompleteDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        return Future.value(false);
-      },
+    return PopScope(
+      canPop: true,
+      // onPopInvoked: (_) {
+      //   return Future.value(false);
+      // },
       child: Scaffold(
         backgroundColor: AppColor.transparent,
         body: Center(

@@ -1,9 +1,7 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/ui/settings/controller/settings_controller.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';

@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -137,7 +136,7 @@ _dragTargets({int? pageIndex}) {
                         Constant.getAssetDragNumbers()+"blank.webp",
                       );
                     },
-                    onWillAccept: (data) {
+                    onWillAcceptWithDetails: (data) {
                       if (logic.lower.keys.firstWhere((element) =>
                       logic.lower[element] == data) ==
                           logic.upper.keys.firstWhere((element) =>
@@ -150,7 +149,7 @@ _dragTargets({int? pageIndex}) {
                         return false;
                       }
                     },
-                    onAccept: (data) => logic.onAccept(data, pageIndex, context),
+                    onAcceptWithDetails: (data) => logic.onAccept(data, pageIndex, context),
                   ),
                 ],
               );

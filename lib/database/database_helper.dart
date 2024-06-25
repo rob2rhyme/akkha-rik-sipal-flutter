@@ -10,8 +10,6 @@ import 'package:path/path.dart' as path;
 import 'dart:io' as io;
 
 import 'package:sqflite/sqflite.dart';
-
-import '../utils/constant.dart';
 import 'tables/category_table.dart';
 import 'tables/spelling_table.dart';
 
