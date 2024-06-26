@@ -432,7 +432,7 @@ class CountingScreen extends StatelessWidget {
             });
           },
           onWillAcceptWithDetails: (data) {
-            if (data == logic.countAnswer) {
+            if (data.data == logic.countAnswer) {
               Debug.printLog("accept");
               return true;
             } else {

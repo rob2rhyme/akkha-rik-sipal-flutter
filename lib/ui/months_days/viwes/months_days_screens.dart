@@ -148,7 +148,7 @@ dragTargets({int? pageIndex}) {
               },
               onWillAcceptWithDetails: (data) {
                 Debug.printLog(data.toString());
-                if (data == logic.dragQue[index]) {
+                if (data.data == logic.dragQue[index]) {
                   Debug.printLog("accept");
                   return true;
                 } else {
@@ -158,11 +158,11 @@ dragTargets({int? pageIndex}) {
               },
               onAcceptWithDetails: (data) async {
                 if (logic.count.length < logic.dragQue.length) {
-                    logic.count.add(int.parse(data.toString()));
+                    logic.count.add(int.parse(data.data.toString()));
                     logic.update();
                 }
                 MyApp.flutterTts.stop();
-                Utils.textToSpeech(logic.name[data]!, MyApp.flutterTts).then((value) {
+                Utils.textToSpeech(logic.name[data.data]!, MyApp.flutterTts).then((value) {
                   if (logic.count.length == logic.dragQue.length) {
                     Utils.textToSpeech("Awesome", MyApp.flutterTts);
                   }

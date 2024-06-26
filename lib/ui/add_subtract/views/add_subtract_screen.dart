@@ -276,7 +276,7 @@ dragTarget(BuildContext context, {int? index}) {
         });
       },
       onWillAcceptWithDetails: (data) {
-        if (data == logic.answer) {
+        if (data.data == logic.answer) {
           Debug.printLog("logic.accept");
           return true;
         } else {

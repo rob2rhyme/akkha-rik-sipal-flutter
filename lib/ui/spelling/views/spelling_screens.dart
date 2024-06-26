@@ -199,7 +199,7 @@ dragTargets(BuildContext context, int pageIndex) {
                         );
                       },
                       onWillAcceptWithDetails: (data) {
-                        if (logic.spelling![index] == data.toString()) {
+                        if (logic.spelling![index] == data.data.toString()) {
                           Debug.printLog("accept");
                           return true;
                         } else {

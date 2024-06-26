@@ -147,7 +147,7 @@ _dragTargets(int index, int pageIndex, BuildContext context) {
                 : Image.asset(logic.que[index]);
           },
           onWillAcceptWithDetails: (data) {
-            if (logic.time[data] == logic.que[index]) {
+            if (logic.time[data.data] == logic.que[index]) {
               Debug.printLog("logic.accept");
               return true;
             } else {
@@ -160,10 +160,10 @@ _dragTargets(int index, int pageIndex, BuildContext context) {
               logic.update();
             Debug.printLog("logic.que: ${logic.que[index]}");
             if (logic.count.length < 4) {
-                logic.count.add(data.toString());
+                logic.count.add(data.data.toString());
                 logic.update();
               MyApp.flutterTts.stop();
-              Utils.textToSpeech(logic.timeText[data]!, MyApp.flutterTts).then((value) {
+              Utils.textToSpeech(logic.timeText[data.data]!, MyApp.flutterTts).then((value) {
                 if (logic.count.length == 4) {
                   MyApp.flutterTts.stop();
                   Utils.textToSpeech("Awesome", MyApp.flutterTts);

@@ -41,8 +41,7 @@ class MissingNumbersController extends GetxController {
   }
 
 
-  Future<void> onAccept(Object? data, int? pageIndex,
-      BuildContext context) async {
+  Future<void> onAccept(Object? data, int? pageIndex, BuildContext context) async {
     if (count.length < que.length) {
         count.add(int.parse(data.toString()));
         update();

@@ -138,7 +138,7 @@ _dragTargets({int? pageIndex}) {
                     },
                     onWillAcceptWithDetails: (data) {
                       if (logic.lower.keys.firstWhere((element) =>
-                      logic.lower[element] == data) ==
+                      logic.lower[element] == data.data) ==
                           logic.upper.keys.firstWhere((element) =>
                           logic.upper[element] ==
                               logic.upper[logic.que[index]])) {
@@ -149,7 +149,7 @@ _dragTargets({int? pageIndex}) {
                         return false;
                       }
                     },
-                    onAcceptWithDetails: (data) => logic.onAccept(data, pageIndex, context),
+                    onAcceptWithDetails: (data) => logic.onAccept(data.data, pageIndex, context),
                   ),
                 ],
               );

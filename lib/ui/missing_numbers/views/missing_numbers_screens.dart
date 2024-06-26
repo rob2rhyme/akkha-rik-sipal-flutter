@@ -131,13 +131,13 @@ _dragTargets({int? pageIndex}) {
                 );
               },
               onWillAcceptWithDetails: (data) {
-                if (data == logic.que.toList()[index]) {
+                if (data.data == logic.que.toList()[index]) {
                   return true;
                 } else {
                   return false;
                 }
               },
-              onAcceptWithDetails: (data) => logic.onAccept(data, pageIndex, context),
+              onAcceptWithDetails: (data) => logic.onAccept(data.data, pageIndex, context),
             );
           }),
     );
