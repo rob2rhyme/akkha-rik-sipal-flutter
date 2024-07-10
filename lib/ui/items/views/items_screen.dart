@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
   import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/database/tables/item_table.dart';
-import 'package:kids_playroom/google_ads/custom_ad.dart';
 import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
@@ -65,7 +64,7 @@ class ItemScreen extends StatelessWidget {
                           },
                   ),
                        ),
-                       const BannerAdClass()
+
                      ],
                    );
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_playroom/database/tables/category_table.dart';
-import 'package:kids_playroom/google_ads/custom_ad.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }),
-          const BannerAdClass(),
+
         ],
       ),
     );

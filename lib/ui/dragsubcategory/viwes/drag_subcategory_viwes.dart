@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/google_ads/custom_ad.dart';
+import 'dart:io';
 import 'package:kids_playroom/ui/dragsubcategory/controllers/drag_subcategory_controllers.dart';
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
@@ -49,7 +49,9 @@ class DragSubcategoryScreen extends StatelessWidget {
                 fit: BoxFit.fill),
           ),
           child: Column(
-            children: [_categoryWidget(), const BannerAdClass()],
+            children: [_categoryWidget()
+              // , const BannerAdClass()
+            ],
           ),
         ),
       ),

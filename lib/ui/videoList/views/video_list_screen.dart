@@ -9,7 +9,6 @@ import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
-import 'package:kids_playroom/google_ads/custom_ad.dart';
 import 'package:kids_playroom/utils/utils.dart';
 import 'package:photo_view/photo_view.dart';
 
@@ -54,7 +53,7 @@ class VideoListScreen extends StatelessWidget {
                   },
                 ),
               ),
-              const BannerAdClass()
+              // const BannerAdClass()
             ],
           );
         }),

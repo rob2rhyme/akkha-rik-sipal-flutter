@@ -5,7 +5,6 @@ import 'package:kids_playroom/ui/video_subcategory/controller/video_subcategory_
 import 'package:kids_playroom/utils/color.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/sizer_utils.dart';
-import 'package:kids_playroom/google_ads/custom_ad.dart';
 
 class VideoSubCategoryScreen extends StatelessWidget {
   final VideoSubcategoryController videoSubcategoryController =
@@ -56,7 +55,7 @@ class VideoSubCategoryScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                const BannerAdClass()
+                // const BannerAdClass()
               ],
             );
           }),

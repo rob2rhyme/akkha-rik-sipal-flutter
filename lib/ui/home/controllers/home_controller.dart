@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:in_app_purchase_platform_interface/src/types/purchase_details.dart';
 import 'package:kids_playroom/database/database_helper.dart';
 import 'package:kids_playroom/database/tables/category_table.dart';
-import 'package:kids_playroom/google_ads/ad_helper.dart';
-import 'package:kids_playroom/in_app_purchase/iap_callback.dart';
-import 'package:kids_playroom/in_app_purchase/in_app_purchase_helper.dart';
 import 'package:kids_playroom/main.dart';
 import 'package:kids_playroom/utils/constant.dart';
 import 'package:kids_playroom/utils/debug.dart';
@@ -14,8 +10,7 @@ import 'package:kids_playroom/utils/preference.dart';
 import 'package:kids_playroom/utils/utils.dart';
 
 class HomeController extends GetxController
-    with WidgetsBindingObserver,GetSingleTickerProviderStateMixin
-    implements IAPCallback {
+    with WidgetsBindingObserver,GetSingleTickerProviderStateMixin {
   List<CategoryTable>? categoryList = [];
   InterstitialAd? interstitialAd;
   bool isInterstitialAdLoaded = false;
@@ -27,7 +22,6 @@ class HomeController extends GetxController
 
   @override
   void onInit() {
-    _loadInterstitialAd();
     getDataFromDatabase();
     getInAppPurchase();
     animationController = AnimationController(
@@ -79,40 +73,9 @@ class HomeController extends GetxController
         Debug.printLog("error", e.toString());
       }
     });
-    InAppPurchaseHelper().getAlreadyPurchaseItems(this);
   }
 
 
-  void _loadInterstitialAd() {
-    print("::::::object");
-    InterstitialAd.load(
-      adUnitId: AdHelper.interstitialAdUnitId,
-      request: const AdRequest(),
-      adLoadCallback: InterstitialAdLoadCallback(
-        onAdLoaded: (ad) {
-          ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdDismissedFullScreenContent: (ad) {
-              ad.dispose();
-              _loadInterstitialAd();
-            },
-            onAdFailedToShowFullScreenContent: (ad, error) {
-              ad.dispose();
-
-              _loadInterstitialAd();
-            },
-          );
-
-          interstitialAd = ad;
-          isInterstitialAdLoaded = true;
-
-          update([Constant.idHomePage]);
-        },
-        onAdFailedToLoad: (err) {
-          Debug.printLog('Failed to load an interstitial ad: ${err.message}');
-        },
-      ),
-    );
-  }
 
   showAd() async {
     if (interstitialAd != null &&
@@ -139,23 +102,10 @@ class HomeController extends GetxController
     super.dispose();
   }
 
-  @override
-  void onBillingError(error) {
-    // TODO: implement onBillingError
-  }
 
-  @override
-  void onLoaded(bool initialized) {
-    // TODO: implement onLoaded
-  }
 
-  @override
-  void onPending(PurchaseDetails product) {
-    // TODO: implement onPending
-  }
 
-  @override
-  void onSuccessPurchase(PurchaseDetails product) {
-    // TODO: implement onSuccessPurchase
-  }
+
+
+
 }

@@ -9,7 +9,6 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:kids_playroom/in_app_purchase/in_app_purchase_helper.dart';
 import 'package:kids_playroom/localization/locale_constant.dart';
 import 'package:kids_playroom/routes/app_pages.dart';
 import 'package:kids_playroom/routes/app_routes.dart';
@@ -52,7 +51,7 @@ Future<void> main() async {
       await SKPaymentQueueWrapper().finishTransaction(element.originalTransaction!);
     }
   }
-  InAppPurchaseHelper().initStoreInfo();
+  // InAppPurchaseHelper().initStoreInfo();
 
   runApp(const MyApp());
 }
