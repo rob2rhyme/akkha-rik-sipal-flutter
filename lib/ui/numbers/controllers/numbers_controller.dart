@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
-import 'package:kids_playroom/custom/convert/number_to_word.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/custom/convert/number_to_word.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class NumbersController extends GetxController {
-
   int? current = 1;
   dynamic args = Get.arguments;
   String? title;
@@ -15,10 +14,15 @@ class NumbersController extends GetxController {
   void onInit() {
     getDataFromArgs();
     MyApp.flutterTts.stop();
-    Utils.textToSpeech(title!, MyApp.flutterTts).then((value) =>
-        Utils.textToSpeech(NumberToWord().convert(current!), MyApp.flutterTts));
+    Utils.textToSpeech(title!, MyApp.flutterTts).then(
+      (value) => Utils.textToSpeech(
+        NumberToWord().convert(current!),
+        MyApp.flutterTts,
+      ),
+    );
     super.onInit();
   }
+
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {
@@ -30,19 +34,16 @@ class NumbersController extends GetxController {
     }
   }
 
-
-  onTtsClick(int index){
+  onTtsClick(int index) {
     current = index + 1;
     MyApp.flutterTts.stop();
-    Utils.textToSpeech(
-        NumberToWord().convert(current!), MyApp.flutterTts);
+    Utils.textToSpeech(NumberToWord().convert(current!), MyApp.flutterTts);
     update([Constant.idNumbers]);
   }
 
-
   @override
   void onClose() {
-MyApp.flutterTts.stop();
-super.onClose();
+    MyApp.flutterTts.stop();
+    super.onClose();
   }
 }

@@ -1,11 +1,9 @@
 import 'package:get/get.dart';
-import 'package:kids_playroom/ui/dragquiz/controllers/drag_quiz_controllers.dart';
+import 'package:akkha_rik_lipi_sipal/ui/dragquiz/controllers/drag_quiz_controllers.dart';
 
 class DragQuizBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<DragQuizController>(
-      () => DragQuizController(),
-    );
+    Get.lazyPut<DragQuizController>(() => DragQuizController());
   }
 }

@@ -1,12 +1,13 @@
+//lib/dialog/parent_dialog/parent_dialog_screen.dart
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
 
 class ParentDialog extends StatefulWidget {
-  const ParentDialog({Key? key}) : super(key: key);
+  const ParentDialog({super.key}); // ✅ Updated to use super parameter
 
   @override
   ParentDialogState createState() => ParentDialogState();
@@ -48,18 +49,20 @@ class ParentDialogState extends State<ParentDialog> {
     );
   }
 
-  _dialogWidget(BuildContext context) {
+  Widget _dialogWidget(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 20),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       height: MediaQuery.of(context).size.height * 0.7,
       width: MediaQuery.of(context).size.width * 0.8,
-      decoration:  const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: AppColor.themeGradient)),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: AppColor.themeGradient,
+        ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,13 +71,19 @@ class ParentDialogState extends State<ParentDialog> {
             "txtToAccessEnterNumbers".tr,
             maxLines: 1,
             style: const TextStyle(
-                color: AppColor.white, fontSize: 18, fontWeight: FontWeight.w500),
+              color: AppColor.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           AutoSizeText(
             numStr,
             maxLines: 1,
-            style:  const TextStyle(
-                color: AppColor.colorTheme, fontSize: 18, fontWeight: FontWeight.w500),
+            style: const TextStyle(
+              color: AppColor.colorTheme,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           Column(
             children: [
@@ -88,83 +97,80 @@ class ParentDialogState extends State<ParentDialog> {
                   border: Border.all(color: AppColor.colorGreen, width: 2),
                 ),
                 child: TextField(
-                    controller: numController,
-                    maxLength: 4,
-                    keyboardType: TextInputType.none,
-                    cursorWidth: 0,
-                    style: const TextStyle(color: AppColor.white),
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(left: 5),
-                      counterText: "",
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                    )),
+                  controller: numController,
+                  maxLength: 4,
+                  keyboardType: TextInputType.none,
+                  cursorWidth: 0,
+                  style: const TextStyle(color: AppColor.white),
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 5),
+                    counterText: "",
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                  ),
+                ),
               ),
               GridView.builder(
-                  shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.12,
-                      vertical: MediaQuery.of(context).size.height * 0.01),
-                  itemCount: 11,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 20,
-                    childAspectRatio: 0.95,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    if(index == 9) {
-                      return InkWell(
-                        onTap: (){
-                          if (numController.text.length < 4) {
-                            numController.text = "${numController.text}0";
-                          }
-                          if(numController.text == answer){
-                            // Navigator.of(context).push(
-                            //     MaterialPageRoute(builder: (context) => const SettingsScreen()));
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/numbers/0.webp",
-                        ),
-                      );
-                    } else if(index == 10){
-                      return InkWell(
-                        onTap: (){
-                          if (numController.text != "") {
-                            numController.text = numController.text.substring(0, numController.text.length - 1);
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/numbers/backspace.webp",
-                        ),
-                      );
-                    } else{
-                      return InkWell(
-                        onTap: (){
-                          if (numController.text.length < 4) {
-                            numController.text = numController.text + (index+1).toString();
-                          }
-                          if(numController.text == answer){
-                            // Navigator.of(context).push(
-                            //     MaterialPageRoute(builder: (context) => const SettingsScreen()));
-                          }
-                        },
-                        child: Image.asset(
-                          "assets/numbers/${index + 1}.webp",
-                        ),
-                      );
-                    }
-                  }),
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.12,
+                  vertical: MediaQuery.of(context).size.height * 0.01,
+                ),
+                itemCount: 11,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.95,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  if (index == 9) {
+                    return InkWell(
+                      onTap: () {
+                        if (numController.text.length < 4) {
+                          numController.text += "0";
+                        }
+                        if (numController.text == answer) {
+                          // Navigate on correct entry
+                        }
+                      },
+                      child: Image.asset("assets/numbers/0.webp"),
+                    );
+                  } else if (index == 10) {
+                    return InkWell(
+                      onTap: () {
+                        if (numController.text.isNotEmpty) {
+                          numController.text = numController.text.substring(
+                            0,
+                            numController.text.length - 1,
+                          );
+                        }
+                      },
+                      child: Image.asset("assets/numbers/backspace.webp"),
+                    );
+                  } else {
+                    return InkWell(
+                      onTap: () {
+                        if (numController.text.length < 4) {
+                          numController.text += (index + 1).toString();
+                        }
+                        if (numController.text == answer) {
+                          // Navigate on correct entry
+                        }
+                      },
+                      child: Image.asset("assets/numbers/${index + 1}.webp"),
+                    );
+                  }
+                },
+              ),
             ],
           ),
-
         ],
       ),
     );
   }
 
-  topBar(BuildContext context) {
+  Widget topBar(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -172,22 +178,25 @@ class ParentDialogState extends State<ParentDialog> {
         Container(
           padding: const EdgeInsets.all(15),
           decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(200)),
-              color: AppColor.colorBlueLight),
+            borderRadius: BorderRadius.all(Radius.circular(200)),
+            color: AppColor.colorBlueLight,
+          ),
           child: Text(
             "txtForGrownUps".tr,
             style: const TextStyle(
-                color: AppColor.colorTheme, fontSize: 16, fontWeight: FontWeight.w500),
+              color: AppColor.colorTheme,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         Container(
           margin: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.085, right: MediaQuery.of(context).size.width * 0.065
+            left: MediaQuery.of(context).size.width * 0.085,
+            right: MediaQuery.of(context).size.width * 0.065,
           ),
           child: InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
+            onTap: () => Navigator.of(context).pop(),
             child: Image.asset(
               "assets/icons/ic_close.webp",
               height: 45,
@@ -199,18 +208,17 @@ class ParentDialogState extends State<ParentDialog> {
     );
   }
 
-  _randomNumber() {
+  void _randomNumber() {
     list = numList!.sample(4);
     Debug.printLog("sample$list");
 
     for (var element in list!) {
-      if (element != list!.last) {
-        numStr = "$numStr${numMap[element]!}, ";
-      } else {
-        numStr = numStr + numMap[element]!;
-      }
-      answer = answer + element.toString();
+      numStr += element != list!.last
+          ? "${numMap[element]!}, "
+          : numMap[element]!;
+      answer += element.toString();
     }
+
     Debug.printLog(numStr);
     Debug.printLog(answer);
   }

@@ -1,52 +1,53 @@
+//lib/routes/app_pages.dart
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:kids_playroom/ui/add_subtract/bindings/add_subtract_bindings.dart';
-import 'package:kids_playroom/ui/add_subtract/views/add_subtract_screen.dart';
-import 'package:kids_playroom/ui/alphabets/bindings/alphabets_binding.dart';
-import 'package:kids_playroom/ui/alphabets/views/alphabets_screen.dart';
-import 'package:kids_playroom/ui/compare/bindings/compare_binding.dart';
-import 'package:kids_playroom/ui/compare/views/compare_screen.dart';
-import 'package:kids_playroom/ui/counting/bindings/counting_bindings.dart';
-import 'package:kids_playroom/ui/counting/views/couting_screens.dart';
-import 'package:kids_playroom/ui/dragquiz/bindings/drag_quiz_bindings.dart';
-import 'package:kids_playroom/ui/dragquiz/viwes/drag_quiz_viwes.dart';
-import 'package:kids_playroom/ui/dragsubcategory/bindings/drag_subcategory_bindings.dart';
-import 'package:kids_playroom/ui/dragsubcategory/viwes/drag_subcategory_viwes.dart';
-import 'package:kids_playroom/ui/home/bindings/home_binding.dart';
-import 'package:kids_playroom/ui/home/views/home_screen.dart';
-import 'package:kids_playroom/ui/items/bindings/item_binding.dart';
-import 'package:kids_playroom/ui/items/views/items_screen.dart';
-import 'package:kids_playroom/ui/missing_numbers/bindings/missing_numbers_bindings.dart';
-import 'package:kids_playroom/ui/missing_numbers/views/missing_numbers_screens.dart';
-import 'package:kids_playroom/ui/months_days/bindings/months_days_bindings.dart';
-import 'package:kids_playroom/ui/months_days/viwes/months_days_screens.dart';
-import 'package:kids_playroom/ui/numbers/bindings/numbers_binding.dart';
-import 'package:kids_playroom/ui/numbers/views/numbers_screens.dart';
-import 'package:kids_playroom/ui/paint/bindings/paint_binding.dart';
-import 'package:kids_playroom/ui/paint/views/paint_screen.dart';
-import 'package:kids_playroom/ui/pro_version/bindings/pro_version_binding.dart';
-import 'package:kids_playroom/ui/pro_version/views/pro_version_screen.dart';
-import 'package:kids_playroom/ui/quantity/bindings/quantity_binding.dart';
-import 'package:kids_playroom/ui/quantity/views/quantity_screen.dart';
-import 'package:kids_playroom/ui/quiz/bindings/quiz_binding.dart';
-import 'package:kids_playroom/ui/quiz/views/quiz_screen.dart';
-import 'package:kids_playroom/ui/settings/bindings/settings_binding.dart';
-import 'package:kids_playroom/ui/settings/views/settings_screen.dart';
-import 'package:kids_playroom/ui/single_item/bindings/single_item_binding.dart';
-import 'package:kids_playroom/ui/single_item/views/single_item_screen.dart';
-import 'package:kids_playroom/ui/spelling/bindings/spelling_bindings.dart';
-import 'package:kids_playroom/ui/spelling/views/spelling_screens.dart';
-import 'package:kids_playroom/ui/subcategory/bindings/subcategory_binding.dart';
-import 'package:kids_playroom/ui/subcategory/views/subcategory_sceen.dart';
-import 'package:kids_playroom/ui/time/bindings/time_binding.dart';
-import 'package:kids_playroom/ui/time/views/time_screens.dart';
-import 'package:kids_playroom/ui/upper_lower/bindings/upper_lower_binding.dart';
-import 'package:kids_playroom/ui/upper_lower/views/upper_lower_screen.dart';
-import 'package:kids_playroom/ui/videoList/bindings/video_list_binding.dart';
-import 'package:kids_playroom/ui/videoList/views/video_list_screen.dart';
-import 'package:kids_playroom/ui/video_player/bindings/video_player_binding.dart';
-import 'package:kids_playroom/ui/video_player/views/video_player_screen.dart';
-import 'package:kids_playroom/ui/video_subcategory/bindings/video_subcategory_binding.dart';
-import 'package:kids_playroom/ui/video_subcategory/views/video_subcategory_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/add_subtract/bindings/add_subtract_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/add_subtract/views/add_subtract_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/alphabets/bindings/alphabets_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/alphabets/views/alphabets_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/compare/bindings/compare_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/compare/views/compare_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/counting/bindings/counting_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/counting/views/couting_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/dragquiz/bindings/drag_quiz_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/dragquiz/viwes/drag_quiz_viwes.dart';
+import 'package:akkha_rik_lipi_sipal/ui/dragsubcategory/bindings/drag_subcategory_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/dragsubcategory/viwes/drag_subcategory_viwes.dart';
+import 'package:akkha_rik_lipi_sipal/ui/home/bindings/home_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/home/views/home_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/items/bindings/item_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/items/views/items_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/missing_numbers/bindings/missing_numbers_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/missing_numbers/views/missing_numbers_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/months_days/bindings/months_days_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/months_days/viwes/months_days_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/numbers/bindings/numbers_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/numbers/views/numbers_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/paint/bindings/paint_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/paint/views/paint_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/pro_version/bindings/pro_version_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/pro_version/views/pro_version_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/quantity/bindings/quantity_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/quantity/views/quantity_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/quiz/bindings/quiz_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/quiz/views/quiz_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/settings/bindings/settings_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/settings/views/settings_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/single_item/bindings/single_item_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/single_item/views/single_item_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/spelling/bindings/spelling_bindings.dart';
+import 'package:akkha_rik_lipi_sipal/ui/spelling/views/spelling_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/subcategory/bindings/subcategory_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/subcategory/views/subcategory_sceen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/time/bindings/time_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/time/views/time_screens.dart';
+import 'package:akkha_rik_lipi_sipal/ui/upper_lower/bindings/upper_lower_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/upper_lower/views/upper_lower_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/videoList/bindings/video_list_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/videoList/views/video_list_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/video_player/bindings/video_player_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/video_player/views/video_player_screen.dart';
+import 'package:akkha_rik_lipi_sipal/ui/video_subcategory/bindings/video_subcategory_binding.dart';
+import 'package:akkha_rik_lipi_sipal/ui/video_subcategory/views/video_subcategory_screen.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -68,7 +69,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.singleItem,
-      page: () => SingleItemScreen(),
+      page: () => const SingleItemScreen(),
       binding: SingleItemBinding(),
     ),
     GetPage(
@@ -83,14 +84,15 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.paint,
-      page: () => PaintScreen(),
+      page: () => const PaintScreen(),
       binding: PaintBinding(),
     ),
     GetPage(
       name: AppRoutes.dragSubcategory,
-      page: () => DragSubcategoryScreen(),
+      page: () => const DragSubcategoryScreen(),
       binding: DragSubcategoryBindings(),
-    ), GetPage(
+    ),
+    GetPage(
       name: AppRoutes.dragQuiz,
       page: () => DragQuizScreen(),
       binding: DragQuizBindings(),
@@ -100,63 +102,76 @@ class AppPages {
       name: AppRoutes.numbers,
       page: () => NumbersScreen(),
       binding: NumbersBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.counting,
-      page: () => CountingScreen(),
+      page: () => const CountingScreen(),
       binding: CountingBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.addSubtract,
-      page: () => AddSubtractScreen(),
+      page: () => const AddSubtractScreen(),
       binding: AddSubtractBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.compare,
-      page: () => CompareScreen(),
+      page: () => const CompareScreen(),
       binding: CompareBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.missingNum,
-      page: () => MissingNumbersScreen(),
+      page: () => const MissingNumbersScreen(),
       binding: MissingNumbersBindings(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.time,
-      page: () => TimeScreen(),
+      page: () => const TimeScreen(),
       binding: TimeBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.month,
-      page: () => MonthsDaysScreens(),
+      page: () => const MonthsDaysScreens(),
       binding: MonthsDaysBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.quantity,
-      page: () => QuantityScreen(),
+      page: () => const QuantityScreen(),
       binding: QuantityBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.alphabets,
-      page: () => AlphabetsScreen(),
+      page: () => const AlphabetsScreen(),
       binding: AlphabetsBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.upper,
-      page: () => UpperLowerScreen(),
+      page: () => const UpperLowerScreen(),
       binding: UpperLowerBinding(),
-    ),GetPage(
+    ),
+    GetPage(
       name: AppRoutes.spelling,
-      page: () => SpellingScreen(),
+      page: () => const SpellingScreen(),
       binding: SpellingBindings(),
     ),
     GetPage(
       name: AppRoutes.proVersion,
       page: () => ProVersionScreen(),
       binding: ProVersionBinding(),
-    ), GetPage(
+    ),
+    GetPage(
       name: AppRoutes.videoSubcategory,
       page: () => VideoSubCategoryScreen(),
-      binding:  VideoSubcategoryBinding() ,
-    ),GetPage(
+      binding: VideoSubcategoryBinding(),
+    ),
+    GetPage(
       name: AppRoutes.videoList,
       page: () => VideoListScreen(),
-      binding:  VideoListBinding() ,
-    ),GetPage(
+      binding: VideoListBinding(),
+    ),
+    GetPage(
       name: AppRoutes.videoPlayer,
-      page: () => VideoPlayerScreen(),
-      binding:  VideoPlayerBinding() ,
+      page: () => const VideoPlayerScreen(),
+      binding: VideoPlayerBinding(),
     ),
   ];
 }

@@ -1,15 +1,13 @@
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/sub_category_table.dart';
-import 'package:kids_playroom/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/sub_category_table.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
 
-class SubCategoryController extends GetxController  {
+class SubCategoryController extends GetxController {
   List<SubCategoryTable>? subcategoryList = [];
   dynamic args = Get.arguments;
   String? title;
   int? catId;
-
-
 
   @override
   void onInit() {
@@ -17,8 +15,6 @@ class SubCategoryController extends GetxController  {
     getDataFromDatabase();
     super.onInit();
   }
-
-
 
   getDataFromArgs() {
     if (args != null) {

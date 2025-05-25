@@ -1,5 +1,6 @@
+//lib/dialog/progress_dialog/progress_dialog.dart
 import 'package:flutter/material.dart';
-import 'package:kids_playroom/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
 
 class ProgressDialog extends StatelessWidget {
   final Widget? child;
@@ -9,18 +10,19 @@ class ProgressDialog extends StatelessWidget {
   final Animation<Color>? valueColor;
 
   const ProgressDialog({
-    Key? key,
+    super.key, // ✅ Super parameter used
     @required this.child,
     @required this.inAsyncCall,
     this.opacity = 0.0,
     this.color = AppColor.transparent,
     this.valueColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     List<Widget> widgetList = [];
     widgetList.add(child!);
+
     if (inAsyncCall!) {
       final modal = Stack(
         children: [
@@ -29,28 +31,30 @@ class ProgressDialog extends StatelessWidget {
             child: ModalBarrier(dismissible: false, color: color),
           ),
           Center(
-              child: Container(
-                  decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: AppColor.txtColor999,
-                          spreadRadius: 0.1,
-                          offset: Offset(0, 20.0),
-                          blurRadius: 25.0,
-                        ),
-                      ]),
-                  padding: const EdgeInsets.all(30),
-                  height: 100,
-                  width: 100,
-                  child:  const CircularProgressIndicator())),
+            child: Container(
+              height: 100,
+              width: 100,
+              padding: const EdgeInsets.all(30),
+              decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: const [
+                  BoxShadow(
+                    color: AppColor.txtColor999,
+                    spreadRadius: 0.1,
+                    offset: Offset(0, 20.0),
+                    blurRadius: 25.0,
+                  ),
+                ],
+              ),
+              child: const CircularProgressIndicator(),
+            ),
+          ),
         ],
       );
       widgetList.add(modal);
     }
-    return Stack(
-      children: widgetList,
-    );
+
+    return Stack(children: widgetList);
   }
 }

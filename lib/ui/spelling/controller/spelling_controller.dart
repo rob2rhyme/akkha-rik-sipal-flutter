@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/spelling_table.dart';
-import 'package:kids_playroom/dialog/complete_dialog/complete_dialog_screen.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/spelling_table.dart';
+import 'package:akkha_rik_lipi_sipal/dialog/complete_dialog/complete_dialog_screen.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
-class SpellingController extends GetxController{
-  PageController? pageController =
-  PageController(viewportFraction: 1.0, keepPage: true);
+class SpellingController extends GetxController {
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   List<SpellingTable>? spellingList = [];
 
   List<String>? spelling = [];
@@ -35,6 +37,7 @@ class SpellingController extends GetxController{
     getDataFromDatabase();
     super.onInit();
   }
+
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {
@@ -45,38 +48,51 @@ class SpellingController extends GetxController{
       }
     }
   }
+
   Future<void> onAccept(
-      Object? data, int? pageIndex, BuildContext context, int index) async {
-      count!.add(index);
-      countOpt!.add(currentIndex!);
-      Debug.printLog("count =>$count");
-update();
+    Object? data,
+    int? pageIndex,
+    BuildContext context,
+    int index,
+  ) async {
+    count!.add(index);
+    countOpt!.add(currentIndex!);
+    Debug.printLog("count =>$count");
+    update();
     if (count!.length == spelling!.length) {
       MyApp.flutterTts.stop();
-      Utils.textToSpeech(spellingList![pageIndex!].spelling!, MyApp.flutterTts).then(
-              (value) => Utils.textToSpeech("Well done", MyApp.flutterTts).then((value) {
-            showDialog(
+      Utils.textToSpeech(
+        spellingList![pageIndex!].spelling!,
+        MyApp.flutterTts,
+      ).then(
+        (value) =>
+            Utils.textToSpeech("Well done", MyApp.flutterTts).then((value) {
+              showDialog(
                 context: context,
                 builder: (context) {
-                  return CompleteDialog(restartFunction: () {
-                    Navigator.of(context).pop();
-                    count!.clear();
-                    countOpt!.clear();
-                    spelling!.clear();
-                    letters!.clear();
-                    shuffled!.clear();
-                    if (pageIndex == spellingList!.length - 1) {
-                      pageController!.jumpToPage(0);
-                      getOptions(0);
-                    } else {
-                      pageController!.jumpToPage(pageIndex + 1);
-                      getOptions(pageIndex + 1);
-                      update();
-                    }
-                  },
-                    image: "assets/icons/ic_next.webp",);
-                });
-          }));
+                  return CompleteDialog(
+                    restartFunction: () {
+                      Navigator.of(context).pop();
+                      count!.clear();
+                      countOpt!.clear();
+                      spelling!.clear();
+                      letters!.clear();
+                      shuffled!.clear();
+                      if (pageIndex == spellingList!.length - 1) {
+                        pageController!.jumpToPage(0);
+                        getOptions(0);
+                      } else {
+                        pageController!.jumpToPage(pageIndex + 1);
+                        getOptions(pageIndex + 1);
+                        update();
+                      }
+                    },
+                    image: "assets/icons/ic_next.webp",
+                  );
+                },
+              );
+            }),
+      );
     }
   }
 
@@ -116,5 +132,4 @@ update();
       return AppColor.spellingRed;
     }
   }
-
 }

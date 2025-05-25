@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Volumes/DATA/FlutterSDK/3.22.2
-FLUTTER_APPLICATION_PATH=/Volumes/DATA/Parth/FlutterProject/Home Product/KidsPreschool_Flutter_Product
+FLUTTER_ROOT=/opt/homebrew/Caskroom/flutter/3.32.0/flutter
+FLUTTER_APPLICATION_PATH=/Users/noahnovah/Desktop/Flutter-AKKHA/AK/Akkha-Sipal
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.1

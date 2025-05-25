@@ -1,9 +1,9 @@
 // import 'package:get/get.dart';
-// import 'package:kids_playroom/database/tables/item_table.dart';
-// import 'package:kids_playroom/main.dart';
-// import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
-// import 'package:kids_playroom/utils/constant.dart';
-// import 'package:kids_playroom/utils/utils.dart';
+// import 'package:akkha_rik_lipi_sipal/database/tables/item_table.dart';
+// import 'package:akkha_rik_lipi_sipal/main.dart';
+// import 'package:akkha_rik_lipi_sipal/ui/items/controllers/item_controller.dart';
+// import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+// import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 //
 // class SingleItemController extends GetxController {
 //   int index = Get.arguments;
@@ -53,16 +53,16 @@
 // }
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/tables/item_table.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/ui/items/controllers/item_controller.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/item_table.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/ui/items/controllers/item_controller.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class SingleItemController extends GetxController {
   int index = Get.arguments;
   List<ItemTable>? itemDataList = Get.find<ItemController>().itemList;
-  var showAnimation =  false;
+  var showAnimation = false;
 
   void previousItem() {
     if (index > 0) {

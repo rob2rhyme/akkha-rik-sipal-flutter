@@ -2,14 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class AddSubtractController extends GetxController {
-  PageController? pageController =
-  PageController(viewportFraction: 1.0, keepPage: true);
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
 
   bool? accept = false;
   int? answer;
@@ -24,13 +26,12 @@ class AddSubtractController extends GetxController {
   int? subId;
   Set<int>? optionSet = {};
 
-
   @override
   void onInit() {
     getDataFromArgs();
     generateNumbers();
     MyApp.flutterTts.stop();
-     Utils.textToSpeech(title!, MyApp.flutterTts);
+    Utils.textToSpeech(title!, MyApp.flutterTts);
     super.onInit();
   }
 
@@ -58,7 +59,7 @@ class AddSubtractController extends GetxController {
       num2 = Random().nextInt(30);
     }
 
-    if (subId== 14) {
+    if (subId == 14) {
       answer = num1! - num2!;
     } else {
       answer = num1! + num2!;
@@ -79,10 +80,8 @@ class AddSubtractController extends GetxController {
     Debug.printLog("n2: $n2");
     Debug.printLog("ans $answer");
 
-
     optionSet!.add(n1);
     optionSet!.add(n2);
-
 
     options = optionSet!.toList();
     options!.shuffle();
@@ -106,5 +105,6 @@ class AddSubtractController extends GetxController {
       return AppColor.redSquare;
     } else {
       return AppColor.blueSquare;
-    }}
+    }
+  }
 }

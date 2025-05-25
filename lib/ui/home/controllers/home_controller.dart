@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/category_table.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/preference.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/category_table.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class HomeController extends GetxController
-    with WidgetsBindingObserver,GetSingleTickerProviderStateMixin {
+    with WidgetsBindingObserver, GetSingleTickerProviderStateMixin {
   List<CategoryTable>? categoryList = [];
   InterstitialAd? interstitialAd;
   bool isInterstitialAdLoaded = false;
@@ -30,18 +30,14 @@ class HomeController extends GetxController
     )..forward();
 
     animationLeft =
-        Tween<Offset>(begin: const Offset(-1.5, 0.0), end: Offset.zero)
-            .animate(CurvedAnimation(
-          parent: animationController!,
-          curve: Curves.easeIn,
-        ));
+        Tween<Offset>(begin: const Offset(-1.5, 0.0), end: Offset.zero).animate(
+          CurvedAnimation(parent: animationController!, curve: Curves.easeIn),
+        );
 
     animationRight =
-        Tween<Offset>(begin: const Offset(1.5, 0.0), end: Offset.zero)
-            .animate(CurvedAnimation(
-          parent: animationController!,
-          curve: Curves.easeIn,
-        ));
+        Tween<Offset>(begin: const Offset(1.5, 0.0), end: Offset.zero).animate(
+          CurvedAnimation(parent: animationController!, curve: Curves.easeIn),
+        );
 
     super.onInit();
   }
@@ -75,8 +71,6 @@ class HomeController extends GetxController
     });
   }
 
-
-
   showAd() async {
     if (interstitialAd != null &&
         Preference.shared.getInterstitialAdCount() %
@@ -85,8 +79,9 @@ class HomeController extends GetxController
       Utils.showHideStatusBar();
       await interstitialAd!.show();
     }
-    Preference.shared
-        .setInterstitialAdCount(Preference.shared.getInterstitialAdCount() + 1);
+    Preference.shared.setInterstitialAdCount(
+      Preference.shared.getInterstitialAdCount() + 1,
+    );
   }
 
   @override
@@ -101,11 +96,4 @@ class HomeController extends GetxController
     // interstitialAd?.dispose();
     super.dispose();
   }
-
-
-
-
-
-
-
 }

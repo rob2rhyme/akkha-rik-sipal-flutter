@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/tables/vide_table.dart';
-import 'package:kids_playroom/ui/videoList/controller/video_list_controller.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/vide_table.dart';
+import 'package:akkha_rik_lipi_sipal/ui/videoList/controller/video_list_controller.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../../utils/utils.dart';
@@ -17,7 +17,6 @@ class VideoPlayerController extends GetxController {
   bool isPlayerReady = false;
   bool isFullScreen = false;
   late PlayerState playerState;
-
 
   getVideoId() {
     itemDataList?.forEach((e) {
@@ -52,35 +51,33 @@ class VideoPlayerController extends GetxController {
     );
     Utils.audioPlayer.pause();
 
-    controller.setFullScreenListener(
-          (isFullScreen) {
-            this.isFullScreen = isFullScreen;
-            // if(!isFullScreen){
-            //   SystemChrome.setPreferredOrientations([
-            //     DeviceOrientation.portraitUp,
-            //     DeviceOrientation.portraitDown
-            //   ]);
-            //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-            //       statusBarColor: AppColor.white));
-            // }else {
-            //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-            //       statusBarColor: AppColor.transparent));
-            // }
-        log('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
-      },
-    );
+    controller.setFullScreenListener((isFullScreen) {
+      this.isFullScreen = isFullScreen;
+      // if(!isFullScreen){
+      //   SystemChrome.setPreferredOrientations([
+      //     DeviceOrientation.portraitUp,
+      //     DeviceOrientation.portraitDown
+      //   ]);
+      //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      //       statusBarColor: AppColor.white));
+      // }else {
+      //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      //       statusBarColor: AppColor.transparent));
+      // }
+      log('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
+    });
 
     controller.loadPlaylist(
       list: videoIds,
       listType: ListType.playlist,
       startSeconds: 0,
-      index: index
+      index: index,
     );
     // controller.playVideoAt(index);
     super.onInit();
   }
 
- /* void listener() {
+  /* void listener() {
     if (isPlayerReady && !controller.value.isFullScreen) {
       playerState = controller.value.playerState;
       update();
@@ -107,10 +104,7 @@ class VideoPlayerController extends GetxController {
         content: Text(
           message,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 16.0,
-          ),
+          style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 16.0),
         ),
         backgroundColor: Colors.blueAccent,
         behavior: SnackBarBehavior.floating,

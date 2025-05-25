@@ -1,6 +1,7 @@
+//lib/custom/progress_dialog.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
 
 class ProgressDialog extends StatelessWidget {
   final Widget? child;
@@ -10,13 +11,13 @@ class ProgressDialog extends StatelessWidget {
   final Animation<Color>? valueColor;
 
   const ProgressDialog({
-    Key? key,
+    super.key,
     @required this.child,
     @required this.inAsyncCall,
     this.opacity = 0.0,
     this.color = Colors.transparent,
     this.valueColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class ProgressDialog extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Get.theme.cardColor,
                 borderRadius: BorderRadius.circular(20),
-                boxShadow:  const [
+                boxShadow: const [
                   BoxShadow(
                     color: AppColor.colorGray,
                     spreadRadius: 0.1,
@@ -55,8 +56,6 @@ class ProgressDialog extends StatelessWidget {
       );
       widgetList.add(modal);
     }
-    return Stack(
-      children: widgetList,
-    );
+    return Stack(children: widgetList);
   }
 }

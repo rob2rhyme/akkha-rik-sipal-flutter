@@ -1,11 +1,11 @@
+//lib/database/database_helper.dart
 import 'package:flutter/services.dart';
-import 'package:kids_playroom/database/tables/alphabets_table.dart';
-import 'package:kids_playroom/database/tables/drag_item_table.dart';
-import 'package:kids_playroom/database/tables/item_table.dart';
-import 'package:kids_playroom/database/tables/paint_table.dart';
-import 'package:kids_playroom/database/tables/sub_category_table.dart';
-import 'package:kids_playroom/database/tables/vide_table.dart';
-
+import 'package:akkha_rik_lipi_sipal/database/tables/alphabets_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/drag_item_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/item_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/paint_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/sub_category_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/vide_table.dart';
 import 'package:path/path.dart' as path;
 import 'dart:io' as io;
 
@@ -28,18 +28,20 @@ class DataBaseHelper {
     return _db!;
   }
 
-  init() async {
+  Future<Database> init() async {
     var dbPath = await getDatabasesPath();
-
     String dbPathKidsAllInOne = path.join(dbPath, "KidsPlayroom.db");
 
     bool dbExistsEnliven = await io.File(dbPathKidsAllInOne).exists();
 
     if (!dbExistsEnliven) {
-      ByteData data = await rootBundle
-          .load(path.join("assets/database", "KidsPlayroom.db"));
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      ByteData data = await rootBundle.load(
+        path.join("assets/database", "KidsPlayroom.db"),
+      );
+      List<int> bytes = data.buffer.asUint8List(
+        data.offsetInBytes,
+        data.lengthInBytes,
+      );
 
       await io.File(dbPathKidsAllInOne).writeAsBytes(bytes, flush: true);
     }
@@ -51,7 +53,6 @@ class DataBaseHelper {
   String dragCategoryTable = "DragCategoryTable";
   String subcategoryTable = "SubCategoryTable";
   String kidVideoTable = "KidsVideoTable";
-
   String itemTable = "ItemTable";
   String dragItemTable = "DragItemsTable";
   String paintTable = "PaintTable";
@@ -62,135 +63,73 @@ class DataBaseHelper {
   String dragSubCategoryName = "category_name";
 
   Future<List<CategoryTable>> getCategoryData() async {
-    List<CategoryTable> categoryList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps =
-        await dbClient.rawQuery("SELECT * FROM $categoryTable");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var categoryData = CategoryTable.fromJson(answer);
-        categoryList.add(categoryData);
-      }
-    }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery("SELECT * FROM $categoryTable");
 
-    return categoryList;
+    return maps.map((e) => CategoryTable.fromJson(e)).toList();
   }
 
   Future<List<SubCategoryTable>> getSubCategoryData() async {
-    List<SubCategoryTable> subcategoryList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps = await dbClient.rawQuery(
-        "SELECT * FROM $subcategoryTable ORDER BY $subCategoryName ASC");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var categoryData = SubCategoryTable.fromJson(answer);
-        subcategoryList.add(categoryData);
-      }
-    }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery(
+      "SELECT * FROM $subcategoryTable ORDER BY $subCategoryName ASC",
+    );
 
-    return subcategoryList;
+    return maps.map((e) => SubCategoryTable.fromJson(e)).toList();
   }
 
   Future<List<ItemTable>> getItemData(int subcategoryId) async {
-    List<ItemTable> itemList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps = await dbClient.rawQuery(
-        "SELECT * FROM $itemTable where sub_category_id = $subcategoryId");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var itemData = ItemTable.fromJson(answer);
-        itemList.add(itemData);
-      }
-    }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery(
+      "SELECT * FROM $itemTable WHERE sub_category_id = $subcategoryId",
+    );
 
-    return itemList;
+    return maps.map((e) => ItemTable.fromJson(e)).toList();
   }
 
   Future<List<PaintTable>> getPaintData() async {
-    List<PaintTable> paintList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps =
-        await dbClient.rawQuery("SELECT * FROM $paintTable");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var paintData = PaintTable.fromJson(answer);
-        paintList.add(paintData);
-        print(":::::::${paintList[0].itemImage}");
-      }
-    }
-    return paintList;
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery("SELECT * FROM $paintTable");
+
+    return maps.map((e) => PaintTable.fromJson(e)).toList();
   }
 
   Future<List<CategoryTable>> getDragCategoryData() async {
-    List<CategoryTable> dragCategoryList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps =
-        await dbClient.rawQuery("SELECT * FROM $dragCategoryTable");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var categoryData = CategoryTable.fromJson(answer);
-        dragCategoryList.add(categoryData);
-      }
-    }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery("SELECT * FROM $dragCategoryTable");
 
-    return dragCategoryList;
+    return maps.map((e) => CategoryTable.fromJson(e)).toList();
   }
 
   Future<List<DragItemTable>> getDragItemData(int subcategoryId) async {
-    List<DragItemTable> itemList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps = await dbClient.rawQuery(
-        "SELECT * FROM $dragItemTable where category_id = $subcategoryId");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var itemData = DragItemTable.fromJson(answer);
-        itemList.add(itemData);
-      }
-    }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery(
+      "SELECT * FROM $dragItemTable WHERE category_id = $subcategoryId",
+    );
 
-    return itemList;
+    return maps.map((e) => DragItemTable.fromJson(e)).toList();
   }
 
   Future<List<AlphabetsTable>> getAlphabetsData() async {
-    List<AlphabetsTable> alphabetsList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps =
-        await dbClient.rawQuery("SELECT * FROM $alphabetsTable");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var alphabetsData = AlphabetsTable.fromJson(answer);
-        alphabetsList.add(alphabetsData);
-      }
-    }
-    return alphabetsList;
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery("SELECT * FROM $alphabetsTable");
+
+    return maps.map((e) => AlphabetsTable.fromJson(e)).toList();
   }
 
   Future<List<SpellingTable>> getSpellingData() async {
-    List<SpellingTable> spellList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps =
-        await dbClient.rawQuery("SELECT * FROM $spellingTable");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var spellData = SpellingTable.fromJson(answer);
-        spellList.add(spellData);
-      }
-    }
-    return spellList;
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery("SELECT * FROM $spellingTable");
+
+    return maps.map((e) => SpellingTable.fromJson(e)).toList();
   }
 
   Future<List<VideoTable>> getVideo(int catId) async {
-    List<VideoTable> videosList = [];
-    var dbClient = await db;
-    List<Map<String, dynamic>> maps = await dbClient
-        .rawQuery("SELECT * FROM $kidVideoTable  WHERE id = $catId");
-    if (maps.isNotEmpty) {
-      for (var answer in maps) {
-        var videoData = VideoTable.fromJson(answer);
-        videosList.add(videoData);
-      }
+    final dbClient = await db;
+    final maps = await dbClient.rawQuery(
+      "SELECT * FROM $kidVideoTable WHERE id = $catId",
+    );
 
-    }
-    return videosList;
+    return maps.map((e) => VideoTable.fromJson(e)).toList();
   }
 }

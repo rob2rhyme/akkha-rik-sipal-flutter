@@ -1,15 +1,18 @@
+//lib/ui/settings/controller/settings_controller.dart
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class TimeController extends GetxController {
-  PageController? pageController =
-  PageController(viewportFraction: 1.0, keepPage: true);
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   int? currentQue = 1;
   int? totalQue = 15;
 
@@ -26,6 +29,7 @@ class TimeController extends GetxController {
     generateTime();
     super.onInit();
   }
+
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {
@@ -36,23 +40,24 @@ class TimeController extends GetxController {
       }
     }
   }
+
   Map<String, String> time = {
-    "01:30": Constant.getAssetDragTime()+"time_1_30.webp",
-    "04:15": Constant.getAssetDragTime()+"time_4_15.webp",
-    "08:45": Constant.getAssetDragTime()+"time_8_45g.webp",
-    "09:30": Constant.getAssetDragTime()+"time_9_30.webp",
-    "02:30": Constant.getAssetDragTime()+"time_2_30.webp",
-    "05:45": Constant.getAssetDragTime()+"time_5_45.webp",
-    "10:00": Constant.getAssetDragTime()+"time_10.webp",
-    "11:15": Constant.getAssetDragTime()+"time_11_15.webp",
-    "03:00": Constant.getAssetDragTime()+"time_3.webp",
-    "07:15": Constant.getAssetDragTime()+"time_7_15.webp",
-    "12:00": Constant.getAssetDragTime()+"time_12.webp",
-    "10:15": Constant.getAssetDragTime()+"time_10_15.webp",
-    "02:45": Constant.getAssetDragTime()+"time_2_45g.webp",
-    "06:00": Constant.getAssetDragTime()+"time_6.webp",
-    "08:30": Constant.getAssetDragTime()+"time_8_30.webp",
-    "11:45": Constant.getAssetDragTime()+"time_11_45.webp",
+    "01:30": Constant.getAssetDragTime() + "time_1_30.webp",
+    "04:15": Constant.getAssetDragTime() + "time_4_15.webp",
+    "08:45": Constant.getAssetDragTime() + "time_8_45g.webp",
+    "09:30": Constant.getAssetDragTime() + "time_9_30.webp",
+    "02:30": Constant.getAssetDragTime() + "time_2_30.webp",
+    "05:45": Constant.getAssetDragTime() + "time_5_45.webp",
+    "10:00": Constant.getAssetDragTime() + "time_10.webp",
+    "11:15": Constant.getAssetDragTime() + "time_11_15.webp",
+    "03:00": Constant.getAssetDragTime() + "time_3.webp",
+    "07:15": Constant.getAssetDragTime() + "time_7_15.webp",
+    "12:00": Constant.getAssetDragTime() + "time_12.webp",
+    "10:15": Constant.getAssetDragTime() + "time_10_15.webp",
+    "02:45": Constant.getAssetDragTime() + "time_2_45g.webp",
+    "06:00": Constant.getAssetDragTime() + "time_6.webp",
+    "08:30": Constant.getAssetDragTime() + "time_8_30.webp",
+    "11:45": Constant.getAssetDragTime() + "time_11_45.webp",
   };
 
   Map<String, String> timeText = {
@@ -101,5 +106,4 @@ class TimeController extends GetxController {
     }
     que.shuffle();
   }
-
 }

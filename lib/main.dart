@@ -1,5 +1,5 @@
 // ignore_for_file: implementation_imports
-
+//lib/main.dart
 import 'dart:async';
 import 'dart:io';
 
@@ -9,15 +9,18 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:kids_playroom/localization/locale_constant.dart';
-import 'package:kids_playroom/routes/app_pages.dart';
-import 'package:kids_playroom/routes/app_routes.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/preference.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/localization/locale_constant.dart';
+import 'package:akkha_rik_lipi_sipal/routes/app_pages.dart';
+import 'package:akkha_rik_lipi_sipal/routes/app_routes.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
+
 /// ignore: depend_on_referenced_packages
-import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_queue_wrapper.dart' show SKPaymentQueueWrapper;
+import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_queue_wrapper.dart'
+    show SKPaymentQueueWrapper;
+
 /// ignore: depend_on_referenced_packages
 import 'package:in_app_purchase_storekit/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart';
 
@@ -35,12 +38,12 @@ Future<void> main() async {
   // await _initGoogleMobileAds();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown
+    DeviceOrientation.portraitDown,
   ]);
 
-
   SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: AppColor.transparent));
+    const SystemUiOverlayStyle(statusBarColor: AppColor.transparent),
+  );
   // InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
 
   if (Platform.isIOS) {
@@ -48,7 +51,9 @@ Future<void> main() async {
 
     for (SKPaymentTransactionWrapper element in transactions) {
       await SKPaymentQueueWrapper().finishTransaction(element);
-      await SKPaymentQueueWrapper().finishTransaction(element.originalTransaction!);
+      await SKPaymentQueueWrapper().finishTransaction(
+        element.originalTransaction!,
+      );
     }
   }
   // InAppPurchaseHelper().initStoreInfo();
@@ -63,7 +68,8 @@ Future<InitializationStatus> _initGoogleMobileAds() {
 class MyApp extends StatefulWidget {
   static final navigatorKey = GlobalKey<NavigatorState>();
   static final FlutterTts flutterTts = FlutterTts();
-  static final StreamController purchaseStreamController = StreamController<PurchaseDetails>.broadcast();
+  static final StreamController purchaseStreamController =
+      StreamController<PurchaseDetails>.broadcast();
 
   const MyApp({super.key});
 
@@ -73,7 +79,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   bool? isMusic;
-
 
   @override
   void initState() {
@@ -116,13 +121,20 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void didChangeDependencies() {
     getLocale().then((locale) {
       setState(() {
-        Debug.printLog("didChangeDependencies Preference Revoked", locale.languageCode);
-        Debug.printLog("didChangeDependencies GET LOCALE Revoked", Get.locale?.languageCode);
+        Debug.printLog(
+          "didChangeDependencies Preference Revoked",
+          locale.languageCode,
+        );
+        Debug.printLog(
+          "didChangeDependencies GET LOCALE Revoked",
+          Get.locale?.languageCode,
+        );
         Get.updateLocale(locale);
       });
     });
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -134,8 +146,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           themeMode: ThemeMode.light,
           locale: const Locale("en"),
           translations: AppLanguages(),
-          fallbackLocale:
-              const Locale(Constant.languageEn, Constant.countryCodeEn),
+          fallbackLocale: const Locale(
+            Constant.languageEn,
+            Constant.countryCodeEn,
+          ),
           getPages: AppPages.list,
           defaultTransition: Transition.fade,
           transitionDuration: const Duration(milliseconds: 50),

@@ -3,14 +3,16 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
-class QuantityController extends GetxController{
-  PageController? pageController =
-  PageController(viewportFraction: 1.0, keepPage: true);
+class QuantityController extends GetxController {
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   bool? accept = false;
   int? totalQue = 20;
   int? currentQue = 1;
@@ -28,7 +30,7 @@ class QuantityController extends GetxController{
   }
 
   getNumbers() {
-    List<int> numbers = List.generate(30, (index) => index+1);
+    List<int> numbers = List.generate(30, (index) => index + 1);
     numbers.shuffle();
     numQue = numbers.sample(20);
     Debug.printLog(numQue.toString());
@@ -41,13 +43,13 @@ class QuantityController extends GetxController{
     Set<int> opt = {};
 
     opt.add(countAnswer!);
-    do{
+    do {
       int num;
-      do{
+      do {
         num = Random().nextInt(totalQue!);
       } while (num == 0);
       opt.add(num);
-    } while(opt.length != 15);
+    } while (opt.length != 15);
 
     Debug.printLog("options: $opt");
     options = opt.toList();
@@ -55,6 +57,4 @@ class QuantityController extends GetxController{
     MyApp.flutterTts.stop();
     Utils.textToSpeech(Constant.txtHowManyObjects, MyApp.flutterTts);
   }
-
-
 }

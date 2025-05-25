@@ -1,3 +1,5 @@
+// lib/utils/color.dart
+
 import 'package:flutter/material.dart';
 
 class AppColor {
@@ -5,7 +7,6 @@ class AppColor {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xff000000);
   static const txtColor999 = Color(0xff999999);
-
 
   static const colorTheme = Color(0xffFFD217);
   // static const colorTheme = Color(0xffFDEDD7);
@@ -15,7 +16,10 @@ class AppColor {
   static const colorBlueGreen = Color(0xff1b626c);
   static const lightBG = Color(0XFFE4F9F8);
   static const paintOptions = Color(0XFFCEB993);
-  static const themeGradient = [Color(0XFFF1AB00), Color(0XFFE37A00)];
+  static const List<Color> themeGradient = [
+    Color(0XFFF1AB00),
+    Color(0XFFE37A00),
+  ];
   static const green = Color(0XFFa6dd96);
   static const themeDark = Color(0XFFE37A00);
   static const bg = Color(0XFFDCEDF7);
@@ -40,19 +44,24 @@ class AppColor {
   static const greenSquare = Color(0XFF26FF38);
   static const pinkSquare = Color(0XFFFF26D4);
 
-  static const redGradient = [Color(0XFFEC1E40), Color(0XFFF3333C)];
-  static const yellowGradient = [Color(0XFFE5A001), Color(0XFFFAD130)];
-  static const greenGradient = [Color(0XFF8BE91A), Color(0XFF9AE650)];
-  static const violetGradient = [Color(0XFFA30FE8), Color(0XFFA739FA)];
+  static const List<Color> redGradient = [Color(0XFFEC1E40), Color(0XFFF3333C)];
+  static const List<Color> yellowGradient = [
+    Color(0XFFE5A001),
+    Color(0XFFFAD130),
+  ];
+  static const List<Color> greenGradient = [
+    Color(0XFF8BE91A),
+    Color(0XFF9AE650),
+  ];
+  static const List<Color> violetGradient = [
+    Color(0XFFA30FE8),
+    Color(0XFFA739FA),
+  ];
 
   static const spellingRed = Color(0XFFD24D58);
   static const spellingBlue = Color(0XFF6A87C3);
   static const spellingGreen = Color(0XFF8BC542);
   static const spellingBrown = Color(0XFF9A857A);
-
-
-
-
 
   static const colorGray = Color(0xffaeaeae);
   static const colorGray50 = Color(0x50aeaeae);
@@ -67,8 +76,4 @@ class AppColor {
   static const colorBgWhite = Color(0xffFFFFFF);
   static const colorBgBlack = Color(0xff1a222d);
   static const colorBgBlueLight = Color(0xff232d3a);
-
-
-
-
 }

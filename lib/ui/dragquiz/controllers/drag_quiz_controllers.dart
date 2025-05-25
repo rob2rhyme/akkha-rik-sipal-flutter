@@ -2,18 +2,20 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/drag_item_table.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/preference.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/drag_item_table.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
 
-class DragQuizController extends GetxController with GetSingleTickerProviderStateMixin  {
-
+class DragQuizController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   dynamic args = Get.arguments;
   String? title;
   int? subId;
-  PageController? pageController =
-      PageController(viewportFraction: 1.0, keepPage: true);
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   String? answer;
   bool? accept = false;
   int? current = 1;
@@ -41,7 +43,7 @@ class DragQuizController extends GetxController with GetSingleTickerProviderStat
       });
     getPreference();
 
-   await getDataFromDatabase();
+    await getDataFromDatabase();
     super.onInit();
   }
 
@@ -131,7 +133,8 @@ class DragQuizController extends GetxController with GetSingleTickerProviderStat
       Debug.printLog(count.toString() + subId.toString());
       if (count) {
         showHint = count;
-      }}else if (subId == 17) {
+      }
+    } else if (subId == 17) {
       var count = Preference.shared.getBool(Preference.hintMoney) ?? true;
       Debug.printLog(count.toString() + subId.toString());
       if (count) {
@@ -154,7 +157,7 @@ class DragQuizController extends GetxController with GetSingleTickerProviderStat
       Preference.shared.setBool(Preference.hintEducation, showHint!);
     } else if (subId == 6) {
       Preference.shared.setBool(Preference.hintVehicles, showHint!);
-    }else if (subId == 17) {
+    } else if (subId == 17) {
       Preference.shared.setBool(Preference.hintMoney, showHint!);
     }
   }
@@ -164,5 +167,4 @@ class DragQuizController extends GetxController with GetSingleTickerProviderStat
     animationController?.dispose();
     super.onClose();
   }
-
 }

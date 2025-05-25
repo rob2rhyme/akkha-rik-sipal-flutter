@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/database/tables/vide_table.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/database/tables/vide_table.dart';
 
 class VideoListController extends GetxController {
   dynamic args = Get.arguments;
@@ -14,8 +14,6 @@ class VideoListController extends GetxController {
     getDataFromDatabase(subId!);
     super.onInit();
   }
-
-
 
   getDataFromArgs() {
     if (args != null) {
@@ -33,5 +31,4 @@ class VideoListController extends GetxController {
     print("${videoList?[0].videoId}");
     update();
   }
-
 }

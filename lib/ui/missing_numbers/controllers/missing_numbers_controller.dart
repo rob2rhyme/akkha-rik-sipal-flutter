@@ -2,14 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/dialog/complete_dialog/complete_dialog_screen.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/dialog/complete_dialog/complete_dialog_screen.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class MissingNumbersController extends GetxController {
-  PageController? pageController =
-  PageController(viewportFraction: 1.0, keepPage: true);
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   bool? accept = false;
   int? totalQue = 30;
   int? currentQue = 1;
@@ -20,7 +22,6 @@ class MissingNumbersController extends GetxController {
   dynamic args = Get.arguments;
   String? title;
   int? subId;
-
 
   @override
   void onInit() {
@@ -40,44 +41,50 @@ class MissingNumbersController extends GetxController {
     }
   }
 
-
-  Future<void> onAccept(Object? data, int? pageIndex, BuildContext context) async {
+  Future<void> onAccept(
+    Object? data,
+    int? pageIndex,
+    BuildContext context,
+  ) async {
     if (count.length < que.length) {
-        count.add(int.parse(data.toString()));
-        update();
+      count.add(int.parse(data.toString()));
+      update();
     }
 
     if (count.length == que.length) {
       MyApp.flutterTts.stop();
       Utils.textToSpeech("Awesome", MyApp.flutterTts);
-        accept = true;
-        update();
+      accept = true;
+      update();
       await Future.delayed(const Duration(milliseconds: 2280), () {
         if (pageIndex != totalQue! - 1) {
           pageController!.jumpToPage(pageIndex! + 1);
-            accept = false;
-            currentQue = currentQue! + 1;
-            update();
+          accept = false;
+          currentQue = currentQue! + 1;
+          update();
           count.clear();
           options.clear();
           que.clear();
           getOptions();
         } else {
           showDialog(
-              context: context,
-              builder: (context) {
-                return CompleteDialog(restartFunction: () {
+            context: context,
+            builder: (context) {
+              return CompleteDialog(
+                restartFunction: () {
                   Navigator.of(context).pop();
-                    accept = false;
-                    currentQue = 1;
-                    update();
+                  accept = false;
+                  currentQue = 1;
+                  update();
                   pageController!.jumpToPage(0);
                   count.clear();
                   options.clear();
                   que.clear();
                   getOptions();
-                });
-              });
+                },
+              );
+            },
+          );
         }
       });
     }
@@ -91,9 +98,9 @@ class MissingNumbersController extends GetxController {
         n1 = Random().nextInt(30);
         do {
           n2 = Random().nextInt(30);
-        } while (n1>n2);
-      } while (n2-n1 < 5);
-    } while (n2-n1 > 18);
+        } while (n1 > n2);
+      } while (n2 - n1 < 5);
+    } while (n2 - n1 > 18);
     Debug.printLog("n1: $n1 -- n2: $n2");
     que.addAll(list.getRange(n1, n2));
     Debug.printLog("que: $que");
@@ -118,8 +125,4 @@ class MissingNumbersController extends GetxController {
     }
     Debug.printLog("count: $count");
   }
-
-
-
-
 }

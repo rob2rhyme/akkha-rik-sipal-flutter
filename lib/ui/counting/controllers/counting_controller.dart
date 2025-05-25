@@ -3,15 +3,17 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/main.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/debug.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/main.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 
 class CountingController extends GetxController {
-  PageController? pageController =
-      PageController(viewportFraction: 1.0, keepPage: true);
+  PageController? pageController = PageController(
+    viewportFraction: 1.0,
+    keepPage: true,
+  );
   bool? accept = false;
 
   bool? isDrag = false;
@@ -24,10 +26,8 @@ class CountingController extends GetxController {
 
   List<int> numQue = [];
   dynamic args = Get.arguments;
-  String title ="";
+  String title = "";
   int? subId;
-
-
 
   @override
   Future<void> onInit() async {
@@ -46,6 +46,7 @@ class CountingController extends GetxController {
     Debug.printLog(numQue.toString());
     update([Constant.idCounting]);
   }
+
   getDataFromArgs() {
     if (args != null) {
       if (args[0] != null) {

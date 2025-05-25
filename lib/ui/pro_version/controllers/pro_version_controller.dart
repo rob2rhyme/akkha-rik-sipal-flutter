@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:kids_playroom/utils/preference.dart';
+import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
 
 import '../../../utils/constant.dart';
 import '../../../utils/utils.dart';
@@ -30,7 +30,6 @@ class ProVersionController extends GetxController {
     }
   }
 
-
   onClickRestore() {
     isShowProgress = true;
     update([Constant.idProVersionProgress]);
@@ -41,7 +40,9 @@ class ProVersionController extends GetxController {
       update([Constant.idProVersionProgress]);
       if (!Preference.shared.getIsPurchase()) {
         Utils.showToast(
-            Get.context!, "toastNotPurchasedProductCannotRestore".tr);
+          Get.context!,
+          "toastNotPurchasedProductCannotRestore".tr,
+        );
       }
     });
   }
@@ -62,5 +63,4 @@ class ProVersionController extends GetxController {
     //   update([Constant.idProVersionProgress]);
     // }
   }
-
 }

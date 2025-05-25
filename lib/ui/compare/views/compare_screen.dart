@@ -1,12 +1,12 @@
-
+//lib/ui/compare/views/compare_screen.dart
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/ui/compare/controllers/compare_controller.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/sizer_utils.dart';
+import 'package:akkha_rik_lipi_sipal/ui/compare/controllers/compare_controller.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/sizer_utils.dart';
 
 class CompareScreen extends StatelessWidget {
   const CompareScreen({super.key});
@@ -22,195 +22,189 @@ class CompareScreen extends StatelessWidget {
           onTap: () => Get.back(),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(Constant.getAssetIcons() + "btn_back_150.png",
-                width: AppSizes.height_4_5),
+            child: Image.asset(
+              Constant.getAssetIcons() + "btn_back_150.png",
+              width: AppSizes.height_4_5,
+            ),
           ),
         ),
-        title: GetBuilder<CompareController>(builder: (logic) {
-          return Text(
-            "${logic.currentQue}/${logic.totalQue}",
-            style: TextStyle(
+        title: GetBuilder<CompareController>(
+          builder: (logic) {
+            return Text(
+              "${logic.currentQue}/${logic.totalQue}",
+              style: TextStyle(
                 color: AppColor.colorGreen,
                 fontSize: AppFontSize.size_16,
                 fontWeight: FontWeight.bold,
-                fontFamily: "UrbanistBlack"),
-          );
-        }),
+                fontFamily: "UrbanistBlack",
+              ),
+            );
+          },
+        ),
       ),
       backgroundColor: AppColor.bg,
       body: SafeArea(
         top: false,
         bottom: Platform.isAndroid ? true : false,
-        child: Column(
-          children: [
-            _compareWidget()
-          ],
-        ),
+        child: Column(children: [_compareWidget()]),
       ),
     );
   }
 }
 
 _compareWidget() {
-  return GetBuilder<CompareController>(builder: (logic) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
+  return GetBuilder<CompareController>(
+    builder: (logic) {
+      return Expanded(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
               image: AssetImage("assets/background/bg_background.webp"),
-              fit: BoxFit.fill),
-        ),
-        child: PageView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: logic.pageController,
-          scrollDirection: Axis.horizontal,
-          itemCount: logic.totalQue,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              padding: EdgeInsets.symmetric(
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: PageView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: logic.pageController,
+            scrollDirection: Axis.horizontal,
+            itemCount: logic.totalQue,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                padding: EdgeInsets.symmetric(
                   horizontal: 15,
-                  vertical: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 0.05),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _question(index: index),
-                  _option1(context, index: index),
-                  _option2(context, index: index),
-                ],
-              ),
-            );
-          },
+                  vertical: MediaQuery.of(context).size.height * 0.05,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _question(index: index),
+                    _option1(context, index: index),
+                    _option2(context, index: index),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
-      ),
-    );
-  });
+      );
+    },
+  );
 }
 
-
 _question({int? index}) {
-  return GetBuilder<CompareController>(builder: (logic) {
-    return Text(
-      logic.que!,
-      style: const TextStyle(
-        color: AppColor.theme,
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-      ),
-    );
-  });
+  return GetBuilder<CompareController>(
+    builder: (logic) {
+      return Text(
+        logic.que!,
+        style: const TextStyle(
+          color: AppColor.theme,
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+        ),
+      );
+    },
+  );
 }
 
 _option1(BuildContext context, {int? index}) {
-  return GetBuilder<CompareController>(builder: (logic) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        InkWell(
-          onTap: () async {
-            if (!logic.show2!) {
+  return GetBuilder<CompareController>(
+    builder: (logic) {
+      return Stack(
+        alignment: Alignment.center,
+        children: [
+          InkWell(
+            onTap: () async {
+              if (!logic.show2!) {
                 logic.show1 = true;
                 logic.update();
-              await logic.nextPage(context,index: index);
-            }
-          },
-          child: Container(
-            padding: const EdgeInsets.all(15),
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.3,
-            width: MediaQuery
-                .of(context)
-                .size
-                .width * 0.85,
-            decoration: BoxDecoration(
+                await logic.nextPage(context, index: index);
+              }
+            },
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width * 0.85,
+              decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 8,
-                    color: AppColor.black.withOpacity(0.25),
-                  )
+                    color: AppColor.black.withAlpha((0.25 * 255).toInt()),
+                  ),
                 ],
                 color: AppColor.white,
-                borderRadius: const BorderRadius.all(Radius.circular(10))),
-            child: Image.asset(
-              Constant.getAssetDragCounting()+"${logic.options[0]}.webp",
-
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Image.asset(
+                Constant.getAssetDragCounting() + "${logic.options[0]}.webp",
+              ),
             ),
           ),
-        ),
-        if(logic.countAnswer == logic.options[0] && logic.show1!)...{
-          _rightAnsAnim()
-        },
+          if (logic.countAnswer == logic.options[0] && logic.show1!) ...{
+            _rightAnsAnim(),
+          },
 
-        if(logic.countAnswer != logic.options[0] && logic.show1!)...{
-          _wrongAnsAnim()
-        }
-      ],
-    );
-  });
+          if (logic.countAnswer != logic.options[0] && logic.show1!) ...{
+            _wrongAnsAnim(),
+          },
+        ],
+      );
+    },
+  );
 }
 
 _option2(BuildContext context, {int? index}) {
-  return GetBuilder<CompareController>(builder: (logic) {
-    return Stack(
-      alignment: Alignment.topCenter,
-      children: [
-        InkWell(
-          onTap: () async {
-            if (!logic.show1!) {
-
-              logic.show2 = true;
-              logic.update();
-              await logic.nextPage(context,index: index);
-            }
-          },
-          child: Container(
-            padding: const EdgeInsets.all(15),
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.3,
-            width: MediaQuery
-                .of(context)
-                .size
-                .width * 0.85,
-            decoration: BoxDecoration(
+  return GetBuilder<CompareController>(
+    builder: (logic) {
+      return Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          InkWell(
+            onTap: () async {
+              if (!logic.show1!) {
+                logic.show2 = true;
+                logic.update();
+                await logic.nextPage(context, index: index);
+              }
+            },
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width * 0.85,
+              decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 8,
-                    color: AppColor.black.withOpacity(0.25),
-                  )
+                    color: AppColor.black.withAlpha((0.25 * 255).toInt()),
+                  ),
                 ],
                 color: AppColor.white,
-                borderRadius: const BorderRadius.all(Radius.circular(10))),
-            child: Image.asset(
-              Constant.getAssetDragCounting()+"${logic.options[1]}.webp",
-
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Image.asset(
+                Constant.getAssetDragCounting() + "${logic.options[1]}.webp",
+              ),
             ),
           ),
-        ),
-        if(logic.countAnswer == logic.options[1] && logic.show2!)...{
-          _rightAnsAnim()
-        },
+          if (logic.countAnswer == logic.options[1] && logic.show2!) ...{
+            _rightAnsAnim(),
+          },
 
-        if(logic.countAnswer != logic.options[1] && logic.show2!)...{
-          _wrongAnsAnim()
-        }
-      ],
-    );
-  });
+          if (logic.countAnswer != logic.options[1] && logic.show2!) ...{
+            _wrongAnsAnim(),
+          },
+        ],
+      );
+    },
+  );
 }
 
 _rightAnsAnim() {
   return SizedBox(
-    height:AppSizes.height_30,
+    height: AppSizes.height_30,
     child: Image.asset(
-      Constant.getAssetDragAnimation()+"animation_right.gif",
+      Constant.getAssetDragAnimation() + "animation_right.gif",
       fit: BoxFit.fill,
     ),
   );
@@ -218,11 +212,10 @@ _rightAnsAnim() {
 
 _wrongAnsAnim() {
   return SizedBox(
-    height:AppSizes.height_18,
+    height: AppSizes.height_18,
     child: Image.asset(
-      Constant.getAssetDragAnimation()+"animation_wrong.gif",
+      Constant.getAssetDragAnimation() + "animation_wrong.gif",
       fit: BoxFit.fill,
     ),
   );
 }
-

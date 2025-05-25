@@ -1,7 +1,5 @@
-
-
+//lib/localization/languages/language_en.dart
 final Map<String, String> enUS = {
-  /// TODO:-->> App Strings
   'txtAppName': "Kids Play",
   'txtApple': "Apple",
   'txtBall': "Ball",
@@ -116,7 +114,7 @@ final Map<String, String> enUS = {
   'txtKingfisher': "Kingfisher",
   'txtLapwing': "Lapwing",
   'txtMynah': "Mynah",
-  'txtNightingale':"Nightingale",
+  'txtNightingale': "Nightingale",
   'txtOwl': "Owl",
   'txtPeacock': "Peacock",
   'txtPeahen': "Peahen",
@@ -507,7 +505,7 @@ final Map<String, String> enUS = {
   'txtJobs': "Jobs",
   'txtSport': "Sport",
   'txtVehicle': "Vehicle",
-  'txtSetting':"Setting",
+  'txtSetting': "Setting",
   'txtSound': "Sound",
   'txtRate': "Rate",
   'txtShare': "Share",
@@ -515,7 +513,8 @@ final Map<String, String> enUS = {
   'txtPrivacyPolicy': "Privacy Policy",
   'txtShareDesc': "ShareDesc",
   'txtKidsPreschoolLearning': "KidsPreschoolLearning",
-  'txtKidsPreschoolLearningFeedbackAndroid': "KidsPreschoolLearningFeedbackAndroid",
+  'txtKidsPreschoolLearningFeedbackAndroid':
+      "KidsPreschoolLearningFeedbackAndroid",
   'txtKidsPreschoolLearningFeedbackIOS': "KidsPreschoolLearningFeedbackIOS",
   'txtWeekDays': "Week Days",
   'txtDryfruits': "Dryfruits",
@@ -704,18 +703,17 @@ final Map<String, String> enUS = {
   'txtLanguageOption': "Languages",
   'txtProversion': "Proversion",
   'txtSubscription': "subscription",
-  'txtGetmorepremiumopportunitiesandfeaturestolearntheEnglishlanguagewithfunandpleasure': "Get more premium opportunities and features \n to learn the English language with fun and pleasure",
+  'txtGetmorepremiumopportunitiesandfeaturestolearntheEnglishlanguagewithfunandpleasure':
+      "Get more premium opportunities and features \n to learn the English language with fun and pleasure",
   'txtSubscribe&': "Subscribe &",
   'txtGetPremium': "Get Premium",
   'txtNoAdvertising': "No Advertising",
   'txtFullyAccessible': "Fully Accessible",
   'txtsubscribetoproversion': "subscribe to pro version",
   'txtTerms&Conditions': "Terms & Conditions",
-  'txtVideoLearning' :"Video Learning",
+  'txtVideoLearning': "Video Learning",
   'txtRemoveAds': "Remove Ads",
   'txtAccessAllFeatures': "Access All Features",
   'txtYear': "Year",
   'txtStart': "Start Plan",
-
-
 };

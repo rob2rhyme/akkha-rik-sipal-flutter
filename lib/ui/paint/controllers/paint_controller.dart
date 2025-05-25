@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/database/database_helper.dart';
-import 'package:kids_playroom/utils/color.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
+import 'package:akkha_rik_lipi_sipal/utils/color.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PaintController extends GetxController {
@@ -73,7 +73,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -87,13 +87,15 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
   imagePicker(int index) {
     currentIndex = index;
-    currentImage = "${itemList![index].itemImage}" ".webp";
+    currentImage =
+        "${itemList![index].itemImage}"
+        ".webp";
     isImagesSelected = false;
     createImageFile(currentImage);
     update([
@@ -103,7 +105,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -120,7 +122,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -137,7 +139,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -160,7 +162,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -177,7 +179,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -190,7 +192,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -204,7 +206,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -225,9 +227,13 @@ class PaintController extends GetxController {
 
   onSaveDialogYes(context) async {
     if (pngBytes != null && path != null) {
-      Directory generalDownloadDir = Platform.isIOS ? await getApplicationDocumentsDirectory() : Directory('/storage/emulated/0/Download');
+      Directory generalDownloadDir = Platform.isIOS
+          ? await getApplicationDocumentsDirectory()
+          : Directory('/storage/emulated/0/Download');
       String path = generalDownloadDir.path;
-      File file = File('$path/${"txtAppName".tr}_${DateTime.now().millisecondsSinceEpoch}.png');
+      File file = File(
+        '$path/${"txtAppName".tr}_${DateTime.now().millisecondsSinceEpoch}.png',
+      );
       print(file.path);
       await file.writeAsBytes(pngBytes!, flush: true);
       Utils.showToast(context, "txtImageSaved".tr);
@@ -245,7 +251,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 
@@ -276,7 +282,7 @@ class PaintController extends GetxController {
       Constant.idColorOption,
       Constant.idSelectImageOption,
       Constant.idEraserOption,
-      Constant.idPaintWidget
+      Constant.idPaintWidget,
     ]);
   }
 }

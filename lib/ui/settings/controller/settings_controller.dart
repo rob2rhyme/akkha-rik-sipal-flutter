@@ -1,12 +1,13 @@
+//lib/ui/settings/controller/settings_controller.dart
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kids_playroom/localization/localizations_delegate.dart';
-import 'package:kids_playroom/routes/app_routes.dart';
-import 'package:kids_playroom/utils/constant.dart';
-import 'package:kids_playroom/utils/preference.dart';
-import 'package:kids_playroom/utils/utils.dart';
+import 'package:akkha_rik_lipi_sipal/localization/localizations_delegate.dart';
+import 'package:akkha_rik_lipi_sipal/routes/app_routes.dart';
+import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
+import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
+import 'package:akkha_rik_lipi_sipal/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:rate_my_app/rate_my_app.dart';
@@ -28,24 +29,24 @@ class SettingsController extends GetxController {
   }
 
   onTapRemoveAds() {
-    Get.toNamed(AppRoutes.proVersion)!.then(
-          (value) {
-        if (value != null) {
-          update([Constant.idIsPurchase]);
-          Get.toNamed(AppRoutes.home);
-        }
-      },
-    );
+    Get.toNamed(AppRoutes.proVersion)!.then((value) {
+      if (value != null) {
+        update([Constant.idIsPurchase]);
+        Get.toNamed(AppRoutes.home);
+      }
+    });
   }
+
   initRateMyApp(BuildContext context) {
     rateMyApp = RateMyApp(
-        preferencesPrefix: 'rateMyApp_',
-        minDays: 7,
-        minLaunches: 10,
-        remindDays: 7,
-        remindLaunches: 10,
-        googlePlayIdentifier: Constant.googlePlayIdentifier,
-        appStoreIdentifier: Constant.appStoreIdentifier);
+      preferencesPrefix: 'rateMyApp_',
+      minDays: 7,
+      minLaunches: 10,
+      remindDays: 7,
+      remindLaunches: 10,
+      googlePlayIdentifier: Constant.googlePlayIdentifier,
+      appStoreIdentifier: Constant.appStoreIdentifier,
+    );
 
     if (Platform.isIOS) {
       rateMyApp!.init().then((_) {
@@ -86,10 +87,13 @@ class SettingsController extends GetxController {
                 TextButton(
                   child: const Text('OK'),
                   onPressed: () async {
-                    await rateMyApp!
-                        .callEvent(RateMyAppEventType.rateButtonPressed);
+                    await rateMyApp!.callEvent(
+                      RateMyAppEventType.rateButtonPressed,
+                    );
                     Navigator.pop<RateMyAppDialogButton>(
-                        context, RateMyAppDialogButton.rate);
+                      context,
+                      RateMyAppDialogButton.rate,
+                    );
                   },
                 ),
               ];
@@ -108,6 +112,7 @@ class SettingsController extends GetxController {
       });
     }
   }
+
   getLanguageData() {
     prefLanguageCode =
         Preference.shared.getString(Preference.selectedLanguage) ?? 'en';
@@ -164,6 +169,7 @@ class SettingsController extends GetxController {
   }
 
   Future<void> share() async {
+    // ignore: deprecated_member_use
     await Share.share(
       "txtShareDesc".tr + Constant.shareLink,
       subject: "txtKidsPreschoolLearning".tr,
@@ -178,7 +184,7 @@ class SettingsController extends GetxController {
         'subject': Platform.isAndroid
             ? "txtKidsPreschoolLearningFeedbackAndroid".tr
             : "txtKidsPreschoolLearningFeedbackIOS".tr,
-        'body': " "
+        'body': " ",
       }),
     );
     launchUrl(Uri.parse(emailLaunchUri.toString()));
@@ -188,8 +194,10 @@ class SettingsController extends GetxController {
 
   String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
-        .map((e) =>
-            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .map(
+          (e) =>
+              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
+        )
         .join('&');
   }
 }
