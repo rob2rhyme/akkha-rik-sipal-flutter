@@ -6,6 +6,17 @@
 	•	Notes for web compatibility
 
 ⸻
+clone and run this Flutter project
+git clone https://github.com/rob2rhyme/akkha-rik-sipal-flutter.git
+cd akkha-rik-sipal-flutter
+Check Flutter is properly installed: flutter --version
+Install all required packages listed in pubspec.yaml: flutter pub get
+Make sure you have a device connected or emulator running, then: flutter run
+You can also specify the target:flutter run -d chrome        # For web
+flutter run -d android       # For Android device
+flutter run -d ios           # For iOS (macOS only)
+To list all devices: flutter devices
+
 
 📄 README.mdx
 
