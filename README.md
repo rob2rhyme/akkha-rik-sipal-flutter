@@ -102,5 +102,3 @@ This project is copyright © 2025.
 Built with ❤️ using Flutter for educational impact.
 
 ---
-
-Would you like this exported as a file or want a version ready for GitHub Pages / Docusaurus?
