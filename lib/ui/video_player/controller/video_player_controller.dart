@@ -1,70 +1,48 @@
-import 'dart:developer';
+// lib/ui/videoList/controller/video_player_controller.dart
 
+import 'dart:developer'; // <-- for log()
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:akkha_rik_lipi_sipal/database/tables/vide_table.dart';
 import 'package:akkha_rik_lipi_sipal/ui/videoList/controller/video_list_controller.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-
 import '../../../utils/utils.dart';
 
 class VideoPlayerController extends GetxController {
-  dynamic args = Get.arguments;
-
+  final args = Get.arguments;
   int index = 0;
-  late YoutubePlayerController controller;
-  List<VideoTable>? itemDataList = Get.find<VideoListController>().videoList;
+
+  late final YoutubePlayerController controller;
+  final List<VideoTable>? itemDataList =
+      Get.find<VideoListController>().videoList;
+
   bool isPlayerReady = false;
   bool isFullScreen = false;
   late PlayerState playerState;
 
-  getVideoId() {
-    itemDataList?.forEach((e) {
-      var str = e.videoDescription;
-      var parts = str?.split('#');
-      var id = parts?[0].trim() ?? "";
-      var title = parts?.sublist(1).join(':').trim() ?? "";
-      var thumb = "https://i3.ytimg.com/vi/$id/hqdefault.jpg";
-
-      videoIds.add(id);
-      videoTitle.add(title);
-      videoThumb.add(thumb);
-    });
-    print("::::::::::::$videoIds");
-  }
-
-  List<String> videoIds = [];
-  List<String> videoTitle = [];
-  List<String> videoThumb = [];
+  final List<String> videoIds = [];
+  final List<String> videoTitle = [];
+  final List<String> videoThumb = [];
 
   @override
   void onInit() {
-    getDataFromArgs();
-    getVideoId();
+    super.onInit();
+    _getDataFromArgs();
+    _extractVideoIds();
 
     controller = YoutubePlayerController(
-      params: YoutubePlayerParams(
+      params: const YoutubePlayerParams(
         mute: false,
         showControls: true,
         showFullscreenButton: true,
       ),
     );
+
     Utils.audioPlayer.pause();
 
-    controller.setFullScreenListener((isFullScreen) {
-      this.isFullScreen = isFullScreen;
-      // if(!isFullScreen){
-      //   SystemChrome.setPreferredOrientations([
-      //     DeviceOrientation.portraitUp,
-      //     DeviceOrientation.portraitDown
-      //   ]);
-      //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      //       statusBarColor: AppColor.white));
-      // }else {
-      //   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      //       statusBarColor: AppColor.transparent));
-      // }
-      log('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
+    controller.setFullScreenListener((fullscreen) {
+      isFullScreen = fullscreen;
+      log('${fullscreen ? 'Entered' : 'Exited'} fullscreen.');
     });
 
     controller.loadPlaylist(
@@ -73,29 +51,38 @@ class VideoPlayerController extends GetxController {
       startSeconds: 0,
       index: index,
     );
-    // controller.playVideoAt(index);
-    super.onInit();
   }
 
-  /* void listener() {
-    if (isPlayerReady && !controller.value.isFullScreen) {
-      playerState = controller.value.playerState;
-      update();
-    }
-  }*/
-
-  changeVideo(int indexID) {
-    index = indexID;
-    controller.playVideoAt(index);
-    update();
-  }
-
-  getDataFromArgs() {
-    if (args != null) {
-      if (args[0] != null) {
-        index = args[0];
+  void _getDataFromArgs() {
+    if (args != null && args is List && args.isNotEmpty) {
+      final arg0 = args[0];
+      if (arg0 is int) {
+        index = arg0;
       }
     }
+  }
+
+  void _extractVideoIds() {
+    for (final e in itemDataList ?? []) {
+      final desc = e.videoDescription ?? '';
+      final parts = desc.split('#');
+      final id = parts.isNotEmpty ? parts[0].trim() : '';
+      final title = parts.length > 1 ? parts.sublist(1).join(':').trim() : '';
+      final thumb = 'https://i3.ytimg.com/vi/$id/hqdefault.jpg';
+
+      videoIds.add(id);
+      videoTitle.add(title);
+      videoThumb.add(thumb);
+    }
+
+    // use log() instead of print()
+    log('Extracted video IDs: $videoIds');
+  }
+
+  void changeVideo(int newIndex) {
+    index = newIndex;
+    controller.playVideoAt(index);
+    update();
   }
 
   void showSnackBar(String message, BuildContext context) {
