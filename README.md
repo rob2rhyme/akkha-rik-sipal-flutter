@@ -3,7 +3,7 @@ Here’s a complete `README.md` file tailored for your **akkha-rik-sipal-flutter
 ---
 
 ````markdown
-# Akkha Rik Sipal - Devanagari Learning App
+# Akkha Rik Sipal - Magar Learning App
 
 A beginner-friendly Flutter application to learn **Devanagari script** — including vowels, consonants, matras, grammar rules, and interactive practice modules.
 
