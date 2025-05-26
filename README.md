@@ -1,115 +1,144 @@
-	•	Project summary
-	•	Features
-	•	Folder structure
-	•	Setup instructions
-	•	Web deployment steps
-	•	Notes for web compatibility
+Here’s a complete `README.md` file tailored for your **akkha-rik-sipal-flutter** project. It covers setup, running instructions, and a brief overview of the app's goal.
 
-⸻
-clone and run this Flutter project
-git clone https://github.com/rob2rhyme/akkha-rik-sipal-flutter.git
-cd akkha-rik-sipal-flutter
-Check Flutter is properly installed: flutter --version
-Install all required packages listed in pubspec.yaml: flutter pub get
-Make sure you have a device connected or emulator running, then: flutter run
-You can also specify the target:flutter run -d chrome        # For web
-flutter run -d android       # For Android device
-flutter run -d ios           # For iOS (macOS only)
-To list all devices: flutter devices
+---
 
+````markdown
+# Akkha Rik Sipal - Devanagari Learning App
 
-📄 README.mdx
+A beginner-friendly Flutter application to learn **Devanagari script** — including vowels, consonants, matras, grammar rules, and interactive practice modules.
 
-import { CodeBlock } from '@theme/CodeBlock';
-
-# 🧠 Akkha Rik Lipi Sipal
-
-An educational **Flutter app** to teach **Akkha Rik Lipi** — a custom script and language experience tailored for children. The app includes visual, interactive modules like alphabets, counting, spelling, comparison, and coloring — with sound and animated feedback.
+This app aims to provide a fun and educational experience for children and adults learning to read and write the Devanagari script, including sound pronunciation and quizzes.
 
 ---
 
 ## 🚀 Features
 
-- 🔤 Learn alphabets with interactive coloring
-- ➕➖ Addition and subtraction with drag-drop answers
-- 🎨 Paint screen with fillable strokes
-- 🔊 Text-to-speech powered guidance
-- 🎞️ Animated success dialogs
-- 🌐 Web-compatible (Flutter web) via Vercel
+- 🔡 Learn Devanagari Vowels (स्वर) and Consonants (व्यंजन)
+- 🔈 Audio pronunciation for each letter
+- ✍️ Matras and compound letter formation
+- 📘 Essential grammar rules (e.g., anuswar, visarga, sandhi)
+- 🎮 Practice and Quiz modules
+- 📱 Mobile and Web compatible (Flutter cross-platform)
+
+---
+
+## 🧩 Getting Started
+
+### ✅ Prerequisites
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- Git
+- Optional: Android Studio or VS Code (with Flutter & Dart plugins)
+
+---
+
+## 📥 Installation
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/rob2rhyme/akkha-rik-sipal-flutter.git
+cd akkha-rik-sipal-flutter
+````
+
+### Step 2: Get Flutter Packages
+
+```bash
+flutter pub get
+```
+
+---
+
+## ▶️ Running the App
+
+### Run on a Device or Emulator
+
+```bash
+flutter run
+```
+
+### Run for Web
+
+```bash
+flutter run -d chrome
+```
+
+### List Available Devices
+
+```bash
+flutter devices
+```
+
+---
+
+## 🛠️ Development Commands
+
+Clean project:
+
+```bash
+flutter clean
+```
+
+Rebuild after cleaning:
+
+```bash
+flutter pub get
+flutter run
+```
 
 ---
 
 ## 📁 Project Structure
 
-<CodeBlock language="txt">
+```plaintext
 lib/
-├── main.dart
-├── routes/
-│   └── app_pages.dart
-├── ui/
-│   ├── alphabets/
-│   ├── add_subtract/
-│   ├── compare/
-│   ├── paint/
-│   ├── settings/
-│   └── ...
-├── dialog/
-│   └── complete_dialog/
-├── database/
-├── utils/
-├── assets/
-</CodeBlock>
+├── features/
+│   ├── home/
+│   ├── learn/        # Vowels, Consonants, Matras, Grammar
+│   ├── practice/     # Interactive exercises
+│   ├── quiz/         # Multiple-choice, audio-based
+│   └── shared/       # Models, widgets, utilities
+assets/
+├── audio/            # Pronunciation clips
+├── images/           # Visual examples and illustrations
+```
 
 ---
 
-## 🧑‍💻 Getting Started
+## 🎯 Goals (In Progress)
 
-### 1. 📦 Install Flutter dependencies
-```bash
-flutter pub get
-
-2. ▶️ Run the App (Android/iOS)
-
-flutter run
-
-
-⸻
-
-🌍 Web Deployment (Vercel)
-
-Build for web
-
-flutter build web --base-href=/
-
-Add vercel.json (in project root)
-
-{
-  "outputDirectory": "build/web",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
-
-Deploy from terminal
-
-vercel --prod build/web
-
-
-⸻
-
-🌐 Web Compatibility Notes
-
-To avoid runtime crashes on Flutter Web:
-	•	✅ Wrap all Platform.isX calls with !kIsWeb check
-	•	✅ Use import 'dart:io' show Platform; guarded with kIsWeb
-	•	✅ Avoid any direct dart:io operations unless using conditional imports
-
-⸻
-
-📄 License
-
-This project is copyright © 2025.
-
-⸻
-
-Built with ❤️ using Flutter for educational impact.
+* [ ] Full vowel and consonant modules
+* [ ] Audio pronunciation for all letters
+* [ ] Practice with stroke order and spelling
+* [ ] Gamified quizzes with XP system
+* [ ] Grammar breakdown with visuals
 
 ---
+
+## 🙌 Contributing
+
+Want to help expand Devanagari literacy? Pull requests, feedback, and suggestions are welcome!
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 👤 Author
+
+Created by [@rob2rhyme](https://github.com/rob2rhyme)
+
+```
+
+---
+
+Would you like me to:
+- Include badges (build, Flutter version)?
+- Add screenshots or gifs for the UI?
+- Autogenerate this into a file and help commit it?
+
+Let me know and I’ll assist with the next step!
+```
