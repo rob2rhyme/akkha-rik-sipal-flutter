@@ -1,85 +1,145 @@
+#!/usr/bin/env python3
+import os
+import sys
 import requests
 
-# Replace with your actual token and repo
-GITHUB_TOKEN = "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"
+# ─── CONFIG ────────────────────────────────────────────────────────────────────
+
+# You can set GITHUB_TOKEN in your env, e.g.:
+#    export GITHUB_TOKEN="ghp_..."
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "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")
+if not GITHUB_TOKEN or GITHUB_TOKEN.startswith("ghp_") is False:
+    print("⚠️  Please set a valid GITHUB_TOKEN environment variable.")
+    sys.exit(1)
+
 REPO_OWNER = "rob2rhyme"
 REPO_NAME = "akkha-rik-sipal-flutter"
+API_BASE = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}"
 
-headers = {
+HEADERS = {
     "Authorization": f"token {GITHUB_TOKEN}",
     "Accept": "application/vnd.github.v3+json",
 }
 
-issues = [
+# ─── NEW ISSUES ────────────────────────────────────────────────────────────────
+
+new_issues = [
     {
-        "title": "Setup Modular Feature Folder Structure",
-        "body": "- Create `features/` directory with submodules for learn, practice, quiz, shared.\n- Prepare folders for vowels, consonants, matras, grammar.",
-        "labels": ["setup", "structure"]
+        "title": "Setup App Navigation",
+        "body": (
+            "Create the main navigation skeleton so users can switch between all sections:\n"
+            "- Use a BottomNavigationBar or Drawer with these items:\n"
+            "  1. Home / Dashboard\n"
+            "  2. Learn\n"
+            "  3. Quizzes\n"
+            "  4. Progress\n"
+            "  5. Settings / About\n"
+            "- Ensure navigation state is preserved when switching tabs."
+        ),
+        "labels": ["feature", "navigation"]
     },
     {
-        "title": "Create DevanagariUnit Data Model",
-        "body": "Define a `DevanagariUnit` class with character, pronunciationAudio, exampleWord, description, practiceQuestions.",
-        "labels": ["model", "data"]
+        "title": "Implement Home / Dashboard Screen",
+        "body": (
+            "Build the Home/Dashboard UI to give learners a quick snapshot of their progress:\n"
+            "- Display overall completion % and recent activity.\n"
+            "- Show cards for “Recently Studied Topics” and “Last Quiz Score.”\n"
+            "- Include a motivational header or banner (e.g. “Keep going!”).\n"
+            "- Placeholder for future “daily tip” or “streak” feature."
+        ),
+        "labels": ["feature", "ui", "dashboard"]
     },
     {
-        "title": "Implement Vowel (स्वर) Learning Screen",
-        "body": "- Grid or card layout\n- Character, audio, example word\n- Tap for details and audio",
-        "labels": ["feature", "UI", "vowels"]
+        "title": "Implement Learn Section",
+        "body": (
+            "Develop the core “Learn” section for structured Devanagari lessons:\n"
+            "- Sub-pages/categories:\n"
+            "  - Alphabet (अ–अः, क–ज्ञ)\n"
+            "  - Matras (vowel signs)\n"
+            "  - Numbers (०–९)\n"
+            "  - Grammar modules (nouns, verbs, pronouns, tenses, postpositions)\n"
+            "- Each lesson should load from SQLite and display title + content.\n"
+            "- Navigation between lessons within a topic."
+        ),
+        "labels": ["feature", "ui", "learning"]
     },
     {
-        "title": "Implement Consonant Learning UI",
-        "body": "- Layout for consonants\n- Example and audio included\n- Use shared card widget",
-        "labels": ["feature", "UI", "consonants"]
+        "title": "Implement Quizzes Section",
+        "body": (
+            "Create the “Quizzes” UI/UX for self-assessment:\n"
+            "- List available quizzes by topic.\n"
+            "- Support randomized question order and cumulative quizzes.\n"
+            "- Question types: MCQ, matching, fill-in-the-blank.\n"
+            "- On completion, show score and correct/incorrect feedback."
+        ),
+        "labels": ["feature", "quiz", "ui"]
     },
     {
-        "title": "Implement Matras Learning Module",
-        "body": "- Visualize transformation (e.g. क + ा = का)\n- Show sample words with each matra",
-        "labels": ["feature", "matra"]
+        "title": "Implement Progress Screen",
+        "body": (
+            "Build a “Progress” dashboard to visualize learning:\n"
+            "- For each topic, show:\n"
+            "  - % of lessons completed\n"
+            "  - Best quiz score\n"
+            "  - Last studied date\n"
+            "- Use progress bars or simple charts.\n"
+            "- Optionally filter by module (e.g. “Alphabet,” “Grammar”)."
+        ),
+        "labels": ["feature", "ui", "progress"]
     },
     {
-        "title": "Add Grammar Essentials Module",
-        "body": "- Rules for anuswar, visarga, chandrabindu\n- Use simple examples and mnemonics",
-        "labels": ["feature", "grammar"]
+        "title": "Implement Settings / About Screen",
+        "body": (
+            "Add a Settings/About section for app info and preferences:\n"
+            "- Display app version, developer credits.\n"
+            "- Placeholder for future features: theme toggle, data reset.\n"
+            "- Include basic “About Devanagari” info or link."
+        ),
+        "labels": ["feature", "ui", "settings"]
     },
-    {
-        "title": "Build Interactive Practice UI",
-        "body": "- Include drag-drop, match, or multiple choice\n- Link with data model",
-        "labels": ["feature", "practice", "interaction"]
-    },
-    {
-        "title": "Implement Quiz Feature with Scoring",
-        "body": "- Multiple questions\n- Show correct/incorrect\n- Result summary",
-        "labels": ["quiz", "gamification"]
-    },
-    {
-        "title": "Add Audio Playback for Letters",
-        "body": "- Use `audioplayers` package\n- Assets under `assets/audio/`\n- Tap to play",
-        "labels": ["audio", "enhancement"]
-    },
-    {
-        "title": "Add Stroke Animation for Letters",
-        "body": "- Optional feature using Lottie or SVG\n- Show stroke order",
-        "labels": ["animation", "optional"]
-    },
-    {
-        "title": "Add Bottom Navigation Tabs (Learn, Practice, Quiz)",
-        "body": "- Use `BottomNavigationBar`\n- Persistent across navigation",
-        "labels": ["UI", "navigation"]
-    },
-    {
-        "title": "Add XP or Star-based Progress System",
-        "body": "- Track section completions\n- Reward users with stars/XP\n- Optional: store locally",
-        "labels": ["gamification", "progress"]
-    }
 ]
 
-for issue in issues:
-    response = requests.post(
-        f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/issues",
-        headers=headers,
-        json=issue
-    )
-    if response.status_code == 201:
-        print(f"Issue created: {issue['title']}")
+# ─── HELPERS ──────────────────────────────────────────────────────────────────
+
+def fetch_existing_titles():
+    """Return a set of all existing issue titles (open & closed)."""
+    titles = set()
+    page = 1
+    per_page = 100
+    while True:
+        resp = requests.get(
+            f"{API_BASE}/issues",
+            headers=HEADERS,
+            params={"state": "all", "page": page, "per_page": per_page}
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if not data:
+            break
+        for issue in data:
+            titles.add(issue["title"].strip())
+        page += 1
+    return titles
+
+def create_issue(issue):
+    resp = requests.post(f"{API_BASE}/issues", headers=HEADERS, json=issue)
+    if resp.status_code == 201:
+        print(f"✅ Created: {issue['title']}")
     else:
-        print(f"Failed to create issue: {issue['title']} - {response.status_code} - {response.text}")
+        print(f"❌ Failed ({resp.status_code}): {issue['title']}\n{resp.json()}")
+
+# ─── MAIN ─────────────────────────────────────────────────────────────────────
+
+def main():
+    print("🔍 Fetching existing issues…")
+    existing = fetch_existing_titles()
+
+    for issue in new_issues:
+        title = issue["title"].strip()
+        if title in existing:
+            print(f"⏭ Skipping (already exists): {title}")
+        else:
+            create_issue(issue)
+
+if __name__ == "__main__":
+    main()
