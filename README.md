@@ -142,3 +142,53 @@ Would you like me to:
 
 Let me know and I’ll assist with the next step!
 ```
+Roadmap
+Based on dependencies and logical flow, here’s a recommended roadmap:
+
+Phase 1: Project Setup & Data Modeling
+
+#1 Setup Modular Feature Folder Structure
+
+#2 Create DevanagariUnit Data Model
+
+Phase 2: Navigation & Layout
+
+#13 Setup App Navigation
+
+#11 Add Bottom Navigation Tabs (Learn, Practice, Quiz)
+
+#14 Implement Home / Dashboard Screen
+
+Phase 3: Core Learning Modules
+
+#15 Implement Learn Section
+
+#3 Implement Vowel (स्वर) Learning Screen
+
+#4 Implement Consonant Learning UI
+
+#6 Add Grammar Essentials Module
+
+#5 Implement Matras Learning Module
+
+Phase 4: Interactive Practice Enhancements
+
+#7 Build Interactive Practice UI
+
+#9 Add Audio Playback for Letters
+
+#10 Add Stroke Animation for Letters
+
+Phase 5: Quizzes & Gamification
+
+#16 Implement Quizzes Section
+
+#8 Implement Quiz Feature with Scoring
+
+#12 Add XP or Star-based Progress System
+
+Phase 6: Progress Tracking & Settings
+
+#17 Implement Progress Screen
+
+#18 Implement Settings / About Screen
