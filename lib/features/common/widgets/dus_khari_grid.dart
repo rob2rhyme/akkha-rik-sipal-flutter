@@ -13,8 +13,8 @@ class DusKhariGrid extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1, // ◀️ one card per row now
-        childAspectRatio: 0.75, // keep your tall card ratio
+        crossAxisCount: 1, // single column
+        childAspectRatio: 0.75, // taller cards: width ÷ height = .75
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
       ),
@@ -29,21 +29,53 @@ class DusKhariGrid extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Base character
-                Text(
-                  row.baseChar,
-                  style: Theme.of(context).textTheme.headlineSmall,
+                // Base character + its transliterations
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      row.baseUnit.character,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(row.baseUnit.transliteration),
+                        Text(
+                          row.baseUnit.hindiTransliteration,
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-
                 const SizedBox(height: 8),
 
-                // The nine syllable chips
+                // The nine syllable chips, each with its own transliterations
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: row.syllables
-                      .map((s) => Chip(label: Text(s)))
-                      .toList(),
+                  children: row.syllableUnits.map((u) {
+                    return Chip(
+                      label: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(u.character),
+                          Text(
+                            u.transliteration,
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                          Text(
+                            u.hindiTransliteration,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
                 ),
               ],
             ),

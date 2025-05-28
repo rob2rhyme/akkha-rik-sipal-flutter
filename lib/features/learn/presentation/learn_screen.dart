@@ -12,13 +12,13 @@ class LearnScreen extends StatefulWidget {
   const LearnScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LearnScreenState createState() => _LearnScreenState();
 }
 
 class _LearnScreenState extends State<LearnScreen>
     with SingleTickerProviderStateMixin {
   final _ds = SectionalAkkhaUnitDataSource();
-  final _dusDs = DusKhariDataSource();
 
   late final TabController _tabController;
 
@@ -193,6 +193,7 @@ class FutureUnitGrid extends StatelessWidget {
 class TenKhariTab extends StatefulWidget {
   const TenKhariTab({super.key});
   @override
+  // ignore: library_private_types_in_public_api
   _TenKhariTabState createState() => _TenKhariTabState();
 }
 

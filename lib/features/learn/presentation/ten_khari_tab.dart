@@ -9,6 +9,7 @@ class TenKhariTab extends StatefulWidget {
   const TenKhariTab({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TenKhariTabState createState() => _TenKhariTabState();
 }
 

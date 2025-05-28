@@ -1,6 +1,14 @@
 // lib/features/common/models/akkha_unit.dart
 
-enum AkkhaUnitType { vowel, consonant, number, matra, symbol, punctuation }
+enum AkkhaUnitType {
+  vowel,
+  consonant,
+  number,
+  matra,
+  symbol,
+  punctuation,
+  unknown,
+}
 
 class AkkhaUnit {
   final String id;
@@ -26,15 +34,23 @@ class AkkhaUnit {
   });
 
   factory AkkhaUnit.fromJson(Map<String, dynamic> json) {
+    // Safely parse the unit type, defaulting to unknown
+    final typeStr = (json['type'] as String?) ?? 'unknown';
+    final type = AkkhaUnitType.values.firstWhere(
+      (e) => e.toString().split('.').last == typeStr,
+      orElse: () => AkkhaUnitType.unknown,
+    );
+
     return AkkhaUnit(
-      id: json['id'] as String,
-      character: json['character'] as String,
-      type: AkkhaUnitType.values.firstWhere(
-        (e) => e.toString() == 'AkkhaUnitType.${json['type']}',
-      ),
-      transliteration: json['transliteration'] as String,
-      hindiTransliteration: json['hindiTransliteration'] as String,
-      group: json['group'] as String?, // ← parse it
+      // If id/character are ever missing, we at least get an empty-string
+      id: (json['id'] as String?) ?? '',
+      character: (json['character'] as String?) ?? '',
+      type: type,
+      // These are optional in your JSON, so default to empty
+      transliteration: (json['transliteration'] as String?) ?? '',
+      hindiTransliteration: (json['hindiTransliteration'] as String?) ?? '',
+      // Any extra fields you have in AkkhaUnit (group, description, etc.)
+      group: json['group'] as String?,
       description: json['description'] as String?,
       strokeOrderAsset: json['strokeOrderAsset'] as String?,
       audioAsset: json['audioAsset'] as String?,

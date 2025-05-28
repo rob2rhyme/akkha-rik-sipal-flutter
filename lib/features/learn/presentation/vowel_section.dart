@@ -7,13 +7,14 @@ class VowelSection extends StatefulWidget {
   final List<AkkhaUnit> depUnits;
   final List<AkkhaUnit> symUnits;
   const VowelSection({
-    Key? key,
+    super.key,
     required this.indUnits,
     required this.depUnits,
     required this.symUnits,
-  }) : super(key: key);
+  });
 
   @override
+  // ignore: library_private_types_in_public_api
   _VowelSectionState createState() => _VowelSectionState();
 }
 
