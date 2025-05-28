@@ -1,13 +1,15 @@
 // lib/features/learn/presentation/consonant_section.dart
+
 import 'package:flutter/material.dart';
 import 'package:akkha_rik_lipi_sipal/features/common/models/akkha_unit.dart';
-import 'learn_screen.dart'; // for UnitGrid
+import 'package:akkha_rik_lipi_sipal/features/common/widgets/unit_grid.dart'; // Ensure this is the correct path
 
 class ConsonantSection extends StatefulWidget {
   final List<AkkhaUnit> units;
-  const ConsonantSection({Key? key, required this.units}) : super(key: key);
+  const ConsonantSection({super.key, required this.units});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ConsonantSectionState createState() => _ConsonantSectionState();
 }
 
@@ -33,9 +35,11 @@ class _ConsonantSectionState extends State<ConsonantSection>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // ← important when using KeepAlive mixin
+    super.build(context); // required by AutomaticKeepAliveClientMixin
+
     return Column(
       children: [
+        // filter row
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -52,6 +56,8 @@ class _ConsonantSectionState extends State<ConsonantSection>
             }).toList(),
           ),
         ),
+
+        // the grid itself
         Expanded(
           child: UnitGrid(
             units: _filteredUnits,

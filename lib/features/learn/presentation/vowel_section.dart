@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:akkha_rik_lipi_sipal/features/common/models/akkha_unit.dart';
-import 'learn_screen.dart'; // for UnitGrid
+import 'package:akkha_rik_lipi_sipal/features/common/widgets/unit_grid.dart'; // Ensure UnitGrid is imported
 
 class VowelSection extends StatefulWidget {
   final List<AkkhaUnit> indUnits;
   final List<AkkhaUnit> depUnits;
   final List<AkkhaUnit> symUnits;
   const VowelSection({
-    super.key,
+    Key? key,
     required this.indUnits,
     required this.depUnits,
     required this.symUnits,
-  });
+  }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _VowelSectionState createState() => _VowelSectionState();
 }
 
@@ -60,13 +59,10 @@ class _VowelSectionState extends State<VowelSection> {
           ),
         ),
         // filtered grid
-        // Expanded(child: UnitGrid(units: _filteredUnits)),
         Expanded(
           child: UnitGrid(
             units: _filteredUnits,
-            storageKey: const PageStorageKey(
-              'vowel_section_grid',
-            ), // or any unique String key
+            storageKey: PageStorageKey('vowel_section'),
           ),
         ),
       ],

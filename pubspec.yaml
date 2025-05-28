@@ -98,6 +98,7 @@ flutter:
     - assets/data/sections/symbols.json
     - assets/data/sections/numbers.json
     - assets/data/sections/punctuation.json
+    - assets/data/sections/dushKhari.json
 
   fonts:
     - family: Angella
