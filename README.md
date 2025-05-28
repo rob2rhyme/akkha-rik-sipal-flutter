@@ -189,6 +189,49 @@ Phase 5: Quizzes & Gamification
 
 Phase 6: Progress Tracking & Settings
 
+____________________________
+Focused set of high-level priorities for the Flutter-Akkha Sipal project:
+
+1. **Centralized Font Management**
+   – Define a single `const` (e.g. `kAppFontFamily`) and apply it everywhere via your app’s `ThemeData` or a custom `TextStyle` helper
+   – Guarantees every character uses the same font, and lets you swap in a custom Akkha font with one line
+
+2. **API-First Development**
+   – Design and scaffold your service layer (e.g. using `http` or `dio` + repository pattern) before building screens
+   – Model your DTOs and error handling up front so UI work can consume stable interfaces
+
+3. **Modular, Scalable Architecture**
+   – Choose a state-management approach (e.g. BLoC/Cubit, Riverpod, Provider) and enforce feature-module boundaries
+   – Keep UI, business logic, and data layers cleanly separated
+
+4. **Design System & Shared UI Components**
+   – Build a library of reusable widgets (cards, buttons, inputs) that all reference your typography and color tokens
+   – Ensures visual consistency and speeds up feature work
+
+5. **Local Data Persistence**
+   – Define your SQLite schema (via `sqflite`) for lessons, quizzes, and progress tracking
+   – Wrap in DAOs/repositories that mirror your API layer patterns
+
+6. **Core Content Modules**
+   – Implement grammar-lesson screens, interactive quizzes, and result pages iteratively
+   – Wire them to your API/local stores as you go
+
+7. **Theming & Internationalization**
+   – Support light/dark modes and ensure Akkha font covers all necessary Unicode blocks
+   – Structure for easy locale additions if you expand beyond Devanagari
+
+8. **Accessibility & Performance**
+   – Ensure text scales with OS font settings, proper contrast, and screen-reader labels
+   – Profile on lower-end devices to catch jank early
+
+9. **Automated Testing & CI/CD**
+   – Write unit tests for your business logic and widget tests for key screens
+   – Set up GitHub Actions (or similar) to run lint/tests on every PR
+
+10. **Documentation & Onboarding**
+    – Maintain a clear README with setup steps (including how to swap in the Akkha font)
+    – Keep architecture/feature docs up to date so new contributors can hit the ground running
+
 #17 Implement Progress Screen
 
 #18 Implement Settings / About Screen
