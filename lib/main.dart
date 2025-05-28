@@ -160,23 +160,26 @@
 //   }
 // }
 // lib/main.dart
-
+// add this at the top
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'features/learn/presentation/learn_screen.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  static final FlutterTts flutterTts = FlutterTts();
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Akkha Rik Lipi Sipal',
       theme: ThemeData(primarySwatch: Colors.blue),
       // ← change this to LearnScreen to see your grid & loader
-      home: LearnScreen(),
+      home: const LearnScreen(),
     );
   }
 }

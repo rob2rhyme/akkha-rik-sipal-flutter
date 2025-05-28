@@ -1,0 +1,102 @@
+[
+  {
+    "id": "zero",
+    "character": "०",
+    "type": "number",
+    "transliteration": "0",
+    "hindiTransliteration": "०",
+    "description": "zero",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/0.mp3"
+  },
+  {
+    "id": "one",
+    "character": "१",
+    "type": "number",
+    "transliteration": "1",
+    "hindiTransliteration": "१",
+    "description": "one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/1.mp3"
+  },
+  {
+    "id": "two",
+    "character": "२",
+    "type": "number",
+    "transliteration": "2",
+    "hindiTransliteration": "२",
+    "description": "two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/2.mp3"
+  },
+  {
+    "id": "three",
+    "character": "३",
+    "type": "number",
+    "transliteration": "3",
+    "hindiTransliteration": "३",
+    "description": "three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/3.mp3"
+  },
+  {
+    "id": "four",
+    "character": "४",
+    "type": "number",
+    "transliteration": "4",
+    "hindiTransliteration": "४",
+    "description": "four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/4.mp3"
+  },
+  {
+    "id": "five",
+    "character": "५",
+    "type": "number",
+    "transliteration": "5",
+    "hindiTransliteration": "५",
+    "description": "five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/5.mp3"
+  },
+  {
+    "id": "six",
+    "character": "६",
+    "type": "number",
+    "transliteration": "6",
+    "hindiTransliteration": "६",
+    "description": "six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/6.mp3"
+  },
+  {
+    "id": "seven",
+    "character": "७",
+    "type": "number",
+    "transliteration": "7",
+    "hindiTransliteration": "७",
+    "description": "seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/7.mp3"
+  },
+  {
+    "id": "eight",
+    "character": "८",
+    "type": "number",
+    "transliteration": "8",
+    "hindiTransliteration": "८",
+    "description": "eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/8.mp3"
+  },
+  {
+    "id": "nine",
+    "character": "९",
+    "type": "number",
+    "transliteration": "9",
+    "hindiTransliteration": "९",
+    "description": "nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/9.mp3"
+  }
+]

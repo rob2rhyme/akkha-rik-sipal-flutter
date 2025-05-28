@@ -1,0 +1,32 @@
+[
+  {
+    "id": "candrabindu",
+    "character": "ँ",
+    "type": "symbol",
+    "transliteration": "m̐",
+    "hindiTransliteration": "ँ",
+    "description": "candrabindu",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "anusvara",
+    "character": "ं",
+    "type": "symbol",
+    "transliteration": "ṃ",
+    "hindiTransliteration": "ं",
+    "description": "anusvara",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "visarga",
+    "character": "ः",
+    "type": "symbol",
+    "transliteration": "ḥ",
+    "hindiTransliteration": "ः",
+    "description": "visarga",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  }
+]

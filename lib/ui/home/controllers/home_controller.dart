@@ -1,9 +1,9 @@
+//lib/ui/home/controllers/home_controller.dart
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:akkha_rik_lipi_sipal/database/database_helper.dart';
 import 'package:akkha_rik_lipi_sipal/database/tables/category_table.dart';
-import 'package:akkha_rik_lipi_sipal/main.dart';
 import 'package:akkha_rik_lipi_sipal/utils/constant.dart';
 import 'package:akkha_rik_lipi_sipal/utils/debug.dart';
 import 'package:akkha_rik_lipi_sipal/utils/preference.dart';
@@ -23,7 +23,7 @@ class HomeController extends GetxController
   @override
   void onInit() {
     getDataFromDatabase();
-    getInAppPurchase();
+    // getInAppPurchase();
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
@@ -56,20 +56,20 @@ class HomeController extends GetxController
     WidgetsBinding.instance.removeObserver(this);
   }
 
-  void getInAppPurchase() {
-    MyApp.purchaseStreamController.stream.listen((product) {
-      try {
-        if (product.productID == Utils.getProductId()) {
-          Preference.shared.setIsPurchase(true);
-        } else {
-          Preference.shared.setIsPurchase(false);
-        }
-      } on Exception catch (e) {
-        Preference.shared.setIsPurchase(true);
-        Debug.printLog("error", e.toString());
-      }
-    });
-  }
+  // void getInAppPurchase() {
+  //   MyApp.purchaseStreamController.stream.listen((product) {
+  //     try {
+  //       if (product.productID == Utils.getProductId()) {
+  //         Preference.shared.setIsPurchase(true);
+  //       } else {
+  //         Preference.shared.setIsPurchase(false);
+  //       }
+  //     } on Exception catch (e) {
+  //       Preference.shared.setIsPurchase(true);
+  //       Debug.printLog("error", e.toString());
+  //     }
+  //   });
+  // }
 
   showAd() async {
     if (interstitialAd != null &&

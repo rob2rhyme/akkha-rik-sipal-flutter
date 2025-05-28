@@ -1,11 +1,11 @@
-// lib/features/learn/presentation/learn_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:akkha_rik_lipi_sipal/features/common/models/akkha_unit.dart';
-import 'package:akkha_rik_lipi_sipal/features/learn/data/local_akkha_unit_data_source.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/data/sectional_akkha_unit_data_source.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/presentation/consonant_section.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/presentation/vowel_section.dart';
 
 class LearnScreen extends StatefulWidget {
-  const LearnScreen({Key? key}) : super(key: key);
+  const LearnScreen({super.key});
 
   @override
   _LearnScreenState createState() => _LearnScreenState();
@@ -13,41 +13,40 @@ class LearnScreen extends StatefulWidget {
 
 class _LearnScreenState extends State<LearnScreen>
     with SingleTickerProviderStateMixin {
-  // 1. Initialize the future at declaration so it's never null
-  final Future<List<AkkhaUnit>> _unitsFuture = LocalAkkhaUnitDataSource()
-      .loadAkkhaUnits();
+  final _ds = SectionalAkkhaUnitDataSource();
 
   late final TabController _tabController;
-  final _dataSource = LocalAkkhaUnitDataSource();
 
-  final List<IconData> _tabIcons = [
+  // Cached Futures to avoid flicker
+  late final Future<List<AkkhaUnit>> _consonantsFuture;
+  late final Future<List<List<AkkhaUnit>>> _vowelsFuture;
+  late final Future<List<AkkhaUnit>> _numbersFuture;
+  late final Future<List<AkkhaUnit>> _punctuationFuture;
+
+  final _tabIcons = [
     Icons.text_fields, // Consonants
     Icons.audiotrack, // Vowels
-    Icons.brush, // Matras
-    Icons.category, // Symbols
     Icons.format_list_numbered, // Numbers
     Icons.more_horiz, // Punctuation
   ];
-  final List<String> _tabLabels = [
-    'Consonants',
-    'Vowels',
-    'Matras',
-    'Symbols',
-    'Numbers',
-    'Punctuation',
-  ];
+
+  final _tabLabels = ['Consonants', 'Vowels', 'Numbers', 'Punctuation'];
 
   @override
   void initState() {
     super.initState();
-    // 2. Set up the TabController
-    _tabController = TabController(length: _tabIcons.length, vsync: this)
-      ..addListener(() {
-        if (_tabController.indexIsChanging) {
-          // only rebuild to update the label
-          setState(() {});
-        }
-      });
+
+    _tabController = TabController(length: _tabIcons.length, vsync: this);
+
+    // Cache the futures to prevent flicker
+    _consonantsFuture = _ds.loadConsonants();
+    _vowelsFuture = Future.wait([
+      _ds.loadVowels(),
+      _ds.loadMatras(),
+      _ds.loadSymbols(),
+    ]);
+    _numbersFuture = _ds.loadNumbers();
+    _punctuationFuture = _ds.loadPunctuation();
   }
 
   @override
@@ -58,89 +57,80 @@ class _LearnScreenState extends State<LearnScreen>
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<AkkhaUnit>>(
-      future: _unitsFuture, // now always non-null
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
-        }
-        if (snapshot.hasError || snapshot.data == null) {
-          return Scaffold(
-            body: Center(child: Text('Error: ${snapshot.error}')),
-          );
-        }
-
-        // group units by type
-        final units = snapshot.data!;
-        final byType = {
-          AkkhaUnitType.consonant: units
-              .where((u) => u.type == AkkhaUnitType.consonant)
-              .toList(),
-          AkkhaUnitType.vowel: units
-              .where((u) => u.type == AkkhaUnitType.vowel)
-              .toList(),
-          AkkhaUnitType.matra: units
-              .where((u) => u.type == AkkhaUnitType.matra)
-              .toList(),
-          AkkhaUnitType.symbol: units
-              .where((u) => u.type == AkkhaUnitType.symbol)
-              .toList(),
-          AkkhaUnitType.number: units
-              .where((u) => u.type == AkkhaUnitType.number)
-              .toList(),
-          AkkhaUnitType.punctuation: units
-              .where((u) => u.type == AkkhaUnitType.punctuation)
-              .toList(),
-        };
-
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('Learn Akkha Rik Lipi'),
-            bottom: TabBar(
-              controller: _tabController,
-              isScrollable: true,
-              tabs: _tabIcons.map((icon) => Tab(icon: Icon(icon))).toList(),
-            ),
-          ),
-          body: SafeArea(
-            child: Column(
-              children: [
-                // this rebuilds on tab change to update the label
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: Text(
-                    _tabLabels[_tabController.index],
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Learn Akkha Rik Lipi'),
+        bottom: TabBar(
+          controller: _tabController,
+          isScrollable: true,
+          tabs: _tabIcons.map((i) => Tab(icon: Icon(i))).toList(),
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: AnimatedBuilder(
+                animation: _tabController,
+                builder: (_, __) => Text(
+                  _tabLabels[_tabController.index],
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                // swipeable grids
-                Expanded(
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: [
-                      _UnitGrid(units: byType[AkkhaUnitType.consonant]!),
-                      _UnitGrid(units: byType[AkkhaUnitType.vowel]!),
-                      _UnitGrid(units: byType[AkkhaUnitType.matra]!),
-                      _UnitGrid(units: byType[AkkhaUnitType.symbol]!),
-                      _UnitGrid(units: byType[AkkhaUnitType.number]!),
-                      _UnitGrid(units: byType[AkkhaUnitType.punctuation]!),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  // 1️⃣ Consonants
+                  FutureBuilder<List<AkkhaUnit>>(
+                    future: _consonantsFuture,
+                    builder: (c, snap) {
+                      if (snap.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                      return ConsonantSection(units: snap.data ?? []);
+                    },
+                  ),
+
+                  // 2️⃣ Vowels (independent / dependent / symbols)
+                  FutureBuilder<List<List<AkkhaUnit>>>(
+                    future: _vowelsFuture,
+                    builder: (c, snap) {
+                      if (snap.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                      final lists = snap.data ?? [[], [], []];
+                      return VowelSection(
+                        indUnits: lists[0],
+                        depUnits: lists[1],
+                        symUnits: lists[2],
+                      );
+                    },
+                  ),
+
+                  // 3️⃣ Numbers
+                  FutureUnitGrid(future: _numbersFuture),
+
+                  // 4️⃣ Punctuation
+                  FutureUnitGrid(future: _punctuationFuture),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class _UnitGrid extends StatelessWidget {
+/// Renders a simple List<AkkhaUnit> as a grid
+class UnitGrid extends StatelessWidget {
   final List<AkkhaUnit> units;
-  const _UnitGrid({Key? key, required this.units}) : super(key: key);
+  final PageStorageKey storageKey;
+
+  const UnitGrid({super.key, required this.units, required this.storageKey});
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +140,7 @@ class _UnitGrid extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: GridView.builder(
+        key: storageKey,
         itemCount: units.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
@@ -163,9 +154,45 @@ class _UnitGrid extends StatelessWidget {
   }
 }
 
+/// Helper to render any Future<List<AkkhaUnit>> as the same grid
+class FutureUnitGrid extends StatelessWidget {
+  final Future<List<AkkhaUnit>> future;
+  const FutureUnitGrid({super.key, required this.future});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<AkkhaUnit>>(
+      future: future,
+      builder: (c, snap) {
+        if (snap.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final units = snap.data ?? [];
+        if (units.isEmpty) {
+          return const Center(child: Text('No items in this section.'));
+        }
+        return Padding(
+          padding: const EdgeInsets.all(16),
+          child: GridView.builder(
+            itemCount: units.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              childAspectRatio: 0.8,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+            ),
+            itemBuilder: (_, i) => _UnitCard(unit: units[i]),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Internal card for a single AkkhaUnit
 class _UnitCard extends StatelessWidget {
   final AkkhaUnit unit;
-  const _UnitCard({Key? key, required this.unit}) : super(key: key);
+  const _UnitCard({required this.unit});
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +201,7 @@ class _UnitCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
         onTap: () {
-          // TODO: play audio/animation
+          // TODO: play audio / show detail
         },
         child: Padding(
           padding: const EdgeInsets.all(8),

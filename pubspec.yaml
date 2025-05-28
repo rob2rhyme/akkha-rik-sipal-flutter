@@ -92,7 +92,12 @@ flutter:
     - assets/drag assets/upper/
     - assets/drag assets/vehicles/
     - assets/sounds/
-    - assets/data/akkha_units.json
+    - assets/data/sections/consonants.json
+    - assets/data/sections/vowels.json
+    - assets/data/sections/matras.json
+    - assets/data/sections/symbols.json
+    - assets/data/sections/numbers.json
+    - assets/data/sections/punctuation.json
 
   fonts:
     - family: Angella

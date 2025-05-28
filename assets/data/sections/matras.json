@@ -1,0 +1,92 @@
+[
+  {
+    "id": "aa_matra",
+    "character": "ा",
+    "type": "matra",
+    "transliteration": "ā",
+    "hindiTransliteration": "ा",
+    "description": "aa matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "i_matra",
+    "character": "ि",
+    "type": "matra",
+    "transliteration": "i",
+    "hindiTransliteration": "ि",
+    "description": "i matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "ii_matra",
+    "character": "ी",
+    "type": "matra",
+    "transliteration": "ī",
+    "hindiTransliteration": "ी",
+    "description": "ii matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "u_matra",
+    "character": "ु",
+    "type": "matra",
+    "transliteration": "u",
+    "hindiTransliteration": "ु",
+    "description": "u matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "uu_matra",
+    "character": "ू",
+    "type": "matra",
+    "transliteration": "ū",
+    "hindiTransliteration": "ू",
+    "description": "uu matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "e_matra",
+    "character": "े",
+    "type": "matra",
+    "transliteration": "e",
+    "hindiTransliteration": "े",
+    "description": "e matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "ai_matra",
+    "character": "ै",
+    "type": "matra",
+    "transliteration": "ai",
+    "hindiTransliteration": "ै",
+    "description": "ai matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "o_matra",
+    "character": "ो",
+    "type": "matra",
+    "transliteration": "o",
+    "hindiTransliteration": "ो",
+    "description": "o matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "au_matra",
+    "character": "ौ",
+    "type": "matra",
+    "transliteration": "au",
+    "hindiTransliteration": "ौ",
+    "description": "au matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  }
+]
