@@ -2,19 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:akkha_rik_lipi_sipal/features/common/models/akkha_unit.dart';
-import 'package:akkha_rik_lipi_sipal/features/common/models/dus_khari_row.dart';
-import 'package:akkha_rik_lipi_sipal/features/common/widgets/unit_grid.dart';
-import 'package:akkha_rik_lipi_sipal/features/common/widgets/dus_khari_grid.dart';
+// Removed unused import for 'dus_khari_row.dart'
+// Removed unused import for 'dus_khari_grid.dart'
 import 'package:akkha_rik_lipi_sipal/features/learn/data/sectional_akkha_unit_data_source.dart';
-import 'package:akkha_rik_lipi_sipal/features/learn/data/dush_khari_data_source.dart';
+// Removed unused import for 'dush_khari_data_source.dart'
 import 'package:akkha_rik_lipi_sipal/features/learn/presentation/consonant_section.dart';
 import 'package:akkha_rik_lipi_sipal/features/learn/presentation/vowel_section.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/presentation/number_section.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/presentation/punctuation_section.dart';
 import 'package:akkha_rik_lipi_sipal/features/learn/presentation/ten_khari_tab.dart';
 
 class LearnScreen extends StatefulWidget {
   const LearnScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LearnScreenState createState() => _LearnScreenState();
 }
 
@@ -87,6 +89,7 @@ class _LearnScreenState extends State<LearnScreen>
                 ),
               ),
             ),
+
             // Pages
             Expanded(
               child: TabBarView(
@@ -126,10 +129,7 @@ class _LearnScreenState extends State<LearnScreen>
                       if (snap.connectionState == ConnectionState.waiting) {
                         return const Center(child: CircularProgressIndicator());
                       }
-                      return UnitGrid(
-                        units: snap.data ?? [],
-                        storageKey: const PageStorageKey('numbersGrid'),
-                      );
+                      return NumberSection(units: snap.data ?? []);
                     },
                   ),
 
@@ -140,10 +140,7 @@ class _LearnScreenState extends State<LearnScreen>
                       if (snap.connectionState == ConnectionState.waiting) {
                         return const Center(child: CircularProgressIndicator());
                       }
-                      return UnitGrid(
-                        units: snap.data ?? [],
-                        storageKey: const PageStorageKey('punctuationGrid'),
-                      );
+                      return PunctuationSection(units: snap.data ?? []);
                     },
                   ),
 

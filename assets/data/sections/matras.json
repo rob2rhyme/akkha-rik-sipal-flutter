@@ -1,7 +1,7 @@
 [
   {
     "id": "aa_matra",
-    "character": "ा",
+    "character": "A",
     "type": "matra",
     "transliteration": "ā",
     "hindiTransliteration": "ा",
@@ -11,7 +11,7 @@
   },
   {
     "id": "i_matra",
-    "character": "ि",
+    "character": "E",
     "type": "matra",
     "transliteration": "i",
     "hindiTransliteration": "ि",
@@ -20,18 +20,8 @@
     "audioAsset": null
   },
   {
-    "id": "ii_matra",
-    "character": "ी",
-    "type": "matra",
-    "transliteration": "ī",
-    "hindiTransliteration": "ी",
-    "description": "ii matra",
-    "strokeOrderAsset": null,
-    "audioAsset": null
-  },
-  {
     "id": "u_matra",
-    "character": "ु",
+    "character": "Y",
     "type": "matra",
     "transliteration": "u",
     "hindiTransliteration": "ु",
@@ -41,7 +31,7 @@
   },
   {
     "id": "uu_matra",
-    "character": "ू",
+    "character": "U",
     "type": "matra",
     "transliteration": "ū",
     "hindiTransliteration": "ू",
@@ -51,7 +41,7 @@
   },
   {
     "id": "e_matra",
-    "character": "े",
+    "character": "Q",
     "type": "matra",
     "transliteration": "e",
     "hindiTransliteration": "े",
@@ -61,7 +51,7 @@
   },
   {
     "id": "ai_matra",
-    "character": "ै",
+    "character": "I",
     "type": "matra",
     "transliteration": "ai",
     "hindiTransliteration": "ै",
@@ -71,7 +61,7 @@
   },
   {
     "id": "o_matra",
-    "character": "ो",
+    "character": "O",
     "type": "matra",
     "transliteration": "o",
     "hindiTransliteration": "ो",
@@ -81,7 +71,7 @@
   },
   {
     "id": "au_matra",
-    "character": "ौ",
+    "character": "W",
     "type": "matra",
     "transliteration": "au",
     "hindiTransliteration": "ौ",

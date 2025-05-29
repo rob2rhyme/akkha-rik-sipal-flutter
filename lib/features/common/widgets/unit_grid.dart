@@ -11,24 +11,29 @@ class UnitGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // default UI font (Urbanist) for transliterations:
+    final bottomInset = MediaQuery.of(context).viewPadding.bottom;
     final defaultStyle = DefaultTextStyle.of(context).style;
+
+    // Reduce the Akkha character size for smaller screens:
+    final charStyle = Theme.of(context).textTheme.headlineSmall?.copyWith(
+      fontSize: 25,
+    ); // was using default headlineSmall
+
     final translitStyle = defaultStyle.copyWith(fontSize: 14);
-    final hindiStyle = defaultStyle.copyWith(fontSize: 12, color: Colors.grey);
+    final hindiStyle = defaultStyle.copyWith(fontSize: 18, color: Colors.grey);
 
     return Padding(
-      padding: const EdgeInsets.all(12),
+      padding: EdgeInsets.fromLTRB(12, 12, 12, 12 + bottomInset),
       child: GridView.builder(
         key: storageKey,
         itemCount: units.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
-          // ↓ lower aspectRatio ⇒ taller cells
-          childAspectRatio: 0.65,
+          childAspectRatio: 0.60,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
         ),
-        itemBuilder: (context, i) {
+        itemBuilder: (_, i) {
           final u = units[i];
           return Card(
             elevation: 2,
@@ -36,23 +41,50 @@ class UnitGrid extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: InkWell(
+              borderRadius: BorderRadius.circular(8),
               onTap: () {},
               child: Padding(
-                // ↓ smaller vertical padding
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Akkha character in your custom font
-                    Text(
-                      u.character,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                    // 1) Flexible + FittedBox for the Akkha character
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          u.character,
+                          style: charStyle,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                     ),
+
                     const SizedBox(height: 6),
-                    // transliteration in default UI font
-                    Text(u.transliteration, style: translitStyle),
+
+                    // 2) Flexible for the transliteration
+                    Flexible(
+                      child: Text(
+                        u.transliteration,
+                        style: translitStyle,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+
                     const SizedBox(height: 4),
-                    Text(u.hindiTransliteration, style: hindiStyle),
+
+                    // 3) Flexible for the Hindi transliteration
+                    Flexible(
+                      child: Text(
+                        u.hindiTransliteration,
+                        style: hindiStyle,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),

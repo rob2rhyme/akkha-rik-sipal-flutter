@@ -1,7 +1,7 @@
 [
   {
     "id": "a",
-    "character": "अ",
+    "character": "a",
     "type": "vowel",
     "transliteration": "a",
     "hindiTransliteration": "अ",
@@ -11,7 +11,7 @@
   },
   {
     "id": "aa",
-    "character": "आ",
+    "character": "aA",
     "type": "vowel",
     "transliteration": "ā",
     "hindiTransliteration": "आ",
@@ -21,7 +21,7 @@
   },
   {
     "id": "i",
-    "character": "इ",
+    "character": "e",
     "type": "vowel",
     "transliteration": "i",
     "hindiTransliteration": "इ",
@@ -31,7 +31,7 @@
   },
   {
     "id": "ii",
-    "character": "ई",
+    "character": "I",
     "type": "vowel",
     "transliteration": "ī",
     "hindiTransliteration": "ई",
