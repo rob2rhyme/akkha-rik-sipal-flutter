@@ -63,7 +63,7 @@ class _VowelSectionState extends State<VowelSection> {
         Expanded(
           child: UnitGrid(
             units: _filteredUnits,
-            storageKey: PageStorageKey('vowel_section'),
+            storageKey: const PageStorageKey('vowelGrid'),
           ),
         ),
       ],

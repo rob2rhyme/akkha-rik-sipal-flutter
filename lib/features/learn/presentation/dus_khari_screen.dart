@@ -1,9 +1,9 @@
 // lib/features/learn/presentation/dus_khari_screen.dart
 
 import 'package:flutter/material.dart';
-import '../../common/models/dus_khari_row.dart';
-import '../data/dush_khari_data_source.dart';
-import '../../common/widgets/dus_khari_grid.dart';
+import 'package:akkha_rik_lipi_sipal/features/common/models/dus_khari_row.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/data/dush_khari_data_source.dart';
+import 'package:akkha_rik_lipi_sipal/features/common/widgets/dus_khari_grid.dart';
 
 class DusKhariScreen extends StatelessWidget {
   const DusKhariScreen({super.key});

@@ -111,3 +111,6 @@ flutter:
     - family: UrbanistBlack
       fonts:
         - asset: fonts/urbanist/Urbanist-Black.ttf
+    - family: GurbachhanAkkhaLipi # your future custom font
+      fonts:
+        - asset: fonts/akkha/Akkha-Rika-Lipi.ttf

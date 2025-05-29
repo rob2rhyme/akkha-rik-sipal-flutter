@@ -1,7 +1,7 @@
 [
   {
     "id": "ka",
-    "character": "क",
+    "character": "k",
     "type": "consonant",
     "transliteration": "ka",
     "hindiTransliteration": "क",
@@ -12,7 +12,7 @@
   },
   {
     "id": "kha",
-    "character": "ख",
+    "character": "K",
     "type": "consonant",
     "transliteration": "kha",
     "hindiTransliteration": "ख",
@@ -23,7 +23,7 @@
   },
   {
     "id": "ga",
-    "character": "ग",
+    "character": "g",
     "type": "consonant",
     "transliteration": "ga",
     "hindiTransliteration": "ग",
@@ -34,7 +34,7 @@
   },
   {
     "id": "gha",
-    "character": "घ",
+    "character": "G",
     "type": "consonant",
     "transliteration": "gha",
     "hindiTransliteration": "घ",

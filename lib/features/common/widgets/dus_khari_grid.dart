@@ -1,20 +1,24 @@
 // lib/features/common/widgets/dus_khari_grid.dart
 
 import 'package:flutter/material.dart';
-import '../models/dus_khari_row.dart';
+import 'package:akkha_rik_lipi_sipal/features/common/models/dus_khari_row.dart';
 
 class DusKhariGrid extends StatelessWidget {
   final List<DusKhariRow> rows;
-
   const DusKhariGrid({super.key, required this.rows});
 
   @override
   Widget build(BuildContext context) {
+    // Grab the default text style (which uses your global 'Urbanist' font)
+    final defaultStyle = DefaultTextStyle.of(context).style;
+    final translitStyle = defaultStyle.copyWith(fontSize: 14);
+    final hindiStyle = defaultStyle.copyWith(fontSize: 12, color: Colors.grey);
+
     return GridView.builder(
       padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1, // single column
-        childAspectRatio: 0.75, // taller cards: width ÷ height = .75
+        crossAxisCount: 1,
+        childAspectRatio: 0.75,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
       ),
@@ -33,6 +37,7 @@ class DusKhariGrid extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // baseChar in Akkha font via headlineSmall
                     Text(
                       row.baseUnit.character,
                       style: Theme.of(context).textTheme.headlineSmall,
@@ -40,18 +45,21 @@ class DusKhariGrid extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(row.baseUnit.transliteration),
+                        // transliteration uses default (Urbanist) font
+                        Text(
+                          row.baseUnit.transliteration,
+                          style: translitStyle,
+                        ),
                         Text(
                           row.baseUnit.hindiTransliteration,
-                          style: const TextStyle(color: Colors.grey),
+                          style: hindiStyle,
                         ),
                       ],
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
-
-                // The nine syllable chips, each with its own transliterations
+                // The nine syllable chips
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
@@ -60,17 +68,21 @@ class DusKhariGrid extends StatelessWidget {
                       label: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(u.character),
+                          // syllable character in Akkha font
+                          Text(
+                            u.character,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.headlineSmall?.copyWith(fontSize: 20),
+                          ),
+                          // transliteration in default font
                           Text(
                             u.transliteration,
-                            style: const TextStyle(fontSize: 12),
+                            style: translitStyle.copyWith(fontSize: 12),
                           ),
                           Text(
                             u.hindiTransliteration,
-                            style: const TextStyle(
-                              fontSize: 10,
-                              color: Colors.grey,
-                            ),
+                            style: hindiStyle.copyWith(fontSize: 10),
                           ),
                         ],
                       ),

@@ -1,58 +1,58 @@
 [
   {
-    "baseChar": "क",
-    "baseTransliteration": "ka",
+    "baseChar": "k",
+    "baseTransliteration": "kya",
     "baseHindiTransliteration": "क",
     "syllables": [
       {
-        "character": "का",
+        "character": "kA",
         "transliteration": "kā",
         "hindiTransliteration": "का"
       },
       {
-        "character": "की",
+        "character": "kE",
         "transliteration": "kī",
         "hindiTransliteration": "की"
       },
       {
-        "character": "कु",
+        "character": "kY",
         "transliteration": "ku",
         "hindiTransliteration": "कु"
       },
       {
-        "character": "कू",
+        "character": "kU",
         "transliteration": "kū",
         "hindiTransliteration": "कू"
       },
       {
-        "character": "के",
+        "character": "kQ",
         "transliteration": "ke",
         "hindiTransliteration": "के"
       },
       {
-        "character": "कै",
+        "character": "kI",
         "transliteration": "kai",
         "hindiTransliteration": "कै"
       },
       {
-        "character": "को",
+        "character": "kO",
         "transliteration": "ko",
         "hindiTransliteration": "को"
       },
       {
-        "character": "कौ",
+        "character": "kW",
         "transliteration": "kau",
         "hindiTransliteration": "कौ"
       },
       {
-        "character": "कं",
-        "transliteration": "kaṃ",
+        "character": "kM",
+        "transliteration": "kauṃ",
         "hindiTransliteration": "कं"
       }
     ]
   },
   {
-    "baseChar": "ख",
+    "baseChar": "K",
     "baseTransliteration": "kha",
     "baseHindiTransliteration": "ख",
     "syllables": [
@@ -156,12 +156,12 @@
     ]
   },
   {
-    "baseChar": "घ",
+    "baseChar": "G",
     "baseTransliteration": "gha",
     "baseHindiTransliteration": "घ",
     "syllables": [
       {
-        "character": "घा",
+        "character": "GA",
         "transliteration": "ghā",
         "hindiTransliteration": "घा"
       },

@@ -161,10 +161,13 @@
 // }
 // lib/main.dart
 // add this at the top
+// lib/main.dart
+
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'features/learn/presentation/learn_screen.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:akkha_rik_lipi_sipal/ui/app_theme.dart';
+import 'package:akkha_rik_lipi_sipal/features/learn/presentation/learn_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -173,12 +176,13 @@ void main() {
 class MyApp extends StatelessWidget {
   static final FlutterTts flutterTts = FlutterTts();
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Akkha Rik Lipi Sipal',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      // ← change this to LearnScreen to see your grid & loader
+      theme:
+          AppTheme.build(), // ← your custom theme (sets Akkha font only on headlineSmall)
       home: const LearnScreen(),
     );
   }
