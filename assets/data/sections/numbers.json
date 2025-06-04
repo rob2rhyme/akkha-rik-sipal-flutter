@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "zero",
+    "character": "0",
+    "type": "number",
+    "transliteration": "0",
+    "hindiTransliteration": "०",
+    "description": "zero",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/0.mp3"
+  },
+  {
+    "id": "one",
+    "character": "1",
+    "type": "number",
+    "transliteration": "1",
+    "hindiTransliteration": "१",
+    "description": "one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/1.mp3"
+  },
+  {
+    "id": "two",
+    "character": "2",
+    "type": "number",
+    "transliteration": "2",
+    "hindiTransliteration": "२",
+    "description": "two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/2.mp3"
+  },
+  {
+    "id": "three",
+    "character": "3",
+    "type": "number",
+    "transliteration": "3",
+    "hindiTransliteration": "३",
+    "description": "three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/3.mp3"
+  },
+  {
+    "id": "four",
+    "character": "4",
+    "type": "number",
+    "transliteration": "4",
+    "hindiTransliteration": "४",
+    "description": "four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/4.mp3"
+  },
+  {
+    "id": "five",
+    "character": "5",
+    "type": "number",
+    "transliteration": "5",
+    "hindiTransliteration": "५",
+    "description": "five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/5.mp3"
+  },
+  {
+    "id": "six",
+    "character": "6",
+    "type": "number",
+    "transliteration": "6",
+    "hindiTransliteration": "६",
+    "description": "six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/6.mp3"
+  },
+  {
+    "id": "seven",
+    "character": "7",
+    "type": "number",
+    "transliteration": "7",
+    "hindiTransliteration": "७",
+    "description": "seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/7.mp3"
+  },
+  {
+    "id": "eight",
+    "character": "8",
+    "type": "number",
+    "transliteration": "8",
+    "hindiTransliteration": "८",
+    "description": "eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/8.mp3"
+  },
+  {
+    "id": "nine",
+    "character": "9",
+    "type": "number",
+    "transliteration": "9",
+    "hindiTransliteration": "९",
+    "description": "nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/9.mp3"
+  },
+  {
+    "id": "ten",
+    "character": "10",
+    "type": "number",
+    "transliteration": "10",
+    "hindiTransliteration": "१०",
+    "description": "ten",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/10.mp3"
+  },
+  {
+    "id": "eleven",
+    "character": "11",
+    "type": "number",
+    "transliteration": "11",
+    "hindiTransliteration": "११",
+    "description": "eleven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/11.mp3"
+  },
+  {
+    "id": "twelve",
+    "character": "12",
+    "type": "number",
+    "transliteration": "12",
+    "hindiTransliteration": "१२",
+    "description": "twelve",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/12.mp3"
+  },
+  {
+    "id": "thirteen",
+    "character": "13",
+    "type": "number",
+    "transliteration": "13",
+    "hindiTransliteration": "१३",
+    "description": "thirteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/13.mp3"
+  },
+  {
+    "id": "fourteen",
+    "character": "14",
+    "type": "number",
+    "transliteration": "14",
+    "hindiTransliteration": "१४",
+    "description": "fourteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/14.mp3"
+  },
+  {
+    "id": "fifteen",
+    "character": "15",
+    "type": "number",
+    "transliteration": "15",
+    "hindiTransliteration": "१५",
+    "description": "fifteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/15.mp3"
+  },
+  {
+    "id": "sixteen",
+    "character": "16",
+    "type": "number",
+    "transliteration": "16",
+    "hindiTransliteration": "१६",
+    "description": "sixteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/16.mp3"
+  },
+  {
+    "id": "seventeen",
+    "character": "17",
+    "type": "number",
+    "transliteration": "17",
+    "hindiTransliteration": "१७",
+    "description": "seventeen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/17.mp3"
+  },
+  {
+    "id": "eighteen",
+    "character": "18",
+    "type": "number",
+    "transliteration": "18",
+    "hindiTransliteration": "१८",
+    "description": "eighteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/18.mp3"
+  },
+  {
+    "id": "nineteen",
+    "character": "19",
+    "type": "number",
+    "transliteration": "19",
+    "hindiTransliteration": "१९",
+    "description": "nineteen",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/19.mp3"
+  },
+  {
+    "id": "twenty",
+    "character": "20",
+    "type": "number",
+    "transliteration": "20",
+    "hindiTransliteration": "२०",
+    "description": "twenty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/20.mp3"
+  },
+  {
+    "id": "twenty_one",
+    "character": "21",
+    "type": "number",
+    "transliteration": "21",
+    "hindiTransliteration": "२१",
+    "description": "twenty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/21.mp3"
+  },
+  {
+    "id": "twenty_two",
+    "character": "22",
+    "type": "number",
+    "transliteration": "22",
+    "hindiTransliteration": "२२",
+    "description": "twenty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/22.mp3"
+  },
+  {
+    "id": "twenty_three",
+    "character": "23",
+    "type": "number",
+    "transliteration": "23",
+    "hindiTransliteration": "२३",
+    "description": "twenty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/23.mp3"
+  },
+  {
+    "id": "twenty_four",
+    "character": "24",
+    "type": "number",
+    "transliteration": "24",
+    "hindiTransliteration": "२४",
+    "description": "twenty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/24.mp3"
+  },
+  {
+    "id": "twenty_five",
+    "character": "25",
+    "type": "number",
+    "transliteration": "25",
+    "hindiTransliteration": "२५",
+    "description": "twenty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/25.mp3"
+  },
+  {
+    "id": "twenty_six",
+    "character": "26",
+    "type": "number",
+    "transliteration": "26",
+    "hindiTransliteration": "२६",
+    "description": "twenty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/26.mp3"
+  },
+  {
+    "id": "twenty_seven",
+    "character": "27",
+    "type": "number",
+    "transliteration": "27",
+    "hindiTransliteration": "२७",
+    "description": "twenty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/27.mp3"
+  },
+  {
+    "id": "twenty_eight",
+    "character": "28",
+    "type": "number",
+    "transliteration": "28",
+    "hindiTransliteration": "२८",
+    "description": "twenty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/28.mp3"
+  },
+  {
+    "id": "twenty_nine",
+    "character": "29",
+    "type": "number",
+    "transliteration": "29",
+    "hindiTransliteration": "२९",
+    "description": "twenty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/29.mp3"
+  },
+  {
+    "id": "thirty",
+    "character": "30",
+    "type": "number",
+    "transliteration": "30",
+    "hindiTransliteration": "३०",
+    "description": "thirty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/30.mp3"
+  },
+  {
+    "id": "thirty_one",
+    "character": "31",
+    "type": "number",
+    "transliteration": "31",
+    "hindiTransliteration": "३१",
+    "description": "thirty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/31.mp3"
+  },
+  {
+    "id": "thirty_two",
+    "character": "32",
+    "type": "number",
+    "transliteration": "32",
+    "hindiTransliteration": "३२",
+    "description": "thirty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/32.mp3"
+  },
+  {
+    "id": "thirty_three",
+    "character": "33",
+    "type": "number",
+    "transliteration": "33",
+    "hindiTransliteration": "३३",
+    "description": "thirty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/33.mp3"
+  },
+  {
+    "id": "thirty_four",
+    "character": "34",
+    "type": "number",
+    "transliteration": "34",
+    "hindiTransliteration": "३४",
+    "description": "thirty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/34.mp3"
+  },
+  {
+    "id": "thirty_five",
+    "character": "35",
+    "type": "number",
+    "transliteration": "35",
+    "hindiTransliteration": "३५",
+    "description": "thirty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/35.mp3"
+  },
+  {
+    "id": "thirty_six",
+    "character": "36",
+    "type": "number",
+    "transliteration": "36",
+    "hindiTransliteration": "३६",
+    "description": "thirty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/36.mp3"
+  },
+  {
+    "id": "thirty_seven",
+    "character": "37",
+    "type": "number",
+    "transliteration": "37",
+    "hindiTransliteration": "३७",
+    "description": "thirty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/37.mp3"
+  },
+  {
+    "id": "thirty_eight",
+    "character": "38",
+    "type": "number",
+    "transliteration": "38",
+    "hindiTransliteration": "३८",
+    "description": "thirty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/38.mp3"
+  },
+  {
+    "id": "thirty_nine",
+    "character": "39",
+    "type": "number",
+    "transliteration": "39",
+    "hindiTransliteration": "३९",
+    "description": "thirty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/39.mp3"
+  },
+  {
+    "id": "forty",
+    "character": "40",
+    "type": "number",
+    "transliteration": "40",
+    "hindiTransliteration": "४०",
+    "description": "forty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/40.mp3"
+  },
+  {
+    "id": "forty_one",
+    "character": "41",
+    "type": "number",
+    "transliteration": "41",
+    "hindiTransliteration": "४१",
+    "description": "forty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/41.mp3"
+  },
+  {
+    "id": "forty_two",
+    "character": "42",
+    "type": "number",
+    "transliteration": "42",
+    "hindiTransliteration": "४२",
+    "description": "forty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/42.mp3"
+  },
+  {
+    "id": "forty_three",
+    "character": "43",
+    "type": "number",
+    "transliteration": "43",
+    "hindiTransliteration": "४३",
+    "description": "forty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/43.mp3"
+  },
+  {
+    "id": "forty_four",
+    "character": "44",
+    "type": "number",
+    "transliteration": "44",
+    "hindiTransliteration": "४४",
+    "description": "forty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/44.mp3"
+  },
+  {
+    "id": "forty_five",
+    "character": "45",
+    "type": "number",
+    "transliteration": "45",
+    "hindiTransliteration": "४५",
+    "description": "forty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/45.mp3"
+  },
+  {
+    "id": "forty_six",
+    "character": "46",
+    "type": "number",
+    "transliteration": "46",
+    "hindiTransliteration": "४६",
+    "description": "forty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/46.mp3"
+  },
+  {
+    "id": "forty_seven",
+    "character": "47",
+    "type": "number",
+    "transliteration": "47",
+    "hindiTransliteration": "४७",
+    "description": "forty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/47.mp3"
+  },
+  {
+    "id": "forty_eight",
+    "character": "48",
+    "type": "number",
+    "transliteration": "48",
+    "hindiTransliteration": "४८",
+    "description": "forty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/48.mp3"
+  },
+  {
+    "id": "forty_nine",
+    "character": "49",
+    "type": "number",
+    "transliteration": "49",
+    "hindiTransliteration": "४९",
+    "description": "forty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/49.mp3"
+  },
+  {
+    "id": "fifty",
+    "character": "50",
+    "type": "number",
+    "transliteration": "50",
+    "hindiTransliteration": "५०",
+    "description": "fifty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/50.mp3"
+  },
+  {
+    "id": "fifty_one",
+    "character": "51",
+    "type": "number",
+    "transliteration": "51",
+    "hindiTransliteration": "५१",
+    "description": "fifty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/51.mp3"
+  },
+  {
+    "id": "fifty_two",
+    "character": "52",
+    "type": "number",
+    "transliteration": "52",
+    "hindiTransliteration": "५२",
+    "description": "fifty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/52.mp3"
+  },
+  {
+    "id": "fifty_three",
+    "character": "53",
+    "type": "number",
+    "transliteration": "53",
+    "hindiTransliteration": "५३",
+    "description": "fifty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/53.mp3"
+  },
+  {
+    "id": "fifty_four",
+    "character": "54",
+    "type": "number",
+    "transliteration": "54",
+    "hindiTransliteration": "५४",
+    "description": "fifty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/54.mp3"
+  },
+  {
+    "id": "fifty_five",
+    "character": "55",
+    "type": "number",
+    "transliteration": "55",
+    "hindiTransliteration": "५५",
+    "description": "fifty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/55.mp3"
+  },
+  {
+    "id": "fifty_six",
+    "character": "56",
+    "type": "number",
+    "transliteration": "56",
+    "hindiTransliteration": "५६",
+    "description": "fifty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/56.mp3"
+  },
+  {
+    "id": "fifty_seven",
+    "character": "57",
+    "type": "number",
+    "transliteration": "57",
+    "hindiTransliteration": "५७",
+    "description": "fifty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/57.mp3"
+  },
+  {
+    "id": "fifty_eight",
+    "character": "58",
+    "type": "number",
+    "transliteration": "58",
+    "hindiTransliteration": "५८",
+    "description": "fifty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/58.mp3"
+  },
+  {
+    "id": "fifty_nine",
+    "character": "59",
+    "type": "number",
+    "transliteration": "59",
+    "hindiTransliteration": "५९",
+    "description": "fifty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/59.mp3"
+  },
+  {
+    "id": "sixty",
+    "character": "60",
+    "type": "number",
+    "transliteration": "60",
+    "hindiTransliteration": "६०",
+    "description": "sixty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/60.mp3"
+  },
+  {
+    "id": "sixty_one",
+    "character": "61",
+    "type": "number",
+    "transliteration": "61",
+    "hindiTransliteration": "६१",
+    "description": "sixty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/61.mp3"
+  },
+  {
+    "id": "sixty_two",
+    "character": "62",
+    "type": "number",
+    "transliteration": "62",
+    "hindiTransliteration": "६२",
+    "description": "sixty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/62.mp3"
+  },
+  {
+    "id": "sixty_three",
+    "character": "63",
+    "type": "number",
+    "transliteration": "63",
+    "hindiTransliteration": "६३",
+    "description": "sixty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/63.mp3"
+  },
+  {
+    "id": "sixty_four",
+    "character": "64",
+    "type": "number",
+    "transliteration": "64",
+    "hindiTransliteration": "६४",
+    "description": "sixty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/64.mp3"
+  },
+  {
+    "id": "sixty_five",
+    "character": "65",
+    "type": "number",
+    "transliteration": "65",
+    "hindiTransliteration": "६५",
+    "description": "sixty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/65.mp3"
+  },
+  {
+    "id": "sixty_six",
+    "character": "66",
+    "type": "number",
+    "transliteration": "66",
+    "hindiTransliteration": "६६",
+    "description": "sixty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/66.mp3"
+  },
+  {
+    "id": "sixty_seven",
+    "character": "67",
+    "type": "number",
+    "transliteration": "67",
+    "hindiTransliteration": "६७",
+    "description": "sixty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/67.mp3"
+  },
+  {
+    "id": "sixty_eight",
+    "character": "68",
+    "type": "number",
+    "transliteration": "68",
+    "hindiTransliteration": "६८",
+    "description": "sixty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/68.mp3"
+  },
+  {
+    "id": "sixty_nine",
+    "character": "69",
+    "type": "number",
+    "transliteration": "69",
+    "hindiTransliteration": "६९",
+    "description": "sixty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/69.mp3"
+  },
+  {
+    "id": "seventy",
+    "character": "70",
+    "type": "number",
+    "transliteration": "70",
+    "hindiTransliteration": "७०",
+    "description": "seventy",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/70.mp3"
+  },
+  {
+    "id": "seventy_one",
+    "character": "71",
+    "type": "number",
+    "transliteration": "71",
+    "hindiTransliteration": "७१",
+    "description": "seventy one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/71.mp3"
+  },
+  {
+    "id": "seventy_two",
+    "character": "72",
+    "type": "number",
+    "transliteration": "72",
+    "hindiTransliteration": "७२",
+    "description": "seventy two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/72.mp3"
+  },
+  {
+    "id": "seventy_three",
+    "character": "73",
+    "type": "number",
+    "transliteration": "73",
+    "hindiTransliteration": "७३",
+    "description": "seventy three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/73.mp3"
+  },
+  {
+    "id": "seventy_four",
+    "character": "74",
+    "type": "number",
+    "transliteration": "74",
+    "hindiTransliteration": "७४",
+    "description": "seventy four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/74.mp3"
+  },
+  {
+    "id": "seventy_five",
+    "character": "75",
+    "type": "number",
+    "transliteration": "75",
+    "hindiTransliteration": "७५",
+    "description": "seventy five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/75.mp3"
+  },
+  {
+    "id": "seventy_six",
+    "character": "76",
+    "type": "number",
+    "transliteration": "76",
+    "hindiTransliteration": "७६",
+    "description": "seventy six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/76.mp3"
+  },
+  {
+    "id": "seventy_seven",
+    "character": "77",
+    "type": "number",
+    "transliteration": "77",
+    "hindiTransliteration": "७७",
+    "description": "seventy seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/77.mp3"
+  },
+  {
+    "id": "seventy_eight",
+    "character": "78",
+    "type": "number",
+    "transliteration": "78",
+    "hindiTransliteration": "७८",
+    "description": "seventy eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/78.mp3"
+  },
+  {
+    "id": "seventy_nine",
+    "character": "79",
+    "type": "number",
+    "transliteration": "79",
+    "hindiTransliteration": "७९",
+    "description": "seventy nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/79.mp3"
+  },
+  {
+    "id": "eighty",
+    "character": "80",
+    "type": "number",
+    "transliteration": "80",
+    "hindiTransliteration": "८०",
+    "description": "eighty",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/80.mp3"
+  },
+  {
+    "id": "eighty_one",
+    "character": "81",
+    "type": "number",
+    "transliteration": "81",
+    "hindiTransliteration": "८१",
+    "description": "eighty one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/81.mp3"
+  },
+  {
+    "id": "eighty_two",
+    "character": "82",
+    "type": "number",
+    "transliteration": "82",
+    "hindiTransliteration": "८२",
+    "description": "eighty two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/82.mp3"
+  },
+  {
+    "id": "eighty_three",
+    "character": "83",
+    "type": "number",
+    "transliteration": "83",
+    "hindiTransliteration": "८३",
+    "description": "eighty three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/83.mp3"
+  },
+  {
+    "id": "eighty_four",
+    "character": "84",
+    "type": "number",
+    "transliteration": "84",
+    "hindiTransliteration": "८४",
+    "description": "eighty four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/84.mp3"
+  },
+  {
+    "id": "eighty_five",
+    "character": "85",
+    "type": "number",
+    "transliteration": "85",
+    "hindiTransliteration": "८५",
+    "description": "eighty five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/85.mp3"
+  },
+  {
+    "id": "eighty_six",
+    "character": "86",
+    "type": "number",
+    "transliteration": "86",
+    "hindiTransliteration": "८६",
+    "description": "eighty six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/86.mp3"
+  },
+  {
+    "id": "eighty_seven",
+    "character": "87",
+    "type": "number",
+    "transliteration": "87",
+    "hindiTransliteration": "८७",
+    "description": "eighty seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/87.mp3"
+  },
+  {
+    "id": "eighty_eight",
+    "character": "88",
+    "type": "number",
+    "transliteration": "88",
+    "hindiTransliteration": "८८",
+    "description": "eighty eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/88.mp3"
+  },
+  {
+    "id": "eighty_nine",
+    "character": "89",
+    "type": "number",
+    "transliteration": "89",
+    "hindiTransliteration": "८९",
+    "description": "eighty nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/89.mp3"
+  },
+  {
+    "id": "ninety",
+    "character": "90",
+    "type": "number",
+    "transliteration": "90",
+    "hindiTransliteration": "९०",
+    "description": "ninety",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/90.mp3"
+  },
+  {
+    "id": "ninety_one",
+    "character": "91",
+    "type": "number",
+    "transliteration": "91",
+    "hindiTransliteration": "९१",
+    "description": "ninety one",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/91.mp3"
+  },
+  {
+    "id": "ninety_two",
+    "character": "92",
+    "type": "number",
+    "transliteration": "92",
+    "hindiTransliteration": "९२",
+    "description": "ninety two",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/92.mp3"
+  },
+  {
+    "id": "ninety_three",
+    "character": "93",
+    "type": "number",
+    "transliteration": "93",
+    "hindiTransliteration": "९३",
+    "description": "ninety three",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/93.mp3"
+  },
+  {
+    "id": "ninety_four",
+    "character": "94",
+    "type": "number",
+    "transliteration": "94",
+    "hindiTransliteration": "९४",
+    "description": "ninety four",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/94.mp3"
+  },
+  {
+    "id": "ninety_five",
+    "character": "95",
+    "type": "number",
+    "transliteration": "95",
+    "hindiTransliteration": "९५",
+    "description": "ninety five",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/95.mp3"
+  },
+  {
+    "id": "ninety_six",
+    "character": "96",
+    "type": "number",
+    "transliteration": "96",
+    "hindiTransliteration": "९६",
+    "description": "ninety six",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/96.mp3"
+  },
+  {
+    "id": "ninety_seven",
+    "character": "97",
+    "type": "number",
+    "transliteration": "97",
+    "hindiTransliteration": "९७",
+    "description": "ninety seven",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/97.mp3"
+  },
+  {
+    "id": "ninety_eight",
+    "character": "98",
+    "type": "number",
+    "transliteration": "98",
+    "hindiTransliteration": "९८",
+    "description": "ninety eight",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/98.mp3"
+  },
+  {
+    "id": "ninety_nine",
+    "character": "99",
+    "type": "number",
+    "transliteration": "99",
+    "hindiTransliteration": "९९",
+    "description": "ninety nine",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/99.mp3"
+  },
+  {
+    "id": "one_hundred",
+    "character": "100",
+    "type": "number",
+    "transliteration": "100",
+    "hindiTransliteration": "१००",
+    "description": "one hundred",
+    "strokeOrderAsset": null,
+    "audioAsset": "assets/sounds/100.mp3"
+  }
+]

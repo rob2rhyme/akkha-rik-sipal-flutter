@@ -1,0 +1,123 @@
+# pubspec.yaml
+name: akkha_rik_lipi_sipal
+description: Akkha Rik Lipi Sipal – a full-fledged Magar Language learning app for beginners.
+
+# Prevent publishing to pub.dev until you’re ready
+publish_to: "none"
+
+version: 1.0.1+4
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Your runtime decryption library
+  pointycastle: ^3.9.1
+  crypto: ^3.0.2
+
+  # Core Flutter & 3rd-party packages
+  cupertino_icons: ^1.0.2
+  get: ^4.6.6
+  path: ^1.8.2
+  sizer: ^2.0.15
+  get_storage: ^2.1.1
+  fluttertoast: ^8.2.12
+  auto_size_text: ^3.0.0
+  intl: ^0.19.0
+  sqflite: ^2.3.0
+  flutter_tts: ^4.0.2
+  animate_do: ^3.1.2
+  rate_my_app: ^2.0.0
+  share_plus: ^11.0.0
+  url_launcher: ^6.2.2
+  floodfill_image: ^0.0.8
+  flutter_colorpicker: ^1.0.3
+  collection: ^1.19.1
+  google_mobile_ads: ^5.3.1
+  dio: ^5.4.0
+  photo_view: ^0.15.0
+  youtube_player_iframe: ^5.1.2
+  in_app_purchase: ^3.1.12
+  audioplayers: ^6.0.0
+
+dependency_overrides:
+  http: ^1.2.1
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.11.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  remove_alpha_ios: true
+
+flutter:
+  uses-material-design: true
+
+  # ──── ASSETS ──────────────────────────────────────────────────────
+  assets:
+    - assets/database/
+    - assets/icons/
+    - assets/background/
+    - assets/category/
+    - assets/subcategory/
+    - assets/subcategory/home_fruits.png
+    - assets/item/
+    - assets/drag assets/alphabets/
+    - assets/drag assets/alphabets_objects/
+    - assets/drag assets/animals/
+    - assets/drag assets/animation/
+    - assets/drag assets/birds/
+    - assets/drag assets/category/
+    - assets/drag assets/colours/
+    - assets/drag assets/counting/
+    - assets/drag assets/database/
+    - assets/drag assets/days/
+    - assets/drag assets/education/
+    - assets/drag assets/fruits/
+    - assets/drag assets/icons/
+    - assets/drag assets/images/
+    - assets/drag assets/lower/
+    - assets/drag assets/money/
+    - assets/drag assets/months/
+    - assets/drag assets/numbers/
+    - assets/drag assets/shapes/
+    - assets/drag assets/time/
+    - assets/drag assets/upper/
+    - assets/drag assets/vehicles/
+    - assets/sounds/
+    - assets/data/sections/
+    - assets/data/sections/consonants.json
+    - assets/data/sections/vowels.json
+    - assets/data/sections/matras.json
+    - assets/data/sections/symbols.json
+    - assets/data/sections/numbers.json
+    - assets/data/sections/punctuation.json
+    - assets/data/sections/dushKhari.json
+
+  # ──── FONTS ────────────────────────────────────────────────────────
+  fonts:
+    - family: Angella
+      fonts:
+        - asset: assets/fonts/Angella_demo.otf
+
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/Urbanist-Regular.ttf
+
+    - family: UrbanistBlack
+      fonts:
+        - asset: assets/fonts/Urbanist-Black.ttf
+
+    - family: GurbachhanAkkhaLipi
+      fonts:
+        - asset: assets/fonts/akkha/Akkha-Rika-Lipi.ttf
+
+    # (Do NOT list the .ttf.enc file here—only real, unencrypted font files belong in "fonts:")

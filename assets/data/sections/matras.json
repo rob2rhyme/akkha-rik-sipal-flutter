@@ -1,0 +1,82 @@
+[
+  {
+    "id": "aa_matra",
+    "character": "A",
+    "type": "matra",
+    "transliteration": "ā",
+    "hindiTransliteration": "ा",
+    "description": "aa matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "i_matra",
+    "character": "E",
+    "type": "matra",
+    "transliteration": "i",
+    "hindiTransliteration": "ि",
+    "description": "i matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "u_matra",
+    "character": "Y",
+    "type": "matra",
+    "transliteration": "u",
+    "hindiTransliteration": "ु",
+    "description": "u matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "uu_matra",
+    "character": "U",
+    "type": "matra",
+    "transliteration": "ū",
+    "hindiTransliteration": "ू",
+    "description": "uu matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "e_matra",
+    "character": "Q",
+    "type": "matra",
+    "transliteration": "e",
+    "hindiTransliteration": "े",
+    "description": "e matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "ai_matra",
+    "character": "I",
+    "type": "matra",
+    "transliteration": "ai",
+    "hindiTransliteration": "ै",
+    "description": "ai matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "o_matra",
+    "character": "O",
+    "type": "matra",
+    "transliteration": "o",
+    "hindiTransliteration": "ो",
+    "description": "o matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "au_matra",
+    "character": "W",
+    "type": "matra",
+    "transliteration": "au",
+    "hindiTransliteration": "ौ",
+    "description": "au matra",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  }
+]

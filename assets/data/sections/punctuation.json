@@ -1,0 +1,52 @@
+[
+  {
+    "id": "danda",
+    "character": "।",
+    "type": "punctuation",
+    "transliteration": "danda",
+    "hindiTransliteration": "।",
+    "description": "sentence separator",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "double_danda",
+    "character": "॥",
+    "type": "punctuation",
+    "transliteration": "double danda",
+    "hindiTransliteration": "॥",
+    "description": "verse separator",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "comma",
+    "character": ",",
+    "type": "punctuation",
+    "transliteration": "comma",
+    "hindiTransliteration": ",",
+    "description": "comma",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "full_stop",
+    "character": ".",
+    "type": "punctuation",
+    "transliteration": "full stop",
+    "hindiTransliteration": ".",
+    "description": "period",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  },
+  {
+    "id": "question_mark",
+    "character": "?",
+    "type": "punctuation",
+    "transliteration": "question mark",
+    "hindiTransliteration": "?",
+    "description": "question mark",
+    "strokeOrderAsset": null,
+    "audioAsset": null
+  }
+]

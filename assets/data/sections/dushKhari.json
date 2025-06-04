@@ -1,0 +1,1302 @@
+[
+  {
+    "baseChar": "k",
+    "baseTransliteration": "ka",
+    "baseHindiTransliteration": "क",
+    "syllables": [
+      {
+        "character": "kA",
+        "transliteration": "ā",
+        "hindiTransliteration": "का"
+      },
+      {
+        "character": "kE",
+        "transliteration": "ī",
+        "hindiTransliteration": "की"
+      },
+      {
+        "character": "kY",
+        "transliteration": "u",
+        "hindiTransliteration": "कु"
+      },
+      {
+        "character": "kU",
+        "transliteration": "ū",
+        "hindiTransliteration": "कू"
+      },
+      {
+        "character": "kQ",
+        "transliteration": "e",
+        "hindiTransliteration": "के"
+      },
+      {
+        "character": "kI",
+        "transliteration": "ai",
+        "hindiTransliteration": "कै"
+      },
+      {
+        "character": "kO",
+        "transliteration": "o",
+        "hindiTransliteration": "को"
+      },
+      {
+        "character": "kW",
+        "transliteration": "au",
+        "hindiTransliteration": "कौ"
+      },
+      {
+        "character": "kM",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "कं"
+      }
+    ]
+  },
+  {
+    "baseChar": "K",
+    "baseTransliteration": "kha",
+    "baseHindiTransliteration": "ख",
+    "syllables": [
+      {
+        "character": "खा",
+        "transliteration": "ā",
+        "hindiTransliteration": "खा"
+      },
+      {
+        "character": "खी",
+        "transliteration": "ī",
+        "hindiTransliteration": "खी"
+      },
+      {
+        "character": "खु",
+        "transliteration": "u",
+        "hindiTransliteration": "खु"
+      },
+      {
+        "character": "खू",
+        "transliteration": "ū",
+        "hindiTransliteration": "खू"
+      },
+      {
+        "character": "खे",
+        "transliteration": "e",
+        "hindiTransliteration": "खे"
+      },
+      {
+        "character": "खै",
+        "transliteration": "ai",
+        "hindiTransliteration": "खै"
+      },
+      {
+        "character": "खो",
+        "transliteration": "o",
+        "hindiTransliteration": "खो"
+      },
+      {
+        "character": "खौ",
+        "transliteration": "au",
+        "hindiTransliteration": "खौ"
+      },
+      {
+        "character": "खं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "खं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ग",
+    "baseTransliteration": "ga",
+    "baseHindiTransliteration": "ग",
+    "syllables": [
+      {
+        "character": "गा",
+        "transliteration": "ā",
+        "hindiTransliteration": "गा"
+      },
+      {
+        "character": "गी",
+        "transliteration": "ī",
+        "hindiTransliteration": "गी"
+      },
+      {
+        "character": "गु",
+        "transliteration": "u",
+        "hindiTransliteration": "गु"
+      },
+      {
+        "character": "गू",
+        "transliteration": "ū",
+        "hindiTransliteration": "गू"
+      },
+      {
+        "character": "गे",
+        "transliteration": "e",
+        "hindiTransliteration": "गे"
+      },
+      {
+        "character": "गै",
+        "transliteration": "ai",
+        "hindiTransliteration": "गै"
+      },
+      {
+        "character": "गो",
+        "transliteration": "o",
+        "hindiTransliteration": "गो"
+      },
+      {
+        "character": "गौ",
+        "transliteration": "au",
+        "hindiTransliteration": "गौ"
+      },
+      {
+        "character": "गं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "गं"
+      }
+    ]
+  },
+  {
+    "baseChar": "घ",
+    "baseTransliteration": "gha",
+    "baseHindiTransliteration": "घ",
+    "syllables": [
+      {
+        "character": "घा",
+        "transliteration": "ā",
+        "hindiTransliteration": "घा"
+      },
+      {
+        "character": "घी",
+        "transliteration": "ī",
+        "hindiTransliteration": "घी"
+      },
+      {
+        "character": "घु",
+        "transliteration": "u",
+        "hindiTransliteration": "घु"
+      },
+      {
+        "character": "घू",
+        "transliteration": "ū",
+        "hindiTransliteration": "घू"
+      },
+      {
+        "character": "घे",
+        "transliteration": "e",
+        "hindiTransliteration": "घे"
+      },
+      {
+        "character": "घै",
+        "transliteration": "ai",
+        "hindiTransliteration": "घै"
+      },
+      {
+        "character": "घो",
+        "transliteration": "o",
+        "hindiTransliteration": "घो"
+      },
+      {
+        "character": "घौ",
+        "transliteration": "au",
+        "hindiTransliteration": "घौ"
+      },
+      {
+        "character": "घं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "घं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ङ",
+    "baseTransliteration": "ṅa",
+    "baseHindiTransliteration": "ङ",
+    "syllables": [
+      {
+        "character": "ङा",
+        "transliteration": "ā",
+        "hindiTransliteration": "ङा"
+      },
+      {
+        "character": "ङी",
+        "transliteration": "ī",
+        "hindiTransliteration": "ङी"
+      },
+      {
+        "character": "ङु",
+        "transliteration": "u",
+        "hindiTransliteration": "ङु"
+      },
+      {
+        "character": "ङू",
+        "transliteration": "ū",
+        "hindiTransliteration": "ङू"
+      },
+      {
+        "character": "ङे",
+        "transliteration": "e",
+        "hindiTransliteration": "ङे"
+      },
+      {
+        "character": "ङै",
+        "transliteration": "ai",
+        "hindiTransliteration": "ङै"
+      },
+      {
+        "character": "ङो",
+        "transliteration": "o",
+        "hindiTransliteration": "ङो"
+      },
+      {
+        "character": "ङौ",
+        "transliteration": "au",
+        "hindiTransliteration": "ङौ"
+      },
+      {
+        "character": "ङं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "ङं"
+      }
+    ]
+  },
+  {
+    "baseChar": "च",
+    "baseTransliteration": "ca",
+    "baseHindiTransliteration": "च",
+    "syllables": [
+      {
+        "character": "चा",
+        "transliteration": "ā",
+        "hindiTransliteration": "चा"
+      },
+      {
+        "character": "ची",
+        "transliteration": "ī",
+        "hindiTransliteration": "ची"
+      },
+      {
+        "character": "चु",
+        "transliteration": "u",
+        "hindiTransliteration": "चु"
+      },
+      {
+        "character": "चू",
+        "transliteration": "ū",
+        "hindiTransliteration": "चू"
+      },
+      {
+        "character": "चे",
+        "transliteration": "e",
+        "hindiTransliteration": "चे"
+      },
+      {
+        "character": "चै",
+        "transliteration": "ai",
+        "hindiTransliteration": "चै"
+      },
+      {
+        "character": "चो",
+        "transliteration": "o",
+        "hindiTransliteration": "चो"
+      },
+      {
+        "character": "चौ",
+        "transliteration": "au",
+        "hindiTransliteration": "चौ"
+      },
+      {
+        "character": "चं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "चं"
+      }
+    ]
+  },
+  {
+    "baseChar": "छ",
+    "baseTransliteration": "cha",
+    "baseHindiTransliteration": "छ",
+    "syllables": [
+      {
+        "character": "छा",
+        "transliteration": "ā",
+        "hindiTransliteration": "छा"
+      },
+      {
+        "character": "छी",
+        "transliteration": "ī",
+        "hindiTransliteration": "छी"
+      },
+      {
+        "character": "छु",
+        "transliteration": "u",
+        "hindiTransliteration": "छु"
+      },
+      {
+        "character": "छू",
+        "transliteration": "ū",
+        "hindiTransliteration": "छू"
+      },
+      {
+        "character": "छे",
+        "transliteration": "e",
+        "hindiTransliteration": "छे"
+      },
+      {
+        "character": "छै",
+        "transliteration": "ai",
+        "hindiTransliteration": "छै"
+      },
+      {
+        "character": "छो",
+        "transliteration": "o",
+        "hindiTransliteration": "छो"
+      },
+      {
+        "character": "छौ",
+        "transliteration": "au",
+        "hindiTransliteration": "छौ"
+      },
+      {
+        "character": "छं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "छं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ज",
+    "baseTransliteration": "ja",
+    "baseHindiTransliteration": "ज",
+    "syllables": [
+      {
+        "character": "जा",
+        "transliteration": "ā",
+        "hindiTransliteration": "जा"
+      },
+      {
+        "character": "जी",
+        "transliteration": "ī",
+        "hindiTransliteration": "जी"
+      },
+      {
+        "character": "जु",
+        "transliteration": "u",
+        "hindiTransliteration": "जु"
+      },
+      {
+        "character": "जू",
+        "transliteration": "ū",
+        "hindiTransliteration": "जू"
+      },
+      {
+        "character": "जे",
+        "transliteration": "e",
+        "hindiTransliteration": "जे"
+      },
+      {
+        "character": "जै",
+        "transliteration": "ai",
+        "hindiTransliteration": "जै"
+      },
+      {
+        "character": "जो",
+        "transliteration": "o",
+        "hindiTransliteration": "जो"
+      },
+      {
+        "character": "जौ",
+        "transliteration": "au",
+        "hindiTransliteration": "जौ"
+      },
+      {
+        "character": "जं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "जं"
+      }
+    ]
+  },
+  {
+    "baseChar": "झ",
+    "baseTransliteration": "jha",
+    "baseHindiTransliteration": "झ",
+    "syllables": [
+      {
+        "character": "झा",
+        "transliteration": "ā",
+        "hindiTransliteration": "झा"
+      },
+      {
+        "character": "झी",
+        "transliteration": "ī",
+        "hindiTransliteration": "झी"
+      },
+      {
+        "character": "झु",
+        "transliteration": "u",
+        "hindiTransliteration": "झु"
+      },
+      {
+        "character": "झू",
+        "transliteration": "ū",
+        "hindiTransliteration": "झू"
+      },
+      {
+        "character": "झे",
+        "transliteration": "e",
+        "hindiTransliteration": "झे"
+      },
+      {
+        "character": "झै",
+        "transliteration": "ai",
+        "hindiTransliteration": "झै"
+      },
+      {
+        "character": "झो",
+        "transliteration": "o",
+        "hindiTransliteration": "झो"
+      },
+      {
+        "character": "झौ",
+        "transliteration": "au",
+        "hindiTransliteration": "झौ"
+      },
+      {
+        "character": "झं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "झं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ञ",
+    "baseTransliteration": "ña",
+    "baseHindiTransliteration": "ञ",
+    "syllables": [
+      {
+        "character": "ञा",
+        "transliteration": "ā",
+        "hindiTransliteration": "ञा"
+      },
+      {
+        "character": "ञी",
+        "transliteration": "ī",
+        "hindiTransliteration": "ञी"
+      },
+      {
+        "character": "ञु",
+        "transliteration": "u",
+        "hindiTransliteration": "ञु"
+      },
+      {
+        "character": "ञू",
+        "transliteration": "ū",
+        "hindiTransliteration": "ञू"
+      },
+      {
+        "character": "ञे",
+        "transliteration": "e",
+        "hindiTransliteration": "ञे"
+      },
+      {
+        "character": "ञै",
+        "transliteration": "ai",
+        "hindiTransliteration": "ञै"
+      },
+      {
+        "character": "ञो",
+        "transliteration": "o",
+        "hindiTransliteration": "ञो"
+      },
+      {
+        "character": "ञौ",
+        "transliteration": "au",
+        "hindiTransliteration": "ञौ"
+      },
+      {
+        "character": "ञं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "ञं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ट",
+    "baseTransliteration": "ṭa",
+    "baseHindiTransliteration": "ट",
+    "syllables": [
+      {
+        "character": "टा",
+        "transliteration": "ā",
+        "hindiTransliteration": "टा"
+      },
+      {
+        "character": "टी",
+        "transliteration": "ī",
+        "hindiTransliteration": "टी"
+      },
+      {
+        "character": "टु",
+        "transliteration": "u",
+        "hindiTransliteration": "टु"
+      },
+      {
+        "character": "टू",
+        "transliteration": "ū",
+        "hindiTransliteration": "टू"
+      },
+      {
+        "character": "टे",
+        "transliteration": "e",
+        "hindiTransliteration": "टे"
+      },
+      {
+        "character": "टै",
+        "transliteration": "ai",
+        "hindiTransliteration": "टै"
+      },
+      {
+        "character": "टो",
+        "transliteration": "o",
+        "hindiTransliteration": "टो"
+      },
+      {
+        "character": "टौ",
+        "transliteration": "au",
+        "hindiTransliteration": "टौ"
+      },
+      {
+        "character": "टं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "टं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ठ",
+    "baseTransliteration": "ṭha",
+    "baseHindiTransliteration": "ठ",
+    "syllables": [
+      {
+        "character": "ठा",
+        "transliteration": "ā",
+        "hindiTransliteration": "ठा"
+      },
+      {
+        "character": "ठी",
+        "transliteration": "ī",
+        "hindiTransliteration": "ठी"
+      },
+      {
+        "character": "ठु",
+        "transliteration": "u",
+        "hindiTransliteration": "ठु"
+      },
+      {
+        "character": "ठू",
+        "transliteration": "ū",
+        "hindiTransliteration": "ठू"
+      },
+      {
+        "character": "ठे",
+        "transliteration": "e",
+        "hindiTransliteration": "ठे"
+      },
+      {
+        "character": "ठै",
+        "transliteration": "ai",
+        "hindiTransliteration": "ठै"
+      },
+      {
+        "character": "ठो",
+        "transliteration": "o",
+        "hindiTransliteration": "ठो"
+      },
+      {
+        "character": "ठौ",
+        "transliteration": "au",
+        "hindiTransliteration": "ठौ"
+      },
+      {
+        "character": "ठं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "ठं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ड",
+    "baseTransliteration": "ḍa",
+    "baseHindiTransliteration": "ड",
+    "syllables": [
+      {
+        "character": "डा",
+        "transliteration": "ā",
+        "hindiTransliteration": "डा"
+      },
+      {
+        "character": "डी",
+        "transliteration": "ī",
+        "hindiTransliteration": "डी"
+      },
+      {
+        "character": "डु",
+        "transliteration": "u",
+        "hindiTransliteration": "डु"
+      },
+      {
+        "character": "डू",
+        "transliteration": "ū",
+        "hindiTransliteration": "डू"
+      },
+      {
+        "character": "डे",
+        "transliteration": "e",
+        "hindiTransliteration": "डे"
+      },
+      {
+        "character": "डै",
+        "transliteration": "ai",
+        "hindiTransliteration": "डै"
+      },
+      {
+        "character": "डो",
+        "transliteration": "o",
+        "hindiTransliteration": "डो"
+      },
+      {
+        "character": "डौ",
+        "transliteration": "au",
+        "hindiTransliteration": "डौ"
+      },
+      {
+        "character": "डं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "डं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ढ",
+    "baseTransliteration": "ḍha",
+    "baseHindiTransliteration": "ढ",
+    "syllables": [
+      {
+        "character": "ढा",
+        "transliteration": "ā",
+        "hindiTransliteration": "ढा"
+      },
+      {
+        "character": "ढी",
+        "transliteration": "ī",
+        "hindiTransliteration": "ढी"
+      },
+      {
+        "character": "ढु",
+        "transliteration": "u",
+        "hindiTransliteration": "ढु"
+      },
+      {
+        "character": "ढू",
+        "transliteration": "ū",
+        "hindiTransliteration": "ढू"
+      },
+      {
+        "character": "ढे",
+        "transliteration": "e",
+        "hindiTransliteration": "ढे"
+      },
+      {
+        "character": "ढै",
+        "transliteration": "ai",
+        "hindiTransliteration": "ढै"
+      },
+      {
+        "character": "ढो",
+        "transliteration": "o",
+        "hindiTransliteration": "ढो"
+      },
+      {
+        "character": "ढौ",
+        "transliteration": "au",
+        "hindiTransliteration": "ढौ"
+      },
+      {
+        "character": "ढं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "ढं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ण",
+    "baseTransliteration": "ṇa",
+    "baseHindiTransliteration": "ण",
+    "syllables": [
+      {
+        "character": "णा",
+        "transliteration": "ā",
+        "hindiTransliteration": "णा"
+      },
+      {
+        "character": "णी",
+        "transliteration": "ī",
+        "hindiTransliteration": "णी"
+      },
+      {
+        "character": "णु",
+        "transliteration": "u",
+        "hindiTransliteration": "णु"
+      },
+      {
+        "character": "णू",
+        "transliteration": "ū",
+        "hindiTransliteration": "णू"
+      },
+      {
+        "character": "णे",
+        "transliteration": "e",
+        "hindiTransliteration": "णे"
+      },
+      {
+        "character": "णै",
+        "transliteration": "ai",
+        "hindiTransliteration": "णै"
+      },
+      {
+        "character": "णो",
+        "transliteration": "o",
+        "hindiTransliteration": "णो"
+      },
+      {
+        "character": "णौ",
+        "transliteration": "au",
+        "hindiTransliteration": "णौ"
+      },
+      {
+        "character": "णं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "णं"
+      }
+    ]
+  },
+  {
+    "baseChar": "त",
+    "baseTransliteration": "ta",
+    "baseHindiTransliteration": "त",
+    "syllables": [
+      {
+        "character": "ता",
+        "transliteration": "ā",
+        "hindiTransliteration": "ता"
+      },
+      {
+        "character": "ती",
+        "transliteration": "ī",
+        "hindiTransliteration": "ती"
+      },
+      {
+        "character": "तु",
+        "transliteration": "u",
+        "hindiTransliteration": "तु"
+      },
+      {
+        "character": "तू",
+        "transliteration": "ū",
+        "hindiTransliteration": "तू"
+      },
+      {
+        "character": "ते",
+        "transliteration": "e",
+        "hindiTransliteration": "ते"
+      },
+      {
+        "character": "तै",
+        "transliteration": "ai",
+        "hindiTransliteration": "तै"
+      },
+      {
+        "character": "तो",
+        "transliteration": "o",
+        "hindiTransliteration": "तो"
+      },
+      {
+        "character": "तौ",
+        "transliteration": "au",
+        "hindiTransliteration": "तौ"
+      },
+      {
+        "character": "तं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "तं"
+      }
+    ]
+  },
+  {
+    "baseChar": "थ",
+    "baseTransliteration": "tha",
+    "baseHindiTransliteration": "थ",
+    "syllables": [
+      {
+        "character": "था",
+        "transliteration": "ā",
+        "hindiTransliteration": "था"
+      },
+      {
+        "character": "थी",
+        "transliteration": "ī",
+        "hindiTransliteration": "थी"
+      },
+      {
+        "character": "थु",
+        "transliteration": "u",
+        "hindiTransliteration": "थु"
+      },
+      {
+        "character": "थू",
+        "transliteration": "ū",
+        "hindiTransliteration": "थू"
+      },
+      {
+        "character": "थे",
+        "transliteration": "e",
+        "hindiTransliteration": "थे"
+      },
+      {
+        "character": "थै",
+        "transliteration": "ai",
+        "hindiTransliteration": "थै"
+      },
+      {
+        "character": "थो",
+        "transliteration": "o",
+        "hindiTransliteration": "थो"
+      },
+      {
+        "character": "थौ",
+        "transliteration": "au",
+        "hindiTransliteration": "थौ"
+      },
+      {
+        "character": "थं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "थं"
+      }
+    ]
+  },
+  {
+    "baseChar": "द",
+    "baseTransliteration": "da",
+    "baseHindiTransliteration": "द",
+    "syllables": [
+      {
+        "character": "दा",
+        "transliteration": "ā",
+        "hindiTransliteration": "दा"
+      },
+      {
+        "character": "दी",
+        "transliteration": "ī",
+        "hindiTransliteration": "दी"
+      },
+      {
+        "character": "दु",
+        "transliteration": "u",
+        "hindiTransliteration": "दु"
+      },
+      {
+        "character": "दू",
+        "transliteration": "ū",
+        "hindiTransliteration": "दू"
+      },
+      {
+        "character": "दे",
+        "transliteration": "e",
+        "hindiTransliteration": "दे"
+      },
+      {
+        "character": "दै",
+        "transliteration": "ai",
+        "hindiTransliteration": "दै"
+      },
+      {
+        "character": "दो",
+        "transliteration": "o",
+        "hindiTransliteration": "दो"
+      },
+      {
+        "character": "दौ",
+        "transliteration": "au",
+        "hindiTransliteration": "दौ"
+      },
+      {
+        "character": "दं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "दं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ध",
+    "baseTransliteration": "dha",
+    "baseHindiTransliteration": "ध",
+    "syllables": [
+      {
+        "character": "धा",
+        "transliteration": "ā",
+        "hindiTransliteration": "धा"
+      },
+      {
+        "character": "धी",
+        "transliteration": "ī",
+        "hindiTransliteration": "धी"
+      },
+      {
+        "character": "धु",
+        "transliteration": "u",
+        "hindiTransliteration": "धु"
+      },
+      {
+        "character": "धू",
+        "transliteration": "ū",
+        "hindiTransliteration": "धू"
+      },
+      {
+        "character": "धे",
+        "transliteration": "e",
+        "hindiTransliteration": "धे"
+      },
+      {
+        "character": "धै",
+        "transliteration": "ai",
+        "hindiTransliteration": "धै"
+      },
+      {
+        "character": "धो",
+        "transliteration": "o",
+        "hindiTransliteration": "धो"
+      },
+      {
+        "character": "धौ",
+        "transliteration": "au",
+        "hindiTransliteration": "धौ"
+      },
+      {
+        "character": "धं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "धं"
+      }
+    ]
+  },
+  {
+    "baseChar": "न",
+    "baseTransliteration": "na",
+    "baseHindiTransliteration": "न",
+    "syllables": [
+      {
+        "character": "ना",
+        "transliteration": "ā",
+        "hindiTransliteration": "ना"
+      },
+      {
+        "character": "नी",
+        "transliteration": "ī",
+        "hindiTransliteration": "नी"
+      },
+      {
+        "character": "नु",
+        "transliteration": "u",
+        "hindiTransliteration": "नु"
+      },
+      {
+        "character": "नू",
+        "transliteration": "ū",
+        "hindiTransliteration": "नू"
+      },
+      {
+        "character": "ने",
+        "transliteration": "e",
+        "hindiTransliteration": "ने"
+      },
+      {
+        "character": "नै",
+        "transliteration": "ai",
+        "hindiTransliteration": "नै"
+      },
+      {
+        "character": "नो",
+        "transliteration": "o",
+        "hindiTransliteration": "नो"
+      },
+      {
+        "character": "नौ",
+        "transliteration": "au",
+        "hindiTransliteration": "नौ"
+      },
+      {
+        "character": "नं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "नं"
+      }
+    ]
+  },
+  {
+    "baseChar": "प",
+    "baseTransliteration": "pa",
+    "baseHindiTransliteration": "प",
+    "syllables": [
+      {
+        "character": "पा",
+        "transliteration": "ā",
+        "hindiTransliteration": "पा"
+      },
+      {
+        "character": "पी",
+        "transliteration": "ī",
+        "hindiTransliteration": "पी"
+      },
+      {
+        "character": "पु",
+        "transliteration": "u",
+        "hindiTransliteration": "पु"
+      },
+      {
+        "character": "पू",
+        "transliteration": "ū",
+        "hindiTransliteration": "पू"
+      },
+      {
+        "character": "पे",
+        "transliteration": "e",
+        "hindiTransliteration": "पे"
+      },
+      {
+        "character": "पै",
+        "transliteration": "ai",
+        "hindiTransliteration": "पै"
+      },
+      {
+        "character": "पो",
+        "transliteration": "o",
+        "hindiTransliteration": "पो"
+      },
+      {
+        "character": "पौ",
+        "transliteration": "au",
+        "hindiTransliteration": "पौ"
+      },
+      {
+        "character": "पं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "पं"
+      }
+    ]
+  },
+  {
+    "baseChar": "फ",
+    "baseTransliteration": "pha",
+    "baseHindiTransliteration": "फ",
+    "syllables": [
+      {
+        "character": "फा",
+        "transliteration": "ā",
+        "hindiTransliteration": "फा"
+      },
+      {
+        "character": "फी",
+        "transliteration": "ī",
+        "hindiTransliteration": "फी"
+      },
+      {
+        "character": "फु",
+        "transliteration": "u",
+        "hindiTransliteration": "फु"
+      },
+      {
+        "character": "फू",
+        "transliteration": "ū",
+        "hindiTransliteration": "फू"
+      },
+      {
+        "character": "फे",
+        "transliteration": "e",
+        "hindiTransliteration": "फे"
+      },
+      {
+        "character": "फै",
+        "transliteration": "ai",
+        "hindiTransliteration": "फै"
+      },
+      {
+        "character": "फो",
+        "transliteration": "o",
+        "hindiTransliteration": "फो"
+      },
+      {
+        "character": "फौ",
+        "transliteration": "au",
+        "hindiTransliteration": "फौ"
+      },
+      {
+        "character": "फं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "फं"
+      }
+    ]
+  },
+  {
+    "baseChar": "ब",
+    "baseTransliteration": "ba",
+    "baseHindiTransliteration": "ब",
+    "syllables": [
+      {
+        "character": "बा",
+        "transliteration": "ā",
+        "hindiTransliteration": "बा"
+      },
+      {
+        "character": "बी",
+        "transliteration": "ī",
+        "hindiTransliteration": "बी"
+      },
+      {
+        "character": "बु",
+        "transliteration": "u",
+        "hindiTransliteration": "बु"
+      },
+      {
+        "character": "बू",
+        "transliteration": "ū",
+        "hindiTransliteration": "बू"
+      },
+      {
+        "character": "बे",
+        "transliteration": "e",
+        "hindiTransliteration": "बे"
+      },
+      {
+        "character": "बै",
+        "transliteration": "ai",
+        "hindiTransliteration": "बै"
+      },
+      {
+        "character": "बो",
+        "transliteration": "o",
+        "hindiTransliteration": "बो"
+      },
+      {
+        "character": "बौ",
+        "transliteration": "au",
+        "hindiTransliteration": "बौ"
+      },
+      {
+        "character": "बं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "बं"
+      }
+    ]
+  },
+  {
+    "baseChar": "भ",
+    "baseTransliteration": "bha",
+    "baseHindiTransliteration": "भ",
+    "syllables": [
+      {
+        "character": "भा",
+        "transliteration": "ā",
+        "hindiTransliteration": "भा"
+      },
+      {
+        "character": "भी",
+        "transliteration": "ī",
+        "hindiTransliteration": "भी"
+      },
+      {
+        "character": "भु",
+        "transliteration": "u",
+        "hindiTransliteration": "भु"
+      },
+      {
+        "character": "भू",
+        "transliteration": "ū",
+        "hindiTransliteration": "भू"
+      },
+      {
+        "character": "भे",
+        "transliteration": "e",
+        "hindiTransliteration": "भे"
+      },
+      {
+        "character": "भै",
+        "transliteration": "ai",
+        "hindiTransliteration": "भै"
+      },
+      {
+        "character": "भो",
+        "transliteration": "o",
+        "hindiTransliteration": "भो"
+      },
+      {
+        "character": "भौ",
+        "transliteration": "au",
+        "hindiTransliteration": "भौ"
+      },
+      {
+        "character": "भं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "भं"
+      }
+    ]
+  },
+  {
+    "baseChar": "म",
+    "baseTransliteration": "ma",
+    "baseHindiTransliteration": "म",
+    "syllables": [
+      {
+        "character": "मा",
+        "transliteration": "ā",
+        "hindiTransliteration": "मा"
+      },
+      {
+        "character": "मी",
+        "transliteration": "ī",
+        "hindiTransliteration": "मी"
+      },
+      {
+        "character": "मु",
+        "transliteration": "u",
+        "hindiTransliteration": "मु"
+      },
+      {
+        "character": "मू",
+        "transliteration": "ū",
+        "hindiTransliteration": "मू"
+      },
+      {
+        "character": "मे",
+        "transliteration": "e",
+        "hindiTransliteration": "मे"
+      },
+      {
+        "character": "मै",
+        "transliteration": "ai",
+        "hindiTransliteration": "मै"
+      },
+      {
+        "character": "मो",
+        "transliteration": "o",
+        "hindiTransliteration": "मो"
+      },
+      {
+        "character": "मौ",
+        "transliteration": "au",
+        "hindiTransliteration": "मौ"
+      },
+      {
+        "character": "मं",
+        "transliteration": "aṃ",
+        "hindiTransliteration": "मं"
+      }
+    ]
+  }
+]

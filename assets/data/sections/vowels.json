@@ -1,0 +1,102 @@
+[
+  {
+    "id": "a",
+    "character": "a",
+    "type": "vowel",
+    "transliteration": "a",
+    "hindiTransliteration": "अ",
+    "description": "short a vowel",
+    "strokeOrderAsset": "assets/animations/a_stroke.json",
+    "audioAsset": "assets/sounds/a.mp3"
+  },
+  {
+    "id": "aa",
+    "character": "aA",
+    "type": "vowel",
+    "transliteration": "ā",
+    "hindiTransliteration": "आ",
+    "description": "long aa vowel",
+    "strokeOrderAsset": "assets/animations/aa_stroke.json",
+    "audioAsset": "assets/sounds/aa.mp3"
+  },
+  {
+    "id": "i",
+    "character": "e",
+    "type": "vowel",
+    "transliteration": "i",
+    "hindiTransliteration": "इ",
+    "description": "short i vowel",
+    "strokeOrderAsset": "assets/animations/i_stroke.json",
+    "audioAsset": "assets/sounds/i.mp3"
+  },
+  {
+    "id": "ii",
+    "character": "I",
+    "type": "vowel",
+    "transliteration": "ī",
+    "hindiTransliteration": "ई",
+    "description": "long ii vowel",
+    "strokeOrderAsset": "assets/animations/ii_stroke.json",
+    "audioAsset": "assets/sounds/ii.mp3"
+  },
+  {
+    "id": "u",
+    "character": "उ",
+    "type": "vowel",
+    "transliteration": "u",
+    "hindiTransliteration": "उ",
+    "description": "short u vowel",
+    "strokeOrderAsset": "assets/animations/u_stroke.json",
+    "audioAsset": "assets/sounds/u.mp3"
+  },
+  {
+    "id": "uu",
+    "character": "ऊ",
+    "type": "vowel",
+    "transliteration": "ū",
+    "hindiTransliteration": "ऊ",
+    "description": "long uu vowel",
+    "strokeOrderAsset": "assets/animations/uu_stroke.json",
+    "audioAsset": "assets/sounds/uu.mp3"
+  },
+  {
+    "id": "e",
+    "character": "ए",
+    "type": "vowel",
+    "transliteration": "e",
+    "hindiTransliteration": "ए",
+    "description": "e vowel",
+    "strokeOrderAsset": "assets/animations/e_stroke.json",
+    "audioAsset": "assets/sounds/e.mp3"
+  },
+  {
+    "id": "ai",
+    "character": "ऐ",
+    "type": "vowel",
+    "transliteration": "ai",
+    "hindiTransliteration": "ऐ",
+    "description": "ai vowel",
+    "strokeOrderAsset": "assets/animations/ai_stroke.json",
+    "audioAsset": "assets/sounds/ai.mp3"
+  },
+  {
+    "id": "o",
+    "character": "ओ",
+    "type": "vowel",
+    "transliteration": "o",
+    "hindiTransliteration": "ओ",
+    "description": "o vowel",
+    "strokeOrderAsset": "assets/animations/o_stroke.json",
+    "audioAsset": "assets/sounds/o.mp3"
+  },
+  {
+    "id": "au",
+    "character": "औ",
+    "type": "vowel",
+    "transliteration": "au",
+    "hindiTransliteration": "औ",
+    "description": "au vowel",
+    "strokeOrderAsset": "assets/animations/au_stroke.json",
+    "audioAsset": "assets/sounds/au.mp3"
+  }
+]
