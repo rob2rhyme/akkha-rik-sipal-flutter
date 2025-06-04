@@ -20,11 +20,9 @@ class _PunctuationSectionState extends State<PunctuationSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return UnitGrid(
       units: widget.units,
       storageKey: const PageStorageKey('punctuationGrid'),
-      baseCode: 0xE050, // PUA start for punctuation
     );
   }
 }

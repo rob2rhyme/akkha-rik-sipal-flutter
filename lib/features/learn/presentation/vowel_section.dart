@@ -45,7 +45,6 @@ class _VowelSectionState extends State<VowelSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return Column(
       children: [
         // ChoiceChips for vowel categories
@@ -66,12 +65,11 @@ class _VowelSectionState extends State<VowelSection>
           ),
         ),
 
-        // The grid of vowels (PUA range U+E020…)
+        // The grid of vowels
         Expanded(
           child: UnitGrid(
             units: _filteredUnits,
             storageKey: const PageStorageKey('vowelGrid'),
-            baseCode: 0xE020, // PUA start for vowels
           ),
         ),
       ],

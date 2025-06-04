@@ -35,7 +35,6 @@ class _ConsonantSectionState extends State<ConsonantSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return Column(
       children: [
         // ChoiceChips for filtering by group
@@ -56,12 +55,11 @@ class _ConsonantSectionState extends State<ConsonantSection>
           ),
         ),
 
-        // The grid of consonants (PUA range U+E001…)
+        // The grid of consonants
         Expanded(
           child: UnitGrid(
             units: _filteredUnits,
             storageKey: const PageStorageKey('consonantGrid'),
-            baseCode: 0xE001, // PUA start for consonants
           ),
         ),
       ],
